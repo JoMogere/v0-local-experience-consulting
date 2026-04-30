@@ -14,7 +14,7 @@ const properties = [
     name: "Luna Light Guest House",
     location: "Karagita, Naivasha",
     description: "Comfortable lakeside accommodation.",
-    image: "/properties/luna-light.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-8Ybcj0VLPG4VU9vmBDtjFU9vJn2RAC.png",
   },
   {
     name: "Elsamere Lodge",
@@ -26,7 +26,7 @@ const properties = [
     name: "Wild Wood Cottages",
     location: "Karagita, Naivasha",
     description: "Rustic woodland escape.",
-    image: "/properties/wild-wood.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-bKWd4awGx6brDWRGCGvarPPyZiMRbJ.png",
   },
   {
     name: "Silent Palms Villa",
@@ -38,7 +38,7 @@ const properties = [
     name: "Jazby Guest House",
     location: "Naivasha",
     description: "Welcoming guest accommodation.",
-    image: "/properties/jazby.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-NOKaJNSzjGYTgG4mGhVfew8v8pGnMD.png",
   },
 ]
 
