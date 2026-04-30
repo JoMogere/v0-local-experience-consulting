@@ -8,10 +8,12 @@ export function Navigation() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <Logo />
           <Link
-            href="#contact"
+            href="https://calendly.com/mogerejulius41/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded-sm transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 uppercase tracking-[2px] text-[13px] no-underline"
           >
-            Start Your Audit
+            Book a Call
           </Link>
         </div>
       </div>

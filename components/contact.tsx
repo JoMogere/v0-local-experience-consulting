@@ -1,19 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import Link from "next/link"
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    propertyName: "",
-    email: "",
-    challenges: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-  }
-
   return (
     <section className="py-24 bg-off-white text-navy-deep" id="contact">
       <div className="max-w-[1200px] mx-auto px-10">
@@ -23,55 +12,41 @@ export function Contact() {
               Ready to grow?
             </h2>
             <p className="text-lg mb-10 text-navy-deep/70">
-              Submit your details for a complimentary growth framework assessment of your property.
+              Book a complimentary 30-minute growth framework assessment of your property.
             </p>
-            <div className="text-gold font-bold">+254 700 000 000</div>
-            <div className="mt-2.5 text-navy-deep/70">hello@localexperience.africa</div>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-6">
-              <label className="block font-bold text-xs uppercase tracking-[1px] mb-2">
-                Property Name
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. Wild Wood Cottage"
-                value={formData.propertyName}
-                onChange={(e) => setFormData({ ...formData, propertyName: e.target.value })}
-                className="w-full p-4 border border-gray-300 bg-white font-sans text-base rounded-sm focus:border-gold focus:outline-none transition-colors"
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block font-bold text-xs uppercase tracking-[1px] mb-2">
-                Your Email
-              </label>
-              <input
-                type="email"
-                placeholder="name@company.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full p-4 border border-gray-300 bg-white font-sans text-base rounded-sm focus:border-gold focus:outline-none transition-colors"
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block font-bold text-xs uppercase tracking-[1px] mb-2">
-                Current Growth Challenges
-              </label>
-              <textarea
-                rows={4}
-                placeholder="How can we help?"
-                value={formData.challenges}
-                onChange={(e) => setFormData({ ...formData, challenges: e.target.value })}
-                className="w-full p-4 border border-gray-300 bg-white font-sans text-base rounded-sm focus:border-gold focus:outline-none transition-colors resize-none"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full inline-flex items-center justify-center px-9 py-4.5 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded-sm transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02] uppercase tracking-[2px] text-[13px] border-none cursor-pointer"
+            <Link
+              href="https://calendly.com/mogerejulius41/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-9 py-4.5 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded-sm transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02] uppercase tracking-[2px] text-[13px] border-none cursor-pointer no-underline mb-10"
             >
-              Send Request
-            </button>
-          </form>
+              Schedule Your Call
+            </Link>
+            <div className="mt-6">
+              <Link 
+                href="https://wa.me/+254799022671" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold font-bold hover:underline"
+              >
+                +254 799 022 671
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div className="rounded-sm overflow-hidden shadow-lg">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.082341453194!2d37.00633587496525!3d-1.1005262988889037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f471b70d9ca47%3A0x4a7d443900adb5ba!2slocal%20experience%20consulting!5e0!3m2!1sen!2ske!4v1777568771023!5m2!1sen!2ske" 
+                width="100%" 
+                height="350" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Local Experience Consulting Location"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
