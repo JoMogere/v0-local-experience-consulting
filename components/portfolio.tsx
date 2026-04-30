@@ -8,7 +8,7 @@ const properties = [
     name: "Mt Longonot Country Resort",
     location: "Naivasha, Nakuru",
     description: "Scenic mountain retreat experience.",
-    image: "/properties/mt-longonot.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-F8khrM3JM3xjDsBMr54Pw0HRq7Bnwp.png",
   },
   {
     name: "Luna Light Guest House",
@@ -20,7 +20,7 @@ const properties = [
     name: "Elsamere Lodge",
     location: "Moi South Lake Road, Naivasha",
     description: "Historic lakeside conservation lodge.",
-    image: "/properties/elsamere.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-pOrbsQbg4KAVjV7KryMlWohmk6cF1b.png",
   },
   {
     name: "Wild Wood Cottages",
@@ -32,7 +32,7 @@ const properties = [
     name: "Silent Palms Villa",
     location: "Diani Beach, Coast Province",
     description: "Coastal beach paradise.",
-    image: "/properties/silent-palms.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Pxc3SmAtoxwLg8TOmjUEoMCiO1gEPv.png",
   },
   {
     name: "Jazby Guest House",
