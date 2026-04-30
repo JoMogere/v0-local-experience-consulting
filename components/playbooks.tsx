@@ -23,11 +23,11 @@ const playbooks = [
 
 export function Playbooks() {
   return (
-    <section id="playbooks" className="py-24 md:py-32 bg-secondary">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-gold uppercase tracking-[3px] text-sm mb-4">Resources</p>
-          <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">
+    <section id="playbooks" className="py-16 md:py-24 lg:py-32 bg-secondary">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-10 md:mb-16">
+          <p className="text-gold uppercase tracking-[2px] md:tracking-[3px] text-xs md:text-sm mb-3 md:mb-4">Resources</p>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-4 md:mb-6">
             Playbooks & Guides
           </h2>
           <p className="text-text-gray max-w-2xl mx-auto">
@@ -35,7 +35,7 @@ export function Playbooks() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {playbooks.map((playbook) => (
             <Link
               key={playbook.title}
@@ -53,15 +53,15 @@ export function Playbooks() {
                     className="object-contain p-4"
                   />
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl text-white font-medium mb-1 group-hover:text-gold transition-colors">
+                <div className="p-5 md:p-8">
+                  <h3 className="text-lg md:text-xl text-white font-medium mb-1 group-hover:text-gold transition-colors">
                     {playbook.title}
                   </h3>
-                  <p className="text-gold text-sm mb-3">{playbook.subtitle}</p>
-                  <p className="text-text-gray text-sm leading-relaxed mb-4">
+                  <p className="text-gold text-xs md:text-sm mb-2 md:mb-3">{playbook.subtitle}</p>
+                  <p className="text-text-gray text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
                     {playbook.description}
                   </p>
-                  <span className="inline-flex items-center text-sm text-gold uppercase tracking-[2px] group-hover:tracking-[3px] transition-all">
+                  <span className="inline-flex items-center text-xs md:text-sm text-gold uppercase tracking-[1px] md:tracking-[2px] group-hover:tracking-[2px] md:group-hover:tracking-[3px] transition-all">
                     Get the Playbook
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

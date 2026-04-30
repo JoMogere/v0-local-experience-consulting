@@ -68,20 +68,20 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="py-24 pb-16 text-center border-t border-white/5 bg-navy-deep">
-      <div className="max-w-[1200px] mx-auto px-10">
-        <p className="font-serif italic text-gold text-[22px] tracking-[0.5px]">
+    <footer className="py-16 md:py-24 pb-12 md:pb-16 text-center border-t border-white/5 bg-navy-deep">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-10">
+        <p className="font-serif italic text-gold text-lg md:text-[22px] tracking-[0.5px]">
           Search. Stay. Succeed.
         </p>
         
-        <div className="flex justify-center gap-6 mt-10">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-8 md:mt-10">
           {socialLinks.map((social) => (
             <Link
               key={social.name}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-gray hover:text-gold hover:bg-white/10 transition-colors"
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 flex items-center justify-center text-text-gray hover:text-gold hover:bg-white/10 transition-colors"
               aria-label={social.name}
             >
               {social.icon}
@@ -89,7 +89,7 @@ export function Footer() {
           ))}
         </div>
         
-        <div className="mt-10 text-[11px] opacity-40 tracking-[1px]">
+        <div className="mt-8 md:mt-10 text-[10px] md:text-[11px] opacity-40 tracking-[1px]">
           &copy; {new Date().getFullYear()} Local Experience Consulting.
         </div>
       </div>
