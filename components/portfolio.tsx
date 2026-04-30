@@ -5,22 +5,40 @@ import Image from "next/image"
 
 const properties = [
   {
-    name: "Wild Wood Cottage",
+    name: "Mt Longonot Country Resort",
+    location: "Naivasha, Nakuru",
+    description: "Scenic mountain retreat experience.",
+    image: "/properties/mt-longonot.jpg",
+  },
+  {
+    name: "Luna Light Guest House",
+    location: "Karagita, Naivasha",
+    description: "Comfortable lakeside accommodation.",
+    image: "/properties/luna-light.jpg",
+  },
+  {
+    name: "Elsamere Lodge",
+    location: "Moi South Lake Road, Naivasha",
+    description: "Historic lakeside conservation lodge.",
+    image: "/properties/elsamere.jpg",
+  },
+  {
+    name: "Wild Wood Cottages",
+    location: "Karagita, Naivasha",
+    description: "Rustic woodland escape.",
+    image: "/properties/wild-wood.jpg",
+  },
+  {
+    name: "Silent Palms Villa",
+    location: "Diani Beach, Coast Province",
+    description: "Coastal beach paradise.",
+    image: "/properties/silent-palms.jpg",
+  },
+  {
+    name: "Jazby Guest House",
     location: "Naivasha",
-    description: "Flagship Implementation.",
-    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200",
-  },
-  {
-    name: "Boutique Nairobi",
-    location: "Nairobi",
-    description: "Urban Luxury Experience.",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200",
-  },
-  {
-    name: "Zanzibar Retreat",
-    location: "Zanzibar",
-    description: "Coastal Paradise.",
-    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=1200",
+    description: "Welcoming guest accommodation.",
+    image: "/properties/jazby.jpg",
   },
 ]
 
