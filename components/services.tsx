@@ -1,58 +1,58 @@
-import { Search, Sparkles, TrendingUp } from "lucide-react"
+import { Zap, Users, LineChart } from "lucide-react"
 
 const services = [
   {
-    icon: Search,
-    title: "Local Search",
-    tagline: "Be found. Be chosen.",
-    description: "Dominate local search results and turn online visibility into direct bookings.",
+    icon: Zap,
+    title: "Growth Partnership Retainer",
+    tagline: "Consistent growth, every month.",
+    description: "A long term partnership managing your Local SEO, reviews, and booking performance to deliver consistent growth in direct bookings.",
     research: [
-      "Google Business Profile audit",
-      "Local keyword research",
-      "Competitor position analysis",
-      "Citation & NAP consistency check",
+      "Local SEO audit",
+      "Review performance analysis",
+      "Booking funnel assessment",
+      "Competitor benchmarking",
     ],
     implementation: [
-      "GBP optimization & management",
-      "Review generation strategy",
-      "Citation building & cleanup",
-      "Monthly performance tracking",
+      "Monthly Local SEO management",
+      "Review generation & monitoring",
+      "Booking performance tracking",
+      "Quarterly strategy reviews",
     ],
   },
   {
-    icon: Sparkles,
-    title: "Experiential Marketing",
-    tagline: "Design moments. Create memories.",
-    description: "Transform guest touchpoints into stories worth sharing and experiences worth returning for.",
+    icon: Users,
+    title: "Guest Experience (CX) Optimization",
+    tagline: "From discovery to return visit.",
+    description: "Improve the full guest journey from discovery to post stay engagement to increase repeat bookings, referrals, and five star reviews.",
     research: [
-      "Customer experience audit",
-      "Guest sentiment analysis",
+      "Guest experience audit",
       "Touchpoint mapping",
-      "Review language extraction",
+      "Review sentiment analysis",
+      "Repeat booking rate analysis",
     ],
     implementation: [
-      "Experience redesign roadmap",
-      "Content strategy from guest voice",
-      "Touchpoint optimization",
-      "Story-driven marketing assets",
+      "CX optimization roadmap",
+      "Touchpoint redesign",
+      "Post-stay engagement strategy",
+      "Referral program setup",
     ],
   },
   {
-    icon: TrendingUp,
-    title: "Hotel Growth",
-    tagline: "Strategy. Revenue. Results.",
-    description: "A unified growth plan that ties local search and experiential marketing into measurable revenue outcomes.",
+    icon: LineChart,
+    title: "Direct Booking & Distribution Audit",
+    tagline: "Identify leaks. Reclaim revenue.",
+    description: "Identify where bookings are leaking to OTAs and get a clear action plan to improve visibility, conversions, and direct revenue.",
     research: [
-      "RevPAR & ADR benchmarking",
-      "Repeat guest rate analysis",
-      "Channel mix assessment",
-      "Direct booking funnel audit",
+      "OTA vs direct booking ratio",
+      "Revenue leakage analysis",
+      "Website conversion audit",
+      "Competitor distribution strategy",
     ],
     implementation: [
-      "90-day growth roadmap",
       "Direct booking strategy",
-      "Revenue optimization plan",
-      "Quarterly performance reviews",
+      "Website optimization plan",
+      "OTA reduction roadmap",
+      "Revenue recovery tracking",
     ],
   },
 ]
@@ -66,11 +66,11 @@ export function Services() {
             Services
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-4 md:mb-6">
-            Three Pillars for Growth
+            Three Core Offerings
           </h2>
           <p className="text-text-gray text-sm md:text-base max-w-2xl mx-auto">
-            Integrated solutions to boost your property&apos;s visibility, guest experience, 
-            and direct booking revenue across East Africa.
+            Comprehensive solutions to maximize your hotel's direct bookings, 
+            guest satisfaction, and revenue across East Africa.
           </p>
         </div>
 
@@ -78,18 +78,18 @@ export function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white/[0.02] border border-white/5 rounded-sm p-6 md:p-8 hover:border-gold/30 transition-all duration-500 group"
+              className="bg-white/[0.02] border border-white/5 rounded-sm p-6 md:p-8 hover:border-orange-500/30 transition-all duration-500 group"
             >
               {/* Icon */}
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-gold/10 rounded-sm flex items-center justify-center mb-5 md:mb-6 group-hover:bg-gold/20 transition-colors">
-                <service.icon className="w-6 h-6 md:w-7 md:h-7 text-gold" />
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-500/10 rounded-sm flex items-center justify-center mb-5 md:mb-6 group-hover:bg-orange-500/20 transition-colors">
+                <service.icon className="w-6 h-6 md:w-7 md:h-7 text-orange-500" />
               </div>
 
               {/* Title & Tagline */}
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-orange-500 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gold text-sm italic mb-3 md:mb-4">{service.tagline}</p>
+              <p className="text-orange-500 text-sm italic mb-3 md:mb-4">{service.tagline}</p>
               
               {/* Description */}
               <p className="text-text-gray text-sm leading-relaxed mb-6 md:mb-8">
