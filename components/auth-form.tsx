@@ -14,6 +14,7 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [invitationCode, setInvitationCode] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -23,6 +24,18 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
     e.preventDefault()
     setError(null)
     setLoading(true)
+
+    if (isSignUp && !invitationCode) {
+      setError('Admin invitation code is required')
+      setLoading(false)
+      return
+    }
+
+    if (isSignUp && invitationCode !== process.env.NEXT_PUBLIC_ADMIN_INVITATION_CODE) {
+      setError('Invalid invitation code')
+      setLoading(false)
+      return
+    }
 
     const { error } = isSignUp
       ? await authClient.signUp.email({ email, password, name })
@@ -55,16 +68,30 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {isSignUp && (
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="name">Name</Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                autoComplete="name"
-              />
-            </div>
+            <>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="name">Name</Label>
+                <Input
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  autoComplete="name"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="invitation">Admin Invitation Code</Label>
+                <Input
+                  id="invitation"
+                  type="password"
+                  value={invitationCode}
+                  onChange={(e) => setInvitationCode(e.target.value)}
+                  required
+                  placeholder="Enter invitation code"
+                  autoComplete="off"
+                />
+              </div>
+            </>
           )}
           <div className="flex flex-col gap-2">
             <Label htmlFor="email">Email</Label>
