@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { authClient } from '@/lib/auth-client'
+import { markUserAsAdmin } from '@/app/actions/admin'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -37,18 +38,23 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
       return
     }
 
-    const { error } = isSignUp
+    const response = isSignUp
       ? await authClient.signUp.email({ email, password, name })
       : await authClient.signIn.email({ email, password })
 
     setLoading(false)
 
-    if (error) {
-      setError(error.message ?? 'Something went wrong')
+    if (response.error) {
+      setError(response.error.message ?? 'Something went wrong')
       return
     }
 
-    router.push('/')
+    // Mark user as admin if they signed up with valid code
+    if (isSignUp && response.data?.user?.id) {
+      await markUserAsAdmin(response.data.user.id)
+    }
+
+    router.push('/admin')
     router.refresh()
   }
 

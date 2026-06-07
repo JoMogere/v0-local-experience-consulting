@@ -11,6 +11,11 @@ export default async function AdminLayout({
   const session = await auth.api.getSession({ headers: await headers() })
   if (!session?.user) redirect('/sign-in')
 
+  // Check if user is admin - if not, redirect to sign-in
+  if (!session.user.isAdmin) {
+    redirect('/sign-in?error=unauthorized')
+  }
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
