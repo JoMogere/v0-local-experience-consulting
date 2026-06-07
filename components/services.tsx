@@ -62,15 +62,15 @@ export function Services() {
     <section id="services" className="py-16 md:py-24 lg:py-32 bg-navy-deep">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-20">
-          <p className="text-gold uppercase tracking-[2px] md:tracking-[3px] text-xs md:text-sm mb-3 md:mb-4">
-            What We Do
+          <p className="text-orange-500 uppercase tracking-[2px] md:tracking-[3px] text-xs md:text-sm mb-3 md:mb-4">
+            Services
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-4 md:mb-6">
-            Research. Implementation. Growth.
+            Three Pillars for Growth
           </h2>
           <p className="text-text-gray text-sm md:text-base max-w-2xl mx-auto">
-            Three integrated pillars designed to transform your property&apos;s visibility, 
-            guest experience, and revenue performance.
+            Integrated solutions to boost your property&apos;s visibility, guest experience, 
+            and direct booking revenue across East Africa.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export function Services() {
                 <ul className="space-y-2">
                   {service.research.map((item, i) => (
                     <li key={i} className="text-text-gray text-xs md:text-sm flex items-start gap-2">
-                      <span className="text-gold mt-1">+</span>
+                      <span className="text-orange-500 mt-1">+</span>
                       {item}
                     </li>
                   ))}
@@ -119,7 +119,7 @@ export function Services() {
                 <ul className="space-y-2">
                   {service.implementation.map((item, i) => (
                     <li key={i} className="text-text-gray text-xs md:text-sm flex items-start gap-2">
-                      <span className="text-gold mt-1">+</span>
+                      <span className="text-orange-500 mt-1">+</span>
                       {item}
                     </li>
                   ))}

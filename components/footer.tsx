@@ -71,7 +71,7 @@ export function Footer() {
     <footer className="py-16 md:py-24 pb-12 md:pb-16 text-center border-t border-white/5 bg-navy-deep">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
         <p className="font-serif italic text-gold text-lg md:text-[22px] tracking-[0.5px]">
-          Search. Stay. Succeed.
+          Transform. Book. Grow.
         </p>
         
         <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-8 md:mt-10">
@@ -90,7 +90,7 @@ export function Footer() {
         </div>
         
         <div className="mt-8 md:mt-10 text-[10px] md:text-[11px] opacity-40 tracking-[1px]">
-          &copy; {new Date().getFullYear()} Local Experience Consulting.
+          &copy; {new Date().getFullYear()} BookedUp Africa.
         </div>
       </div>
     </footer>

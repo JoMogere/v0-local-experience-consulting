@@ -17,13 +17,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Local Experience Consulting — Research. Implementation. Growth.',
-  description: 'Research and implementation for local search, experiential marketing, and hotel growth. Specializing in East African hospitality.',
-  keywords: 'local search optimization, hospitality marketing, hotel growth, experiential marketing, East Africa',
-  authors: [{ name: 'Local Experience Consulting' }],
-  creator: 'Local Experience Consulting',
-  publisher: 'Local Experience Consulting',
-  metadataBase: new URL(process.env.BETTER_AUTH_URL || 'https://localexperienceconsulting.com'),
+  title: 'BookedUp Africa — Transform Your Hospitality Business',
+  description: 'Research and implementation for local search, experiential marketing, and direct bookings. Empowering East African hotels and resorts.',
+  keywords: 'hotel marketing Africa, local search optimization, hospitality growth, direct bookings, East Africa tourism',
+  authors: [{ name: 'BookedUp Africa' }],
+  creator: 'BookedUp Africa',
+  publisher: 'BookedUp Africa',
+  metadataBase: new URL(process.env.BETTER_AUTH_URL || 'https://bookedupafrica.com'),
   alternates: {
     canonical: '/',
   },
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    siteName: 'Local Experience Consulting',
-    title: 'Local Experience Consulting — Research. Implementation. Growth.',
-    description: 'Research and implementation for local search, experiential marketing, and hotel growth.',
+    siteName: 'BookedUp Africa',
+    title: 'BookedUp Africa — Transform Your Hospitality Business',
+    description: 'Research and implementation for local search, experiential marketing, and direct bookings.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Local Experience Consulting',
-    description: 'Research and implementation for hospitality growth in East Africa',
+    title: 'BookedUp Africa',
+    description: 'Transforming African hospitality through local search and experiential marketing',
   },
   generator: 'v0.app',
   icons: {
