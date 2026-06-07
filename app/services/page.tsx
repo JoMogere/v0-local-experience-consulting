@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 }
 
 export default async function ServicesPage() {
-  const services = await getPublishedServices()
+  let services = []
+  try {
+    services = await getPublishedServices()
+  } catch (error) {
+    console.log('[v0] Could not fetch published services', error)
+  }
 
   return (
     <main className="min-h-screen py-16 md:py-24 bg-background">

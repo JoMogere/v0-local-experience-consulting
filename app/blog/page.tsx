@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-  const posts = await getPublishedBlogPosts()
+  let posts = []
+  try {
+    posts = await getPublishedBlogPosts()
+  } catch (error) {
+    console.log('[v0] Could not fetch published blog posts', error)
+  }
 
   return (
     <main className="min-h-screen py-16 md:py-24 bg-background">

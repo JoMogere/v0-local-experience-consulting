@@ -28,10 +28,17 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 export async function generateStaticParams() {
-  const services = await getPublishedServices()
-  return services.map((service) => ({
-    slug: service.slug,
-  }))
+  try {
+    const services = await getPublishedServices()
+    return services.map((service) => ({
+      slug: service.slug,
+    }))
+  } catch (error) {
+    // During build, database might not be available
+    // Return empty array so the route is generated on-demand
+    console.log('[v0] Could not generate static params for services, will generate on-demand')
+    return []
+  }
 }
 
 export default async function ServicePage({ params }: { params: Params }) {

@@ -28,10 +28,17 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 export async function generateStaticParams() {
-  const posts = await getPublishedBlogPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  try {
+    const posts = await getPublishedBlogPosts()
+    return posts.map((post) => ({
+      slug: post.slug,
+    }))
+  } catch (error) {
+    // During build, database might not be available
+    // Return empty array so the route is generated on-demand
+    console.log('[v0] Could not generate static params for blog posts, will generate on-demand')
+    return []
+  }
 }
 
 export default async function BlogPostPage({ params }: { params: Params }) {

@@ -6,9 +6,27 @@ import { MetadataRoute } from 'next'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.BETTER_AUTH_URL || 'https://localexperienceconsulting.com'
 
-  const services = await getPublishedServices()
-  const blogs = await getPublishedBlogPosts()
-  const pages = await getPublishedPages()
+  let services = []
+  let blogs = []
+  let pages = []
+
+  try {
+    services = await getPublishedServices()
+  } catch (error) {
+    console.log('[v0] Could not fetch services for sitemap')
+  }
+
+  try {
+    blogs = await getPublishedBlogPosts()
+  } catch (error) {
+    console.log('[v0] Could not fetch blog posts for sitemap')
+  }
+
+  try {
+    pages = await getPublishedPages()
+  } catch (error) {
+    console.log('[v0] Could not fetch pages for sitemap')
+  }
 
   const serviceRoutes = services.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
