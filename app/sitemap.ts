@@ -4,7 +4,7 @@ import { getPublishedPages } from '@/app/actions/pages'
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.BETTER_AUTH_URL || 'https://localexperienceconsulting.com'
+  const baseUrl = process.env.BETTER_AUTH_URL || 'https://bookedupafrica.com'
 
   let services = []
   let blogs = []
@@ -61,6 +61,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
+    },
+    {
+      url: `${baseUrl}/videos`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+    },
+    {
+      url: `${baseUrl}/resources`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+    },
+    {
+      url: `${baseUrl}/hotel-growth-partnership-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/hotel-local-seo-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/hotel-booking-leak-audit-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/hotel-guest-experience-optimization-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
     },
     ...serviceRoutes,
     ...blogRoutes,
