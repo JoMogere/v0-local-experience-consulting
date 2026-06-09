@@ -32,12 +32,6 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
       return
     }
 
-    if (isSignUp && invitationCode !== process.env.NEXT_PUBLIC_ADMIN_INVITATION_CODE) {
-      setError('Invalid invitation code')
-      setLoading(false)
-      return
-    }
-
     const response = isSignUp
       ? await authClient.signUp.email({ email, password, name })
       : await authClient.signIn.email({ email, password })
@@ -51,7 +45,11 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
 
     // Mark user as admin if they signed up with valid code
     if (isSignUp && response.data?.user?.id) {
-      await markUserAsAdmin(response.data.user.id)
+      const adminResult = await markUserAsAdmin(response.data.user.id, invitationCode)
+      if (adminResult.error) {
+        setError(adminResult.error)
+        return
+      }
     }
 
     router.push('/admin')
