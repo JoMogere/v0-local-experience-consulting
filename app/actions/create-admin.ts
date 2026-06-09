@@ -6,12 +6,23 @@ import { user } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
 
 export async function createDefaultAdminUser() {
+  const adminEmail = process.env.ADMIN_EMAIL
+  const adminPassword = process.env.ADMIN_PASSWORD
+  const adminName = process.env.ADMIN_NAME
+
+  if (!adminEmail || !adminPassword || !adminName) {
+    return { 
+      success: false, 
+      message: 'Admin credentials not configured. Please set ADMIN_EMAIL, ADMIN_PASSWORD, and ADMIN_NAME environment variables.' 
+    }
+  }
+
   try {
     // Check if admin already exists
     const existingAdmin = await db
       .select()
       .from(user)
-      .where(eq(user.email, 'mogerejulius41@gmail.com'))
+      .where(eq(user.email, adminEmail))
       .limit(1)
 
     if (existingAdmin.length > 0) {
@@ -20,9 +31,9 @@ export async function createDefaultAdminUser() {
 
     // Create the admin user with better-auth
     const result = await auth.api.signUpEmail({
-      email: 'mogerejulius41@gmail.com',
-      password: 'Mudora254@',
-      name: 'BookedUp Africa Admin',
+      email: adminEmail,
+      password: adminPassword,
+      name: adminName,
     })
 
     if (result.user) {

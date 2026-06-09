@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { createDefaultAdminUser } from '@/app/actions/create-admin'
 import { Button } from '@/components/ui/button'
 
@@ -8,6 +9,7 @@ export default function SetupAdminPage() {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
 
   const handleCreateAdmin = async () => {
     setLoading(true)
@@ -19,7 +21,10 @@ export default function SetupAdminPage() {
     setLoading(false)
 
     if (result.success) {
-      setMessage(result.message)
+      setMessage('Admin account created successfully! Redirecting to sign-in...')
+      setTimeout(() => {
+        router.push('/sign-in')
+      }, 2000)
     } else {
       setError(result.message)
     }
@@ -30,13 +35,8 @@ export default function SetupAdminPage() {
       <div className="max-w-md w-full bg-white/5 border border-white/10 rounded-lg p-8">
         <h1 className="text-2xl font-bold text-white mb-4">Admin Setup</h1>
         <p className="text-text-gray mb-6">
-          Click the button below to create your admin account with the following credentials:
+          Click the button below to create your admin account. Your credentials are securely stored in environment variables.
         </p>
-        
-        <div className="bg-white/5 p-4 rounded mb-6 space-y-2">
-          <p className="text-sm text-white"><strong>Email:</strong> mogerejulius41@gmail.com</p>
-          <p className="text-sm text-white"><strong>Password:</strong> Mudora254@</p>
-        </div>
 
         <Button
           onClick={handleCreateAdmin}
