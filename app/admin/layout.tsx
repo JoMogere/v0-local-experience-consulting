@@ -1,19 +1,17 @@
-import { auth } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { headers } from 'next/headers'
+import { cookies } from 'next/headers'
 
 export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const session = await auth.api.getSession({ headers: await headers() })
-  if (!session?.user) redirect('/sign-in')
+  const cookieStore = await cookies()
+  const adminSession = cookieStore.get('admin_session')?.value
 
-  // Check if user is admin - if not, redirect to sign-in
-  if (!session.user.isAdmin) {
-    redirect('/sign-in?error=unauthorized')
+  if (!adminSession) {
+    redirect('/admin-login')
   }
 
   return (
@@ -46,23 +44,15 @@ export default async function AdminLayout({
         </nav>
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
-          <div className="text-sm text-gray-400 mb-3">
-            Logged in as: {session.user.email}
-          </div>
-          <form
-            action={async () => {
-              'use server'
-              await auth.api.signOut({ headers: await headers() })
-              redirect('/sign-in')
+          <button
+            onClick={() => {
+              document.cookie = 'admin_session=; path=/; max-age=0'
+              window.location.href = '/admin-login'
             }}
+            className="w-full px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors text-sm"
           >
-            <button
-              type="submit"
-              className="w-full px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors text-sm"
-            >
-              Sign Out
-            </button>
-          </form>
+            Sign Out
+          </button>
         </div>
       </aside>
 

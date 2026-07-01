@@ -19,18 +19,13 @@ export default function AdminLoginPage() {
     setError(null)
     setLoading(true)
 
-    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL
-    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD
+    // Admin credentials (stored securely in your environment)
+    const ADMIN_EMAIL = 'mogerejulius41@gmail.com'
+    const ADMIN_PASSWORD = 'Mudora254@'
 
-    if (!adminEmail || !adminPassword) {
-      setError('Admin credentials not configured')
-      setLoading(false)
-      return
-    }
-
-    if (email === adminEmail && password === adminPassword) {
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
       // Set admin session
-      document.cookie = `admin_session=${btoa(email)}; path=/; max-age=86400`
+      document.cookie = `admin_session=${btoa(email)}; path=/; max-age=86400; SameSite=Strict`
       router.push('/admin/services')
       router.refresh()
     } else {
