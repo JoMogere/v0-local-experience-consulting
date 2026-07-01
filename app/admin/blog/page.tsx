@@ -6,10 +6,23 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 export default function BlogManagement() {
+  const [activeTab, setActiveTab] = useState<'pillars' | 'articles'>('pillars')
   const [posts, setPosts] = useState([
     { id: 1, title: 'Hotel Local SEO Guide', slug: 'hotel-local-seo-guide', status: 'published', date: '2024-01-15' },
     { id: 2, title: 'Direct Booking Strategy', slug: 'direct-booking-strategy', status: 'draft', date: '2024-01-10' },
   ])
+
+  const pillars = [
+    { id: 1, title: 'Local SEO for Hotels', slug: 'local-seo-for-hotels', articles: 11, link: '/blog/local-seo-for-hotels' },
+    { id: 2, title: 'Google Business Profile', slug: 'google-business-profile-hotels', articles: 9, link: '/blog/google-business-profile-hotels' },
+    { id: 3, title: 'Experiential Marketing', slug: 'experiential-marketing-hotels', articles: 8, link: '/blog/experiential-marketing-hotels' },
+    { id: 4, title: 'Content Marketing', slug: 'content-marketing-hotels', articles: 9, link: '/blog/content-marketing-hotels' },
+    { id: 5, title: 'Direct Bookings', slug: 'direct-hotel-bookings', articles: 8, link: '/blog/direct-hotel-bookings' },
+    { id: 6, title: 'Hotel Websites', slug: 'hotel-website-design-seo', articles: 8, link: '/blog/hotel-website-design-seo' },
+    { id: 7, title: 'AI for Hotels', slug: 'ai-for-hotels', articles: 7, link: '/blog/ai-for-hotels' },
+    { id: 8, title: 'Case Studies', slug: 'hospitality-case-studies', articles: 6, link: '/blog/hospitality-case-studies' },
+  ]
+
   const [showForm, setShowForm] = useState(false)
   const [formData, setFormData] = useState({
     title: '',
@@ -46,14 +59,88 @@ export default function BlogManagement() {
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-white">Blog Posts</h2>
+        <h2 className="text-3xl font-bold text-white">Blog & Content Strategy</h2>
         <Button
           onClick={() => setShowForm(!showForm)}
           className="bg-orange-500 hover:bg-orange-600 text-white"
         >
-          + New Post
+          + New Article
         </Button>
       </div>
+
+      {/* Tabs */}
+      <div className="flex gap-4 mb-8 border-b border-white/10">
+        <button
+          onClick={() => setActiveTab('pillars')}
+          className={`px-4 py-3 font-semibold border-b-2 transition-colors ${
+            activeTab === 'pillars'
+              ? 'border-orange-500 text-orange-500'
+              : 'border-transparent text-text-gray hover:text-white'
+          }`}
+        >
+          8 Pillars
+        </button>
+        <button
+          onClick={() => setActiveTab('articles')}
+          className={`px-4 py-3 font-semibold border-b-2 transition-colors ${
+            activeTab === 'articles'
+              ? 'border-orange-500 text-orange-500'
+              : 'border-transparent text-text-gray hover:text-white'
+          }`}
+        >
+          Supporting Articles
+        </button>
+      </div>
+
+      {/* Pillars Tab */}
+      {activeTab === 'pillars' && (
+        <div className="space-y-6 mb-12">
+          <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+            <h3 className="font-semibold text-blue-400 mb-2">Topical Authority Strategy</h3>
+            <p className="text-sm text-text-gray">8 pillar pages covering major hotel marketing topics with 4-11 supporting articles each. This creates a comprehensive content network that signals expertise to Google.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {pillars.map((pillar, idx) => (
+              <a
+                key={pillar.id}
+                href={pillar.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+              >
+                <div className="flex items-start justify-between mb-2">
+                  <h4 className="font-semibold text-orange-500">{pillar.title}</h4>
+                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Live</span>
+                </div>
+                <p className="text-sm text-text-gray">{pillar.articles} supporting articles</p>
+                <div className="mt-3 w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-orange-500" style={{ width: `${(pillar.articles / 11) * 100}%` }}></div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+            <h3 className="font-bold text-white mb-3">Content Hierarchy</h3>
+            <div className="text-sm text-text-gray space-y-2 font-mono">
+              <div>Hospitality Marketing</div>
+              <div className="ml-4">├── Local SEO (11 articles)</div>
+              <div className="ml-4">├── Google Business Profile (9 articles)</div>
+              <div className="ml-4">├── Experiential Marketing (8 articles)</div>
+              <div className="ml-4">├── Content Marketing (9 articles)</div>
+              <div className="ml-4">├── Direct Bookings (8 articles)</div>
+              <div className="ml-4">├── Hotel Websites (8 articles)</div>
+              <div className="ml-4">├── AI for Hotels (7 articles)</div>
+              <div className="ml-4">└── Case Studies (6 articles)</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Articles Tab */}
+      {activeTab === 'articles' && (
+        <>
 
       {showForm && (
         <div className="bg-white/5 border border-white/10 rounded-lg p-6 mb-8">
@@ -163,6 +250,8 @@ export default function BlogManagement() {
           ))
         )}
       </div>
+        </>
+      )}
     </div>
   )
 }
