@@ -21,6 +21,9 @@ export function Navigation() {
               <Link href="/resources" className="text-sm font-medium text-text-gray hover:text-white transition-colors">
                 Resources
               </Link>
+              <Link href="/admin-login" className="text-sm font-medium text-orange-500 hover:text-orange-400 transition-colors">
+                Admin
+              </Link>
             </div>
             <Link
               href="https://calendly.com/mogerejulius41/30min"
