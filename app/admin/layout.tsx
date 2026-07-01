@@ -1,63 +1,80 @@
-import { redirect } from 'next/navigation'
+'use client'
+
+import { useState, useEffect } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { cookies } from 'next/headers'
 
-export default async function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const cookieStore = await cookies()
-  const adminSession = cookieStore.get('admin_session')?.value
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const router = useRouter()
+  const pathname = usePathname()
+  const [isAuth, setIsAuth] = useState(false)
+  const [loading, setLoading] = useState(true)
 
-  if (!adminSession) {
-    redirect('/admin-login')
+  useEffect(() => {
+    // Check for admin session cookie
+    const cookies = document.cookie.split(';')
+    const hasAuth = cookies.some((c) => c.trim().startsWith('admin_auth='))
+
+    if (!hasAuth && !pathname.includes('/login')) {
+      router.push('/admin/login')
+    }
+    setIsAuth(hasAuth)
+    setLoading(false)
+  }, [router, pathname])
+
+  if (loading) return null
+
+  if (!isAuth && !pathname.includes('/login')) {
+    return null
   }
 
-  return (
-    <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar */}
-      <aside className="w-64 bg-navy-deep text-white border-r border-white/10">
-        <div className="p-6">
-          <h1 className="text-xl font-bold">Admin Dashboard</h1>
-        </div>
-        
-        <nav className="space-y-1 px-4">
-          <Link
-            href="/admin/services"
-            className="block px-4 py-2 rounded hover:bg-white/10 transition-colors"
-          >
-            Services
-          </Link>
-          <Link
-            href="/admin/blog"
-            className="block px-4 py-2 rounded hover:bg-white/10 transition-colors"
-          >
-            Blog Posts
-          </Link>
-          <Link
-            href="/admin/pages"
-            className="block px-4 py-2 rounded hover:bg-white/10 transition-colors"
-          >
-            Pages
-          </Link>
-        </nav>
+  if (pathname.includes('/login')) {
+    return children
+  }
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
-          <button
-            onClick={() => {
-              document.cookie = 'admin_session=; path=/; max-age=0'
-              window.location.href = '/admin-login'
-            }}
-            className="w-full px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors text-sm"
-          >
-            Sign Out
+  const handleLogout = () => {
+    document.cookie = 'admin_auth=; path=/; max-age=0'
+    router.push('/admin/login')
+  }
+
+  const navLinks = [
+    { href: '/admin', label: 'Dashboard' },
+    { href: '/admin/content', label: 'Content' },
+    { href: '/admin/seo', label: 'SEO' },
+    { href: '/admin/performance', label: 'Performance' },
+  ]
+
+  return (
+    <div className="min-h-screen bg-navy-deep">
+      {/* Header */}
+      <header className="bg-white/5 border-b border-white/10 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-white">BookedUp Africa Admin</h1>
+          <button onClick={handleLogout} className="px-4 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg text-sm font-medium transition-colors">
+            Logout
           </button>
         </div>
-      </aside>
+      </header>
+
+      {/* Navigation */}
+      <nav className="bg-white/[0.02] border-b border-white/10 sticky top-16 z-40">
+        <div className="max-w-7xl mx-auto px-6 flex gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`py-4 px-1 border-b-2 transition-colors ${
+                pathname === link.href ? 'border-orange-500 text-orange-500' : 'border-transparent text-text-gray hover:text-white'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </nav>
 
       {/* Main Content */}
-      <main className="flex-1 p-8">{children}</main>
+      <main className="max-w-7xl mx-auto px-6 py-8">{children}</main>
     </div>
   )
 }
