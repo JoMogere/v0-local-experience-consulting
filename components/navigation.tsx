@@ -41,7 +41,7 @@ export function Navigation() {
 
             {/* Admin Link */}
             <Link
-              href="/admin/login"
+              href="/sign-in"
               className="text-sm font-medium text-orange-500 hover:text-orange-400 transition-colors duration-200"
             >
               Admin
@@ -85,7 +85,7 @@ export function Navigation() {
 
               {/* Admin Link Mobile */}
               <Link
-                href="/admin/login"
+                href="/sign-in"
                 onClick={() => setIsOpen(false)}
                 className="px-4 py-2 text-sm font-medium text-orange-500 hover:text-orange-400 hover:bg-white/5 rounded transition-colors duration-200"
               >
