@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { authClient } from '@/lib/auth-client'
-import { markUserAsAdmin } from '@/app/actions/admin'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -15,7 +14,6 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [invitationCode, setInvitationCode] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -26,33 +24,18 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
     setError(null)
     setLoading(true)
 
-    if (isSignUp && !invitationCode) {
-      setError('Admin invitation code is required')
-      setLoading(false)
-      return
-    }
-
-    const response = isSignUp
+    const { error } = isSignUp
       ? await authClient.signUp.email({ email, password, name })
       : await authClient.signIn.email({ email, password })
 
     setLoading(false)
 
-    if (response.error) {
-      setError(response.error.message ?? 'Something went wrong')
+    if (error) {
+      setError(error.message ?? 'Something went wrong')
       return
     }
 
-    // Mark user as admin if they signed up with valid code
-    if (isSignUp && response.data?.user?.id) {
-      const adminResult = await markUserAsAdmin(response.data.user.id, invitationCode)
-      if (adminResult.error) {
-        setError(adminResult.error)
-        return
-      }
-    }
-
-    router.push('/admin')
+    router.push('/')
     router.refresh()
   }
 
@@ -72,30 +55,16 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {isSignUp && (
-            <>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  autoComplete="name"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="invitation">Admin Invitation Code</Label>
-                <Input
-                  id="invitation"
-                  type="password"
-                  value={invitationCode}
-                  onChange={(e) => setInvitationCode(e.target.value)}
-                  required
-                  placeholder="Enter invitation code"
-                  autoComplete="off"
-                />
-              </div>
-            </>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="name">Name</Label>
+              <Input
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                autoComplete="name"
+              />
+            </div>
           )}
           <div className="flex flex-col gap-2">
             <Label htmlFor="email">Email</Label>

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { getServiceBySlug, getPublishedServices } from '@/app/actions/services'
+import { getServiceBySlug, getPublicServices } from '@/app/actions/services'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
@@ -10,14 +10,14 @@ interface Params {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const service = await getServiceBySlug(params.slug)
 
-  if (!service || !service.published) {
+  if (!service || service.status !== 'active') {
     notFound()
   }
 
   return {
-    title: service.metaTitle || service.title,
-    description: service.metaDescription || service.shortDescription,
-    keywords: service.metaKeywords,
+    title: service.title,
+    description: service.description,
+    keywords: service.features,
     openGraph: {
       title: service.metaTitle || service.title,
       description: service.metaDescription || service.shortDescription || '',

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { getBlogPostBySlug, getPublishedBlogPosts } from '@/app/actions/blog'
+import { getBlogBySlug, getPublishedBlogs } from '@/app/actions/blogs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
@@ -8,16 +8,16 @@ interface Params {
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const post = await getBlogPostBySlug(params.slug)
+  const post = await getBlogBySlug(params.slug)
 
-  if (!post || !post.published) {
+  if (!post || post.status !== 'published') {
     notFound()
   }
 
   return {
-    title: post.metaTitle || post.title,
-    description: post.metaDescription || post.excerpt,
-    keywords: post.metaKeywords,
+    title: post.title,
+    description: post.excerpt || post.content.substring(0, 150),
+    keywords: post.category,
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt || '',

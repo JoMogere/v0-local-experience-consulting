@@ -1,4 +1,4 @@
-import { getPublishedServices } from '@/app/actions/services'
+import { getPublicServices } from '@/app/actions/services'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function ServicesPage() {
   let services = []
   try {
-    services = await getPublishedServices()
+    services = await getPublicServices()
   } catch (error) {
     console.log('[v0] Could not fetch published services', error)
   }

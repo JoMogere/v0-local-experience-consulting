@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, boolean, serial, jsonb } from 'drizzle-orm/pg-core'
+import { pgTable, text, timestamp, boolean, serial, integer } from 'drizzle-orm/pg-core'
 
 // --- Better Auth required tables -------------------------------------------
 // Column names are camelCase to match Better Auth's defaults. Do not rename.
@@ -9,7 +9,6 @@ export const user = pgTable('user', {
   email: text('email').notNull().unique(),
   emailVerified: boolean('emailVerified').notNull().default(false),
   image: text('image'),
-  isAdmin: boolean('isAdmin').notNull().default(false),
   createdAt: timestamp('createdAt').notNull().defaultNow(),
   updatedAt: timestamp('updatedAt').notNull().defaultNow(),
 })
@@ -54,57 +53,84 @@ export const verification = pgTable('verification', {
   updatedAt: timestamp('updatedAt').defaultNow(),
 })
 
-// --- App tables for CMS ---------------------------------------------------
+// --- App tables ------------------------------------------------------------
+// Add your app tables below. Always include a plain `userId` column so queries
+// can be scoped per user — the security model depends on this column existing,
+// not on a foreign key. Do NOT add a foreign key constraint
+// (`.references(() => user.id, ...)`) unless the user explicitly asks for
+// foreign keys or referential integrity; FK constraints make iterating on the
+// schema harder.
+//
+// Example:
+//
+// import { serial } from "drizzle-orm/pg-core"
+//
+// export const todos = pgTable("todos", {
+//   id: serial("id").primaryKey(),
+//   userId: text("userId").notNull(),
+//   title: text("title").notNull(),
+//   completed: boolean("completed").notNull().default(false),
+//   createdAt: timestamp("createdAt").notNull().defaultNow(),
+// })
+//
+// If the user asks for foreign keys, add the reference back in:
+//   userId: text("userId")
+//     .notNull()
+//     .references(() => user.id, { onDelete: "cascade" }),
+
+export const blogs = pgTable('blogs', {
+  id: serial('id').primaryKey(),
+  title: text('title').notNull(),
+  slug: text('slug').notNull().unique(),
+  content: text('content').notNull(),
+  excerpt: text('excerpt'),
+  category: text('category'),
+  status: text('status').notNull().default('draft'),
+  userId: text('userId').notNull(),
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+  updatedAt: timestamp('updatedAt').notNull().defaultNow(),
+  publishedAt: timestamp('publishedAt'),
+})
 
 export const services = pgTable('services', {
   id: serial('id').primaryKey(),
-  userId: text('userId').notNull().references(() => user.id, { onDelete: 'cascade' }),
-  slug: text('slug').notNull().unique(),
   title: text('title').notNull(),
-  subtitle: text('subtitle'),
+  slug: text('slug').notNull().unique(),
   description: text('description').notNull(),
-  shortDescription: text('shortDescription'),
-  researchDetails: jsonb('researchDetails'),
-  implementationDetails: jsonb('implementationDetails'),
-  image: text('image'),
-  metaTitle: text('metaTitle'),
-  metaDescription: text('metaDescription'),
-  metaKeywords: text('metaKeywords'),
-  published: boolean('published').notNull().default(false),
-  publishedAt: timestamp('publishedAt'),
+  content: text('content'),
+  features: text('features'),
+  icon: text('icon'),
+  orderPosition: integer('order_position'),
+  status: text('status').notNull().default('active'),
+  userId: text('userId').notNull(),
   createdAt: timestamp('createdAt').notNull().defaultNow(),
   updatedAt: timestamp('updatedAt').notNull().defaultNow(),
 })
 
-export const blogPosts = pgTable('blog_posts', {
+export const videos = pgTable('videos', {
   id: serial('id').primaryKey(),
-  userId: text('userId').notNull().references(() => user.id, { onDelete: 'cascade' }),
-  slug: text('slug').notNull().unique(),
   title: text('title').notNull(),
-  excerpt: text('excerpt'),
-  content: text('content').notNull(),
-  image: text('image'),
+  youtubeId: text('youtubeId').notNull().unique(),
+  description: text('description'),
+  thumbnail: text('thumbnail'),
   category: text('category'),
-  metaTitle: text('metaTitle'),
-  metaDescription: text('metaDescription'),
-  metaKeywords: text('metaKeywords'),
-  published: boolean('published').notNull().default(false),
-  publishedAt: timestamp('publishedAt'),
+  status: text('status').notNull().default('active'),
+  userId: text('userId').notNull(),
   createdAt: timestamp('createdAt').notNull().defaultNow(),
   updatedAt: timestamp('updatedAt').notNull().defaultNow(),
 })
 
-export const pages = pgTable('pages', {
+export const seoMetadata = pgTable('seo_metadata', {
   id: serial('id').primaryKey(),
-  userId: text('userId').notNull().references(() => user.id, { onDelete: 'cascade' }),
-  slug: text('slug').notNull().unique(),
-  title: text('title').notNull(),
-  content: text('content').notNull(),
-  metaTitle: text('metaTitle'),
-  metaDescription: text('metaDescription'),
-  metaKeywords: text('metaKeywords'),
-  published: boolean('published').notNull().default(false),
-  publishedAt: timestamp('publishedAt'),
+  pageType: text('pageType').notNull(),
+  pageId: integer('pageId'),
+  title: text('title'),
+  description: text('description'),
+  keywords: text('keywords'),
+  ogTitle: text('ogTitle'),
+  ogDescription: text('ogDescription'),
+  canonicalUrl: text('canonicalUrl'),
+  userId: text('userId').notNull(),
   createdAt: timestamp('createdAt').notNull().defaultNow(),
   updatedAt: timestamp('updatedAt').notNull().defaultNow(),
 })
