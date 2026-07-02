@@ -1,16 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { getBlogPosts, addBlogPost, publishBlogPost, deleteBlogPost } from '@/lib/data'
 
 export default function BlogManagement() {
   const [activeTab, setActiveTab] = useState<'pillars' | 'articles'>('pillars')
-  const [posts, setPosts] = useState([
-    { id: 1, title: 'Hotel Local SEO Guide', slug: 'hotel-local-seo-guide', status: 'published', date: '2024-01-15' },
-    { id: 2, title: 'Direct Booking Strategy', slug: 'direct-booking-strategy', status: 'draft', date: '2024-01-10' },
-  ])
+  const [posts, setPosts] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setPosts(getBlogPosts())
+    setLoading(false)
+  }, [])
 
   const pillars = [
     { id: 1, title: 'Local SEO for Hotels', slug: 'local-seo-for-hotels', articles: 11, link: '/blog/local-seo-for-hotels' },
@@ -35,25 +39,30 @@ export default function BlogManagement() {
 
   const handleAddPost = () => {
     if (formData.title) {
-      const newPost = {
-        id: Math.max(...posts.map(p => p.id), 0) + 1,
+      addBlogPost({
         title: formData.title,
         slug: formData.slug || formData.title.toLowerCase().replace(/\s+/g, '-'),
+        content: formData.content,
+        excerpt: formData.excerpt,
+        metaDesc: formData.metaDesc,
+        keywords: formData.keywords,
         status: 'draft',
         date: new Date().toISOString().split('T')[0],
-      }
-      setPosts([newPost, ...posts])
+      })
+      setPosts(getBlogPosts())
       setFormData({ title: '', slug: '', content: '', excerpt: '', metaDesc: '', keywords: '' })
       setShowForm(false)
     }
   }
 
   const handlePublish = (id: number) => {
-    setPosts(posts.map(p => p.id === id ? { ...p, status: 'published' } : p))
+    publishBlogPost(id)
+    setPosts(getBlogPosts())
   }
 
   const handleDelete = (id: number) => {
-    setPosts(posts.filter(p => p.id !== id))
+    deleteBlogPost(id)
+    setPosts(getBlogPosts())
   }
 
   return (

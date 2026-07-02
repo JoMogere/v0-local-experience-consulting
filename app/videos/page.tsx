@@ -1,19 +1,20 @@
-import { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'BookedUp Africa — Hotel Growth Videos & Tutorials',
-  description: 'Watch exclusive videos on local SEO, guest experience optimization, and direct booking strategies for African hotels.',
-  keywords: 'hotel marketing videos, local SEO tutorials, hospitality growth, booking optimization, East Africa',
-  openGraph: {
-    title: 'BookedUp Africa — Hotel Growth Videos',
-    description: 'Exclusive video content on hospitality growth strategies',
-    type: 'website',
-  },
-}
+import { useState, useEffect } from 'react'
+import { Metadata } from 'next'
+import { getVideos } from '@/lib/data'
 
 export default function VideosPage() {
+  const [videos, setVideos] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setVideos(getVideos())
+    setLoading(false)
+  }, [])
+
   return (
-    <main className="min-h-screen bg-navy-deep text-white">
+    <main className="min-h-screen bg-navy-deep text-white pt-24">
       {/* Header */}
       <div className="bg-navy-deep border-b border-white/10 py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -45,49 +46,50 @@ export default function VideosPage() {
 
           {/* Latest Videos Section */}
           <div>
-            <h2 className="text-2xl font-bold mb-6">Latest Videos</h2>
-            <p className="text-text-gray mb-6">
-              Visit our YouTube channel to watch the latest hotel growth strategies, local SEO tutorials, and booking optimization guides.
-            </p>
+            <h2 className="text-2xl font-bold mb-6">Latest Videos ({videos.length})</h2>
             
-            <div className="bg-white/5 border border-white/10 rounded-lg p-8">
-              <div className="aspect-video bg-black/50 rounded-lg flex items-center justify-center mb-6">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">▶</div>
-                  <p className="text-text-gray">YouTube Channel Videos</p>
-                </div>
+            {loading ? (
+              <p className="text-text-gray">Loading videos...</p>
+            ) : videos.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {videos.map((video) => (
+                  <a
+                    key={video.id}
+                    href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative aspect-video bg-black/50 rounded-lg overflow-hidden mb-3">
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors">
+                        <div className="text-4xl text-white">▶</div>
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-white group-hover:text-orange-500 transition-colors">{video.title}</h3>
+                    {video.description && (
+                      <p className="text-sm text-text-gray mt-1">{video.description}</p>
+                    )}
+                  </a>
+                ))}
               </div>
-              
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold">Topics Covered:</h3>
-                <ul className="space-y-2 text-text-gray">
-                  <li className="flex items-center gap-2">
-                    <span className="text-orange-500">✓</span>
-                    Hotel Local SEO optimization strategies
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-orange-500">✓</span>
-                    Direct booking funnel analysis and improvement
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-orange-500">✓</span>
-                    Guest experience optimization for 5-star reviews
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-orange-500">✓</span>
-                    OTA dependency reduction tactics
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-orange-500">✓</span>
-                    Review generation and reputation management
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-orange-500">✓</span>
-                    Revenue growth implementation roadmaps
-                  </li>
-                </ul>
+            ) : (
+              <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
+                <p className="text-text-gray mb-4">No videos uploaded yet.</p>
+                <a
+                  href="https://www.youtube.com/@bookedupafrica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors"
+                >
+                  Visit YouTube Channel
+                </a>
               </div>
-            </div>
+            )}
           </div>
 
           {/* CTA Section */}

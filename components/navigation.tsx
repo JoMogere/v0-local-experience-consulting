@@ -11,7 +11,7 @@ export function Navigation() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
-    { href: "/blog", label: "Blog" },
+    { href: "/blogs", label: "Articles" },
     { href: "/videos", label: "Videos" },
     { href: "/resources", label: "Resources" },
   ]

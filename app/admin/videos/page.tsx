@@ -1,20 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { getVideos, addVideo, deleteVideo } from '@/lib/data'
 
 export default function VideoManagement() {
-  const [videos, setVideos] = useState([
-    { id: 1, title: 'Hotel SEO Tips', youtubeId: 'dQw4w9WgXcQ', thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg' },
-  ])
+  const [videos, setVideos] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
   const [formData, setFormData] = useState({
     title: '',
     youtubeUrl: '',
     description: '',
   })
+
+  useEffect(() => {
+    // Load videos from persistent data
+    setVideos(getVideos())
+    setLoading(false)
+  }, [])
 
   const extractYoutubeId = (url: string) => {
     const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/)
@@ -25,13 +31,14 @@ export default function VideoManagement() {
     if (formData.title && formData.youtubeUrl) {
       const youtubeId = extractYoutubeId(formData.youtubeUrl)
       if (youtubeId) {
-        const newVideo = {
-          id: Math.max(...videos.map(v => v.id), 0) + 1,
+        const newVideo = addVideo({
           title: formData.title,
           youtubeId,
           thumbnail: `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`,
-        }
-        setVideos([...videos, newVideo])
+          description: formData.description,
+          uploadedAt: new Date().toISOString(),
+        })
+        setVideos(getVideos())
         setFormData({ title: '', youtubeUrl: '', description: '' })
         setShowForm(false)
       }
@@ -39,7 +46,8 @@ export default function VideoManagement() {
   }
 
   const handleDelete = (id: number) => {
-    setVideos(videos.filter(v => v.id !== id))
+    deleteVideo(id)
+    setVideos(getVideos())
   }
 
   return (
