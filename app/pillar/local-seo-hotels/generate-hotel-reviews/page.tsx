@@ -1,4 +1,10 @@
-'use client'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'How to Generate Hotel Reviews | BookedUp Africa',
+  description: 'A proven, ethical system for African hotels to generate authentic guest reviews that improve local SEO rankings and guest satisfaction.',
+  keywords: 'hotel reviews, generate hotel reviews, guest reviews Kenya, hotel reputation management',
+}
 
 export default function GenerateHotelReviewsPage() {
   return (
@@ -88,7 +94,7 @@ export default function GenerateHotelReviewsPage() {
           </section>
 
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
-            <h2 className="text-2xl font-bold mb-4">Back to Pillar</h2>
+            <h2 className="text-2xl font-bold mb-4">Back to the Guide</h2>
             <a href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Local SEO for Hotels Guide</a>
           </section>
         </section>
