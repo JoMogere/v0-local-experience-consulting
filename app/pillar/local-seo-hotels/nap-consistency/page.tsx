@@ -1,12 +1,18 @@
-'use client'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'NAP Consistency for Hotels | BookedUp Africa',
+  description: 'Keep your hotel\'s Name, Address, and Phone number consistent across every platform so guests — and Google — can always find you.',
+  keywords: 'NAP consistency, hotel local SEO, Google Business Profile Kenya, local citations hotel',
+}
 
 export default function NAPConsistencyPage() {
   return (
     <main className="min-h-screen bg-navy-deep text-white pt-32">
       <article className="max-w-4xl mx-auto px-4 md:px-6 pb-16">
         <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">NAP Consistency for Hotels: Why Google Needs You to Be Consistent</h1>
-          <p className="text-lg text-text-gray">Master Name, Address, Phone consistency across all platforms to maximize local SEO authority.</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">NAP Consistency for Hotels: Why Your Details Need to Match Everywhere</h1>
+          <p className="text-lg text-text-gray">Keep your Name, Address, and Phone number consistent across every platform so guests — and Google — can always find you.</p>
         </header>
 
         <section className="space-y-8">
@@ -59,7 +65,7 @@ export default function NAPConsistencyPage() {
           </section>
 
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
-            <h2 className="text-2xl font-bold mb-4">Back to Pillar</h2>
+            <h2 className="text-2xl font-bold mb-4">Back to the Guide</h2>
             <a href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Local SEO for Hotels Guide</a>
           </section>
         </section>
