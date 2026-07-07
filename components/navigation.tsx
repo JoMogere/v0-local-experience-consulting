@@ -39,14 +39,6 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Admin Link */}
-            <Link
-              href="/sign-in"
-              className="text-sm font-medium text-orange-500 hover:text-orange-400 transition-colors duration-200"
-            >
-              Admin
-            </Link>
-
             {/* CTA Button */}
             <Link
               href="https://calendly.com/mogerejulius41/30min"
@@ -82,15 +74,6 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
-
-              {/* Admin Link Mobile */}
-              <Link
-                href="/sign-in"
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-2 text-sm font-medium text-orange-500 hover:text-orange-400 hover:bg-white/5 rounded transition-colors duration-200"
-              >
-                Admin
-              </Link>
 
               {/* CTA Button Mobile */}
               <Link
