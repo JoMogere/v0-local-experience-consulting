@@ -20,7 +20,7 @@ export default function LocalSEOPage() {
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar" className="hover:text-white transition-colors">Content Pillars</Link>
+          <Link href="/pillar" className="hover:text-white transition-colors">Guides</Link>
           <span className="mx-2">/</span>
           <span>Local SEO for Hotels</span>
         </nav>
@@ -402,13 +402,13 @@ export default function LocalSEOPage() {
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Content</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <Link href="/pillar/google-business-profile" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
-                <h3 className="font-bold text-orange-500 mb-2">Google Business Profile Optimization →</h3>
-                <p className="text-text-gray text-sm">Deep dive into GBP optimization strategies</p>
+              <Link href="/pillar/direct-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
+                <h3 className="font-bold text-orange-500 mb-2">Direct Bookings Guide →</h3>
+                <p className="text-text-gray text-sm">Turn local search visibility into confirmed bookings</p>
               </Link>
-              <Link href="/pillar/hotel-website-strategy" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
-                <h3 className="font-bold text-orange-500 mb-2">Hotel Website Strategy →</h3>
-                <p className="text-text-gray text-sm">Build a website that ranks and converts</p>
+              <Link href="/pillar/direct-bookings/website-conversion" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
+                <h3 className="font-bold text-orange-500 mb-2">Website Conversion →</h3>
+                <p className="text-text-gray text-sm">Turn website visitors into confirmed bookings</p>
               </Link>
             </div>
           </section>
