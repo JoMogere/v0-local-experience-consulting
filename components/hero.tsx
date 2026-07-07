@@ -1,9 +1,9 @@
 import { MapPin, Star, TrendingUp } from "lucide-react"
 
 const icons = [
-  { icon: MapPin, label: "Local Search" },
-  { icon: Star, label: "Experiential" },
-  { icon: TrendingUp, label: "Hotel Growth" },
+  { icon: MapPin, label: "Local SEO" },
+  { icon: Star, label: "Experiential Marketing" },
+  { icon: TrendingUp, label: "Direct Bookings" },
 ]
 
 export function Hero() {
@@ -20,10 +20,10 @@ export function Hero() {
             Research and implementation
           </h1>
           <p className="text-lg md:text-[26px] font-light mb-2.5">
-            for <span className="text-orange-500 font-bold">local search</span>,{" "}
+            for <span className="text-orange-500 font-bold">local SEO</span>,{" "}
             <span className="text-orange-500 font-bold">experiential marketing</span>,
             <br className="hidden md:block" />
-            and <span className="text-orange-500 font-bold">hotel growth</span>
+            and <span className="text-orange-500 font-bold">direct bookings</span>
           </p>
           <div className="w-20 h-px bg-orange-500 my-8 md:my-10 mx-auto md:mx-0" />
           <p className="font-serif italic text-orange-500 text-lg md:text-[22px] tracking-[0.5px]">
