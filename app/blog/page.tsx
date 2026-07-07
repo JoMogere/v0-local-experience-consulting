@@ -87,7 +87,7 @@ export default function BlogPage() {
 
         {/* Pillar Pages */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">8 Content Pillars</h2>
+          <h2 className="text-3xl font-bold mb-8">In-Depth Guides</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {pillars.map((pillar, idx) => (
               <Link
@@ -105,7 +105,7 @@ export default function BlogPage() {
                       {pillar.description}
                     </p>
                     <div className="text-xs text-text-gray/70 flex items-center justify-between">
-                      <span>{pillar.articles} supporting articles</span>
+                      <span>{pillar.articles} articles</span>
                       <span className="text-orange-500 font-semibold">Read →</span>
                     </div>
                   </div>
@@ -115,66 +115,44 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Strategy Explanation */}
+        {/* Why These Guides */}
         <section className="mb-16 bg-white/5 border border-white/10 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-6">Our Content Strategy</h2>
+          <h2 className="text-2xl font-bold mb-6">Why Hoteliers Read These Guides</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-bold text-orange-500 mb-4">Topical Authority</h3>
+              <h3 className="font-bold text-orange-500 mb-4">Built From Real Work</h3>
               <p className="text-text-gray mb-4">
-                Each pillar page is a comprehensive resource covering the topic thoroughly with semantic depth and internal linking. This creates topical authority that signals expertise to Google.
+                Every guide comes from hands-on work managing marketing for real East African hotels and resorts — not recycled generic advice.
               </p>
               <ul className="space-y-2 text-text-gray text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> 8 pillar pages targeting main topics
+                  <span className="text-orange-500">✓</span> Real case studies & examples
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> 4-11 supporting articles per pillar
+                  <span className="text-orange-500">✓</span> Practical, step-by-step advice
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> 4,000-6,000 word pillar pages
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Internal linking for SEO authority
+                  <span className="text-orange-500">✓</span> Written for hotels operating in Kenya & East Africa
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-orange-500 mb-4">EEAT Signals</h3>
+              <h3 className="font-bold text-orange-500 mb-4">What You'll Get</h3>
               <p className="text-text-gray mb-4">
-                Every page includes original insights from our work with hospitality marketing, real examples, statistics, checklists, and FAQs.
+                No fluff, no filler — each guide is built to help you take action the same day you read it.
               </p>
               <ul className="space-y-2 text-text-gray text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Expertise: Real case studies & examples
+                  <span className="text-orange-500">✓</span> Clear, actionable steps
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Authoritativeness: Industry insights
+                  <span className="text-orange-500">✓</span> Checklists and FAQs you can use right away
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Trustworthiness: Transparent methodology
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Experience: Practical, actionable advice
+                  <span className="text-orange-500">✓</span> Honest, transparent recommendations
                 </li>
               </ul>
             </div>
-          </div>
-        </section>
-
-        {/* Content Hierarchy */}
-        <section className="mb-16 bg-gradient-to-r from-blue-500/10 to-blue-500/5 border border-blue-500/30 rounded-lg p-8">
-          <h3 className="text-xl font-bold mb-6 text-blue-400">Content Hierarchy</h3>
-          <div className="font-mono text-sm text-text-gray space-y-1">
-            <div className="text-white">Hotel Marketing & Growth</div>
-            <div className="ml-6">├── <Link href="/blog/local-seo-for-hotels" className="text-orange-500 hover:text-orange-400">Local SEO (11 articles)</Link></div>
-            <div className="ml-6">├── <Link href="/blog/google-business-profile-hotels" className="text-orange-500 hover:text-orange-400">Google Business Profile (9 articles)</Link></div>
-            <div className="ml-6">├── <Link href="/blog/experiential-marketing-hotels" className="text-orange-500 hover:text-orange-400">Experiential Marketing (8 articles)</Link></div>
-            <div className="ml-6">├── <Link href="/blog/content-marketing-hotels" className="text-orange-500 hover:text-orange-400">Content Marketing (9 articles)</Link></div>
-            <div className="ml-6">├── <Link href="/blog/direct-hotel-bookings" className="text-orange-500 hover:text-orange-400">Direct Bookings (8 articles)</Link></div>
-            <div className="ml-6">├── <Link href="/blog/hotel-website-design-seo" className="text-orange-500 hover:text-orange-400">Hotel Websites (8 articles)</Link></div>
-            <div className="ml-6">├── <Link href="/blog/ai-for-hotels" className="text-orange-500 hover:text-orange-400">AI for Hotels (7 articles)</Link></div>
-            <div className="ml-6">└── <Link href="/blog/hospitality-case-studies" className="text-orange-500 hover:text-orange-400">Case Studies (6 articles)</Link></div>
           </div>
         </section>
 
@@ -182,7 +160,7 @@ export default function BlogPage() {
         <section className="bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg p-8 text-center mb-16">
           <h3 className="text-2xl font-bold mb-4">Ready to Scale Your Hotel?</h3>
           <p className="text-text-gray mb-6 max-w-2xl mx-auto">
-            Our complete hotel growth strategy combines these content pillars with technical SEO, direct booking optimization, and experiential marketing to drive real revenue growth.
+            Our complete hotel growth strategy combines everything in these guides with technical SEO, direct booking optimization, and experiential marketing to drive real revenue growth.
           </p>
           <a
             href="https://calendly.com/mogerejulius41/30min"
