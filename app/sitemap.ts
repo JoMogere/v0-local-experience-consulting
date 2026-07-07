@@ -59,6 +59,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
     },
     {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/hotel-growth-partnership-kenya`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -75,6 +80,51 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/hotel-guest-experience-optimization-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/local-seo-hotels`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/local-seo-hotels/google-maps-ranking`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/local-seo-hotels/nap-consistency`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/local-seo-hotels/generate-hotel-reviews`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/direct-bookings`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/direct-bookings/reduce-ota-dependence`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/direct-bookings/booking-engine-setup`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/direct-bookings/website-conversion`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
     },
