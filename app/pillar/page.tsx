@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Content Pillars | Hospitality Marketing Guides | BookedUp Africa',
-  description: 'Comprehensive content pillars on hospitality marketing with supporting cluster articles for maximum SEO authority.',
+  title: 'Hospitality Marketing Guides | BookedUp Africa',
+  description: 'In-depth, practical guides on hospitality marketing to help your hotel win more direct bookings.',
 }
 
 export default function PillarHubPage() {
@@ -15,6 +15,13 @@ export default function PillarHubPage() {
       icon: '📍',
       topics: ['Google Maps Ranking', 'NAP Consistency', 'Review Generation', 'Local Citations'],
     },
+    {
+      title: 'Direct Bookings',
+      slug: 'direct-bookings',
+      description: 'Reduce OTA commission costs and build a booking engine that turns website visitors into confirmed guests.',
+      icon: '💰',
+      topics: ['Reduce OTA Dependence', 'Booking Engine Setup', 'Website Conversion', 'Google Hotel Search'],
+    },
   ]
 
   return (
@@ -22,9 +29,9 @@ export default function PillarHubPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 pb-16">
         {/* Header */}
         <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Content Pillars</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Hospitality Growth Guides</h1>
           <p className="text-xl text-text-gray max-w-3xl mx-auto">
-            Comprehensive guides on hospitality marketing organized by topic. Each pillar covers a complete subject area with supporting cluster articles for maximum learning and SEO authority.
+            In-depth guides on hospitality marketing, organized by topic. Each guide covers everything you need on the subject, with deeper dives linked throughout.
           </p>
         </header>
 
@@ -44,7 +51,7 @@ export default function PillarHubPage() {
                 <p className="text-text-gray mb-6">{pillar.description}</p>
                 
                 <div className="mb-6">
-                  <h3 className="text-sm font-bold text-orange-500 mb-3">Supporting Articles</h3>
+                  <h3 className="text-sm font-bold text-orange-500 mb-3">Covered In This Guide</h3>
                   <div className="flex flex-wrap gap-2">
                     {pillar.topics.map((topic) => (
                       <span key={topic} className="text-xs bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">
@@ -55,53 +62,53 @@ export default function PillarHubPage() {
                 </div>
 
                 <div className="text-orange-500 group-hover:text-orange-400 font-bold">
-                  Read Pillar →
+                  Read Guide →
                 </div>
               </Link>
             ))}
           </div>
         </section>
 
-        {/* Architecture Explanation */}
+        {/* Why These Guides */}
         <section className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold mb-6">Topical Authority Architecture</h2>
+          <h2 className="text-3xl font-bold mb-6">How These Guides Are Built</h2>
           <p className="text-text-gray mb-6">
-            We've organized all our content using a pillar-cluster model designed for maximum SEO impact:
+            Every guide is organized so you can get a complete answer, then go deeper on the exact part that matters to you:
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white/5 p-6 rounded-lg">
-              <h3 className="font-bold text-orange-500 mb-3">Pillar Pages</h3>
+              <h3 className="font-bold text-orange-500 mb-3">Complete Guides</h3>
               <p className="text-text-gray text-sm">
-                Comprehensive 4,000-6,000 word guides that cover an entire topic thoroughly. These are the authoritative, foundational content pieces.
+                Full, in-depth guides that cover an entire topic thoroughly — no need to piece it together from multiple sources.
               </p>
             </div>
             <div className="bg-white/5 p-6 rounded-lg">
-              <h3 className="font-bold text-orange-500 mb-3">Cluster Articles</h3>
+              <h3 className="font-bold text-orange-500 mb-3">Deep-Dive Articles</h3>
               <p className="text-text-gray text-sm">
-                Supporting 1,500-2,500 word articles that target specific search intents related to the pillar topic. Each links back to the pillar.
+                Focused articles that walk through specific questions in more detail, linked from the main guide.
               </p>
             </div>
             <div className="bg-white/5 p-6 rounded-lg">
-              <h3 className="font-bold text-orange-500 mb-3">Internal Linking</h3>
+              <h3 className="font-bold text-orange-500 mb-3">Everything Connected</h3>
               <p className="text-text-gray text-sm">
-                Strategic semantic links connect all content, signaling to Google that you're an authority on the entire topic cluster.
+                Related guides and articles link to each other, so you can follow a thread wherever it's useful.
               </p>
             </div>
           </div>
 
           <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
             <p className="text-text-gray">
-              This approach helps Google understand that you don't just have answers to individual questions—you're a comprehensive resource covering the entire topic area. That's what builds topical authority and drives competitive keywords.
+              Whether you're just getting started or troubleshooting a specific problem, you'll find real, practical answers here — not surface-level tips.
             </p>
           </div>
         </section>
 
         {/* Coming Soon */}
         <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">More Pillars Coming Soon</h2>
+          <h2 className="text-2xl font-bold mb-4">More Guides Coming Soon</h2>
           <p className="text-text-gray mb-6">
-            We're expanding this content hub with additional pillar pages on Google Business Profile, Hotel Website Strategy, Direct Bookings, Experiential Marketing, and more. Each will have the same depth and comprehensive cluster architecture.
+            We're expanding this hub with more guides on Google Business Profile, Hotel Website Strategy, Experiential Marketing, and more — each with the same depth and practical detail.
           </p>
           <a
             href="https://calendly.com/mogerejulius41/30min"
@@ -121,8 +128,8 @@ export default function PillarHubPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
-            name: 'Content Pillars - BookedUp Africa',
-            description: 'Comprehensive guides on hospitality marketing organized by topical authority',
+            name: 'Hospitality Marketing Guides - BookedUp Africa',
+            description: 'In-depth, practical guides on hospitality marketing for hotels and resorts',
             url: 'https://bookedupafrica.com/pillar',
           }),
         }}
