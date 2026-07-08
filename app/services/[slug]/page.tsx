@@ -2,6 +2,13 @@ import { Metadata } from 'next'
 import { getServiceBySlug, SERVICES } from '@/lib/services-data'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { MapPin, TrendingUp, Sparkles } from 'lucide-react'
+
+const ICONS: Record<string, typeof MapPin> = {
+  'local-seo': MapPin,
+  'direct-bookings': TrendingUp,
+  'experiential-marketing': Sparkles,
+}
 
 interface Params {
   slug: string
@@ -45,7 +52,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
         </nav>
 
         <header className="mb-12">
-          <div className="text-5xl mb-6">{service.icon}</div>
+          <div className="text-orange-500 mb-6">
+            {(() => {
+              const Icon = ICONS[service.slug]
+              return Icon ? <Icon size={48} strokeWidth={1.5} /> : null
+            })()}
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">{service.title}</h1>
           <p className="text-xl text-text-gray leading-relaxed">{service.description}</p>
         </header>
