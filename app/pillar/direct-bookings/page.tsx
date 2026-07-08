@@ -99,12 +99,12 @@ export default function DirectBookingsPage() {
           <section id="booking-engine">
             <h2 className="text-4xl font-bold mb-6">Choosing a Booking Engine</h2>
             <p className="text-lg text-text-gray leading-relaxed mb-6">
-              For independent hotels and villas in Kenya, the booking engine decision usually comes down to a channel manager with a built-in booking widget (like Beds24 or Lodgify) versus a standalone booking button. Which one makes sense depends on how many channels you're already managing:
+              For independent hotels and villas in Kenya, the booking engine decision usually comes down to a channel manager with a built-in booking widget (like Zeevou, Beds24, or Lodgify) versus a standalone booking button. Which one makes sense depends on how many channels you're already managing:
             </p>
             <div className="space-y-6">
               <div className="border-l-4 border-orange-500 pl-6">
                 <h3 className="text-xl font-bold mb-2">If you list on 2+ OTAs already</h3>
-                <p className="text-text-gray">A channel manager (Beds24, Lodgify) syncs your calendar across every platform automatically, so a direct booking blocks the room everywhere else in real time. Without this, double bookings are just a matter of time.</p>
+                <p className="text-text-gray">A channel manager (Zeevou, Beds24, Lodgify) syncs your calendar across every platform automatically, so a direct booking blocks the room everywhere else in real time. Without this, double bookings are just a matter of time.</p>
               </div>
               <div className="border-l-4 border-orange-500 pl-6">
                 <h3 className="text-xl font-bold mb-2">If you want to appear in Google Hotel Search</h3>
