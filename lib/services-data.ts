@@ -1,7 +1,6 @@
 export interface ServiceData {
   slug: string
   title: string
-  icon: string
   description: string
   content: string[]
   features: string[]
@@ -11,7 +10,6 @@ export const SERVICES: ServiceData[] = [
   {
     slug: 'local-seo',
     title: 'Local SEO',
-    icon: '📍',
     description:
       "Get found first when guests search for hotels near you. We optimize your Google Business Profile, fix local search visibility issues, and build the citation and review foundation that gets you ranked above competitors in your area.",
     content: [
@@ -31,7 +29,6 @@ export const SERVICES: ServiceData[] = [
   {
     slug: 'direct-bookings',
     title: 'Direct Bookings',
-    icon: '💰',
     description:
       "Stop paying 15-25% commission on every booking. We set up your booking engine, channel manager, and Google Hotel Search integration so guests book straight from your website instead of Booking.com or Expedia.",
     content: [
@@ -51,7 +48,6 @@ export const SERVICES: ServiceData[] = [
   {
     slug: 'experiential-marketing',
     title: 'Experiential Marketing',
-    icon: '✨',
     description:
       "Turn your property's unique experience into the reason guests choose you. We build content and campaigns around what makes a stay memorable, so your marketing does more than list amenities.",
     content: [
