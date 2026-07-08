@@ -69,6 +69,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/blog/local-seo-for-hotels`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/google-business-profile-hotels`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/experiential-marketing-hotels`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/direct-hotel-bookings`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/hotel-website-design-seo`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/content-marketing-hotels`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/ai-for-hotels`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/blog/case-study-elsamere-lodge`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
