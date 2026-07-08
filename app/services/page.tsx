@@ -1,6 +1,13 @@
 import { SERVICES } from '@/lib/services-data'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { MapPin, TrendingUp, Sparkles } from 'lucide-react'
+
+const ICONS: Record<string, typeof MapPin> = {
+  'local-seo': MapPin,
+  'direct-bookings': TrendingUp,
+  'experiential-marketing': Sparkles,
+}
 
 export const metadata: Metadata = {
   title: 'Our Services | BookedUp Africa',
@@ -26,7 +33,12 @@ export default function ServicesPage() {
               className="bg-secondary rounded-lg overflow-hidden hover:shadow-lg transition-shadow group"
             >
               <div className="p-6">
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="text-gold mb-4">
+                  {(() => {
+                    const Icon = ICONS[service.slug]
+                    return Icon ? <Icon size={36} strokeWidth={1.5} /> : null
+                  })()}
+                </div>
                 <h2 className="text-2xl font-bold text-white mb-2">{service.title}</h2>
                 <p className="text-text-gray mb-6">{service.description}</p>
 
