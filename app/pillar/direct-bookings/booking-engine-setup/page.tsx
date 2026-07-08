@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Hotel Booking Engine Setup: Channel Managers & Google Hotel Search | BookedUp Africa',
   description: 'How to choose and set up a booking engine for an independent hotel — channel manager options, Google Hotel Search feeds, and what actually matters for small African properties.',
-  keywords: 'hotel booking engine, Beds24, Lodgify, channel manager hotel, Google Hotel Center XML feed, Google Hotel Search setup',
+  keywords: 'hotel booking engine, Zeevou, Beds24, Lodgify, channel manager hotel, Google Hotel Center XML feed, Google Hotel Search setup',
 }
 
 export default function BookingEngineSetupPage() {
@@ -35,7 +35,7 @@ export default function BookingEngineSetupPage() {
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
               <h3 className="font-bold text-blue-400 mb-3">Key Point</h3>
               <p className="text-text-gray">
-                Beds24 and Lodgify are the two most common channel manager choices for independent East African properties — both handle OTA sync and include a direct booking widget. The right choice usually comes down to how many rooms/units you're managing and whether you need a full property management system or just booking + sync.
+                Zeevou is the channel manager we work with most for East African properties — it handles OTA sync, direct booking, and a full property management layer in one system. Beds24 and Lodgify are common alternatives worth considering, particularly for simpler setups. The right choice usually comes down to how many rooms/units you're managing and whether you need a full property management system or just booking + sync.
               </p>
             </div>
           </section>
@@ -56,7 +56,7 @@ export default function BookingEngineSetupPage() {
               </div>
               <div className="bg-white/5 border border-white/10 rounded-lg p-6">
                 <h3 className="font-bold text-orange-500 mb-3">3. A Booking Engine That Can Take the Booking</h3>
-                <p className="text-text-gray text-sm">Google sends the guest to your booking engine to complete the reservation — most channel managers with a booking widget (Beds24, Lodgify) can connect to this, but it needs to be configured, not assumed.</p>
+                <p className="text-text-gray text-sm">Google sends the guest to your booking engine to complete the reservation — most channel managers with a booking widget (Zeevou, Beds24, Lodgify) can connect to this, but it needs to be configured, not assumed.</p>
               </div>
             </div>
           </section>
