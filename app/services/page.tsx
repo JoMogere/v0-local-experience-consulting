@@ -3,9 +3,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Our Services - Local Experience Consulting',
-  description: 'Explore our services: Local Search optimization, Experiential Marketing, and Hotel Growth strategies for African hospitality.',
-  keywords: 'local search, experiential marketing, hotel growth, hospitality consulting',
+  title: 'Our Services | BookedUp Africa',
+  description: 'Local SEO, Experiential Marketing, and Direct Bookings strategy for African hotels and resorts.',
+  keywords: 'local SEO hotels, experiential marketing, direct bookings, hospitality consulting Kenya',
 }
 
 export default async function ServicesPage() {
@@ -116,13 +116,13 @@ export default async function ServicesPage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://localexperienceconsulting.com',
+                item: 'https://bookedupafrica.com',
               },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Services',
-                item: 'https://localexperienceconsulting.com/services',
+                item: 'https://bookedupafrica.com/services',
               },
             ],
           }),
