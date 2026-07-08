@@ -1,18 +1,11 @@
-import { getPublicServices } from '@/app/actions/services'
 import { getPublishedBlogs } from '@/app/actions/blogs'
+import { SERVICES } from '@/lib/services-data'
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.BETTER_AUTH_URL || 'https://bookedupafrica.com'
 
-  let services = []
   let blogs = []
-
-  try {
-    services = await getPublicServices()
-  } catch (error) {
-    console.log('[v0] Could not fetch services for sitemap')
-  }
 
   try {
     blogs = await getPublishedBlogs()
@@ -20,9 +13,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.log('[v0] Could not fetch blog posts for sitemap')
   }
 
-  const serviceRoutes = services.map((service) => ({
+  const serviceRoutes = SERVICES.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
-    lastModified: new Date(service.updatedAt || service.createdAt),
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
   }))
 
