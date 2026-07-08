@@ -1,4 +1,4 @@
-import { getPublicServices } from '@/app/actions/services'
+import { SERVICES } from '@/lib/services-data'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -8,18 +8,10 @@ export const metadata: Metadata = {
   keywords: 'local SEO hotels, experiential marketing, direct bookings, hospitality consulting Kenya',
 }
 
-export default async function ServicesPage() {
-  let services = []
-  try {
-    services = await getPublicServices()
-  } catch (error) {
-    console.log('[v0] Could not fetch published services', error)
-  }
-
+export default function ServicesPage() {
   return (
-    <main className="min-h-screen py-16 md:py-24 bg-background">
+    <main className="min-h-screen py-16 md:py-24 bg-background pt-32">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-        {/* Header */}
         <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h1>
           <p className="text-xl text-text-gray max-w-2xl mx-auto">
@@ -27,71 +19,45 @@ export default async function ServicesPage() {
           </p>
         </header>
 
-        {/* Services Grid */}
-        {services.length > 0 ? (
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <article
-                key={service.id}
-                className="bg-secondary rounded-lg overflow-hidden hover:shadow-lg transition-shadow group"
-              >
-                {/* Image */}
-                {service.image && (
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                )}
+        <div className="grid md:grid-cols-3 gap-8">
+          {SERVICES.map((service) => (
+            <article
+              key={service.slug}
+              className="bg-secondary rounded-lg overflow-hidden hover:shadow-lg transition-shadow group"
+            >
+              <div className="p-6">
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h2 className="text-2xl font-bold text-white mb-2">{service.title}</h2>
+                <p className="text-text-gray mb-6">{service.description}</p>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-white mb-2">{service.title}</h2>
-                  {service.subtitle && (
-                    <p className="text-gold text-sm mb-3">{service.subtitle}</p>
-                  )}
-                  <p className="text-text-gray mb-6">
-                    {service.shortDescription || service.description.substring(0, 150)}...
-                  </p>
-
-                  {/* Research & Implementation preview */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-start gap-2">
-                      <span className="text-gold text-sm font-bold mt-1">▸</span>
-                      <div>
-                        <p className="text-white text-sm font-semibold">Research</p>
-                        <p className="text-text-gray text-xs">Audit & Analysis</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-gold text-sm font-bold mt-1">▸</span>
-                      <div>
-                        <p className="text-white text-sm font-semibold">Implementation</p>
-                        <p className="text-text-gray text-xs">Execute & Track</p>
-                      </div>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <span className="text-gold text-sm font-bold mt-1">▸</span>
+                    <div>
+                      <p className="text-white text-sm font-semibold">Research</p>
+                      <p className="text-text-gray text-xs">Audit & Analysis</p>
                     </div>
                   </div>
-
-                  {/* CTA */}
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="inline-flex items-center text-gold hover:text-gold-light font-bold text-sm"
-                  >
-                    Learn More →
-                  </Link>
+                  <div className="flex items-start gap-2">
+                    <span className="text-gold text-sm font-bold mt-1">▸</span>
+                    <div>
+                      <p className="text-white text-sm font-semibold">Implementation</p>
+                      <p className="text-text-gray text-xs">Execute & Track</p>
+                    </div>
+                  </div>
                 </div>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-text-gray">No services published yet.</p>
-          </div>
-        )}
 
-        {/* CTA Section */}
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="inline-flex items-center text-gold hover:text-gold-light font-bold text-sm"
+                >
+                  Learn More →
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+
         <div className="mt-16 text-center">
           <Link
             href="https://calendly.com/mogerejulius41/30min"
@@ -104,7 +70,6 @@ export default async function ServicesPage() {
         </div>
       </div>
 
-      {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
