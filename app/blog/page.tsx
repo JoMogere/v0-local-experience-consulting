@@ -1,5 +1,17 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
+
+const CATEGORY_ICONS: Record<string, typeof MapPin> = {
+  'local-seo-for-hotels': MapPin,
+  'google-business-profile-hotels': Building2,
+  'experiential-marketing-hotels': Sparkles,
+  'content-marketing-hotels': FileText,
+  'direct-hotel-bookings': TrendingUp,
+  'hotel-website-design-seo': Globe,
+  'ai-for-hotels': Bot,
+  'hospitality-case-studies': BarChart3,
+}
 
 export const metadata: Metadata = {
   title: 'Hotel Marketing Blog | BookedUp Africa',
@@ -18,56 +30,48 @@ export default function BlogPage() {
       title: 'Local SEO for Hotels',
       description: 'Master local search optimization and dominate Google Maps rankings to attract direct bookings.',
       link: '/blog/local-seo-for-hotels',
-      icon: '📍',
       articles: 11,
     },
     {
       title: 'Google Business Profile',
       description: 'Optimize your GBP for maximum hotel visibility, reviews, and direct bookings from local search.',
       link: '/blog/google-business-profile-hotels',
-      icon: '🗺️',
       articles: 9,
     },
     {
       title: 'Experiential Marketing',
       description: 'Create memorable guest experiences that drive bookings, loyalty, and word-of-mouth marketing.',
       link: '/blog/experiential-marketing-hotels',
-      icon: '✨',
       articles: 8,
     },
     {
       title: 'Content Marketing',
       description: 'Build authority and drive bookings through strategic, guest-focused content.',
       link: '/blog/content-marketing-hotels',
-      icon: '📝',
       articles: 9,
     },
     {
       title: 'Direct Bookings',
       description: 'Reduce OTA dependence and increase direct bookings through optimized websites and conversion strategies.',
       link: '/blog/direct-hotel-bookings',
-      icon: '💰',
       articles: 8,
     },
     {
       title: 'Hotel Website Design & SEO',
       description: 'Create a website that ranks in search engines and converts visitors into guests.',
       link: '/blog/hotel-website-design-seo',
-      icon: '🌐',
       articles: 8,
     },
     {
       title: 'AI for Hotels',
       description: 'Leverage AI to automate operations, improve marketing, and deliver better guest experiences.',
       link: '/blog/ai-for-hotels',
-      icon: '🤖',
       articles: 7,
     },
     {
       title: 'Case Studies',
       description: 'Real examples of how hotels increased bookings and revenue through strategic optimization.',
       link: '/blog/hospitality-case-studies',
-      icon: '📊',
       articles: 6,
     },
   ]
@@ -96,7 +100,13 @@ export default function BlogPage() {
                 className="group p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-orange-500/30 transition-all"
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-4xl flex-shrink-0">{pillar.icon}</span>
+                  <span className="text-orange-500 flex-shrink-0">
+                    {(() => {
+                      const slug = pillar.link.split('/').pop() || ''
+                      const Icon = CATEGORY_ICONS[slug]
+                      return Icon ? <Icon size={32} strokeWidth={1.5} /> : null
+                    })()}
+                  </span>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-orange-500 group-hover:text-orange-400 transition-colors mb-2">
                       {pillar.title}
