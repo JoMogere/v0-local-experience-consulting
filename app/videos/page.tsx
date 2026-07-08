@@ -1,21 +1,21 @@
-'use client'
-
-import { useState, useEffect } from 'react'
 import { Metadata } from 'next'
-import { getVideos } from '@/lib/data'
+import Link from 'next/link'
+import { getChannelVideos } from '@/lib/youtube'
 
-export default function VideosPage() {
-  const [videos, setVideos] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
+export const metadata: Metadata = {
+  title: 'Hotel Growth Videos | BookedUp Africa',
+  description: 'Practical strategies and implementation guides for increasing direct bookings and guest satisfaction, from the BookedUp Africa YouTube channel.',
+}
 
-  useEffect(() => {
-    setVideos(getVideos())
-    setLoading(false)
-  }, [])
+export const revalidate = 3600
+
+export default async function VideosPage() {
+  const videos = await getChannelVideos()
+  const featured = videos.slice(0, 3)
+  const rest = videos.slice(3)
 
   return (
     <main className="min-h-screen bg-navy-deep text-white pt-24">
-      {/* Header */}
       <div className="bg-navy-deep border-b border-white/10 py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Hotel Growth Videos</h1>
@@ -25,87 +25,93 @@ export default function VideosPage() {
         </div>
       </div>
 
-      {/* YouTube Embed */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
-        <div className="grid gap-8">
-          {/* Channel Subscribe */}
-          <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">Subscribe to BookedUp Africa</h2>
-            <p className="text-text-gray mb-6">
-              Get weekly videos on local SEO, guest experience, and direct booking optimization.
-            </p>
-            <a
-              href="https://www.youtube.com/@bookedupafrica"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-orange-500 text-white rounded font-semibold hover:bg-orange-600 transition-colors"
-            >
-              Subscribe on YouTube
-            </a>
-          </div>
+        <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center mb-16">
+          <h2 className="text-2xl font-bold mb-4">Subscribe to BookedUp Africa</h2>
+          <p className="text-text-gray mb-6">
+            Get weekly videos on local SEO, guest experience, and direct booking optimization.
+          </p>
+          <a
+            href="https://www.youtube.com/@bookedupafrica"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 bg-orange-500 text-white rounded font-semibold hover:bg-orange-600 transition-colors"
+          >
+            Subscribe on YouTube
+          </a>
+        </div>
 
-          {/* Latest Videos Section */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Latest Videos ({videos.length})</h2>
-            
-            {loading ? (
-              <p className="text-text-gray">Loading videos...</p>
-            ) : videos.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {videos.map((video) => (
-                  <a
-                    key={video.id}
-                    href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group cursor-pointer"
-                  >
-                    <div className="relative aspect-video bg-black/50 rounded-lg overflow-hidden mb-3">
+        {videos.length === 0 && (
+          <div className="text-center py-12 bg-white/5 border border-white/10 rounded-lg">
+            <p className="text-text-gray">
+              Videos couldn't be loaded right now. Check back shortly, or visit the channel directly above.
+            </p>
+          </div>
+        )}
+
+        {featured.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold mb-6">Featured Videos</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {featured.map((video) => (
+                <div key={video.id} className="bg-white/5 border border-white/10 rounded-lg overflow-hidden">
+                  <div className="aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-sm line-clamp-2">{video.title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {rest.length > 0 && (
+          <section>
+            <h2 className="text-2xl font-bold mb-6">All Videos ({videos.length})</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {rest.map((video) => (
+                <a
+                  key={video.id}
+                  href={`https://www.youtube.com/watch?v=${video.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-white/5 border border-white/10 rounded-lg overflow-hidden hover:border-orange-500/50 transition-colors"
+                >
+                  <div className="aspect-video relative overflow-hidden bg-black/40">
+                    {video.thumbnail && (
                       <img
                         src={video.thumbnail}
                         alt={video.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
                       />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors">
-                        <div className="text-4xl text-white">▶</div>
+                    )}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                      <div className="w-14 h-14 bg-orange-500/90 rounded-full flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" width="22" fill="white" className="ml-1">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
                       </div>
                     </div>
-                    <h3 className="font-semibold text-white group-hover:text-orange-500 transition-colors">{video.title}</h3>
-                    {video.description && (
-                      <p className="text-sm text-text-gray mt-1">{video.description}</p>
-                    )}
-                  </a>
-                ))}
-              </div>
-            ) : (
-              <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
-                <p className="text-text-gray mb-4">No videos uploaded yet.</p>
-                <a
-                  href="https://www.youtube.com/@bookedupafrica"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors"
-                >
-                  Visit YouTube Channel
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-sm line-clamp-2 group-hover:text-orange-500 transition-colors">
+                      {video.title}
+                    </h3>
+                  </div>
                 </a>
-              </div>
-            )}
-          </div>
-
-          {/* CTA Section */}
-          <div className="bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 rounded-lg p-8 text-center">
-            <h3 className="text-2xl font-bold mb-3">Ready to Transform Your Hotel?</h3>
-            <p className="text-text-gray mb-6">
-              Watch our latest strategies and then connect with us to implement them for your property.
-            </p>
-            <a
-              href="/hotel-growth-partnership-kenya"
-              className="inline-block px-8 py-3 bg-orange-500 text-white rounded font-semibold hover:bg-orange-600 transition-colors"
-            >
-              Explore Our Services
-            </a>
-          </div>
-        </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </main>
   )
