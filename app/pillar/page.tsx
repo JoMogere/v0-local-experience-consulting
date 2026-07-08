@@ -1,5 +1,11 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { MapPin, TrendingUp } from 'lucide-react'
+
+const PILLAR_ICONS: Record<string, typeof MapPin> = {
+  'local-seo-hotels': MapPin,
+  'direct-bookings': TrendingUp,
+}
 
 export const metadata: Metadata = {
   title: 'Hospitality Marketing Guides | BookedUp Africa',
@@ -12,14 +18,12 @@ export default function PillarHubPage() {
       title: 'Local SEO for Hotels',
       slug: 'local-seo-hotels',
       description: 'Master local search optimization and dominate Google Maps rankings to attract direct bookings from your local market.',
-      icon: '📍',
       topics: ['Google Maps Ranking', 'NAP Consistency', 'Review Generation', 'Local Citations'],
     },
     {
       title: 'Direct Bookings',
       slug: 'direct-bookings',
       description: 'Reduce OTA commission costs and build a booking engine that turns website visitors into confirmed guests.',
-      icon: '💰',
       topics: ['Reduce OTA Dependence', 'Booking Engine Setup', 'Website Conversion', 'Google Hotel Search'],
     },
   ]
@@ -44,7 +48,12 @@ export default function PillarHubPage() {
                 href={`/pillar/${pillar.slug}`}
                 className="group bg-white/5 border border-white/10 rounded-lg p-8 hover:border-orange-500/50 hover:bg-white/10 transition-all"
               >
-                <div className="text-5xl mb-4">{pillar.icon}</div>
+                <div className="text-orange-500 mb-4">
+                  {(() => {
+                    const Icon = PILLAR_ICONS[pillar.slug]
+                    return Icon ? <Icon size={40} strokeWidth={1.5} /> : null
+                  })()}
+                </div>
                 <h2 className="text-2xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
                   {pillar.title}
                 </h2>
