@@ -64,6 +64,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/blog/hospitality-case-studies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/case-study-elsamere-lodge`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/hotel-growth-partnership-kenya`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
