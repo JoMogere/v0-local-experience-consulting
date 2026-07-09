@@ -6,24 +6,37 @@ export interface YouTubeVideo {
   publishedAt: string
 }
 
-const CHANNEL_HANDLE = 'bookedupafrica'
+const CHANNEL_HANDLE = '@bookedupafrica'
 
-async function getUploadsPlaylistId(apiKey: string): Promise<string | null> {
-  const url = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=${CHANNEL_HANDLE}&key=${apiKey}`
+export interface YouTubeDebugInfo {
+  channelLookupStatus?: number
+  channelLookupBody?: any
+  uploadsPlaylistId?: string | null
+  playlistItemsStatus?: number
+  playlistItemsError?: any
+}
+
+async function getUploadsPlaylistId(apiKey: string, debug?: YouTubeDebugInfo): Promise<string | null> {
+  const url = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=${encodeURIComponent(CHANNEL_HANDLE)}&key=${apiKey}`
   const res = await fetch(url, { next: { revalidate: 3600 } })
-  if (!res.ok) return null
   const data = await res.json()
+  if (debug) {
+    debug.channelLookupStatus = res.status
+    debug.channelLookupBody = data
+  }
+  if (!res.ok) return null
   return data.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null
 }
 
-export async function getChannelVideos(): Promise<YouTubeVideo[]> {
+export async function getChannelVideos(debug?: YouTubeDebugInfo): Promise<YouTubeVideo[]> {
   const apiKey = process.env.YOUTUBE_API_KEY
   if (!apiKey) {
     console.log('[youtube] YOUTUBE_API_KEY is not set')
     return []
   }
 
-  const uploadsPlaylistId = await getUploadsPlaylistId(apiKey)
+  const uploadsPlaylistId = await getUploadsPlaylistId(apiKey, debug)
+  if (debug) debug.uploadsPlaylistId = uploadsPlaylistId
   if (!uploadsPlaylistId) {
     console.log('[youtube] Could not resolve uploads playlist for channel handle')
     return []
@@ -37,7 +50,13 @@ export async function getChannelVideos(): Promise<YouTubeVideo[]> {
   for (let i = 0; i < 10; i++) {
     const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsPlaylistId}&key=${apiKey}${pageToken ? `&pageToken=${pageToken}` : ''}`
     const res = await fetch(url, { next: { revalidate: 3600 } })
-    if (!res.ok) break
+    if (!res.ok) {
+      if (debug) {
+        debug.playlistItemsStatus = res.status
+        debug.playlistItemsError = await res.json().catch(() => null)
+      }
+      break
+    }
     const data = await res.json()
 
     for (const item of data.items || []) {
