@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Experiential Marketing for Hotels | BookedUp Africa',
-  description: 'Create memorable guest experiences that drive bookings, loyalty, and word-of-mouth marketing.',
+  title: 'Experiential Marketing for Hotels: Turning Stays Into Stories | BookedUp Africa',
+  description: 'Why amenity lists stop working and experience-driven marketing takes over — local partnerships, storytelling, and what makes content actually get shared.',
   keywords: 'experiential marketing hotels, guest experiences, hotel storytelling, destination marketing',
 }
 
@@ -10,104 +11,116 @@ export default function ExperientialPillar() {
   return (
     <article className="min-h-screen bg-navy-deep text-white pt-24">
       <div className="max-w-3xl mx-auto px-4 md:px-6">
-        <div className="text-sm text-text-gray mb-8"><a href="/blog" className="hover:text-orange-500">Blog</a> / Experiential Marketing</div>
+        <div className="text-sm text-text-gray mb-8"><Link href="/blog" className="hover:text-orange-500">Blog</Link> / Experiential Marketing</div>
         <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Experiential Marketing for Hotels</h1>
-          <p className="text-xl text-text-gray mb-6">Transform guest experiences into powerful marketing that drives loyalty and bookings.</p>
-          <div className="flex gap-4 text-sm text-text-gray">
-            <span>Updated January 2024</span>
-            <span>•</span>
-            <span>14 min read</span>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Experiential Marketing for Hotels: Turning Stays Into Stories</h1>
+          <p className="text-xl text-text-gray mb-6">
+            Guests aren't booking a room anymore. They're booking whatever they'll tell people about afterward.
+          </p>
         </header>
 
         <nav className="bg-white/5 border border-white/10 rounded-lg p-6 mb-12">
-          <h3 className="font-bold mb-4">Table of Contents</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#why" className="text-orange-500 hover:text-orange-400">Why Experiential Marketing Works</a></li>
-            <li><a href="#local" className="text-orange-500 hover:text-orange-400">Local Experiences Sell Rooms</a></li>
-            <li><a href="#storytelling" className="text-orange-500 hover:text-orange-400">Storytelling Through Experiences</a></li>
-            <li><a href="#culture" className="text-orange-500 hover:text-orange-400">Cultural Experiences</a></li>
-            <li><a href="#food" className="text-orange-500 hover:text-orange-400">Why Food Creates Better Marketing</a></li>
-            <li><a href="#behind" className="text-orange-500 hover:text-orange-400">Behind-the-Scenes Content</a></li>
-            <li><a href="#community" className="text-orange-500 hover:text-orange-400">Community Partnerships</a></li>
+          <h2 className="font-bold mb-4">Table Of Contents</h2>
+          <ul className="space-y-2 text-sm text-text-gray">
+            <li><Link href="#why" className="text-orange-500 hover:text-orange-400">Why Experience Beats Amenities</Link></li>
+            <li>
+              <Link href="#what-works" className="text-orange-500 hover:text-orange-400">What Actually Sells the Stay</Link>
+              <ul className="ml-4 mt-1 space-y-1">
+                <li>(i). Local experiences bundled with the stay</li>
+                <li>(ii). Food, specifically</li>
+                <li>(iii). Cultural connection over generic luxury</li>
+              </ul>
+            </li>
+            <li><Link href="#storytelling" className="text-orange-500 hover:text-orange-400">Turning Experiences Into Content</Link></li>
+            <li><Link href="#partnerships" className="text-orange-500 hover:text-orange-400">Local Partnerships</Link></li>
+            <li><Link href="#final-thoughts" className="text-orange-500 hover:text-orange-400">Final Thoughts</Link></li>
           </ul>
         </nav>
 
-        <section className="prose prose-invert max-w-none space-y-8">
+        <section className="prose prose-invert max-w-none space-y-8 text-text-gray leading-relaxed">
           <div id="why">
-            <h2 className="text-3xl font-bold">Why Experiential Marketing Works</h2>
-            <p>Guests today don't just book a room—they book an experience. Travelers want authentic moments, local connections, and memories worth sharing.</p>
-            <p className="text-text-gray">When you create meaningful experiences, guests become advocates. They share stories on social media, leave glowing reviews, and recommend your hotel to friends.</p>
+            <h2 className="text-3xl font-bold text-white">Why Experience Beats Amenities</h2>
+            <p>
+              "Free WiFi, pool, breakfast included" describes almost every hotel within a 10km radius of yours. It's not wrong to mention — it's just not what actually gets someone to choose you over the property next door.
+            </p>
+            <p>
+              What does: a specific, memorable moment they can already picture themselves in. When you deliver that, guests don't just leave a good review — they become the marketing themselves, sharing it unprompted.
+            </p>
           </div>
 
-          <div id="local">
-            <h2 className="text-3xl font-bold">Local Experiences Sell Rooms</h2>
-            <p>Bundle local experiences with room stays:</p>
-            <ul className="list-disc list-inside space-y-2 text-text-gray">
-              <li>Local guide tours</li>
-              <li>Market visits with local experts</li>
-              <li>Cooking classes with local chefs</li>
-              <li>Sunrise hikes with breakfast</li>
-              <li>Access to local artisan workshops</li>
+          <div id="what-works">
+            <h2 className="text-3xl font-bold text-white">What Actually Sells the Stay</h2>
+
+            <h3 className="text-xl font-bold text-orange-500 mt-6">(i). Local experiences bundled with the stay</h3>
+            <p>Not generic add-ons — things only your specific location can offer:</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li>A guided walk with someone who actually knows the area, not a script</li>
+              <li>A market visit with a local expert instead of a generic city tour</li>
+              <li>A cooking session with a local chef, not a hotel buffet demo</li>
             </ul>
+
+            <h3 className="text-xl font-bold text-orange-500 mt-6">(ii). Food, specifically</h3>
+            <p>
+              Food experiences consistently generate the most-shared content of anything a hotel can offer — it's universally understandable, visually shareable, and it's the fastest way to connect a guest to local culture in a way that feels personal rather than staged.
+            </p>
+
+            <h3 className="text-xl font-bold text-orange-500 mt-6">(iii). Cultural connection over generic luxury</h3>
+            <p>
+              "Luxury" is a word every competitor uses. A specific cultural detail — a local craft, a story tied to the building, a tradition guests can actually participate in — isn't something a competitor three doors down can copy overnight.
+            </p>
           </div>
 
           <div id="storytelling">
-            <h2 className="text-3xl font-bold">Storytelling Through Experiences</h2>
-            <p>Every experience has a story. Document and share them:</p>
-            <ul className="list-disc list-inside space-y-2 text-text-gray">
-              <li>Guest testimonials and transformations</li>
-              <li>Local partner stories</li>
-              <li>Staff heritage and expertise</li>
-              <li>Hotel history and evolution</li>
-              <li>Impact on local community</li>
+            <h2 className="text-3xl font-bold text-white">Turning Experiences Into Content</h2>
+            <p>An experience that isn't documented doesn't compound. Worth capturing consistently:</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Real guest reactions in the moment, not staged photos after the fact</li>
+              <li>The people behind the experience — the chef, the guide, the local partner — not just the guest</li>
+              <li>The story of the property itself, if there's genuine history there</li>
             </ul>
+            <p>
+              This is where experiential marketing connects directly to your{' '}
+              <Link href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400">local SEO work</Link>{' '}
+              — content built around real experiences earns the engagement and shares that build long-term visibility, not just a one-time post.
+            </p>
           </div>
 
-          <div id="culture">
-            <h2 className="text-3xl font-bold">Cultural Experiences</h2>
-            <p>Create deep cultural connections that differentiate your hotel from competitors.</p>
+          <div id="partnerships">
+            <h2 className="text-3xl font-bold text-white">Local Partnerships</h2>
+            <p>
+              Partnering with local businesses — a farm, a workshop, a guide — usually costs less than building the experience in-house, and it comes with built-in marketing: they promote the partnership on their own channels too.
+            </p>
           </div>
 
-          <div id="food">
-            <h2 className="text-3xl font-bold">Why Food Creates Better Marketing</h2>
-            <p>Food experiences generate the most engaged social media content and guest satisfaction.</p>
-            <ul className="list-disc list-inside space-y-2 text-text-gray">
-              <li>Food is universally shareable</li>
-              <li>Creates Instagram-worthy moments</li>
-              <li>Connects guests to local culture</li>
-              <li>Allows for unique pricing</li>
-            </ul>
-          </div>
-
-          <div id="behind">
-            <h2 className="text-3xl font-bold">Behind-the-Scenes Content</h2>
-            <p>Show the people, passion, and stories behind your hotel:</p>
-            <ul className="list-disc list-inside space-y-2 text-text-gray">
-              <li>Chef preparation and sourcing</li>
-              <li>Staff training and culture</li>
-              <li>Maintenance and operations</li>
-              <li>Local partnerships</li>
-            </ul>
-          </div>
-
-          <div id="community">
-            <h2 className="text-3xl font-bold">Community Partnerships</h2>
-            <p>Partner with local businesses to create unique experiences and mutual marketing.</p>
+          <div id="final-thoughts">
+            <h2 className="text-3xl font-bold text-white">Final Thoughts</h2>
+            <p>
+              The properties that consistently win aren't the ones with the biggest marketing budget — they're the ones whose guests do the marketing for them, unprompted, because the stay actually gave them something worth talking about.
+            </p>
+            <p>
+              Start with one experience, done properly and documented well, rather than five generic ones spread thin. One specific, memorable detail beats a long list of forgettable amenities every time.
+            </p>
           </div>
         </section>
 
         <section className="mt-16 pt-8 border-t border-white/10">
-          <h3 className="text-2xl font-bold mb-6">Related Content</h3>
+          <h2 className="text-2xl font-bold mb-6">Related Reading</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <a href="/blog/content-marketing-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
-              <h4 className="font-semibold text-orange-500">Content Marketing for Hotels</h4>
-            </a>
-            <a href="/blog/ai-for-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
-              <h4 className="font-semibold text-orange-500">AI for Hotels</h4>
-            </a>
+            <Link href="/blog/content-marketing-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Content Marketing for Hotels</h3>
+            </Link>
+            <Link href="/services/experiential-marketing" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Our Experiential Marketing Service</h3>
+            </Link>
           </div>
+        </section>
+
+        <section className="mt-16 p-8 bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg text-center">
+          <h2 className="text-2xl font-bold mb-4">Ready to Build Your Story?</h2>
+          <p className="text-text-gray mb-6">Let's find the experience only your property can offer, and build the content around it.</p>
+          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-sm transition-colors">
+            Get Your Free Audit
+          </Link>
         </section>
       </div>
     </article>
