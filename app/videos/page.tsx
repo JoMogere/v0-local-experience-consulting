@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { getChannelVideos } from '@/lib/youtube'
+import { getChannelVideos, YouTubeDebugInfo } from '@/lib/youtube'
 
 export const metadata: Metadata = {
   title: 'Hotel Growth Videos | BookedUp Africa',
@@ -9,8 +9,10 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600
 
-export default async function VideosPage() {
-  const videos = await getChannelVideos()
+export default async function VideosPage({ searchParams }: { searchParams: Promise<{ debug?: string }> }) {
+  const { debug: debugParam } = await searchParams
+  const debug: YouTubeDebugInfo = {}
+  const videos = await getChannelVideos(debugParam === '1' ? debug : undefined)
   const featured = videos.slice(0, 3)
   const rest = videos.slice(3)
 
@@ -46,6 +48,13 @@ export default async function VideosPage() {
             <p className="text-text-gray">
               Videos couldn't be loaded right now. Check back shortly, or visit the channel directly above.
             </p>
+          </div>
+        )}
+
+        {debugParam === '1' && (
+          <div className="mb-8 p-6 bg-black/60 border border-yellow-500/30 rounded-lg overflow-x-auto">
+            <h2 className="text-yellow-500 font-bold mb-2">Debug Info</h2>
+            <pre className="text-xs text-text-gray whitespace-pre-wrap">{JSON.stringify(debug, null, 2)}</pre>
           </div>
         )}
 
