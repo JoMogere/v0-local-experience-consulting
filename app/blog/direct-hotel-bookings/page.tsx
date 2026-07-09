@@ -88,6 +88,20 @@ export default function DirectBookingsPillar() {
               <li>Pre-arrival communication</li>
             </ul>
           </div>
+
+          <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+            <h2 className="text-xl font-bold mb-4">Related Reading</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <a href="/pillar/direct-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
+                <h3 className="font-bold text-orange-500 mb-2">Direct Bookings: The Complete Guide →</h3>
+                <p className="text-text-gray text-sm">OTA costs, booking engines, rate parity, and Google Hotel Search</p>
+              </a>
+              <a href="/blog/hotel-marketing-agency-vs-digital-marketing-agency" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
+                <h3 className="font-bold text-orange-500 mb-2">Hotel Agency vs. Digital Marketing Agency →</h3>
+                <p className="text-text-gray text-sm">What actually separates a hospitality specialist from a generalist</p>
+              </a>
+            </div>
+          </div>
         </section>
       </div>
     </article>
