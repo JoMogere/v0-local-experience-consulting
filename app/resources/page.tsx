@@ -140,6 +140,9 @@ export default function ResourcesPage() {
             >
               Schedule a Strategy Call
             </a>
+            <p className="text-text-gray text-sm mt-4">
+              Or see the full picture: <a href="/hotel-digital-marketing-agency-kenya" className="text-orange-500 hover:text-orange-400 font-semibold">what working with a hotel-only marketing agency looks like →</a>
+            </p>
           </div>
         </div>
       </div>
