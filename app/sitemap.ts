@@ -127,6 +127,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/hotel-digital-marketing-agency-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/pillar`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
