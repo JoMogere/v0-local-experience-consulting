@@ -1,7 +1,13 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
+import { TrustStrip } from "@/components/trust-strip"
+import { ServicesOverview } from "@/components/services-overview"
 import { Portfolio } from "@/components/portfolio"
+import { RealResults } from "@/components/real-results"
+import { HowWeWork } from "@/components/how-we-work"
+import { About } from "@/components/about"
 import { Playbooks } from "@/components/playbooks"
+import { FAQ } from "@/components/faq"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -12,8 +18,14 @@ export default function HomePage() {
     <main className="overflow-x-hidden">
       <Navigation />
       <Hero />
+      <TrustStrip />
+      <ServicesOverview />
       <Portfolio />
+      <RealResults />
+      <HowWeWork />
+      <About />
       <Playbooks />
+      <FAQ />
       <Newsletter />
       <Contact />
       <Footer />
