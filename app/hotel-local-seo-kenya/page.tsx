@@ -21,7 +21,7 @@ export default function HotelLocalSEOPage() {
             Help your hotel appear first in local search results and Google Maps so travelers find and book you directly. This is where you win visibility.
           </p>
           <div className="flex gap-4">
-            <Link href="#strategy" className="px-6 py-3 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors">
+            <Link href="#strategy" className="px-6 py-3 bg-orange-500 text-navy-deep rounded hover:bg-orange-600 transition-colors">
               See Strategy
             </Link>
             <Link href="/contact" className="px-6 py-3 border border-orange-500 text-orange-500 rounded hover:bg-orange-500/10 transition-colors">
