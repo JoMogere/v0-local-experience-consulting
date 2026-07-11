@@ -1,4 +1,5 @@
 import { MapPin, Star, TrendingUp } from "lucide-react"
+import Image from "next/image"
 
 const icons = [
   { icon: MapPin, label: "Local SEO" },
@@ -8,12 +9,21 @@ const icons = [
 
 export function Hero() {
   return (
-    <section
-      className="min-h-screen flex items-center relative bg-cover bg-center pt-48 pb-24 md:pt-32 md:pb-0"
-      style={{
-        backgroundImage: `linear-gradient(to right, rgba(18, 24, 34, 0.98) 35%, rgba(18, 24, 34, 0.4)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=2000')`,
-      }}
-    >
+    <section className="min-h-screen flex items-center relative pt-48 pb-24 md:pt-32 md:pb-0 overflow-hidden">
+      <Image
+        src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=60&w=1600"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center -z-20"
+      />
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(18, 24, 34, 0.98) 35%, rgba(18, 24, 34, 0.4))`,
+        }}
+      />
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 w-full">
         <div className="max-w-[700px] relative z-5 text-center md:text-left">
           <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-white text-balance">
