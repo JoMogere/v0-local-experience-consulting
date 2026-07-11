@@ -28,13 +28,13 @@ export function Hero() {
         <div className="max-w-[700px] relative z-5 text-center md:text-left">
           <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-white text-balance">
             Research and implementation
+            <span className="block text-lg md:text-[26px] font-light mt-2.5 tracking-normal">
+              for <span className="text-orange-500 font-bold">local SEO</span>,{" "}
+              <span className="text-orange-500 font-bold">experiential marketing</span>,
+              <br className="hidden md:block" />
+              and <span className="text-orange-500 font-bold">direct bookings</span>
+            </span>
           </h1>
-          <p className="text-lg md:text-[26px] font-light mb-2.5">
-            for <span className="text-orange-500 font-bold">local SEO</span>,{" "}
-            <span className="text-orange-500 font-bold">experiential marketing</span>,
-            <br className="hidden md:block" />
-            and <span className="text-orange-500 font-bold">direct bookings</span>
-          </p>
           <div className="w-20 h-px bg-orange-500 my-8 md:my-10 mx-auto md:mx-0" />
           <p className="font-serif italic text-orange-500 text-lg md:text-[22px] tracking-[0.5px]">
             Search. Stay. Succeed.
