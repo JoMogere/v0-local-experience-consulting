@@ -37,7 +37,7 @@ export default async function VideosPage({ searchParams }: { searchParams: Promi
             href="https://www.youtube.com/@bookedupafrica"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-orange-500 text-white rounded font-semibold hover:bg-orange-600 transition-colors"
+            className="inline-block px-8 py-3 bg-orange-500 text-navy-deep rounded font-semibold hover:bg-orange-600 transition-colors"
           >
             Subscribe on YouTube
           </a>
