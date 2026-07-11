@@ -60,7 +60,7 @@ export default function BlogsPage() {
             <p className="text-text-gray mb-4">No articles published yet.</p>
             <Link
               href="/admin/blog"
-              className="inline-block px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors"
+              className="inline-block px-6 py-2 bg-orange-500 text-navy-deep rounded hover:bg-orange-600 transition-colors"
             >
               Create First Article
             </Link>
