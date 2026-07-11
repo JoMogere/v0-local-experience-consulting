@@ -75,7 +75,7 @@ export function Portfolio() {
                     : "border-white/5 hover:border-white/20"
                 }`}
               >
-                <h4 className="font-bold text-sm md:text-lg">{property.name}</h4>
+                <span className="block font-bold text-sm md:text-lg">{property.name}</span>
               </button>
             ))}
           </div>
