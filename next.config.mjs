@@ -27,6 +27,15 @@ const nextConfig = {
     config.externals.push('better-auth/node_modules/@better-auth/kysely-adapter');
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/blogs',
+        destination: '/blog',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
