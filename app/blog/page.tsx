@@ -176,7 +176,7 @@ export default function BlogPage() {
             href="https://calendly.com/mogerejulius41/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-sm transition-colors"
+            className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
           >
             Book a Strategy Call
           </a>
