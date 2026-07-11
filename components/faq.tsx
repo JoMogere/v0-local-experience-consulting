@@ -39,13 +39,15 @@ export function FAQ() {
         <div className="space-y-3">
           {FAQS.map((faq, index) => (
             <div key={index} className="border border-white/10 rounded-lg overflow-hidden">
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full text-left px-6 py-4 flex justify-between items-center bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
-              >
-                <span className="font-semibold">{faq.q}</span>
-                <span className={`text-gold transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>▼</span>
-              </button>
+              <h3 className="m-0">
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full text-left px-6 py-4 flex justify-between items-center bg-white/[0.03] hover:bg-white/[0.06] transition-colors font-semibold"
+                >
+                  <span>{faq.q}</span>
+                  <span className={`text-gold transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>▼</span>
+                </button>
+              </h3>
               {openIndex === index && (
                 <div className="px-6 py-4 text-text-gray text-sm border-t border-white/10">{faq.a}</div>
               )}
@@ -53,6 +55,24 @@ export function FAQ() {
           ))}
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: FAQS.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
     </section>
   )
 }
