@@ -108,7 +108,7 @@ export default function ResourcesPage() {
               href="https://medium.com/@mogerejulius41"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-orange-500 text-white rounded font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-block px-8 py-3 bg-orange-500 text-navy-deep rounded font-semibold hover:bg-orange-600 transition-colors"
             >
               Follow on Medium
             </a>
@@ -122,7 +122,7 @@ export default function ResourcesPage() {
             </p>
             <a
               href="/blog"
-              className="inline-block px-8 py-3 bg-orange-500 text-white rounded font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-block px-8 py-3 bg-orange-500 text-navy-deep rounded font-semibold hover:bg-orange-600 transition-colors"
             >
               Visit Our Blog
             </a>
@@ -136,7 +136,7 @@ export default function ResourcesPage() {
             </p>
             <a
               href="/hotel-growth-partnership-kenya"
-              className="inline-block px-8 py-3 bg-orange-500 text-white rounded font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-block px-8 py-3 bg-orange-500 text-navy-deep rounded font-semibold hover:bg-orange-600 transition-colors"
             >
               Schedule a Strategy Call
             </a>
