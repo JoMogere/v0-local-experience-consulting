@@ -101,7 +101,7 @@ export default function ContentMarketingPillar() {
         <section className="mt-16 p-8 bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-4">Need a Content Strategy That Fits Your Property?</h2>
           <p className="text-text-gray mb-6">We build content plans around what your guests are actually searching for.</p>
-          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-sm transition-colors">
+          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors">
             Get Your Free Audit
           </Link>
         </section>
