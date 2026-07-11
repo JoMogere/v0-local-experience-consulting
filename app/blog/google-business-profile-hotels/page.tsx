@@ -146,7 +146,7 @@ export default function GBPPillar() {
         <section className="mt-16 p-8 bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-4">Want Your Profile Audited?</h2>
           <p className="text-text-gray mb-6">We'll check your category, booking link setup, and visibility gaps — free.</p>
-          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-sm transition-colors">
+          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors">
             Get Your Free Audit
           </Link>
         </section>
