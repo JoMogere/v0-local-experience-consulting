@@ -21,7 +21,7 @@ export default function HotelDigitalMarketingAgencyPage() {
             BookedUp Africa works exclusively with hotels, lodges, and resorts across Kenya — Local SEO, direct bookings, and experiential marketing, built around how guests actually search and book.
           </p>
           <div className="flex gap-4 flex-wrap">
-            <Link href="#why-specialist" className="px-6 py-3 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors">
+            <Link href="#why-specialist" className="px-6 py-3 bg-orange-500 text-navy-deep rounded hover:bg-orange-600 transition-colors">
               See What's Different
             </Link>
             <Link href="/contact" className="px-6 py-3 border border-orange-500 text-orange-500 rounded hover:bg-orange-500/10 transition-colors">
@@ -127,7 +127,7 @@ export default function HotelDigitalMarketingAgencyPage() {
         <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-12">
           <h2 className="text-3xl font-bold mb-4">Talk to a Specialist, Not a Generalist</h2>
           <p className="text-gray-300 mb-8">Get a free audit covering Local SEO, direct bookings, and experiential marketing for your property.</p>
-          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-sm transition-colors">
+          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors">
             Request Your Free Audit
           </Link>
         </div>
