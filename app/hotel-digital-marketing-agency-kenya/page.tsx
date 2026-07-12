@@ -128,7 +128,7 @@ export default function HotelDigitalMarketingAgencyPage() {
           <h2 className="text-3xl font-bold mb-4">Talk to a Specialist, Not a Generalist</h2>
           <p className="text-gray-300 mb-8">Get a free audit covering Local SEO, direct bookings, and experiential marketing for your property.</p>
           <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors">
-            Request Your Free Audit
+            Claim My Free Audit — No Obligation →
           </Link>
         </div>
       </section>
