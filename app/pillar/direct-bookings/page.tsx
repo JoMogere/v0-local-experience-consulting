@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Direct Bookings for Hotels: The Complete Guide to Cutting OTA Commissions | BookedUp Africa',
-  description: 'A practical guide for African hotels to reduce OTA dependence, set up a booking engine that actually converts, and win back the bookings you\'re paying 15-25% commission on.',
+  title: 'Direct Bookings Guide for Hotels | BookedUp Africa',
+  description: 'A practical guide for African hotels to reduce OTA dependence, set up a converting booking engine, and win back commission-free bookings.',
   keywords: 'direct hotel bookings, reduce OTA commission, hotel booking engine Kenya, cut Booking.com commission, direct booking strategy Africa',
   openGraph: {
     title: 'Direct Bookings for Hotels: The Complete Guide',
