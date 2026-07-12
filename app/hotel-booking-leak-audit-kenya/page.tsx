@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Direct Booking Audit | OTA Dependency Analysis | BookedUp Africa',
+  title: 'Direct Booking Audit | BookedUp Africa',
   description: 'Identify where bookings are leaking to OTAs. Get a clear action plan to improve visibility, conversions, and direct revenue for your hotel.',
   keywords: 'hotel OTA dependency, direct booking audit, booking leakage, hotel revenue management Kenya',
 }
