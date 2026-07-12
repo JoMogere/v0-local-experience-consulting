@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Hotel Booking Engine Setup: Channel Managers & Google Hotel Search | BookedUp Africa',
-  description: 'How to choose and set up a booking engine for an independent hotel — channel manager options, Google Hotel Search feeds, and what actually matters for small African properties.',
+  title: 'Hotel Booking Engine Setup | BookedUp Africa',
+  description: 'How to choose and set up a booking engine — channel managers, Google Hotel Search feeds, and what actually matters for small African properties.',
   keywords: 'hotel booking engine, Zeevou, Beds24, Lodgify, channel manager hotel, Google Hotel Center XML feed, Google Hotel Search setup',
 }
 
