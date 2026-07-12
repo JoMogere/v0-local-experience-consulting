@@ -40,7 +40,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#25D366] text-white font-bold rounded-sm hover:opacity-90 transition-opacity"
             >
-              Message on WhatsApp
+              Message Me on WhatsApp →
             </Link>
           </div>
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-full px-6 py-3 bg-orange-500 text-navy-deep font-bold rounded-sm hover:bg-orange-600 transition-colors"
             >
-              Schedule a Call
+              Claim My Free Call →
             </Link>
           </div>
         </section>
