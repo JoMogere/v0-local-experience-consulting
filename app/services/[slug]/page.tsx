@@ -93,7 +93,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
           >
-            Schedule a Free Strategy Call
+            Claim My Free Strategy Call →
           </a>
         </section>
       </article>
