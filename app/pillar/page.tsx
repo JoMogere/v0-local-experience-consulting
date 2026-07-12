@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { MapPin, TrendingUp } from 'lucide-react'
+import { MapPin, TrendingUp, Sparkles } from 'lucide-react'
 
 const PILLAR_ICONS: Record<string, typeof MapPin> = {
   'local-seo-hotels': MapPin,
   'direct-bookings': TrendingUp,
+  'experiential-marketing': Sparkles,
 }
 
 export const metadata: Metadata = {
@@ -25,6 +26,12 @@ export default function PillarHubPage() {
       slug: 'direct-bookings',
       description: 'Reduce OTA commission costs and build a booking engine that turns website visitors into confirmed guests.',
       topics: ['Reduce OTA Dependence', 'Booking Engine Setup', 'Website Conversion', 'Google Hotel Search'],
+    },
+    {
+      title: 'Experiential Marketing',
+      slug: 'experiential-marketing',
+      description: 'Turn your property into the stay guests can\'t stop talking about — real experiences, real stories, real word of mouth.',
+      topics: ['Local Partnerships', 'Turning Moments Into Content', 'Telling Your Story'],
     },
   ]
 
@@ -117,7 +124,7 @@ export default function PillarHubPage() {
         <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">More Guides Coming Soon</h2>
           <p className="text-text-gray mb-6">
-            We're expanding this hub with more guides on Google Business Profile, Hotel Website Strategy, Experiential Marketing, and more — each with the same depth and practical detail.
+            We're expanding this hub with more guides on Google Business Profile and Hotel Website Strategy — each with the same depth and practical detail.
           </p>
           <a
             href="https://calendly.com/mogerejulius41/30min"
