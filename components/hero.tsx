@@ -54,6 +54,15 @@ export function Hero() {
               </div>
             ))}
           </div>
+          <div className="mt-10 md:mt-14">
+            <a
+              href="/contact"
+              className="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors text-sm md:text-base uppercase tracking-[0.5px]"
+            >
+              Claim Your Free Growth Audit →
+            </a>
+            <p className="text-text-gray text-xs mt-3">No obligation. No sales pitch — just a real look at what's costing you bookings.</p>
+          </div>
         </div>
       </div>
     </section>
