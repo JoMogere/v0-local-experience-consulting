@@ -176,6 +176,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly',
     },
+    {
+      url: `${baseUrl}/pillar/experiential-marketing`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/experiential-marketing/local-partnerships`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/experiential-marketing/turning-moments-into-content`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/pillar/experiential-marketing/telling-your-story`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
     ...serviceRoutes,
     ...blogRoutes,
   ]
