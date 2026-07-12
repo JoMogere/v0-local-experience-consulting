@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Increase Direct Hotel Bookings: A Practical Guide | BookedUp Africa',
+  title: 'Increase Direct Hotel Bookings | BookedUp Africa',
   description: 'Why guests default to OTAs, and the specific funnel and website fixes that shift bookings back to your own channel.',
   keywords: 'direct hotel bookings, booking funnel, OTA vs direct, conversion rate optimization hotels',
 }
