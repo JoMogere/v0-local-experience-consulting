@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'AI for Hotels: Where It Actually Helps (and Where It Doesn\'t) | BookedUp Africa',
+  title: 'AI for Hotels: Where It Actually Helps | BookedUp Africa',
   description: 'A practical look at where AI genuinely helps hotel marketing and operations, and where it quietly makes guest experience worse.',
   keywords: 'AI hotels, chatGPT hotels, AI marketing, hotel automation',
 }
