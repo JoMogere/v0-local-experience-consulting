@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Case Study: Elsamere Lodge Free Booking Link Results | BookedUp Africa',
+  title: 'Elsamere Lodge Case Study | BookedUp Africa',
   description: 'How Elsamere Lodge generated 124 clicks on its free Google hotel booking link, driving zero-commission direct booking traffic.',
   keywords: 'Elsamere Lodge, free hotel booking link, Google Business Profile results, direct bookings Kenya',
 }
