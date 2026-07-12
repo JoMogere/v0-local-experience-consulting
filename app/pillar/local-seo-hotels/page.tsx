@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Local SEO for Hotels: Complete Guide to Google Maps Domination | BookedUp Africa',
-  description: 'Master local SEO for hotels in Africa. Learn strategies to rank in Google Maps, Local Pack, and get direct bookings from local search with our comprehensive guide.',
+  title: 'Local SEO for Hotels: Complete Guide | BookedUp Africa',
+  description: 'How hotels in Africa rank in Google Maps and local search — practical strategies that drive direct bookings, not just theory.',
   keywords: 'local SEO hotels, hotel local search optimization, Google Maps ranking hotels, hotel direct bookings SEO, Africa hospitality marketing',
   openGraph: {
     title: 'Local SEO for Hotels: Complete Guide to Google Maps Domination',
