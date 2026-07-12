@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Hotel Digital Marketing Agency in Kenya | BookedUp Africa',
-  description: 'A hospitality-specialist digital marketing agency for hotels and resorts in Kenya — Local SEO, direct bookings, and experiential marketing, with real verified results.',
+  description: 'A hospitality-specialist marketing agency for hotels and resorts in Kenya — Local SEO, direct bookings, and experiential marketing.',
   keywords: 'hotel digital marketing agency Kenya, hotel marketing agency Nairobi, hospitality marketing Kenya, hotel SEO agency Kenya',
 }
 
