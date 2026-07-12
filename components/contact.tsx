@@ -9,10 +9,10 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20">
           <div className="text-center lg:text-left">
             <h2 className="text-3xl md:text-[48px] font-bold mb-4 md:mb-5 tracking-[-0.02em] text-balance">
-              Ready to grow?
+              Stop Losing Bookings to OTA Commissions
             </h2>
             <p className="text-base md:text-lg mb-6 md:mb-10 text-navy-deep/70">
-              Book a complimentary 30-minute growth framework assessment of your property.
+              Book a free 30-minute call. We'll show you exactly where you're losing bookings — and what to fix first. No pressure, no obligation.
             </p>
             <Link
               href="https://calendly.com/mogerejulius41/30min"
@@ -20,9 +20,10 @@ export function Contact() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 md:px-9 py-3.5 md:py-4.5 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded-sm transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02] uppercase tracking-[1px] md:tracking-[2px] text-[12px] md:text-[13px] border-none cursor-pointer no-underline mb-6 md:mb-10"
             >
-              Schedule Your Call
+              Claim My Free Strategy Call →
             </Link>
             <div className="mt-4 md:mt-6">
+              <p className="text-navy-deep/60 text-xs mb-2">Prefer to message first?</p>
               <Link 
                 href="https://wa.me/+254799022671" 
                 target="_blank"
@@ -44,7 +45,7 @@ export function Contact() {
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Local Experience Consulting Location"
+                title="BookedUp Africa Location"
               />
             </div>
           </div>
