@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Hotel Local SEO Kenya | Google Maps Ranking | BookedUp Africa',
+  title: 'Hotel Local SEO Kenya | BookedUp Africa',
   description: 'Dominate Google Maps and local search results so guests find and book your hotel directly. Complete Local SEO strategy for Kenyan hotels.',
   keywords: 'hotel local SEO Kenya, Google Maps ranking, hotel search visibility, direct bookings Kenya',
 }
