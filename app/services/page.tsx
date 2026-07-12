@@ -77,7 +77,7 @@ export default function ServicesPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded hover:scale-105 transition-transform"
           >
-            Schedule a Consultation
+            Claim My Free Consultation →
           </Link>
         </div>
       </div>
