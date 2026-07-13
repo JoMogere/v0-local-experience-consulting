@@ -2,9 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Hotel Booking Engine Setup | BookedUp Africa',
-  description: 'How to choose and set up a booking engine — channel managers, Google Hotel Search feeds, and what actually matters for small African properties.',
-  keywords: 'hotel booking engine, Zeevou, Beds24, Lodgify, channel manager hotel, Google Hotel Center XML feed, Google Hotel Search setup',
+  title: 'Channel Manager & Direct Bookings Setup | BookedUp Africa',
+  description: 'How to mix a channel manager with direct bookings without conflicts — plus Google Hotel Search setup for small African properties.',
+  keywords: 'channel manager and direct bookings mix, hotel booking engine, Zeevou, Beds24, Lodgify, channel manager hotel, Google Hotel Center XML feed',
 }
 
 export default function BookingEngineSetupPage() {
@@ -65,6 +65,24 @@ export default function BookingEngineSetupPage() {
             <h2 className="text-3xl font-bold mb-4">Why This Placement Is Worth the Setup Effort</h2>
             <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
               <p className="text-text-gray">Hotel Search traffic is high-intent — these are travelers actively comparing prices to book, not early-stage browsers. Unlike organic local SEO, which builds over months, a correctly configured Hotel Center feed can put you in front of ready-to-book guests as soon as it's approved.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold mb-4">Won't a Channel Manager and Direct Bookings Conflict?</h2>
+            <p className="text-text-gray mb-6">
+              This is the question that stops a lot of hotels from setting either one up properly — worried that pushing direct bookings will somehow break their OTA listings, or that a channel manager will just add another system to manage. It's the opposite: a channel manager is exactly what lets you run both at once safely.
+            </p>
+            <p className="text-text-gray mb-6">
+              Here's the mix that actually works: your channel manager syncs your calendar across every OTA in real time. The moment a guest books directly through your own site, that room is automatically blocked everywhere else — no manual updates, no double bookings, no risk to your existing OTA relationships. Direct bookings and OTA bookings pull from the same pool of availability, managed by one system.
+            </p>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="font-bold text-orange-500 mb-3">The Order That Actually Works</h3>
+              <ul className="text-text-gray text-sm space-y-2">
+                <li>1. Get your channel manager syncing your existing OTA listings first — this alone stops double bookings</li>
+                <li>2. Add a direct booking widget connected to the same calendar</li>
+                <li>3. Only then start actively pushing guests toward booking direct — the safety net is already in place</li>
+              </ul>
             </div>
           </section>
 
