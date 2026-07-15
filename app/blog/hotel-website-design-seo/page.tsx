@@ -2,7 +2,10 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Hotel Website Design & SEO: What Actually Converts | BookedUp Africa',
+  alternates: {
+    canonical: '/blog/hotel-website-design-seo',
+  },
+  title: 'Hotel Website Design & SEO | BookedUp Africa',
   description: 'Core Web Vitals, homepage structure, navigation, and internal linking for hotel websites that rank and actually convert visitors into bookings.',
   keywords: 'hotel website design, hotel web SEO, website structure, mobile booking',
 }
