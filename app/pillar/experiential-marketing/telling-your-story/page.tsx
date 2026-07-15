@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/experiential-marketing/telling-your-story',
+  },
   title: 'Telling Your Property\'s Story | BookedUp Africa',
   description: 'How to find and tell the story that makes your property memorable, instead of sounding like every other listing.',
   keywords: 'hotel branding story, hospitality storytelling, hotel differentiation Kenya',
