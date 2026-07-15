@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/resources',
+  },
   title: 'BookedUp Africa — Hotel Growth Articles & Resources',
   description: 'In-depth articles on local SEO, guest experience, direct booking optimization, and hospitality marketing strategies.',
   keywords: 'hotel marketing articles, local SEO guide, hospitality strategy, direct bookings, medium articles',
