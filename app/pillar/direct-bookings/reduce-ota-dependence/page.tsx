@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/direct-bookings/reduce-ota-dependence',
+  },
   title: 'How to Reduce OTA Dependence for Hotels | BookedUp Africa',
   description: 'A practical, step-by-step approach for hotels to reduce reliance on Booking.com and Expedia without losing bookings in the process.',
   keywords: 'reduce OTA dependence, cut Booking.com commission, hotel direct booking strategy, OTA vs direct bookings',
