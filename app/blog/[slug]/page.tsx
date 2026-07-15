@@ -7,29 +7,32 @@ interface Params {
   slug: string
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const post = await getBlogBySlug(params.slug)
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = await getBlogBySlug(slug)
 
   if (!post || post.status !== 'published') {
     notFound()
   }
 
   return {
-    title: post.title,
-    description: post.excerpt || post.content.substring(0, 150),
-    keywords: post.category,
+    title: `${post.title} | BookedUp Africa`,
+    description: post.excerpt || post.content.substring(0, 155),
+    keywords: post.category || undefined,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.excerpt || '',
+      title: post.title,
+      description: post.excerpt || post.content.substring(0, 155),
       type: 'article',
-      images: post.image ? [{ url: post.image }] : [],
     },
   }
 }
 
 export async function generateStaticParams() {
   try {
-    const posts = await getPublishedBlogPosts()
+    const posts = await getPublishedBlogs()
     return posts.map((post) => ({
       slug: post.slug,
     }))
@@ -41,23 +44,24 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function BlogPostPage({ params }: { params: Params }) {
-  const post = await getBlogPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params
+  const post = await getBlogBySlug(slug)
 
-  if (!post || !post.published) {
+  if (!post || post.status !== 'published') {
     notFound()
   }
 
   return (
-    <article className="min-h-screen py-16 md:py-24 bg-background">
+    <article className="min-h-screen py-16 md:py-24 bg-background pt-32">
       <div className="max-w-3xl mx-auto px-4 md:px-10">
         {/* Back Link */}
         <Link href="/blog" className="text-gold hover:text-gold-light mb-8 inline-block">
-          ← Back to Blog
+          ← Back to All Articles
         </Link>
 
         {/* Header */}
-        <header className="mb-12">
+        <header className="mb-12 mt-6">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {post.title}
           </h1>
@@ -72,17 +76,6 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             )}
           </div>
         </header>
-
-        {/* Featured Image */}
-        {post.image && (
-          <div className="mb-12 rounded-lg overflow-hidden">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-96 object-cover"
-            />
-          </div>
-        )}
 
         {/* Excerpt */}
         {post.excerpt && (
@@ -100,14 +93,19 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
         {/* CTA */}
         <div className="mt-12 p-8 bg-gold/10 border border-gold/20 rounded-lg text-center">
-          <p className="text-lg text-white mb-4">Want to implement these strategies?</p>
+          <p className="text-lg text-white mb-4">Want to implement these strategies for your property?</p>
           <Link
-            href="https://calendly.com/mogerejulius41/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             className="inline-flex items-center px-8 py-3 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded hover:scale-105 transition-transform"
           >
-            Schedule a Consultation
+            Claim My Free Growth Audit →
+          </Link>
+        </div>
+
+        {/* Browse more */}
+        <div className="mt-8 text-center">
+          <Link href="/blog" className="text-gold hover:text-gold-light text-sm">
+            ← Browse all articles
           </Link>
         </div>
       </div>
@@ -121,11 +119,10 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             '@type': 'BlogPosting',
             headline: post.title,
             description: post.excerpt,
-            image: post.image,
             datePublished: post.publishedAt,
             author: {
               '@type': 'Organization',
-              name: 'Local Experience Consulting',
+              name: 'BookedUp Africa',
             },
           }),
         }}
