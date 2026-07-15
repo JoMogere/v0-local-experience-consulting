@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/experiential-marketing/turning-moments-into-content',
+  },
   title: 'Turning Guest Moments Into Content | BookedUp Africa',
   description: 'A simple guide to capturing real guest moments — no expensive equipment or production crew needed.',
   keywords: 'hotel content creation, guest photos videos, hotel social media Kenya',
