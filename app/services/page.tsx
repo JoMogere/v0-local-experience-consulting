@@ -10,6 +10,9 @@ const ICONS: Record<string, typeof MapPin> = {
 }
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/services',
+  },
   title: 'Our Services | BookedUp Africa',
   description: 'Local SEO, Experiential Marketing, and Direct Bookings strategy for African hotels and resorts.',
   keywords: 'local SEO hotels, experiential marketing, direct bookings, hospitality consulting Kenya',
