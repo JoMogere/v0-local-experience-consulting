@@ -14,6 +14,9 @@ const CATEGORY_ICONS: Record<string, typeof MapPin> = {
 }
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/blog',
+  },
   title: 'Hotel Marketing Blog | BookedUp Africa',
   description: 'Comprehensive guides on local SEO, direct bookings, content marketing, and experiential marketing for African hotels.',
   keywords: 'hotel marketing blog, hotel SEO, direct bookings, hospitality marketing, local search',
