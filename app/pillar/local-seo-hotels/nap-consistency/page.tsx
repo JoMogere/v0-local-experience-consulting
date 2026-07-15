@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/local-seo-hotels/nap-consistency',
+  },
   title: 'NAP Consistency for Hotels | BookedUp Africa',
   description: 'Keep your hotel\'s Name, Address, and Phone number consistent across every platform so guests — and Google — can always find you.',
   keywords: 'NAP consistency, hotel local SEO, Google Business Profile Kenya, local citations hotel',
