@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/blog/hospitality-case-studies',
+  },
   title: 'Hospitality Case Studies | BookedUp Africa',
   description: 'Real, verified results from our work with hotels and resorts — no placeholder numbers, just what actually happened.',
   keywords: 'hotel case studies, hospitality marketing examples, hotel success stories',
