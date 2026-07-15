@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/blog/experiential-marketing-hotels',
+  },
   title: 'Experiential Marketing for Hotels | BookedUp Africa',
   description: 'Why amenity lists stop working and experience-driven marketing takes over — local partnerships, storytelling, and what makes content actually get shared.',
   keywords: 'experiential marketing hotels, guest experiences, hotel storytelling, destination marketing',
