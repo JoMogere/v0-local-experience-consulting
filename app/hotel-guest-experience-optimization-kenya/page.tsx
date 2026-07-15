@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/hotel-guest-experience-optimization-kenya',
+  },
   title: 'Guest Experience Optimization | Hotel CX | BookedUp Africa',
   description: 'Improve the full guest journey from discovery to post-stay engagement to increase repeat bookings, referrals, and five-star reviews.',
   keywords: 'guest experience optimization, hotel CX, repeat bookings, guest journey, hotel reviews Kenya',
