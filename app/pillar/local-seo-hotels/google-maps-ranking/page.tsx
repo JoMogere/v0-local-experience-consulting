@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/local-seo-hotels/google-maps-ranking',
+  },
   title: 'Rank Higher in Google Maps for Hotels | BookedUp Africa',
   description: 'The complete, step-by-step strategy for hotels to rank higher in Google Maps and local search results.',
   keywords: 'Google Maps ranking hotel, hotel local SEO Kenya, Google Business Profile optimization',
