@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/experiential-marketing/local-partnerships',
+  },
   title: 'Finding Local Partners for Guest Experiences | BookedUp Africa',
   description: 'A simple, friendly guide to finding and working with local guides, chefs, and artisans to create experiences guests love.',
   keywords: 'local partnerships hotels, guest experiences Kenya, hotel local guides',
