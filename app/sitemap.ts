@@ -107,6 +107,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/blog/how-to-choose-a-hotel-marketing-agency-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/hotel-growth-partnership-kenya`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
