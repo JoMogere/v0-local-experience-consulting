@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/blog/google-business-profile-hotels',
+  },
   title: 'Google Business Profile for Hotels | BookedUp Africa',
   description: 'How to set up and optimize your Google Business Profile — categories, photos, posts, and the free booking link most hotels never activate.',
   keywords: 'Google Business Profile hotels, hotel GBP optimization, Google Posts, hotel categories, booking links',
