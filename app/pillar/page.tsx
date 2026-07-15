@@ -9,6 +9,9 @@ const PILLAR_ICONS: Record<string, typeof MapPin> = {
 }
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar',
+  },
   title: 'Hospitality Marketing Guides | BookedUp Africa',
   description: 'In-depth, practical guides on hospitality marketing to help your hotel win more direct bookings.',
 }
