@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/blog/direct-hotel-bookings',
+  },
   title: 'Increase Direct Hotel Bookings | BookedUp Africa',
   description: 'Why guests default to OTAs, and the specific funnel and website fixes that shift bookings back to your own channel.',
   keywords: 'direct hotel bookings, booking funnel, OTA vs direct, conversion rate optimization hotels',
