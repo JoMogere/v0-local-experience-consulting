@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/direct-bookings/booking-engine-setup',
+  },
   title: 'Channel Manager & Direct Bookings Setup | BookedUp Africa',
   description: 'How to mix a channel manager with direct bookings without conflicts — plus Google Hotel Search setup for small African properties.',
   keywords: 'channel manager and direct bookings mix, hotel booking engine, Zeevou, Beds24, Lodgify, channel manager hotel, Google Hotel Center XML feed',
