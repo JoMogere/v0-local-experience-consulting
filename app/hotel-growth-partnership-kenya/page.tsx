@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/hotel-growth-partnership-kenya',
+  },
   title: 'Hotel Growth & Direct Booking System Kenya | BookedUp Africa',
   description: 'Long-term hotel growth partnership managing Local SEO, reviews, and booking performance to deliver consistent direct booking revenue.',
   keywords: 'hotel growth Kenya, direct bookings, local SEO, hotel revenue, booking management',
