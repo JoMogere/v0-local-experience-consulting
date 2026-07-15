@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/direct-bookings/website-conversion',
+  },
   title: 'Website Conversion for Hotels | BookedUp Africa',
   description: 'Practical fixes for hotel websites that get traffic but not bookings — booking flow, mobile checkout, and trust signals that convert.',
   keywords: 'hotel website conversion, hotel booking flow, hotel website optimization, direct booking conversion rate',
