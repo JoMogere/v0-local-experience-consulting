@@ -3,6 +3,9 @@ import Link from 'next/link'
 import { getChannelVideos, YouTubeDebugInfo } from '@/lib/youtube'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/videos',
+  },
   title: 'Hotel Growth Videos | BookedUp Africa',
   description: 'Practical strategies and implementation guides for increasing direct bookings and guest satisfaction, from the BookedUp Africa YouTube channel.',
 }
