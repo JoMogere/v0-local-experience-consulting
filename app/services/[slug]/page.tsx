@@ -23,6 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: `${service.title} | BookedUp Africa`,
     description: service.description,
     keywords: service.features.join(', '),
+    alternates: {
+      canonical: `/services/${service.slug}`,
+    },
     openGraph: {
       title: service.title,
       description: service.description,
