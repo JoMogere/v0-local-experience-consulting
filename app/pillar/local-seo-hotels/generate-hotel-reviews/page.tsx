@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/local-seo-hotels/generate-hotel-reviews',
+  },
   title: 'How to Generate Hotel Reviews | BookedUp Africa',
   description: 'A proven, ethical system for African hotels to generate authentic guest reviews that improve local SEO rankings and guest satisfaction.',
   keywords: 'hotel reviews, generate hotel reviews, guest reviews Kenya, hotel reputation management',
