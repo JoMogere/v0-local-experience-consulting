@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/blog/content-marketing-hotels',
+  },
   title: 'Content Marketing for Hotels | BookedUp Africa',
   description: 'Blog strategy, video, and social media for hotels — built around what guests actually search for, not a generic content calendar.',
   keywords: 'content marketing hotels, hotel blogging, video marketing, social media hotels',
