@@ -118,6 +118,10 @@ export default function HotelDigitalMarketingAgencyPage() {
               <h3 className="text-xl font-bold mb-2">Hotel Growth & Direct Booking System</h3>
               <p className="text-gray-300">The full long-term partnership model — Local SEO, reputation, and booking performance managed together.</p>
             </Link>
+            <Link href="/blog/how-to-choose-a-hotel-marketing-agency-kenya" className="border border-orange-500/20 rounded p-6 hover:border-orange-500/50 transition-all block">
+              <h3 className="text-xl font-bold mb-2">How to Choose a Hotel Marketing Agency</h3>
+              <p className="text-gray-300">A real buyer's checklist — the questions to ask and red flags to watch for, before you sign anything.</p>
+            </Link>
           </div>
         </div>
       </section>
