@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/contact',
+  },
   title: 'Get Your Free Hotel Growth Audit | BookedUp Africa',
   description: 'Request a free audit covering local SEO, direct bookings, and experiential marketing for your hotel or resort. We reply within 24 hours.',
   keywords: 'free hotel audit, hotel SEO audit, hotel marketing consultation Kenya',
