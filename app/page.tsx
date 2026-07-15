@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import { Hero } from "@/components/hero"
 import { ServicesOverview } from "@/components/services-overview"
 import { Portfolio } from "@/components/portfolio"
@@ -10,6 +11,12 @@ import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+}
 
 export default function HomePage() {
   return (
