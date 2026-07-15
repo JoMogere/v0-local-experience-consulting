@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/pillar/local-seo-hotels',
+  },
   title: 'Local SEO for Hotels: Complete Guide | BookedUp Africa',
   description: 'How hotels in Africa rank in Google Maps and local search — practical strategies that drive direct bookings, not just theory.',
   keywords: 'local SEO hotels, hotel local search optimization, Google Maps ranking hotels, hotel direct bookings SEO, Africa hospitality marketing',
