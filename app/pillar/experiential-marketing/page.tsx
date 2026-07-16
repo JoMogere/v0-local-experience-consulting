@@ -161,7 +161,11 @@ export default function ExperientialMarketingPage() {
           <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-12">
             <h2 className="text-3xl font-bold mb-4">Ready to Give Guests a Story Worth Telling?</h2>
             <p className="text-text-gray mb-6">
-              We'll help you find the experience only your property can offer — and turn it into the reason guests choose you.
+              As a{' '}
+              <Link href="/hotel-digital-marketing-agency-kenya" className="text-orange-500 hover:text-orange-400 underline">
+                hotel digital marketing agency in Kenya
+              </Link>
+              , we'll help you find the experience only your property can offer — and turn it into the reason guests choose you.
             </p>
             <a
               href="/contact"
