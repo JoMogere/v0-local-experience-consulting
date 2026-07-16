@@ -139,7 +139,11 @@ export default function HotelVsDigitalAgencyPost() {
         <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-12">
           <h2 className="text-2xl font-bold mb-4">Talk to a Hotel Marketing Specialist</h2>
           <p className="text-text-gray mb-6">
-            No generic playbook — just Local SEO, Direct Bookings, and Experiential Marketing built for hospitality.
+            No generic playbook — just Local SEO, Direct Bookings, and Experiential Marketing built for hospitality. See what working with a{' '}
+            <Link href="/hotel-digital-marketing-agency-kenya" className="text-orange-500 hover:text-orange-400 underline">
+              hotel digital marketing agency in Kenya
+            </Link>{' '}
+            actually looks like.
           </p>
           <Link
             href="/contact"
