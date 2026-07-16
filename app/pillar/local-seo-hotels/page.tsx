@@ -420,15 +420,17 @@ export default function LocalSEOPage() {
           <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-12">
             <h2 className="text-3xl font-bold mb-4">Ready to Dominate Local Search?</h2>
             <p className="text-text-gray mb-6">
-              Need help implementing local SEO for your hotel? We offer comprehensive local SEO audits and strategies specifically designed for African hospitality businesses.
+              Need help implementing local SEO for your hotel? As a{' '}
+              <Link href="/hotel-digital-marketing-agency-kenya" className="text-orange-500 hover:text-orange-400 underline">
+                hotel digital marketing agency in Kenya
+              </Link>
+              , we run local SEO audits and strategies built specifically for African hospitality businesses.
             </p>
             <a
-              href="https://calendly.com/mogerejulius41/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
             >
-              Schedule a Free Strategy Call
+              Claim My Free Strategy Call →
             </a>
           </section>
         </section>
