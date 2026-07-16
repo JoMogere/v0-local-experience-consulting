@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   creator: 'BookedUp Africa',
   publisher: 'BookedUp Africa',
   metadataBase: new URL(process.env.BETTER_AUTH_URL || 'https://bookedupafrica.com'),
+  alternates: {
+    canonical: '/',
+  },
   verification: {
     google: 'R4EcsFocCZIX3AYkXYQzgQxhSNfunB66fq2hhKXxXa4',
   },
