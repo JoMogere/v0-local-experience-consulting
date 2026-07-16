@@ -109,6 +109,10 @@ export default function ExperientialPillar() {
         <section className="mt-16 pt-8 border-t border-white/10">
           <h2 className="text-2xl font-bold mb-6">Related Reading</h2>
           <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/pillar/experiential-marketing" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Experiential Marketing: In-Depth Guide</h3>
+              <p className="text-sm text-text-gray mt-2">Local partnerships, content, and storytelling in full depth</p>
+            </Link>
             <Link href="/blog/content-marketing-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Content Marketing for Hotels</h3>
             </Link>
