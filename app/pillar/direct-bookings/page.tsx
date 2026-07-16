@@ -229,15 +229,17 @@ export default function DirectBookingsPage() {
           <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-12">
             <h2 className="text-3xl font-bold mb-4">Ready to Cut Your OTA Commission Bill?</h2>
             <p className="text-text-gray mb-6">
-              We help African hotels set up booking engines, channel managers, and direct-booking strategy end to end — including Google Hotel Search integration.
+              As a{' '}
+              <Link href="/hotel-digital-marketing-agency-kenya" className="text-orange-500 hover:text-orange-400 underline">
+                hotel digital marketing agency in Kenya
+              </Link>
+              , we set up booking engines, channel managers, and direct-booking strategy end to end — including Google Hotel Search integration.
             </p>
             <a
-              href="https://calendly.com/mogerejulius41/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
             >
-              Schedule a Free Strategy Call
+              Claim My Free Strategy Call →
             </a>
           </section>
         </section>
