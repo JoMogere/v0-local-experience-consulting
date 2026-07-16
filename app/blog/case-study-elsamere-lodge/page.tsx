@@ -84,18 +84,38 @@ export default function ElsamereLodgeCaseStudy() {
             </p>
           </section>
 
+          <section className="mt-16 pt-8 border-t border-white/10">
+            <h2 className="text-2xl font-bold mb-6">More Articles</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <Link href="/blog/hotel-marketing-agency-vs-digital-marketing-agency" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+                <h3 className="font-semibold text-orange-500">Hotel Agency vs. Digital Marketing Agency</h3>
+                <p className="text-sm text-text-gray mt-2">What actually separates a specialist from a generalist</p>
+              </Link>
+              <Link href="/blog/how-to-choose-a-hotel-marketing-agency-kenya" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+                <h3 className="font-semibold text-orange-500">How to Choose a Hotel Marketing Agency</h3>
+                <p className="text-sm text-text-gray mt-2">A real buyer's checklist before you sign anything</p>
+              </Link>
+              <Link href="/blog/local-seo-for-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+                <h3 className="font-semibold text-orange-500">Rank Higher in Local Hotel Search</h3>
+                <p className="text-sm text-text-gray mt-2">The full guide to local SEO for hotels</p>
+              </Link>
+              <Link href="/blog" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+                <h3 className="font-semibold text-orange-500">Browse All Guides →</h3>
+                <p className="text-sm text-text-gray mt-2">Local SEO, Direct Bookings, Experiential Marketing, and more</p>
+              </Link>
+            </div>
+          </section>
+
           <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-12">
             <h2 className="text-2xl font-bold mb-4">Want This for Your Property?</h2>
             <p className="text-text-gray mb-6">
               We set up and audit Google Business Profile booking links, local SEO, and direct booking systems for hotels across Kenya and East Africa.
             </p>
             <a
-              href="https://calendly.com/mogerejulius41/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
             >
-              Schedule a Free Strategy Call
+              Claim My Free Strategy Call →
             </a>
           </section>
         </section>
