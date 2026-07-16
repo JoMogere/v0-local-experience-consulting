@@ -146,6 +146,11 @@ export default function ResourcesPage() {
             <p className="text-text-gray text-sm mt-4">
               Or see the full picture: <a href="/hotel-digital-marketing-agency-kenya" className="text-orange-500 hover:text-orange-400 font-semibold">what working with a hotel-only marketing agency looks like →</a>
             </p>
+            <div className="grid md:grid-cols-3 gap-3 mt-6 text-sm">
+              <a href="/hotel-local-seo-kenya" className="text-orange-500 hover:text-orange-400">Local SEO for Hotels →</a>
+              <a href="/hotel-booking-leak-audit-kenya" className="text-orange-500 hover:text-orange-400">Direct Booking Audit →</a>
+              <a href="/hotel-guest-experience-optimization-kenya" className="text-orange-500 hover:text-orange-400">Guest Experience Audit →</a>
+            </div>
           </div>
         </div>
       </div>
