@@ -114,6 +114,28 @@ export default function HotelVsDigitalAgencyPost() {
           </p>
         </section>
 
+        <section className="mt-16 pt-8 border-t border-white/10">
+          <h2 className="text-2xl font-bold mb-6">More Articles</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/how-to-choose-a-hotel-marketing-agency-kenya" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">How to Choose a Hotel Marketing Agency</h3>
+              <p className="text-sm text-text-gray mt-2">A real buyer's checklist and questions to ask before you sign anything</p>
+            </Link>
+            <Link href="/blog/case-study-elsamere-lodge" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Case Study: Elsamere Lodge</h3>
+              <p className="text-sm text-text-gray mt-2">124 free booking link clicks from a correctly set up profile</p>
+            </Link>
+            <Link href="/blog/direct-hotel-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Increase Direct Hotel Bookings</h3>
+              <p className="text-sm text-text-gray mt-2">Why guests default to OTAs, and how to shift that</p>
+            </Link>
+            <Link href="/blog" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Browse All Guides →</h3>
+              <p className="text-sm text-text-gray mt-2">Local SEO, Direct Bookings, Experiential Marketing, and more</p>
+            </Link>
+          </div>
+        </section>
+
         <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-12">
           <h2 className="text-2xl font-bold mb-4">Talk to a Hotel Marketing Specialist</h2>
           <p className="text-text-gray mb-6">
@@ -123,7 +145,7 @@ export default function HotelVsDigitalAgencyPost() {
             href="/contact"
             className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
           >
-            Get Your Free Growth Audit
+            Claim My Free Growth Audit →
           </Link>
         </section>
       </div>
