@@ -120,6 +120,29 @@ export default function HowToChooseAgencyPost() {
         </section>
 
         <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-16">
+        <section className="mt-16 pt-8 border-t border-white/10">
+          <h2 className="text-2xl font-bold mb-6">More Articles</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/hotel-marketing-agency-vs-digital-marketing-agency" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Hotel Agency vs. Digital Marketing Agency</h3>
+              <p className="text-sm text-text-gray mt-2">What actually separates a specialist from a generalist</p>
+            </Link>
+            <Link href="/blog/case-study-elsamere-lodge" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Case Study: Elsamere Lodge</h3>
+              <p className="text-sm text-text-gray mt-2">124 free booking link clicks from a correctly set up profile</p>
+            </Link>
+            <Link href="/blog/direct-hotel-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Increase Direct Hotel Bookings</h3>
+              <p className="text-sm text-text-gray mt-2">Why guests default to OTAs, and how to shift that</p>
+            </Link>
+            <Link href="/blog" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Browse All Guides →</h3>
+              <p className="text-sm text-text-gray mt-2">Local SEO, Direct Bookings, Experiential Marketing, and more</p>
+            </Link>
+          </div>
+        </section>
+
+        <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-16">
           <h2 className="text-2xl font-bold mb-4">Ask Us These Same Questions</h2>
           <p className="text-text-gray mb-6">
             We'd rather you compare us properly than take our word for it.
