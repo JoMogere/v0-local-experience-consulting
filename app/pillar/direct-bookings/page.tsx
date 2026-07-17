@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { OTAvsDirectChart } from '@/components/diagrams/ota-vs-direct-chart'
 
 export const metadata: Metadata = {
   alternates: {
@@ -61,6 +62,7 @@ export default function DirectBookingsPage() {
             <p className="text-lg text-text-gray leading-relaxed mb-6">
               Booking.com and Expedia typically charge 15-25% commission per booking. On a KES 15,000/night room, that's KES 2,250-3,750 gone before you've paid for a single guest amenity. Book the same room directly and that entire margin stays with the property.
             </p>
+            <OTAvsDirectChart />
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-6 my-8">
               <h3 className="font-bold text-blue-400 mb-3">Key Point</h3>
               <p className="text-text-gray">
