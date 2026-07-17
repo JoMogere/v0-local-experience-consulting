@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { ChannelManagerDiagram } from '@/components/diagrams/channel-manager-diagram'
 
 export const metadata: Metadata = {
   alternates: {
@@ -79,6 +80,7 @@ export default function BookingEngineSetupPage() {
             <p className="text-text-gray mb-6">
               Here's the mix that actually works: your channel manager syncs your calendar across every OTA in real time. The moment a guest books directly through your own site, that room is automatically blocked everywhere else — no manual updates, no double bookings, no risk to your existing OTA relationships. Direct bookings and OTA bookings pull from the same pool of availability, managed by one system.
             </p>
+            <ChannelManagerDiagram />
             <div className="bg-white/5 border border-white/10 rounded-lg p-6">
               <h3 className="font-bold text-orange-500 mb-3">The Order That Actually Works</h3>
               <ul className="text-text-gray text-sm space-y-2">
