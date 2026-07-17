@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { LocalSEOFactorsDiagram } from '@/components/diagrams/local-seo-factors-diagram'
 
 export const metadata: Metadata = {
   alternates: {
@@ -85,6 +86,7 @@ export default function LocalSEOPillar() {
           <div id="three-factors">
             <h2 className="text-3xl font-bold text-white">What Google Actually Ranks You On</h2>
             <p>Google uses three factors to decide who shows up first in local results. Understanding them tells you exactly where to spend your effort.</p>
+            <LocalSEOFactorsDiagram />
 
             <h3 className="text-xl font-bold text-orange-500 mt-6">(i). Relevance</h3>
             <p>
