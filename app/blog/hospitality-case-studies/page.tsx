@@ -23,9 +23,9 @@ export default function CaseStudiesHub() {
         <section className="space-y-8">
           <div className="grid md:grid-cols-2 gap-6">
             <Link href="/blog/case-study-elsamere-lodge" className="p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors block">
-              <h3 className="text-xl font-bold text-orange-500 mb-2">Elsamere Lodge: Free Booking Link Results →</h3>
-              <p className="text-text-gray text-sm mb-4">124 clicks on Google's free hotel booking link over 6 months — zero commission, high-intent traffic</p>
-              <div className="text-2xl font-bold text-green-400">124 booking link clicks</div>
+              <h3 className="text-xl font-bold text-orange-500 mb-2">Elsamere Lodge: Real Search Results →</h3>
+              <p className="text-text-gray text-sm mb-4">124 free booking link clicks and 205 organic search clicks in the same period — zero commission, verified Google data</p>
+              <div className="text-2xl font-bold text-green-400">124 clicks + 205 organic clicks</div>
             </Link>
           </div>
 
