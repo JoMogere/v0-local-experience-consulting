@@ -102,6 +102,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/blog/case-study-silent-palms-villa`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/blog/hotel-marketing-agency-vs-digital-marketing-agency`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
