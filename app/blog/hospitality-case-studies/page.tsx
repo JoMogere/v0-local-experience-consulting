@@ -27,6 +27,11 @@ export default function CaseStudiesHub() {
               <p className="text-text-gray text-sm mb-4">124 free booking link clicks and 205 organic search clicks in the same period — zero commission, verified Google data</p>
               <div className="text-2xl font-bold text-green-400">124 clicks + 205 organic clicks</div>
             </Link>
+            <Link href="/blog/case-study-silent-palms-villa" className="p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors block">
+              <h3 className="text-xl font-bold text-orange-500 mb-2">Silent Palms Villa: Early-Stage Numbers →</h3>
+              <p className="text-text-gray text-sm mb-4">An honest look at what the early months of local SEO actually look like — not a highlight reel</p>
+              <div className="text-2xl font-bold text-blue-400">14 clicks, position 9 → climbing</div>
+            </Link>
           </div>
 
           <div className="p-8 bg-white/5 border border-white/10 rounded-lg text-center">
