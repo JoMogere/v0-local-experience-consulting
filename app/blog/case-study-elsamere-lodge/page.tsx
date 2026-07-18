@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: '/blog/case-study-elsamere-lodge',
   },
   title: 'Elsamere Lodge Case Study | BookedUp Africa',
-  description: 'How Elsamere Lodge generated 124 clicks on its free Google hotel booking link, driving zero-commission direct booking traffic.',
+  description: 'How Elsamere Lodge generated 124 free booking link clicks and 205 organic search clicks in the same period — real, verified Google data.',
   keywords: 'Elsamere Lodge, free hotel booking link, Google Business Profile results, direct bookings Kenya',
 }
 
@@ -81,6 +81,32 @@ export default function ElsamereLodgeCaseStudy() {
             <h2 className="text-3xl font-bold mb-4">The Bigger Picture</h2>
             <p className="text-text-gray">
               124 clicks in one channel over six months isn't the whole story on its own — it's one piece of a Google Business Profile working the way it's supposed to. It reflects a listing that's correctly categorized, verified, and connected to a working booking link, which is the foundation covered in our <Link href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400">Local SEO guide</Link>.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold mb-4">Organic Search Performance, Same Period</h2>
+            <p className="text-text-gray mb-6">
+              The free booking link is one channel. Google Search Console shows the wider picture of how Elsamere is performing in organic search over roughly the same three-month window: <strong className="text-white">205 clicks</strong> and <strong className="text-white">3,920 impressions</strong>, with a <strong className="text-white">5.2% click-through rate</strong> and an <strong className="text-white">average position of 6.4</strong> — solidly on page one for the searches it's appearing for.
+            </p>
+            <div className="rounded-lg overflow-hidden border border-white/10 bg-white/5 mb-3">
+              <Image
+                src="/case-studies/elsamere-lodge-search-console.png"
+                alt="Google Search Console performance report for Elsamere Lodge showing 205 clicks, 3,920 impressions, 5.2% average CTR, and average position 6.4 over a three-month period from April to July 2026."
+                width={1200}
+                height={490}
+                className="w-full h-auto"
+              />
+            </div>
+            <p className="text-text-gray text-sm text-center">
+              Elsamere Lodge's Search Console performance report, Apr 2026 – Jul 2026.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold mb-4">What These Two Numbers Together Mean</h2>
+            <p className="text-text-gray">
+              A booking link click and an organic search click are different moments in the same journey — one is a guest already comparing prices ready to book, the other is a guest discovering the property in the first place. Seeing both moving in the right direction, from the same underlying local SEO work, is the real signal that the visibility is compounding rather than being a one-off spike.
             </p>
           </section>
 
