@@ -113,6 +113,10 @@ export default function ElsamereLodgeCaseStudy() {
           <section className="mt-16 pt-8 border-t border-white/10">
             <h2 className="text-2xl font-bold mb-6">More Articles</h2>
             <div className="grid md:grid-cols-2 gap-4">
+              <Link href="/blog/case-study-silent-palms-villa" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+                <h3 className="font-semibold text-orange-500">Case Study: Silent Palms Villa</h3>
+                <p className="text-sm text-text-gray mt-2">What the honest early months of local SEO actually look like</p>
+              </Link>
               <Link href="/blog/hotel-marketing-agency-vs-digital-marketing-agency" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
                 <h3 className="font-semibold text-orange-500">Hotel Agency vs. Digital Marketing Agency</h3>
                 <p className="text-sm text-text-gray mt-2">What actually separates a specialist from a generalist</p>
