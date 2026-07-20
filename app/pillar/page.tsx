@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     canonical: '/pillar',
   },
   title: 'Hospitality Marketing Guides | BookedUp Africa',
-  description: 'In-depth, practical guides on hospitality marketing to help your hotel win more direct bookings.',
+  description: 'In-depth, practical guides on hospitality marketing to help your hotel win more direct bookings — written for African hospitality.',
 }
 
 export default function PillarHubPage() {
@@ -22,19 +22,33 @@ export default function PillarHubPage() {
       title: 'Local SEO for Hotels',
       slug: 'local-seo-hotels',
       description: 'Master local search optimization and dominate Google Maps rankings to attract direct bookings from your local market.',
-      topics: ['Google Maps Ranking', 'NAP Consistency', 'Review Generation', 'Local Citations'],
+      topics: [
+        { label: 'Google Maps Ranking', href: '/pillar/local-seo-hotels/google-maps-ranking' },
+        { label: 'NAP Consistency', href: '/pillar/local-seo-hotels/nap-consistency' },
+        { label: 'Review Generation', href: '/pillar/local-seo-hotels/generate-hotel-reviews' },
+        { label: 'Local Citations', href: null },
+      ],
     },
     {
       title: 'Direct Bookings',
       slug: 'direct-bookings',
       description: 'Reduce OTA commission costs and build a booking engine that turns website visitors into confirmed guests.',
-      topics: ['Reduce OTA Dependence', 'Booking Engine Setup', 'Website Conversion', 'Google Hotel Search'],
+      topics: [
+        { label: 'Reduce OTA Dependence', href: '/pillar/direct-bookings/reduce-ota-dependence' },
+        { label: 'Booking Engine Setup', href: '/pillar/direct-bookings/booking-engine-setup' },
+        { label: 'Website Conversion', href: '/pillar/direct-bookings/website-conversion' },
+        { label: 'Google Hotel Search', href: null },
+      ],
     },
     {
       title: 'Experiential Marketing',
       slug: 'experiential-marketing',
       description: 'Turn your property into the stay guests can\'t stop talking about — real experiences, real stories, real word of mouth.',
-      topics: ['Local Partnerships', 'Turning Moments Into Content', 'Telling Your Story'],
+      topics: [
+        { label: 'Local Partnerships', href: '/pillar/experiential-marketing/local-partnerships' },
+        { label: 'Turning Moments Into Content', href: '/pillar/experiential-marketing/turning-moments-into-content' },
+        { label: 'Telling Your Story', href: '/pillar/experiential-marketing/telling-your-story' },
+      ],
     },
   ]
 
@@ -53,37 +67,48 @@ export default function PillarHubPage() {
         <section className="mb-16">
           <div className="grid md:grid-cols-2 gap-8">
             {pillars.map((pillar) => (
-              <Link
+              <div
                 key={pillar.slug}
-                href={`/pillar/${pillar.slug}`}
                 className="group bg-white/5 border border-white/10 rounded-lg p-8 hover:border-orange-500/50 hover:bg-white/10 transition-all"
               >
-                <div className="text-orange-500 mb-4">
-                  {(() => {
-                    const Icon = PILLAR_ICONS[pillar.slug]
-                    return Icon ? <Icon size={40} strokeWidth={1.5} /> : null
-                  })()}
-                </div>
-                <h2 className="text-2xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
-                  {pillar.title}
-                </h2>
-                <p className="text-text-gray mb-6">{pillar.description}</p>
-                
+                <Link href={`/pillar/${pillar.slug}`} className="block">
+                  <div className="text-orange-500 mb-4">
+                    {(() => {
+                      const Icon = PILLAR_ICONS[pillar.slug]
+                      return Icon ? <Icon size={40} strokeWidth={1.5} /> : null
+                    })()}
+                  </div>
+                  <h2 className="text-2xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
+                    {pillar.title}
+                  </h2>
+                  <p className="text-text-gray mb-6">{pillar.description}</p>
+                </Link>
+
                 <div className="mb-6">
                   <h3 className="text-sm font-bold text-orange-500 mb-3">Covered In This Guide</h3>
                   <div className="flex flex-wrap gap-2">
-                    {pillar.topics.map((topic) => (
-                      <span key={topic} className="text-xs bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">
-                        {topic}
-                      </span>
-                    ))}
+                    {pillar.topics.map((topic) =>
+                      topic.href ? (
+                        <Link
+                          key={topic.label}
+                          href={topic.href}
+                          className="text-xs bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full hover:bg-orange-500/40 transition-colors"
+                        >
+                          {topic.label}
+                        </Link>
+                      ) : (
+                        <span key={topic.label} className="text-xs bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">
+                          {topic.label}
+                        </span>
+                      )
+                    )}
                   </div>
                 </div>
 
-                <div className="text-orange-500 group-hover:text-orange-400 font-bold">
+                <Link href={`/pillar/${pillar.slug}`} className="text-orange-500 group-hover:text-orange-400 font-bold">
                   Read Guide →
-                </div>
-              </Link>
+                </Link>
+              </div>
             ))}
           </div>
         </section>
