@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     canonical: '/pillar/experiential-marketing/turning-moments-into-content',
   },
   title: 'Turning Guest Moments Into Content | BookedUp Africa',
-  description: 'A simple guide to capturing real guest moments — no expensive equipment or production crew needed.',
+  description: 'A simple guide to capturing real guest moments for social media and your website — no expensive equipment or production crew needed.',
   keywords: 'hotel content creation, guest photos videos, hotel social media Kenya',
 }
 
