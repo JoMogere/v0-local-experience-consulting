@@ -119,7 +119,6 @@ export default function HowToChooseAgencyPost() {
           </section>
         </section>
 
-        <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center mt-16">
         <section className="mt-16 pt-8 border-t border-white/10">
           <h2 className="text-2xl font-bold mb-6">More Articles</h2>
           <div className="grid md:grid-cols-2 gap-4">
