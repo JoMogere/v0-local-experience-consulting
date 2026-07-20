@@ -21,14 +21,14 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
   return {
     title: `${service.title} | BookedUp Africa`,
-    description: service.description,
+    description: service.metaDescription,
     keywords: service.features.join(', '),
     alternates: {
       canonical: `/services/${service.slug}`,
     },
     openGraph: {
       title: service.title,
-      description: service.description,
+      description: service.metaDescription,
       type: 'article',
     },
   }
