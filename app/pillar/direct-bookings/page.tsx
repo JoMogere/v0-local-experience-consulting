@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { OTAvsDirectChart } from '@/components/diagrams/ota-vs-direct-chart'
 
 export const metadata: Metadata = {
@@ -47,9 +48,10 @@ export default function DirectBookingsPage() {
             <li><Link href="#why-guests-use-otas" className="hover:text-orange-500 transition-colors">2. Why Guests Book Through OTAs Anyway</Link></li>
             <li><Link href="#booking-engine" className="hover:text-orange-500 transition-colors">3. Choosing a Booking Engine</Link></li>
             <li><Link href="#parity" className="hover:text-orange-500 transition-colors">4. Rate Parity Without Losing Money</Link></li>
-            <li><Link href="#incentives" className="hover:text-orange-500 transition-colors">5. Direct Booking Incentives That Work</Link></li>
-            <li><Link href="#checklist" className="hover:text-orange-500 transition-colors">6. Direct Booking Checklist</Link></li>
-            <li><Link href="#faqs" className="hover:text-orange-500 transition-colors">7. Frequently Asked Questions</Link></li>
+            <li><Link href="#abandoned-bookings" className="hover:text-orange-500 transition-colors">5. Recovering Guests Who Almost Booked</Link></li>
+            <li><Link href="#incentives" className="hover:text-orange-500 transition-colors">6. Direct Booking Incentives That Work</Link></li>
+            <li><Link href="#checklist" className="hover:text-orange-500 transition-colors">7. Direct Booking Checklist</Link></li>
+            <li><Link href="#faqs" className="hover:text-orange-500 transition-colors">8. Frequently Asked Questions</Link></li>
           </ul>
         </nav>
 
@@ -144,6 +146,29 @@ export default function DirectBookingsPage() {
             </ul>
             <p className="text-lg text-text-gray leading-relaxed">
               None of this requires undercutting the OTA rate — it requires making the direct booking clearly worth more for the same price.
+            </p>
+          </section>
+
+          {/* Abandoned Bookings */}
+          <section id="abandoned-bookings">
+            <h2 className="text-4xl font-bold mb-6">Recovering Guests Who Almost Booked</h2>
+            <p className="text-lg text-text-gray leading-relaxed mb-6">
+              Not every guest who starts a booking on your website finishes it. They add dates, see the price, and then leave — sometimes to compare against Booking.com, sometimes just distracted. This happens more than most properties realize, and unlike a booking made on an OTA, it's one you can actually try to recover.
+            </p>
+            <div className="rounded-lg overflow-hidden border border-white/10 bg-white/5 mb-3">
+              <Image
+                src="/infographics/booking-recovery-strategy.png"
+                alt="Infographic showing a three-step hotel booking recovery email sequence: a friendly reminder within 2 hours, a gentle nudge within 2 days, and a final nudge within 1 week, for guests who started a booking but left without completing it."
+                width={1536}
+                height={1024}
+                className="w-full h-auto"
+              />
+            </div>
+            <p className="text-text-gray text-sm text-center mb-6">
+              A simple three-touch recovery sequence for abandoned bookings.
+            </p>
+            <p className="text-lg text-text-gray leading-relaxed">
+              The sequence works because it escalates gently rather than pushing hard immediately: a friendly reminder within 2 hours catches guests who just got distracted, a gentle nudge within 2 days reaches those still deciding, and a final nudge within a week — often paired with a small incentive — catches the rest before they book elsewhere entirely. This only works if your booking engine actually captures the guest's email before checkout completes, so it's worth checking whether yours does before assuming this is available to you.
             </p>
           </section>
 
