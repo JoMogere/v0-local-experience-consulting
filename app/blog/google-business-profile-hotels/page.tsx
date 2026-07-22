@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   alternates: {
@@ -115,6 +116,21 @@ export default function GBPPillar() {
               <li>Direction requests — a real signal of local intent</li>
               <li>Booking link clicks, if you've got one connected</li>
             </ul>
+            <p className="mt-4">
+              One split worth understanding specifically: <strong className="text-white">Maps views vs. Search views</strong>, broken out by mobile and desktop. Maps views come from people actively browsing the map — often comparing you against nearby properties in real time. Search views come from people typing a specific query. Here's what that split typically looks like in practice:
+            </p>
+            <div className="rounded-lg overflow-hidden border border-white/10 bg-white/5 mt-6 mb-3">
+              <Image
+                src="/infographics/gbp-insights-example.jpeg"
+                alt="Example Google Business Profile insights showing a breakdown of mobile and desktop views split between Maps views and Search views, with mobile Maps views typically outweighing mobile Search views."
+                width={1364}
+                height={501}
+                className="w-full h-auto"
+              />
+            </div>
+            <p className="text-text-gray text-sm text-center">
+              An example of the Maps vs. Search views breakdown in Google Business Profile Insights.
+            </p>
           </div>
 
           <div id="final-thoughts">
