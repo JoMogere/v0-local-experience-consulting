@@ -11,6 +11,7 @@ import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
+import { generateHomepageSchema } from "@/lib/schema"
 
 export const metadata: Metadata = {
   alternates: {
@@ -33,6 +34,12 @@ export default function HomePage() {
       <Contact />
       <Footer />
       <WhatsAppButton />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateHomepageSchema()),
+        }}
+      />
     </main>
   )
 }

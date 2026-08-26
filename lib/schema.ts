@@ -75,6 +75,54 @@ export const generateTopicalAuthoritySchema = () => ({
   ],
 })
 
+export const generateHomepageSchema = () => ({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['Organization', 'ProfessionalService'],
+      '@id': 'https://bookedupafrica.com/#organization',
+      name: 'BookedUp Africa',
+      url: 'https://bookedupafrica.com/',
+      description:
+        'Hospitality marketing consultancy helping African hotels, resorts, and tourism businesses increase direct bookings through local SEO and strategic marketing.',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://bookedupafrica.com/logo.jpg',
+      },
+      areaServed: [
+        { '@type': 'Country', name: 'Kenya' },
+        { '@type': 'Place', name: 'East Africa' },
+      ],
+      serviceType: [
+        'Hotel local SEO',
+        'Direct booking strategy',
+        'Experiential marketing',
+      ],
+      sameAs: [
+        'https://www.facebook.com/bookedupafrica',
+        'https://www.linkedin.com/company/bookedupafrica',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://bookedupafrica.com/#website',
+      name: 'BookedUp Africa',
+      url: 'https://bookedupafrica.com/',
+      publisher: { '@id': 'https://bookedupafrica.com/#organization' },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'WebPage',
+      '@id': 'https://bookedupafrica.com/#webpage',
+      url: 'https://bookedupafrica.com/',
+      name: 'BookedUp Africa — Transform Your Hospitality Business',
+      isPartOf: { '@id': 'https://bookedupafrica.com/#website' },
+      about: { '@id': 'https://bookedupafrica.com/#organization' },
+      inLanguage: 'en',
+    },
+  ],
+})
+
 export const generateArticleClusterSchema = (pillarPage: {
   title: string
   url: string
