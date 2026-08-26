@@ -48,11 +48,21 @@ export function Footer() {
         </p>
         
         <div className="mt-8 flex justify-center">
-          <div
-            google-add-preferred-source-btn=""
-            data-theme="dark"
-            data-lang="en"
-          />
+          <div className="flex flex-col items-center gap-3">
+            <div
+              google-add-preferred-source-btn=""
+              data-theme="dark"
+              data-lang="en"
+            />
+            <a
+              href="https://www.google.com/preferences/source?q=bookedupafrica.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded border border-gold/60 px-4 py-2 text-xs font-semibold tracking-wide text-gold transition-colors hover:bg-gold/10"
+            >
+              Add BookedUp Africa to Google Preferred Sources
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-8 md:mt-10">
