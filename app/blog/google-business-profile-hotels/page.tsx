@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/google-business-profile-hotels',
   },
-  title: 'Google Business Profile for Hotels | BookedUp Africa',
+  title: 'Google Business Profile for Hotels (Google My Business) | BookedUp Africa',
   description: 'How to set up and optimize your Google Business Profile — categories, photos, posts, and the free booking link most hotels never activate.',
-  keywords: 'Google Business Profile hotels, hotel GBP optimization, Google Posts, hotel categories, booking links',
+  keywords: 'Google Business Profile hotels, Google My Business for hotels, hotel Google Business Profile optimization, hotel GBP optimization, Google Posts, hotel categories, booking links',
 }
 
 export default function GBPPillar() {
@@ -19,7 +19,7 @@ export default function GBPPillar() {
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Google Business Profile: The Complete Setup Guide</h1>
           <p className="text-xl text-text-gray mb-6">
-            This is the single most-visited page about your hotel that you don't control the design of. Here's how to make sure it's working for you, not against you.
+            This is the single most-visited page about your hotel that you don't control the design of. Here's how to make sure it's working for you, not against you. (Still called "Google My Business" by a lot of people — Google renamed it Business Profile back in 2021, but the setup and the stakes haven't changed.)
           </p>
         </header>
 
