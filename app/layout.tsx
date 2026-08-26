@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import { Navigation } from '@/components/navigation'
 import './globals.css'
 
@@ -72,6 +73,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background scroll-smooth">
       <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased text-foreground`}>
+        <Script
+          async
+          src="https://news.google.com/swg/js/v1/publisher.js"
+          strategy="afterInteractive"
+        />
         <Navigation />
         <main className="pt-20 md:pt-24">
           {children}
