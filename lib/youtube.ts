@@ -36,7 +36,8 @@ async function getUploadsPlaylistId(apiKey: string, debug?: YouTubeDebugInfo): P
 
 export async function getChannelVideos(debug?: YouTubeDebugInfo): Promise<YouTubeVideo[]> {
   try {
-    const apiKey = process.env.YOUTUBE_API_KEY
+    const rawApiKey = process.env.YOUTUBE_API_KEY
+    const apiKey = rawApiKey?.trim().replace(/^['"]|['"]$/g, '')
     if (!apiKey) {
       console.log('[youtube] YOUTUBE_API_KEY is not set')
       return []
