@@ -47,6 +47,14 @@ export function Footer() {
           Transform. Book. Grow.
         </p>
         
+        <div className="mt-8 flex justify-center">
+          <div
+            google-add-preferred-source-btn=""
+            data-theme="dark"
+            data-lang="en"
+          />
+        </div>
+
         <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-8 md:mt-10">
           {socialLinks.map((social) => (
             <Link
