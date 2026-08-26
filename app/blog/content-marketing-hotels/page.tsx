@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   title: 'Content Marketing for Hotels | BookedUp Africa',
   description: 'Blog strategy, video, and social media for hotels — built around what guests actually search for, not a generic content calendar.',
-  keywords: 'content marketing hotels, hotel blogging, video marketing, social media hotels',
+  keywords: 'content marketing hotels, content marketing hotel, hotel content, hotel blogging, video marketing, social media hotels',
 }
 
 export default function ContentMarketingPillar() {
