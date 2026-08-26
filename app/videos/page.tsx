@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description: 'Practical strategies and implementation guides for increasing direct bookings and guest satisfaction, from the BookedUp Africa YouTube channel.',
 }
 
+// Read YOUTUBE_API_KEY at request time so production deployments do not
+// freeze an empty value during the build when the variable is added later.
+export const dynamic = 'force-dynamic'
 export const revalidate = 3600
 
 export default async function VideosPage({ searchParams }: { searchParams: Promise<{ debug?: string }> }) {
