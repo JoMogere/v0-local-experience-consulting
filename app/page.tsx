@@ -9,9 +9,7 @@ import { Playbooks } from "@/components/playbooks"
 import { FAQ } from "@/components/faq"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
-import { generateHomepageSchema } from "@/lib/schema"
 
 export const metadata: Metadata = {
   alternates: {
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="overflow-x-hidden">
+    <div className="overflow-x-hidden">
       <Hero />
       <ServicesOverview />
       <Portfolio />
@@ -32,14 +30,7 @@ export default function HomePage() {
       <FAQ />
       <Newsletter />
       <Contact />
-      <Footer />
       <WhatsAppButton />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateHomepageSchema()),
-        }}
-      />
-    </main>
+    </div>
   )
 }
