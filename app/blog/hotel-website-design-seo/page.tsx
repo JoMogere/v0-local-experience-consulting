@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   title: 'Hotel Website Design & SEO | BookedUp Africa',
   description: 'Core Web Vitals, homepage structure, navigation, and internal linking for hotel websites that rank and actually convert visitors into bookings.',
-  keywords: 'hotel website design, hotel web SEO, website structure, mobile booking',
+  keywords: 'hotel website design, hotel web SEO, seo website design for hotels, website structure, mobile booking',
 }
 
 export default function WebsitePillar() {
