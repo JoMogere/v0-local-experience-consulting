@@ -41,30 +41,12 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="py-16 md:py-24 pb-12 md:pb-16 text-center border-t border-white/5 bg-navy-deep">
+    <footer className="py-16 md:py-24 pb-12 md:pb-16 text-center border-t border-border-flat bg-navy-deep">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
         <p className="font-serif italic text-gold text-lg md:text-[22px] tracking-[0.5px]">
           Transform. Book. Grow.
         </p>
         
-        <div className="mt-8 flex justify-center">
-          <div className="flex flex-col items-center gap-3">
-            <div
-              google-add-preferred-source-btn=""
-              data-theme="dark"
-              data-lang="en"
-            />
-            <a
-              href="https://www.google.com/preferences/source?q=bookedupafrica.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded border border-gold/60 px-4 py-2 text-xs font-semibold tracking-wide text-gold transition-colors hover:bg-gold/10"
-            >
-              Add BookedUp Africa to Google Preferred Sources
-            </a>
-          </div>
-        </div>
-
         <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-8 md:mt-10">
           {socialLinks.map((social) => (
             <Link
@@ -72,7 +54,7 @@ export function Footer() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 flex items-center justify-center text-text-gray hover:text-gold hover:bg-white/10 transition-colors"
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-navy-alt border border-border-flat flex items-center justify-center text-text-gray hover:text-gold-flat hover:border-gold-flat/50 transition-colors"
               aria-label={social.name}
             >
               {social.icon}
