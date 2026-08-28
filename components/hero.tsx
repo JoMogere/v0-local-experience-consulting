@@ -19,24 +19,21 @@ export function Hero() {
         className="object-cover object-center -z-20"
       />
       <div
-        className="absolute inset-0 -z-10"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(18, 24, 34, 0.98) 35%, rgba(18, 24, 34, 0.4))`,
-        }}
+        className="absolute inset-0 -z-10 bg-[#0D0D0D]/85"
       />
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 w-full">
         <div className="max-w-[700px] relative z-5 text-center md:text-left">
-          <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-white text-balance">
+          <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-[#F9F6F0] text-balance">
             Research and implementation
             <span className="block text-lg md:text-[26px] font-light mt-2.5 tracking-normal">
-              for <span className="text-orange-500 font-bold">local SEO</span>,{" "}
-              <span className="text-orange-500 font-bold">experiential marketing</span>,
+              for <span className="text-gold-flat font-bold">local SEO</span>,{" "}
+              <span className="text-gold-flat font-bold">experiential marketing</span>,
               <br className="hidden md:block" />
-              and <span className="text-orange-500 font-bold">direct bookings</span>
+              and <span className="text-gold-flat font-bold">direct bookings</span>
             </span>
           </h1>
-          <div className="w-20 h-px bg-orange-500 my-8 md:my-10 mx-auto md:mx-0" />
-          <p className="font-serif italic text-orange-500 text-lg md:text-[22px] tracking-[0.5px]">
+          <div className="w-20 h-px bg-gold-flat my-8 md:my-10 mx-auto md:mx-0" />
+          <p className="font-serif italic text-gold-flat text-lg md:text-[22px] tracking-[0.5px]">
             Search. Stay. Succeed.
           </p>
           <div className="flex gap-8 md:gap-15 mt-10 md:mt-15 justify-center md:justify-start">
@@ -46,9 +43,9 @@ export function Hero() {
                 className="text-center md:text-left opacity-90 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-100"
               >
                 <div className="w-10 h-10 md:w-[45px] md:h-[45px] mb-2 md:mb-3 flex items-center justify-center mx-auto md:mx-0">
-                  <item.icon className="w-full h-full text-orange-500 fill-orange-500" />
+                  <item.icon className="w-full h-full text-clay fill-clay" />
                 </div>
-                <div className="text-[11px] md:text-[13px] font-bold text-white uppercase tracking-[1px]">
+                <div className="text-[11px] md:text-[13px] font-bold text-[#EAE5DF] uppercase tracking-[1px]">
                   {item.label}
                 </div>
               </div>
@@ -57,7 +54,7 @@ export function Hero() {
           <div className="mt-10 md:mt-14">
             <a
               href="/contact"
-              className="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors text-sm md:text-base uppercase tracking-[0.5px]"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity text-sm md:text-base uppercase tracking-[0.5px]"
             >
               Claim Your Free Growth Audit →
             </a>
