@@ -4,31 +4,31 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #121822;
-  --foreground: #FFFFFF;
-  --card: #121822;
-  --card-foreground: #FFFFFF;
-  --popover: #121822;
-  --popover-foreground: #FFFFFF;
+  --background: #0D0D0D;
+  --foreground: #F9F6F0;
+  --card: #1A1A1A;
+  --card-foreground: #F9F6F0;
+  --popover: #1A1A1A;
+  --popover-foreground: #F9F6F0;
   --primary: #D4AF37;
-  --primary-foreground: #121822;
-  --secondary: #1a2332;
-  --secondary-foreground: #FFFFFF;
-  --muted: #1a2332;
-  --muted-foreground: #A0AEC0;
-  --accent: #F9F8F5;
-  --accent-foreground: #121822;
+  --primary-foreground: #0D0D0D;
+  --secondary: #141414;
+  --secondary-foreground: #F9F6F0;
+  --muted: #141414;
+  --muted-foreground: #EAE5DF;
+  --accent: #F9F6F0;
+  --accent-foreground: #0D0D0D;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: rgba(255, 255, 255, 0.05);
-  --input: rgba(255, 255, 255, 0.05);
+  --border: #262626;
+  --input: #262626;
   --ring: #D4AF37;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.25rem;
+  --radius: 0.125rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -42,9 +42,13 @@
   --gold: #D4AF37;
   --gold-light: #F1D592;
   --gold-dark: #B8962D;
-  --navy-deep: #121822;
-  --off-white: #F9F8F5;
-  --text-gray: #A0AEC0;
+  --gold-flat: #E6AD45;
+  --clay: #D46A43;
+  --navy-deep: #0D0D0D;
+  --navy-alt: #1A1A1A;
+  --off-white: #F9F6F0;
+  --text-gray: #EAE5DF;
+  --border-flat: #262626;
 }
 
 .dark {
@@ -89,9 +93,13 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-gold-dark: var(--gold-dark);
+  --color-gold-flat: var(--gold-flat);
+  --color-clay: var(--clay);
   --color-navy-deep: var(--navy-deep);
+  --color-navy-alt: var(--navy-alt);
   --color-off-white: var(--off-white);
   --color-text-gray: var(--text-gray);
+  --color-border-flat: var(--border-flat);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
