@@ -31,25 +31,25 @@ export function FAQ() {
   return (
     <section className="py-16 md:py-24 bg-navy-deep" id="faq">
       <div className="max-w-[900px] mx-auto px-4 md:px-10">
-        <p className="text-orange-500 text-sm uppercase tracking-[2px] mb-4 text-center">Common Questions</p>
-        <h2 className="text-3xl md:text-[42px] font-bold mb-12 tracking-[-0.02em] text-center">
+        <p className="text-clay text-sm uppercase tracking-[2px] mb-4 text-center">Common Questions</p>
+        <h2 className="text-3xl md:text-[42px] font-bold mb-12 tracking-[-0.02em] text-center text-[#F9F6F0]">
           Before You Reach Out
         </h2>
 
         <div className="space-y-3">
           {FAQS.map((faq, index) => (
-            <div key={index} className="border border-white/10 rounded-lg overflow-hidden">
+            <div key={index} className="border border-border-flat rounded-sm overflow-hidden">
               <h3 className="m-0">
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full text-left px-6 py-4 flex justify-between items-center bg-white/[0.03] hover:bg-white/[0.06] transition-colors font-semibold"
+                  className="w-full text-left px-6 py-4 flex justify-between items-center bg-navy-alt hover:bg-[#202020] transition-colors font-semibold text-[#F9F6F0]"
                 >
                   <span>{faq.q}</span>
-                  <span className={`text-gold transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>▼</span>
+                  <span className={`text-gold-flat transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>▼</span>
                 </button>
               </h3>
               {openIndex === index && (
-                <div className="px-6 py-4 text-text-gray text-sm border-t border-white/10">{faq.a}</div>
+                <div className="px-6 py-4 text-text-gray text-sm border-t border-border-flat">{faq.a}</div>
               )}
             </div>
           ))}
