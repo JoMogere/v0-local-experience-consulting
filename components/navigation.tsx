@@ -17,7 +17,7 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full z-[1000] py-4 md:py-6 border-b border-white/10 bg-navy-deep/95 backdrop-blur-sm">
+    <nav className="fixed top-0 w-full z-[1000] py-4 md:py-6 border-b border-border-flat bg-navy-deep/95 backdrop-blur-sm">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -32,7 +32,7 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-text-gray hover:text-white transition-colors duration-200"
+                  className="text-sm font-medium text-text-gray hover:text-[#F9F6F0] transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
@@ -44,7 +44,7 @@ export function Navigation() {
               href="https://calendly.com/mogerejulius41/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-2.5 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded-sm transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 uppercase tracking-[1px] text-[12px] no-underline whitespace-nowrap"
+              className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] font-bold rounded-sm transition-opacity hover:opacity-90 uppercase tracking-[1px] text-[12px] no-underline whitespace-nowrap"
             >
               Book a Call
             </Link>
@@ -53,7 +53,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-text-gray hover:text-white transition-colors"
+            className="lg:hidden p-2 text-text-gray hover:text-[#F9F6F0] transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,14 +62,14 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden mt-4 pt-4 border-t border-white/10">
+          <div className="lg:hidden mt-4 pt-4 border-t border-border-flat">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-text-gray hover:text-white hover:bg-white/5 rounded transition-colors duration-200"
+                  className="px-4 py-2 text-sm font-medium text-text-gray hover:text-[#F9F6F0] hover:bg-navy-alt rounded-sm transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
@@ -81,7 +81,7 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-2 w-full px-4 py-2.5 bg-gradient-to-br from-gold-light via-gold to-gold-dark text-navy-deep font-bold rounded-sm text-center text-sm uppercase tracking-[1px] no-underline"
+                className="mt-2 w-full px-4 py-2.5 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] font-bold rounded-sm text-center text-sm uppercase tracking-[1px] no-underline"
               >
                 Book a Call
               </Link>
