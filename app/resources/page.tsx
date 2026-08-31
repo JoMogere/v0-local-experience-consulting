@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen bg-navy-deep text-white">
+    <main className="min-h-screen bg-navy-deep text-[#F9F6F0]">
       {/* Header */}
-      <div className="bg-navy-deep border-b border-white/10 py-12 md:py-16">
+      <div className="bg-navy-deep border-b border-border-flat py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Hotel Growth Resources</h1>
           <p className="text-lg text-text-gray max-w-2xl">
@@ -39,7 +39,7 @@ export default function ResourcesPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Featured Articles */}
-              <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-orange-500/50 transition-colors">
+              <div className="bg-navy-alt border border-border-flat rounded-sm p-6 hover:border-gold-flat/50 transition-colors">
                 <h3 className="text-xl font-bold mb-2">Hotel Local SEO Guide</h3>
                 <p className="text-text-gray text-sm mb-4">
                   Complete guide to dominating local search results and appearing in map pack for your hotel location.
@@ -48,13 +48,13 @@ export default function ResourcesPage() {
                   href="https://medium.com/@mogerejulius41"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-orange-500 hover:text-orange-400 font-semibold inline-flex items-center gap-2"
+                  className="text-gold-flat hover:text-gold-flat font-semibold inline-flex items-center gap-2"
                 >
                   Read on Medium →
                 </a>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-orange-500/50 transition-colors">
+              <div className="bg-navy-alt border border-border-flat rounded-sm p-6 hover:border-gold-flat/50 transition-colors">
                 <h3 className="text-xl font-bold mb-2">Direct Booking Strategy</h3>
                 <p className="text-text-gray text-sm mb-4">
                   Strategic analysis of direct booking vs OTA dependency and how to reduce reliance on OTA platforms.
@@ -63,13 +63,13 @@ export default function ResourcesPage() {
                   href="https://medium.com/@mogerejulius41"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-orange-500 hover:text-orange-400 font-semibold inline-flex items-center gap-2"
+                  className="text-gold-flat hover:text-gold-flat font-semibold inline-flex items-center gap-2"
                 >
                   Read on Medium →
                 </a>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-orange-500/50 transition-colors">
+              <div className="bg-navy-alt border border-border-flat rounded-sm p-6 hover:border-gold-flat/50 transition-colors">
                 <h3 className="text-xl font-bold mb-2">Guest Experience Optimization</h3>
                 <p className="text-text-gray text-sm mb-4">
                   How to design the guest journey to increase repeat bookings, referrals, and 5-star reviews.
@@ -78,13 +78,13 @@ export default function ResourcesPage() {
                   href="https://medium.com/@mogerejulius41"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-orange-500 hover:text-orange-400 font-semibold inline-flex items-center gap-2"
+                  className="text-gold-flat hover:text-gold-flat font-semibold inline-flex items-center gap-2"
                 >
                   Read on Medium →
                 </a>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-orange-500/50 transition-colors">
+              <div className="bg-navy-alt border border-border-flat rounded-sm p-6 hover:border-gold-flat/50 transition-colors">
                 <h3 className="text-xl font-bold mb-2">Revenue Growth Framework</h3>
                 <p className="text-text-gray text-sm mb-4">
                   Integrated framework combining local SEO, experience optimization, and direct booking strategy.
@@ -93,7 +93,7 @@ export default function ResourcesPage() {
                   href="https://medium.com/@mogerejulius41"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-orange-500 hover:text-orange-400 font-semibold inline-flex items-center gap-2"
+                  className="text-gold-flat hover:text-gold-flat font-semibold inline-flex items-center gap-2"
                 >
                   Read on Medium →
                 </a>
@@ -102,7 +102,7 @@ export default function ResourcesPage() {
           </div>
 
           {/* Medium Follow */}
-          <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
+          <div className="bg-navy-alt border border-border-flat rounded-sm p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">Follow on Medium</h2>
             <p className="text-text-gray mb-6 max-w-2xl mx-auto">
               Get notified about new articles on hotel marketing, local SEO, and hospitality growth strategies.
@@ -111,7 +111,7 @@ export default function ResourcesPage() {
               href="https://medium.com/@mogerejulius41"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-orange-500 text-navy-deep rounded font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded font-semibold hover:opacity-90 transition-colors"
             >
               Follow on Medium
             </a>
@@ -125,31 +125,31 @@ export default function ResourcesPage() {
             </p>
             <a
               href="/blog"
-              className="inline-block px-8 py-3 bg-orange-500 text-navy-deep rounded font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded font-semibold hover:opacity-90 transition-colors"
             >
               Visit Our Blog
             </a>
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 rounded-lg p-8 text-center">
+          <div className="bg-navy-alt border border-border-flat rounded-sm p-8 text-center">
             <h3 className="text-2xl font-bold mb-3">Ready to Implement?</h3>
             <p className="text-text-gray mb-6">
               Learn the strategies, then work with us to implement them for your specific property and market.
             </p>
             <a
               href="/hotel-growth-partnership-kenya"
-              className="inline-block px-8 py-3 bg-orange-500 text-navy-deep rounded font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded font-semibold hover:opacity-90 transition-colors"
             >
               Schedule a Strategy Call
             </a>
             <p className="text-text-gray text-sm mt-4">
-              Or see the full picture: <a href="/hotel-digital-marketing-agency-kenya" className="text-orange-500 hover:text-orange-400 font-semibold">what working with a hotel-only marketing agency looks like →</a>
+              Or see the full picture: <a href="/hotel-digital-marketing-agency-kenya" className="text-gold-flat hover:text-gold-flat font-semibold">what working with a hotel-only marketing agency looks like →</a>
             </p>
             <div className="grid md:grid-cols-3 gap-3 mt-6 text-sm">
-              <a href="/hotel-local-seo-kenya" className="text-orange-500 hover:text-orange-400">Local SEO for Hotels →</a>
-              <a href="/hotel-booking-leak-audit-kenya" className="text-orange-500 hover:text-orange-400">Direct Booking Audit →</a>
-              <a href="/hotel-guest-experience-optimization-kenya" className="text-orange-500 hover:text-orange-400">Guest Experience Audit →</a>
+              <a href="/hotel-local-seo-kenya" className="text-gold-flat hover:text-gold-flat">Local SEO for Hotels →</a>
+              <a href="/hotel-booking-leak-audit-kenya" className="text-gold-flat hover:text-gold-flat">Direct Booking Audit →</a>
+              <a href="/hotel-guest-experience-optimization-kenya" className="text-gold-flat hover:text-gold-flat">Guest Experience Audit →</a>
             </div>
           </div>
         </div>
