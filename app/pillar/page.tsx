@@ -53,7 +53,7 @@ export default function PillarHubPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-navy-deep text-white pt-32">
+    <main className="min-h-screen bg-navy-deep text-[#F9F6F0] pt-32">
       <div className="max-w-6xl mx-auto px-4 md:px-6 pb-16">
         {/* Header */}
         <header className="text-center mb-16">
@@ -69,35 +69,35 @@ export default function PillarHubPage() {
             {pillars.map((pillar) => (
               <div
                 key={pillar.slug}
-                className="group bg-white/5 border border-white/10 rounded-lg p-8 hover:border-orange-500/50 hover:bg-white/10 transition-all"
+                className="group bg-navy-alt border border-border-flat rounded-sm p-8 hover:border-gold-flat/50 hover:bg-[#262626] transition-all"
               >
                 <Link href={`/pillar/${pillar.slug}`} className="block">
-                  <div className="text-orange-500 mb-4">
+                  <div className="text-gold-flat mb-4">
                     {(() => {
                       const Icon = PILLAR_ICONS[pillar.slug]
                       return Icon ? <Icon size={40} strokeWidth={1.5} /> : null
                     })()}
                   </div>
-                  <h2 className="text-2xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
+                  <h2 className="text-2xl font-bold mb-3 group-hover:text-gold-flat transition-colors">
                     {pillar.title}
                   </h2>
                   <p className="text-text-gray mb-6">{pillar.description}</p>
                 </Link>
 
                 <div className="mb-6">
-                  <h3 className="text-sm font-bold text-orange-500 mb-3">Covered In This Guide</h3>
+                  <h3 className="text-sm font-bold text-gold-flat mb-3">Covered In This Guide</h3>
                   <div className="flex flex-wrap gap-2">
                     {pillar.topics.map((topic) =>
                       topic.href ? (
                         <Link
                           key={topic.label}
                           href={topic.href}
-                          className="text-xs bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full hover:bg-orange-500/40 transition-colors"
+                          className="text-xs bg-navy-alt text-orange-400 px-3 py-1 rounded-full hover:bg-gold-flat/40 transition-colors"
                         >
                           {topic.label}
                         </Link>
                       ) : (
-                        <span key={topic.label} className="text-xs bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">
+                        <span key={topic.label} className="text-xs bg-navy-alt text-orange-400 px-3 py-1 rounded-full">
                           {topic.label}
                         </span>
                       )
@@ -105,7 +105,7 @@ export default function PillarHubPage() {
                   </div>
                 </div>
 
-                <Link href={`/pillar/${pillar.slug}`} className="text-orange-500 group-hover:text-orange-400 font-bold">
+                <Link href={`/pillar/${pillar.slug}`} className="text-gold-flat group-hover:text-gold-flat font-bold">
                   Read Guide →
                 </Link>
               </div>
@@ -114,34 +114,34 @@ export default function PillarHubPage() {
         </section>
 
         {/* Why These Guides */}
-        <section className="bg-white/5 border border-white/10 rounded-lg p-8 mb-16">
+        <section className="bg-navy-alt border border-border-flat rounded-sm p-8 mb-16">
           <h2 className="text-3xl font-bold mb-6">How These Guides Are Built</h2>
           <p className="text-text-gray mb-6">
             Every guide is organized so you can get a complete answer, then go deeper on the exact part that matters to you:
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/5 p-6 rounded-lg">
-              <h3 className="font-bold text-orange-500 mb-3">Complete Guides</h3>
+            <div className="bg-navy-alt p-6 rounded-sm">
+              <h3 className="font-bold text-gold-flat mb-3">Complete Guides</h3>
               <p className="text-text-gray text-sm">
                 Full, in-depth guides that cover an entire topic thoroughly — no need to piece it together from multiple sources.
               </p>
             </div>
-            <div className="bg-white/5 p-6 rounded-lg">
-              <h3 className="font-bold text-orange-500 mb-3">Deep-Dive Articles</h3>
+            <div className="bg-navy-alt p-6 rounded-sm">
+              <h3 className="font-bold text-gold-flat mb-3">Deep-Dive Articles</h3>
               <p className="text-text-gray text-sm">
                 Focused articles that walk through specific questions in more detail, linked from the main guide.
               </p>
             </div>
-            <div className="bg-white/5 p-6 rounded-lg">
-              <h3 className="font-bold text-orange-500 mb-3">Everything Connected</h3>
+            <div className="bg-navy-alt p-6 rounded-sm">
+              <h3 className="font-bold text-gold-flat mb-3">Everything Connected</h3>
               <p className="text-text-gray text-sm">
                 Related guides and articles link to each other, so you can follow a thread wherever it's useful.
               </p>
             </div>
           </div>
 
-          <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
+          <div className="bg-blue-500/10 border border-blue-500/30 rounded-sm p-6">
             <p className="text-text-gray">
               Whether you're just getting started or troubleshooting a specific problem, you'll find real, practical answers here — not surface-level tips.
             </p>
@@ -149,7 +149,7 @@ export default function PillarHubPage() {
         </section>
 
         {/* Coming Soon */}
-        <section className="bg-gradient-to-r from-orange-500/20 to-orange-500/10 border border-orange-500/30 rounded-lg p-8 text-center">
+        <section className="bg-navy-alt border border-border-flat rounded-sm p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">More Guides Coming Soon</h2>
           <p className="text-text-gray mb-6">
             We're expanding this hub with more guides on Google Business Profile and Hotel Website Strategy — each with the same depth and practical detail.
@@ -158,7 +158,7 @@ export default function PillarHubPage() {
             href="https://calendly.com/mogerejulius41/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-colors"
           >
             Request a Topic
           </a>
