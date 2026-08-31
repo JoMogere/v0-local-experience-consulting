@@ -1,6 +1,6 @@
 export function OTAvsDirectChart() {
   return (
-    <div className="bg-white/5 border border-white/10 rounded-lg p-6 md:p-8 my-8">
+    <div className="bg-navy-alt border border-border-flat rounded-sm p-6 md:p-8 my-8">
       <svg viewBox="0 0 600 320" className="w-full h-auto" role="img" aria-labelledby="ota-chart-title">
         <title id="ota-chart-title">Comparison of money kept on a KES 15,000 booking: OTA booking keeps KES 11,625, direct booking keeps KES 15,000</title>
 
