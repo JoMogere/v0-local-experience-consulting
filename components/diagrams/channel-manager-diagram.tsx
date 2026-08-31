@@ -1,6 +1,6 @@
 export function ChannelManagerDiagram() {
   return (
-    <div className="bg-white/5 border border-white/10 rounded-lg p-6 md:p-8 my-8">
+    <div className="bg-navy-alt border border-border-flat rounded-sm p-6 md:p-8 my-8">
       <svg viewBox="0 0 600 320" className="w-full h-auto" role="img" aria-labelledby="cm-diagram-title">
         <title id="cm-diagram-title">Diagram showing Booking.com, Expedia, and your website all connected through a channel manager to one shared calendar, preventing double bookings</title>
 
