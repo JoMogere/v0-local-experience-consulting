@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 
 export default function DirectBookingAuditPage() {
   return (
-    <div className="min-h-screen bg-navy-deep text-white">
+    <div className="min-h-screen bg-navy-deep text-[#F9F6F0]">
       {/* Hero Section */}
       <section className="py-20 md:py-32 px-4">
         <div className="max-w-4xl mx-auto">
-          <p className="text-orange-500 text-sm uppercase tracking-[2px] mb-4">Revenue Recovery</p>
+          <p className="text-gold-flat text-sm uppercase tracking-[2px] mb-4">Revenue Recovery</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Direct Booking & Distribution Audit
           </h1>
@@ -24,10 +24,10 @@ export default function DirectBookingAuditPage() {
             Identify where bookings are leaking to OTAs and get a clear action plan to improve visibility, conversions, and direct revenue. This is your diagnostic authority layer.
           </p>
           <div className="flex gap-4">
-            <Link href="#audit" className="px-6 py-3 bg-orange-500 text-navy-deep rounded hover:bg-orange-600 transition-colors">
+            <Link href="#audit" className="px-6 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
               See Audit Process
             </Link>
-            <Link href="/contact" className="px-6 py-3 border border-orange-500 text-orange-500 rounded hover:bg-orange-500/10 transition-colors">
+            <Link href="/contact" className="px-6 py-3 border border-orange-500 text-gold-flat rounded hover:bg-gold-flat/10 transition-colors">
               Request Audit
             </Link>
           </div>
@@ -35,7 +35,7 @@ export default function DirectBookingAuditPage() {
       </section>
 
       {/* The Problem */}
-      <section className="py-20 md:py-32 px-4 bg-navy-deep/50">
+      <section className="py-20 md:py-32 px-4 bg-navy-alt">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">The Problem</h2>
           <div className="space-y-4 text-lg text-gray-300">
@@ -45,7 +45,7 @@ export default function DirectBookingAuditPage() {
             <p>
               Every OTA booking costs you commission. Every direct booking keeps 100% of your revenue. But without visibility into your booking sources, you can&apos;t fix the leaks.
             </p>
-            <p className="text-orange-500 font-semibold">
+            <p className="text-gold-flat font-semibold">
               Result: Hidden revenue leakage and unnecessary OTA dependency.
             </p>
           </div>
@@ -97,24 +97,24 @@ export default function DirectBookingAuditPage() {
       </section>
 
       {/* Deliverables */}
-      <section className="py-20 md:py-32 px-4 bg-navy-deep/50">
+      <section className="py-20 md:py-32 px-4 bg-navy-alt">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Your Action Plan Includes</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="border border-orange-500/20 rounded p-6">
-              <h3 className="font-bold mb-3 text-orange-500">Current State Assessment</h3>
+            <div className="border border-border-flat rounded p-6">
+              <h3 className="font-bold mb-3 text-gold-flat">Current State Assessment</h3>
               <p className="text-gray-300 text-sm">Complete breakdown of booking sources, OTA costs, and revenue leakage.</p>
             </div>
-            <div className="border border-orange-500/20 rounded p-6">
-              <h3 className="font-bold mb-3 text-orange-500">Visibility Roadmap</h3>
+            <div className="border border-border-flat rounded p-6">
+              <h3 className="font-bold mb-3 text-gold-flat">Visibility Roadmap</h3>
               <p className="text-gray-300 text-sm">Prioritized strategies to improve direct website visibility and reduce OTA dependency.</p>
             </div>
-            <div className="border border-orange-500/20 rounded p-6">
-              <h3 className="font-bold mb-3 text-orange-500">Conversion Optimization Plan</h3>
+            <div className="border border-border-flat rounded p-6">
+              <h3 className="font-bold mb-3 text-gold-flat">Conversion Optimization Plan</h3>
               <p className="text-gray-300 text-sm">Specific improvements to turn more website visitors into direct bookings.</p>
             </div>
-            <div className="border border-orange-500/20 rounded p-6">
-              <h3 className="font-bold mb-3 text-orange-500">Revenue Recovery Target</h3>
+            <div className="border border-border-flat rounded p-6">
+              <h3 className="font-bold mb-3 text-gold-flat">Revenue Recovery Target</h3>
               <p className="text-gray-300 text-sm">Realistic projections of direct booking increases and OTA commission savings.</p>
             </div>
           </div>
@@ -126,11 +126,11 @@ export default function DirectBookingAuditPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Next Steps</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <Link href="/hotel-growth-partnership-kenya" className="border border-orange-500/20 rounded p-6 hover:border-orange-500/50 transition-all">
+            <Link href="/hotel-growth-partnership-kenya" className="border border-border-flat rounded p-6 hover:border-gold-flat/50 transition-all">
               <h3 className="text-xl font-bold mb-2">Growth Partnership Retainer</h3>
               <p className="text-gray-300">Implement the audit findings with ongoing management and optimization.</p>
             </Link>
-            <Link href="/hotel-local-seo-kenya" className="border border-orange-500/20 rounded p-6 hover:border-orange-500/50 transition-all">
+            <Link href="/hotel-local-seo-kenya" className="border border-border-flat rounded p-6 hover:border-gold-flat/50 transition-all">
               <h3 className="text-xl font-bold mb-2">Hotel Local SEO</h3>
               <p className="text-gray-300">Improve visibility in local search to drive more direct traffic to your website.</p>
             </Link>
