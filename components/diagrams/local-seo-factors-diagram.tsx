@@ -1,6 +1,6 @@
 export function LocalSEOFactorsDiagram() {
   return (
-    <div className="bg-white/5 border border-white/10 rounded-lg p-6 md:p-8 my-8">
+    <div className="bg-navy-alt border border-border-flat rounded-sm p-6 md:p-8 my-8">
       <svg viewBox="0 0 600 300" className="w-full h-auto" role="img" aria-labelledby="local-seo-factors-title">
         <title id="local-seo-factors-title">Diagram showing Relevance, Distance, and Prominence combining into your local search ranking</title>
 
