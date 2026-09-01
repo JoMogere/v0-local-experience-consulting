@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { Hero } from "@/components/hero"
 import { ServicesOverview } from "@/components/services-overview"
-import { Portfolio } from "@/components/portfolio"
+import { TrustMarquee } from "@/components/trust-marquee"
 import { RealResults } from "@/components/real-results"
 import { HowWeWork } from "@/components/how-we-work"
 import { About } from "@/components/about"
@@ -22,7 +22,7 @@ export default function HomePage() {
     <div className="overflow-x-hidden">
       <Hero />
       <ServicesOverview />
-      <Portfolio />
+      <TrustMarquee />
       <RealResults />
       <HowWeWork />
       <About />
