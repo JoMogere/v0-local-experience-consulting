@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
+import { PreferredSourceButton } from '@/components/preferred-source-button'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
   'local-seo-for-hotels': MapPin,
@@ -80,7 +81,7 @@ export default function BlogPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-navy-deep text-white pt-24">
+    <main className="min-h-screen bg-navy-deep text-[#F9F6F0] pt-24">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <header className="mb-16">
@@ -100,10 +101,10 @@ export default function BlogPage() {
               <Link
                 key={idx}
                 href={pillar.link}
-                className="group p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-orange-500/30 transition-all"
+                className="group p-6 bg-navy-alt border border-border-flat rounded-sm hover:bg-[#262626] hover:border-border-flat transition-all"
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-orange-500 flex-shrink-0">
+                  <span className="text-gold-flat flex-shrink-0">
                     {(() => {
                       const slug = pillar.link.split('/').pop() || ''
                       const Icon = CATEGORY_ICONS[slug]
@@ -111,7 +112,7 @@ export default function BlogPage() {
                     })()}
                   </span>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-orange-500 group-hover:text-orange-400 transition-colors mb-2">
+                    <h3 className="text-lg font-bold text-gold-flat group-hover:text-gold-flat transition-colors mb-2">
                       {pillar.title}
                     </h3>
                     <p className="text-text-gray text-sm leading-relaxed mb-3">
@@ -119,7 +120,7 @@ export default function BlogPage() {
                     </p>
                     <div className="text-xs text-text-gray/70 flex items-center justify-between">
                       <span>{pillar.articles} articles</span>
-                      <span className="text-orange-500 font-semibold">Read →</span>
+                      <span className="text-gold-flat font-semibold">Read →</span>
                     </div>
                   </div>
                 </div>
@@ -128,41 +129,43 @@ export default function BlogPage() {
           </div>
         </section>
 
+        <PreferredSourceButton />
+
         {/* Why These Guides */}
-        <section className="mb-16 bg-white/5 border border-white/10 rounded-lg p-8">
+        <section className="mb-16 bg-navy-alt border border-border-flat rounded-sm p-8">
           <h2 className="text-2xl font-bold mb-6">Why Hoteliers Read These Guides</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-bold text-orange-500 mb-4">Built From Real Work</h3>
+              <h3 className="font-bold text-gold-flat mb-4">Built From Real Work</h3>
               <p className="text-text-gray mb-4">
                 Every guide comes from hands-on work managing marketing for real East African hotels and resorts — not recycled generic advice.
               </p>
               <ul className="space-y-2 text-text-gray text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Real case studies & examples
+                  <span className="text-gold-flat">✓</span> Real case studies & examples
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Practical, step-by-step advice
+                  <span className="text-gold-flat">✓</span> Practical, step-by-step advice
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Written for hotels operating in Kenya & East Africa
+                  <span className="text-gold-flat">✓</span> Written for hotels operating in Kenya & East Africa
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-orange-500 mb-4">What You'll Get</h3>
+              <h3 className="font-bold text-gold-flat mb-4">What You'll Get</h3>
               <p className="text-text-gray mb-4">
                 No fluff, no filler — each guide is built to help you take action the same day you read it.
               </p>
               <ul className="space-y-2 text-text-gray text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Clear, actionable steps
+                  <span className="text-gold-flat">✓</span> Clear, actionable steps
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Checklists and FAQs you can use right away
+                  <span className="text-gold-flat">✓</span> Checklists and FAQs you can use right away
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-orange-500">✓</span> Honest, transparent recommendations
+                  <span className="text-gold-flat">✓</span> Honest, transparent recommendations
                 </li>
               </ul>
             </div>
@@ -170,7 +173,7 @@ export default function BlogPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg p-8 text-center mb-16">
+        <section className="bg-navy-alt border border-border-flat rounded-sm p-8 text-center mb-16">
           <h3 className="text-2xl font-bold mb-4">Ready to Scale Your Hotel?</h3>
           <p className="text-text-gray mb-6 max-w-2xl mx-auto">
             Our complete hotel growth strategy combines everything in these guides with technical SEO, direct booking optimization, and experiential marketing to drive real revenue growth.
@@ -179,7 +182,7 @@ export default function BlogPage() {
             href="https://calendly.com/mogerejulius41/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-colors"
           >
             Book a Strategy Call
           </a>
