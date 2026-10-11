@@ -102,7 +102,7 @@ export default function FounderPage() {
 
         <section className="space-y-5 text-lg text-text-gray leading-relaxed mb-12">
           <p>
-            Julius Onyiego Mogere is the founder of BookedUp Africa, a digital marketing consultancy built specifically for hotels and resorts in Kenya and East Africa. <strong className="text-white">Jo Mogere</strong> is his personal brand, which he started in March 2025. He works hands-on with individual properties on{' '}
+            Julius Onyiego Mogere is the founder of BookedUp Africa, a digital marketing consultancy built specifically for hotels and resorts in Kenya and East Africa. <strong className="text-white">Jo Mogere</strong> is his personal brand. He has been working in hospitality digital marketing since March 2025, working hands-on with individual properties on{' '}
             <Link href="/hotel-local-seo-kenya" className="text-gold-flat hover:underline">local SEO</Link>,{' '}
             <Link href="/pillar/direct-bookings" className="text-gold-flat hover:underline">direct bookings</Link> and{' '}
             <Link href="/pillar/experiential-marketing" className="text-gold-flat hover:underline">experiential marketing</Link>.
