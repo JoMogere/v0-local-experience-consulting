@@ -32,6 +32,11 @@ export default function CaseStudiesHub() {
               <p className="text-text-gray text-sm mb-4">An honest look at what the early months of local SEO actually look like — not a highlight reel</p>
               <div className="text-2xl font-bold text-blue-400">14 clicks, position 9 → climbing</div>
             </Link>
+            <Link href="/blog/case-study-naivasha-hotel-google-business-profile" className="p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors block">
+              <h3 className="text-xl font-bold text-orange-500 mb-2">Naivasha Hotel: Google Profile Results →</h3>
+              <p className="text-text-gray text-sm mb-4">What a working Google Business Profile looks like, and the zero in it that needs fixing</p>
+              <div className="text-2xl font-bold text-green-400">8,427 views, 443 directions, 115 calls</div>
+            </Link>
           </div>
 
           <div className="p-8 bg-white/5 border border-white/10 rounded-lg text-center">

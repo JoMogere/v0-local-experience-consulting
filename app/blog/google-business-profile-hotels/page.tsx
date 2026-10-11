@@ -118,6 +118,18 @@ export default function GBPPillar() {
             <p>
               Google offers verified hotels a free "Book" button directly on their profile — no OTA commission, no middleman. Most hotels never activate it, either because they don't know it exists or their booking engine isn't connected properly to accept it.
             </p>
+            <figure className="rounded-lg overflow-hidden border border-white/10 bg-white/5 my-6">
+              <Image
+                src="/infographics/which-hotel-gets-the-booking.jpg"
+                alt="Illustration comparing two hotels in Google search: The Riverside Inn, with no booking option, a July 2021 update and a one-star review, beside Sunset View Hotel, with Website, Directions and Book online buttons, fresh photos and a five-star review."
+                width={1400}
+                height={764}
+                className="w-full h-auto"
+              />
+              <figcaption className="text-text-gray text-sm text-center p-3">
+                Illustration: two hotels, same search. The one with a booking button, fresh updates and answered reviews wins the guest.
+              </figcaption>
+            </figure>
             <p>
               We saw exactly what this looks like in practice with Elsamere Lodge:{' '}
               <Link href="/blog/case-study-elsamere-lodge" className="text-orange-500 hover:text-orange-400">
@@ -216,6 +228,9 @@ export default function GBPPillar() {
             </Link>
             <Link href="/blog/direct-hotel-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Direct Bookings Strategy</h3>
+            </Link>
+            <Link href="/blog/case-study-naivasha-hotel-google-business-profile" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Case Study: A Naivasha Hotel's Google Profile</h3>
             </Link>
             <Link href="/blog/case-study-elsamere-lodge" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Case Study: Elsamere Lodge</h3>

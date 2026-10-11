@@ -23,6 +23,7 @@ export interface BlogInput {
 const RESERVED_SLUGS = new Set([
   'ai-for-hotels',
   'case-study-elsamere-lodge',
+  'case-study-naivasha-hotel-google-business-profile',
   'case-study-silent-palms-villa',
   'content-marketing-hotels',
   'direct-hotel-bookings',
