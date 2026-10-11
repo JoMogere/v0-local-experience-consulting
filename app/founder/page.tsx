@@ -2,22 +2,24 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/site'
 
-const NAME = 'Julius "Jo" Mogere'
+const NAME = 'Julius Onyiego Mogere'
 
 export const metadata: Metadata = {
-  title: 'About Julius "Jo" Mogere – Founder of BookedUp Africa',
+  title: 'About Julius Onyiego Mogere (Jo Mogere) – Founder of BookedUp Africa',
   description:
-    'Julius "Jo" Mogere is the founder of BookedUp Africa, a hospitality digital marketing consultancy helping hotels and resorts in Kenya and East Africa with local SEO, direct bookings and experiential marketing.',
+    'Julius Onyiego Mogere, known publicly as Jo Mogere, is the founder of BookedUp Africa, a hospitality digital marketing consultancy helping hotels and resorts in Kenya and East Africa with local SEO, direct bookings and experiential marketing.',
   alternates: { canonical: '/founder' },
   openGraph: {
-    title: 'About Julius "Jo" Mogere – Founder of BookedUp Africa',
+    title: 'About Julius Onyiego Mogere (Jo Mogere) – Founder of BookedUp Africa',
     description:
       'Founder of BookedUp Africa. Local SEO, direct bookings and experiential marketing for hotels and resorts in Kenya and East Africa.',
     type: 'profile',
   },
 }
 
-const links = [
+type FounderLink = { label: string; href: string; url: string; external?: boolean; personal?: boolean }
+
+const links: FounderLink[] = [
   { label: 'Contact Jo Mogere', href: '/contact', url: `${SITE_URL}/contact` },
   { label: 'BookedUp Africa home', href: '/', url: SITE_URL },
   {
@@ -51,20 +53,37 @@ const links = [
     external: true,
   },
   {
+    label: 'Jo Mogere on LinkedIn',
+    href: 'https://www.linkedin.com/in/julius-mogere-8538473b4/',
+    url: 'https://www.linkedin.com/in/julius-mogere-8538473b4/',
+    external: true,
+    personal: true,
+  },
+  {
+    label: 'Jo Mogere on Facebook',
+    href: 'https://www.facebook.com/jomogere/',
+    url: 'https://www.facebook.com/jomogere/',
+    external: true,
+    personal: true,
+  },
+  {
     label: 'Jo Mogere on Medium',
     href: 'https://medium.com/@mogerejulius41',
     url: 'https://medium.com/@mogerejulius41',
     external: true,
+    personal: true,
   },
   {
     label: 'Jo Mogere playbooks on Selar',
     href: 'https://selar.com/m/jomogere',
     url: 'https://selar.com/m/jomogere',
     external: true,
+    personal: true,
   },
 ]
 
-const sameAs = links.filter((l) => l.external && !l.href.includes('calendly')).map((l) => l.url)
+// Person structured data lists personal profiles only; the brand's own accounts belong to the organisation.
+const sameAs = links.filter((l) => 'personal' in l && l.personal).map((l) => l.url)
 
 export default function FounderPage() {
   return (
@@ -77,12 +96,13 @@ export default function FounderPage() {
         <header className="mb-10">
           <p className="text-gold-flat uppercase tracking-[2px] text-xs md:text-sm mb-3">Founder</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-3 text-balance">About {NAME}</h1>
+          <p className="text-gold-flat mb-1">Known as Jo Mogere</p>
           <p className="text-text-gray">Founder, BookedUp Africa. Based in Kenya.</p>
         </header>
 
         <section className="space-y-5 text-lg text-text-gray leading-relaxed mb-12">
           <p>
-            Julius "Jo" Mogere is the founder of BookedUp Africa, a digital marketing consultancy built specifically for hotels and resorts in Kenya and East Africa. He works hands-on with individual properties on{' '}
+            Julius Onyiego Mogere is the founder of BookedUp Africa, a digital marketing consultancy built specifically for hotels and resorts in Kenya and East Africa. <strong className="text-white">Jo Mogere</strong> is his personal brand, which he started in March 2025. He works hands-on with individual properties on{' '}
             <Link href="/hotel-local-seo-kenya" className="text-gold-flat hover:underline">local SEO</Link>,{' '}
             <Link href="/pillar/direct-bookings" className="text-gold-flat hover:underline">direct bookings</Link> and{' '}
             <Link href="/pillar/experiential-marketing" className="text-gold-flat hover:underline">experiential marketing</Link>.
@@ -167,7 +187,7 @@ export default function FounderPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Person',
-            name: 'Julius Mogere',
+            name: 'Julius Onyiego Mogere',
             alternateName: 'Jo Mogere',
             jobTitle: 'Founder',
             description:
