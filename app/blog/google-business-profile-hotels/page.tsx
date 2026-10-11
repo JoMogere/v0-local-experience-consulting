@@ -27,12 +27,14 @@ export default function GBPPillar() {
           <h2 className="font-bold mb-4">Table Of Contents</h2>
           <ul className="space-y-2 text-sm text-text-gray">
             <li><Link href="#setup" className="text-orange-500 hover:text-orange-400">Setup & Verification</Link></li>
+            <li><Link href="#kenya" className="text-orange-500 hover:text-orange-400">Setting Up in Kenya: Addresses, Verification, Seasons</Link></li>
             <li><Link href="#categories" className="text-orange-500 hover:text-orange-400">Why Your Category Matters More Than You Think</Link></li>
             <li><Link href="#photos" className="text-orange-500 hover:text-orange-400">Photos That Actually Increase Visibility</Link></li>
             <li><Link href="#posts" className="text-orange-500 hover:text-orange-400">Using Google Posts</Link></li>
             <li><Link href="#booking" className="text-orange-500 hover:text-orange-400">The Free Booking Link Most Hotels Ignore</Link></li>
             <li><Link href="#reviews" className="text-orange-500 hover:text-orange-400">Review Management</Link></li>
             <li><Link href="#insights" className="text-orange-500 hover:text-orange-400">Reading Your GBP Insights</Link></li>
+            <li><Link href="#faq" className="text-orange-500 hover:text-orange-400">Frequently Asked Questions</Link></li>
             <li><Link href="#final-thoughts" className="text-orange-500 hover:text-orange-400">Final Thoughts</Link></li>
           </ul>
         </nav>
@@ -47,6 +49,37 @@ export default function GBPPillar() {
               <li>Double-check your name, address, and phone number are exactly accurate</li>
               <li>Write a complete description that actually says what makes you worth booking</li>
               <li>Fill in every relevant business attribute Google offers</li>
+            </ul>
+          </div>
+
+          <div id="kenya">
+            <h2 className="text-3xl font-bold text-white">Setting Up in Kenya: Addresses, Verification, Seasons</h2>
+            <p>
+              Most Google Business Profile advice is written for cities with tidy street addresses. Lodges, camps and guesthouses across Kenya often don't fit that mould, and that's where profiles go wrong. These are the Kenya-specific things worth getting right:
+            </p>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                <strong className="text-white">A P.O. Box is not an address.</strong> Google doesn't accept a P.O. Box as your business location, even though it's how many Kenyan businesses are listed. Use the physical location of the property.
+              </li>
+              <li>
+                <strong className="text-white">No street name? Be precise another way.</strong> Place the map pin on your actual entrance, not the nearest town. Add your Google Plus Code and plain landmark directions to your description, for example how far you are past a well-known trading centre or junction, and on which side of the road.
+              </li>
+              <li>
+                <strong className="text-white">Choose verification that suits your location.</strong> If Google offers video verification, it's often the faster route for a remote property, because postcards can be slow or unreliable in rural areas. Have your signage, the premises and proof you run the property ready to show on camera.
+              </li>
+              <li>
+                <strong className="text-white">Pick the category that matches what you are.</strong> Depending on your property that could be Safari lodge, Lodge, Resort hotel, Guest house or Bed &amp; breakfast. Google adjusts its category list over time, so check the exact names in your dashboard.
+              </li>
+              <li>
+                <strong className="text-white">Keep your details identical everywhere.</strong> Your name, address and phone number should match across your website, social pages and listings. We explain why in our{' '}
+                <Link href="/pillar/local-seo-hotels/nap-consistency" className="text-orange-500 hover:text-orange-400">NAP consistency guide</Link>.
+              </li>
+              <li>
+                <strong className="text-white">Plan around your seasons.</strong> Refresh photos and Posts ahead of your busy periods. For Mara-area properties that is roughly the July to October migration season, and for most of Kenya it also includes the December holidays and Easter.
+              </li>
+              <li>
+                <strong className="text-white">Make it easy to reach you on WhatsApp.</strong> Many Kenyan guests prefer to message before booking. Put a click-to-chat WhatsApp link on the website your profile points to, and keep your listed phone number answered.
+              </li>
             </ul>
           </div>
 
@@ -104,7 +137,13 @@ export default function GBPPillar() {
               <li>Respond to every review within 24-48 hours — including, especially, the negative ones</li>
               <li>Thank positive reviewers by name where it feels natural, not with a copy-pasted line</li>
               <li>Watch for patterns in feedback — three guests mentioning the same issue is a signal, not a coincidence</li>
+              <li>Ask for reviews at checkout using your profile's review link, and never offer a discount or gift in exchange. It breaks Google's rules and can get reviews removed</li>
+              <li>Reply in the language the guest wrote in, English or Swahili. It shows a real person is reading</li>
             </ul>
+            <p className="mt-4">
+              Want a repeatable process? See{' '}
+              <Link href="/pillar/local-seo-hotels/generate-hotel-reviews" className="text-orange-500 hover:text-orange-400">how to generate hotel reviews</Link>.
+            </p>
           </div>
 
           <div id="insights">
@@ -131,6 +170,31 @@ export default function GBPPillar() {
             <p className="text-text-gray text-sm text-center">
               An example of the Maps vs. Search views breakdown in Google Business Profile Insights.
             </p>
+          </div>
+
+          <div id="faq">
+            <h2 className="text-3xl font-bold text-white">Frequently Asked Questions</h2>
+
+            <h3 className="text-xl font-semibold text-white mt-6">Is Google My Business the same as Google Business Profile?</h3>
+            <p>Yes. Google renamed Google My Business to Google Business Profile, so guides and articles using either name are talking about the same free listing.</p>
+
+            <h3 className="text-xl font-semibold text-white mt-6">Does it cost anything?</h3>
+            <p>No. Creating, verifying and managing your profile is free. You only pay if you choose to run Google Ads on top of it.</p>
+
+            <h3 className="text-xl font-semibold text-white mt-6">Can I use a P.O. Box as my hotel's address?</h3>
+            <p>No. Google needs the physical location of your property. If you have no formal street address, place the pin precisely, add a Plus Code, and describe how to find you using landmarks.</p>
+
+            <h3 className="text-xl font-semibold text-white mt-6">How long does verification take?</h3>
+            <p>It varies by method and by your location. Video or phone verification can be quick when offered, while postcards can take noticeably longer, especially for remote properties. If one method stalls, check whether Google offers another.</p>
+
+            <h3 className="text-xl font-semibold text-white mt-6">My hotel doesn't show up on Google Maps. What should I check?</h3>
+            <p>First search for your property name and see whether a profile already exists, because it may be unclaimed or duplicated. Then confirm it's verified, that your category matches what you are, and that the pin sits on your real entrance.</p>
+
+            <h3 className="text-xl font-semibold text-white mt-6">What should I do about a bad review?</h3>
+            <p>Reply calmly within a day or two, acknowledge what went wrong where it's fair, and offer to continue the conversation privately. Future guests read your response as much as the review itself.</p>
+
+            <h3 className="text-xl font-semibold text-white mt-6">Can I delete an unfair or fake review?</h3>
+            <p>You can't delete a review just because it's negative. You can report reviews that break Google's policies, such as spam, fake reviews or off-topic content, and Google decides whether to remove them.</p>
           </div>
 
           <div id="final-thoughts">
