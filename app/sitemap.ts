@@ -71,6 +71,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
     },
     {
+      url: `${baseUrl}/founder`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

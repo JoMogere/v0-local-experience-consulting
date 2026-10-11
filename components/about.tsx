@@ -15,6 +15,9 @@ export function About() {
             <p>
               That includes direct experience with platforms like Zeevou, Beds24, and Lodgify, and ongoing work with properties including Silent Palms Villa, Elsamere Lodge, Mt Longonot Country Resort, Luna Light Guest House, Wild Wood Cottages, and Jazby Guest House.
             </p>
+            <p>
+              <a href="/founder" className="text-gold-flat hover:underline">More about Julius &rarr;</a>
+            </p>
             <p className="italic text-[#EAE5DF]/90">
               "Research and implementation for local search, experiential marketing, and direct bookings — for hotels that want the work done, not just a report explaining it."
             </p>
