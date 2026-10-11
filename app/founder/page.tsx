@@ -132,6 +132,25 @@ export default function FounderPage() {
         </section>
 
         <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">How It Started</h2>
+          <div className="space-y-4 text-text-gray leading-relaxed">
+            <p>
+              Before hospitality, Jo worked with general businesses, helping them get on the map and show up in local search. That changed in Naivasha, during the WRC rally.
+            </p>
+            <p>
+              With a big event coming up, he realised visitors would be looking for somewhere to stay at the last minute. They wouldn't open booking apps and compare. They would search, typing things like "guesthouse near me" or "bed and breakfast near Hell's Gate". So he walked into a nearby guesthouse and offered to help it reach those guests: people in a micro-moment, ready to book now.
+            </p>
+            <p>
+              Direct bookings came next. While working with Elsamere Lodge, he saw how much a property can depend on online travel agencies (OTAs) for its bookings. He started putting in place what a property can do to bring in direct bookings, and how the guest experience helps drive them.
+            </p>
+            <p>
+              That is why BookedUp Africa is built around three things that work together: being found at the moment of search, turning that attention into direct bookings, and giving guests an experience that keeps both growing. Read the{' '}
+              <Link href="/blog/case-study-elsamere-lodge" className="text-gold-flat hover:underline">Elsamere Lodge case study</Link> to see what that looks like in numbers.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">What Jo Works On</h2>
           <ul className="space-y-3 text-text-gray">
             <li>
