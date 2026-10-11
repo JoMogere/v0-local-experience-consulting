@@ -4,11 +4,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/resources',
   },
-  title: 'BookedUp Africa — Hotel Growth Articles & Resources',
-  description: 'In-depth articles on local SEO, guest experience, direct booking optimization, and hospitality marketing strategies.',
+  title: "Hotel Marketing Guides for Kenya & East Africa",
+  description: "Practical guides on local SEO, direct bookings and guest experience for hotels in Kenya and East Africa. Start with the one that fits you.",
   keywords: 'hotel marketing articles, local SEO guide, hospitality strategy, direct bookings, medium articles',
   openGraph: {
-    title: 'BookedUp Africa — Articles & Resources',
+    title: "Hotel Marketing Guides for Kenya & East Africa",
     description: 'Deep-dive articles on hotel growth and hospitality marketing',
     type: 'website',
   },

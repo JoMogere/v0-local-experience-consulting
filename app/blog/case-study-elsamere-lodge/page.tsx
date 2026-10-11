@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/case-study-elsamere-lodge',
   },
-  title: 'Elsamere Lodge Case Study | BookedUp Africa',
-  description: 'How Elsamere Lodge generated 124 free booking link clicks and 205 organic search clicks in the same period — real, verified Google data.',
+  title: "Elsamere Lodge Case Study: 124 Free Booking Clicks",
+  description: "How Elsamere Lodge in Kenya got 124 free booking link clicks and 205 organic search clicks in 6 months. Real, verified Google data.",
   keywords: 'Elsamere Lodge, free hotel booking link, Google Business Profile results, direct bookings Kenya',
 }
 

@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-choose-a-hotel-marketing-agency-kenya',
   },
-  title: 'How to Choose a Hotel Marketing Agency in Kenya | BookedUp Africa',
-  description: 'A real buyer\'s checklist for picking a hotel marketing agency in Kenya — the questions to ask, the red flags to watch for, and what actually matters.',
+  title: "How to Choose a Hotel Marketing Agency in Kenya (Checklist)",
+  description: "Hiring a hotel marketing agency in Kenya? Use this buyer's checklist: the questions to ask, the red flags to watch for, and what actually matters.",
   keywords: 'best hotel marketing agency Kenya, how to choose hotel marketing agency, hotel marketing agency checklist Kenya',
 }
 

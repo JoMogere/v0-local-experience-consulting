@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/google-business-profile-hotels',
   },
-  title: 'Google Business Profile for Hotels (Google My Business) | BookedUp Africa',
-  description: 'How to set up and optimize your Google Business Profile — categories, photos, posts, and the free booking link most hotels never activate.',
+  title: "Google Business Profile for Hotels: Complete Setup Guide",
+  description: "Google My Business for hotels, explained. Set up your Business Profile, choose categories, add photos and posts, and activate the free booking link.",
   keywords: 'Google Business Profile hotels, Google My Business for hotels, hotel Google Business Profile optimization, hotel GBP optimization, Google Posts, hotel categories, booking links',
 }
 

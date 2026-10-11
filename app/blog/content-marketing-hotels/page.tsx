@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/content-marketing-hotels',
   },
-  title: 'Content Marketing for Hotels | BookedUp Africa',
-  description: 'Blog strategy, video, and social media for hotels — built around what guests actually search for, not a generic content calendar.',
+  title: "Content Marketing for Hotels: What Actually Gets Read",
+  description: "Content marketing for hotels that guests actually find: blog, video and social media built around what travellers search for, not a generic calendar.",
   keywords: 'content marketing hotels, content marketing hotel, hotel content, hotel blogging, video marketing, social media hotels',
 }
 

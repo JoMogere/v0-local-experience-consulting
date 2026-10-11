@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/hotel-marketing-agency-vs-digital-marketing-agency',
   },
-  title: 'Hotel Agency vs. Digital Marketing Agency | BookedUp Africa',
-  description: 'What separates a hotel marketing specialist from a general digital marketing agency, and how to tell which one you\'re talking to.',
+  title: "Hotel Marketing Agency vs Digital Agency: Which to Hire",
+  description: "Should you hire a hotel marketing specialist or a general digital agency? Here's what separates them and how to tell which one you're talking to.",
   keywords: 'hotel marketing agency Kenya, digital marketing agency Kenya, hospitality marketing specialist, hotel SEO agency',
 }
 
