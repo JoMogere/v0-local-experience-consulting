@@ -61,7 +61,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...playbookRoutes,
     {
-      url: `${baseUrl}/merch`,
+      url: `${baseUrl}/shop`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
     },

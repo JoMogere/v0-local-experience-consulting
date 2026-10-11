@@ -32,6 +32,11 @@ export interface MerchProduct {
   designs: MerchDesign[]
 }
 
+// Shop page heading. Change SHOP_PRIDE_WORD to reword "Show Your ___ Pride".
+export const SHOP_PRIDE_WORD = 'African'
+export const SHOP_NAME = 'BookedUp Africa Shop'
+export const SHOP_HEADLINE = `Show Your ${SHOP_PRIDE_WORD} Pride`
+
 export const WHATSAPP_NUMBER = '+254799022671'
 
 export const MERCH: MerchProduct = {
