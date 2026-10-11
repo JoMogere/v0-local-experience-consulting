@@ -39,31 +39,93 @@ const socialLinks = [
   },
 ]
 
+const columns = [
+  {
+    title: "Services",
+    links: [
+      { label: "All Services", href: "/services" },
+      { label: "Hotel Local SEO", href: "/hotel-local-seo-kenya" },
+      { label: "Booking Leak Audit", href: "/hotel-booking-leak-audit-kenya" },
+      { label: "Guest Experience", href: "/hotel-guest-experience-optimization-kenya" },
+      { label: "Growth Partnership", href: "/hotel-growth-partnership-kenya" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Articles", href: "/blog" },
+      { label: "Playbooks", href: "/playbooks" },
+      { label: "Guides & Resources", href: "/resources" },
+      { label: "Videos", href: "/videos" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Contact", href: "/contact" },
+      { label: "Book a Strategy Call", href: "https://calendly.com/mogerejulius41/30min", external: true },
+      { label: "Shop", href: "/shop" },
+    ],
+  },
+]
+
 export function Footer() {
   return (
-    <footer className="py-16 md:py-24 pb-12 md:pb-16 text-center border-t border-border-flat bg-navy-deep">
+    <footer className="py-14 md:py-20 border-t border-border-flat bg-navy-deep">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-        <p className="font-serif italic text-gold text-lg md:text-[22px] tracking-[0.5px]">
-          Transform. Book. Grow.
-        </p>
-        
-        <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-8 md:mt-10">
-          {socialLinks.map((social) => (
-            <Link
-              key={social.name}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-navy-alt border border-border-flat flex items-center justify-center text-text-gray hover:text-gold-flat hover:border-gold-flat/50 transition-colors"
-              aria-label={social.name}
-            >
-              {social.icon}
-            </Link>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+          {columns.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <h3 className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
+                {col.title}
+              </h3>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      {...("external" in link && link.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="text-sm text-text-gray hover:text-gold-flat transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           ))}
+
+          <nav aria-label="Social">
+            <h3 className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
+              Social
+            </h3>
+            <ul className="space-y-3">
+              {socialLinks.map((social) => (
+                <li key={social.name}>
+                  <Link
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-sm text-text-gray hover:text-gold-flat transition-colors"
+                  >
+                    {social.icon}
+                    {social.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        
-        <div className="mt-8 md:mt-10 text-[10px] md:text-[11px] opacity-40 tracking-[1px]">
-          &copy; {new Date().getFullYear()} BookedUp Africa.
+
+        <div className="mt-12 md:mt-16 pt-8 border-t border-border-flat flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="font-serif italic text-gold text-lg md:text-[22px] tracking-[0.5px]">
+            Transform. Book. Grow.
+          </p>
+          <p className="text-[10px] md:text-[11px] opacity-40 tracking-[1px]">
+            &copy; {new Date().getFullYear()} BookedUp Africa. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
