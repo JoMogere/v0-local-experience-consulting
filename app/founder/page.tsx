@@ -138,10 +138,10 @@ export default function FounderPage() {
               Before hospitality, Jo worked with general businesses, helping them get on the map and show up in local search. That changed in Naivasha, during the WRC rally.
             </p>
             <p>
-              With a big event coming up, he realised visitors would be looking for somewhere to stay at the last minute. They wouldn't open booking apps and compare. They would search, typing things like "guesthouse near me" or "bed and breakfast near Hell's Gate". So he walked into a nearby guesthouse and offered to help it reach those guests: people in a micro-moment, ready to book now.
+              With a big event coming up, he realised visitors would be looking for somewhere to stay at the last minute. They wouldn't open booking apps and compare. They would search, typing things like "guesthouse near me" or "bed and breakfast near Hell's Gate". So he walked into a nearby guesthouse, Jazby Guest House, and offered to help it reach those guests: people in a micro-moment, ready to book now. Jazby was his first.
             </p>
             <p>
-              Direct bookings came next. While working with Elsamere Lodge, he saw how much a property can depend on online travel agencies (OTAs) for its bookings. He started putting in place what a property can do to bring in direct bookings, and how the guest experience helps drive them.
+              Wild Wood Cottages and Luna Light Guest House followed. Then came Elsamere Lodge and Silent Palms Villa in Diani, and with them the idea of direct bookings. While working with Elsamere Lodge, he saw how much a property can depend on online travel agencies (OTAs) for its bookings. He started putting in place what a property can do to bring in direct bookings, and how the guest experience helps drive them.
             </p>
             <p>
               That is why BookedUp Africa is built around three things that work together: being found at the moment of search, turning that attention into direct bookings, and giving guests an experience that keeps both growing. Read the{' '}
@@ -170,10 +170,20 @@ export default function FounderPage() {
 
         <section className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Properties Jo Has Worked With</h2>
+          <p className="text-text-gray mb-4">In the order he started working with them:</p>
+          <ol className="space-y-2 text-text-gray list-decimal list-inside mb-4">
+            <li>Jazby Guest House, Naivasha (his first)</li>
+            <li>Wild Wood Cottages</li>
+            <li>Luna Light Guest House</li>
+            <li>
+              <Link href="/blog/case-study-elsamere-lodge" className="text-gold-flat hover:underline">Elsamere Lodge</Link>
+            </li>
+            <li>
+              <Link href="/blog/case-study-silent-palms-villa" className="text-gold-flat hover:underline">Silent Palms Villa</Link>, Diani
+            </li>
+          </ol>
           <p className="text-text-gray">
-            Silent Palms Villa, Elsamere Lodge, Mt Longonot Country Resort, Luna Light Guest House, Wild Wood Cottages and Jazby Guest House. Two of them have published case studies:{' '}
-            <Link href="/blog/case-study-elsamere-lodge" className="text-gold-flat hover:underline">Elsamere Lodge</Link> and{' '}
-            <Link href="/blog/case-study-silent-palms-villa" className="text-gold-flat hover:underline">Silent Palms Villa</Link>.
+            He has also worked with Mt Longonot Country Resort. Elsamere Lodge and Silent Palms Villa have published case studies with real numbers.
           </p>
         </section>
 
