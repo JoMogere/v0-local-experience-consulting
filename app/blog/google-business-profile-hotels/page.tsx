@@ -220,6 +220,9 @@ export default function GBPPillar() {
             <Link href="/blog/case-study-elsamere-lodge" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Case Study: Elsamere Lodge</h3>
             </Link>
+            <Link href="/playbooks/local-search-direct-bookings-playbook" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Playbook: Turn Local Searches Into Direct Bookings</h3>
+            </Link>
             <Link href="/pillar/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Local SEO: In-Depth Guide</h3>
             </Link>

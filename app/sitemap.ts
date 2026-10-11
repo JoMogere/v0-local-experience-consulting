@@ -2,11 +2,12 @@ import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SERVICES } from '@/lib/services-data'
 import { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site'
+import { PLAYBOOKS } from '@/lib/playbooks-data'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL
 
-  let blogs = []
+  let blogs: Awaited<ReturnType<typeof getPublishedBlogs>> = []
 
   try {
     blogs = await getPublishedBlogs()
@@ -16,6 +17,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const serviceRoutes = SERVICES.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+  }))
+
+  const playbookRoutes = PLAYBOOKS.map((p) => ({
+    url: `${baseUrl}/playbooks/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
   }))
@@ -47,6 +54,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'weekly',
     },
+    {
+      url: `${baseUrl}/playbooks`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    ...playbookRoutes,
     {
       url: `${baseUrl}/resources`,
       lastModified: new Date(),

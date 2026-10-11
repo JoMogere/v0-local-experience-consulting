@@ -2,24 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { PLAYBOOKS as playbooks } from "@/lib/playbooks-data"
 
-
-const playbooks = [
-  {
-    title: "The African Hospitality CX Playbook",
-    subtitle: "Boost Revenue & Guest Experience",
-    description: "A comprehensive guide to elevating customer experience and driving revenue growth for African hospitality businesses.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Mhsz06PXzGyquhx4KVLkV7hjJpaLm3.png",
-    link: "https://selar.com/23200vr569",
-  },
-  {
-    title: "Turn Local Searches Into Direct Bookings",
-    subtitle: "A Practical Guide for Hotels & Resorts",
-    description: "Master local search optimization to convert online searches into direct bookings and reduce dependency on OTAs.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2ung3dxT0DOx2BNgCqkGHbXn9pvJrC.png",
-    link: "https://selar.com/781011tnj1",
-  },
-]
 
 export function Playbooks() {
   return (
@@ -39,9 +23,7 @@ export function Playbooks() {
           {playbooks.map((playbook) => (
             <Link
               key={playbook.title}
-              href={playbook.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/playbooks/${playbook.slug}`}
               className="group block bg-navy-deep border border-border-flat rounded-sm overflow-hidden transition-colors duration-300 hover:border-gold-flat/40"
             >
               <div className="flex flex-col">
@@ -62,7 +44,7 @@ export function Playbooks() {
                     {playbook.description}
                   </p>
                   <span className="inline-flex items-center text-xs md:text-sm text-gold-flat uppercase tracking-[1px] md:tracking-[2px] group-hover:tracking-[2px] md:group-hover:tracking-[3px] transition-all">
-                    Get the Playbook →
+                    View the Playbook →
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
