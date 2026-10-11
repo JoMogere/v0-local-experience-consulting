@@ -6,6 +6,7 @@ import { RealResults } from "@/components/real-results"
 import { HowWeWork } from "@/components/how-we-work"
 import { About } from "@/components/about"
 import { Playbooks } from "@/components/playbooks"
+import { MerchTeaser } from "@/components/merch-teaser"
 import { FAQ } from "@/components/faq"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
@@ -27,6 +28,7 @@ export default function HomePage() {
       <HowWeWork />
       <About />
       <Playbooks />
+      <MerchTeaser />
       <FAQ />
       <Newsletter />
       <Contact />

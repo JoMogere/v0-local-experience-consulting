@@ -15,6 +15,7 @@ export function Navigation() {
     { href: "/videos", label: "Videos" },
     { href: "/playbooks", label: "Playbooks" },
     { href: "/resources", label: "Resources" },
+    { href: "/merch", label: "Merch" },
   ]
 
   return (
