@@ -14,6 +14,13 @@ export interface MerchDesign {
   note: string
 }
 
+export interface MerchPhoto {
+  image: string
+  width: number
+  height: number
+  alt: string
+}
+
 export interface MerchProduct {
   slug: string
   name: string
@@ -21,6 +28,7 @@ export interface MerchProduct {
   description: string
   price?: string
   buyUrl?: string
+  photo: MerchPhoto
   designs: MerchDesign[]
 }
 
@@ -34,6 +42,12 @@ export const MERCH: MerchProduct = {
     'A black tee with the BookedUp Africa logo on the front and our promise on the back: Research and Implementation for local search, experiential marketing, and hospitality growth.',
   price: undefined,
   buyUrl: undefined,
+  photo: {
+    image: '/merch/tee-worn.jpg',
+    width: 1000,
+    height: 1333,
+    alt: 'Person wearing the black BookedUp Africa t-shirt with arms raised on a stone path through trees at a lodge with thatched huts',
+  },
   designs: [
     {
       id: 'classic',

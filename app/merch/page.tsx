@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'BookedUp Africa Merch: Signature Tee',
     description: 'Black BookedUp Africa t-shirt. Order on WhatsApp.',
     type: 'website',
-    images: [{ url: MERCH.designs[0].image }],
+    images: [{ url: MERCH.photo.image }],
   },
 }
 
@@ -27,30 +27,43 @@ export default function MerchPage() {
           <Link href="/" className="hover:text-gold-flat">Home</Link> / Merch
         </div>
 
-        <header className="mb-12 max-w-3xl">
-          <p className="text-gold-flat uppercase tracking-[2px] text-xs md:text-sm mb-3">Merch</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">{MERCH.name}</h1>
-          <p className="text-gold-flat mb-4">{MERCH.tagline}</p>
-          <p className="text-lg text-text-gray mb-6">{MERCH.description}</p>
-          {MERCH.price && <p className="text-2xl font-semibold mb-6">{MERCH.price}</p>}
-          <div className="flex flex-wrap gap-4">
-            {MERCH.buyUrl && (
-              <a href={MERCH.buyUrl} target="_blank" rel="noopener noreferrer" className={buttonClass}>
-                Buy now →
+        <header className="mb-14 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div>
+            <p className="text-gold-flat uppercase tracking-[2px] text-xs md:text-sm mb-3">Merch</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">{MERCH.name}</h1>
+            <p className="text-gold-flat mb-4">{MERCH.tagline}</p>
+            <p className="text-lg text-text-gray mb-6">{MERCH.description}</p>
+            {MERCH.price && <p className="text-2xl font-semibold mb-6">{MERCH.price}</p>}
+            <div className="flex flex-wrap gap-4">
+              {MERCH.buyUrl && (
+                <a href={MERCH.buyUrl} target="_blank" rel="noopener noreferrer" className={buttonClass}>
+                  Buy now →
+                </a>
+              )}
+              <a
+                href={whatsappLink(`Hi, I'd like to order the ${MERCH.name}. Please share sizes and pricing.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonClass}
+              >
+                Order on WhatsApp →
               </a>
-            )}
-            <a
-              href={whatsappLink(`Hi, I'd like to order the ${MERCH.name}. Please share sizes and pricing.`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={buttonClass}
-            >
-              Order on WhatsApp →
-            </a>
+            </div>
+            <p className="text-xs text-text-gray mt-3">Message us for sizes and pricing.</p>
           </div>
-          <p className="text-xs text-text-gray mt-3">Message us for sizes and pricing.</p>
+          <div className="overflow-hidden rounded-sm border border-border-flat max-w-md mx-auto md:max-w-none w-full">
+            <Image
+              src={MERCH.photo.image}
+              alt={MERCH.photo.alt}
+              width={MERCH.photo.width}
+              height={MERCH.photo.height}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
         </header>
 
+        <h2 className="text-2xl font-bold mb-6">The two back prints</h2>
         <section className="space-y-12">
           {MERCH.designs.map((d) => (
             <figure key={d.id}>
