@@ -83,6 +83,33 @@ const links: FounderLink[] = [
   },
 ]
 
+const propertyPhotos = [
+  {
+    name: 'Jazby Guest House, Naivasha',
+    src: '/founder/properties/jazby-guest-house.jpg',
+    width: 1000,
+    height: 670,
+    alt: 'Aerial view of Jazby Guest House in Naivasha, a two-storey building with a red roof and a sign on the left, with two vehicles parked on the street in front',
+    href: undefined as string | undefined,
+  },
+  {
+    name: 'Wild Wood Cottages',
+    src: '/founder/properties/wild-wood-cottages.jpg',
+    width: 1000,
+    height: 666,
+    alt: 'Garden at Wild Wood Cottages with a large cream umbrella over a table on a green lawn and a timber cottage in the background',
+    href: undefined as string | undefined,
+  },
+  {
+    name: 'Silent Palms Villa, Diani',
+    src: '/founder/properties/silent-palms-villa.jpg',
+    width: 1000,
+    height: 666,
+    alt: 'Aerial view of Silent Palms Villa in Diani, a cream-coloured villa with a turquoise swimming pool and sun loungers surrounded by palms and trees',
+    href: '/blog/case-study-silent-palms-villa' as string | undefined,
+  },
+]
+
 // Person structured data lists personal profiles only; the brand's own accounts belong to the organisation.
 const sameAs = links.filter((l) => 'personal' in l && l.personal).map((l) => l.url)
 
@@ -182,6 +209,22 @@ export default function FounderPage() {
               <Link href="/blog/case-study-silent-palms-villa" className="text-gold-flat hover:underline">Silent Palms Villa</Link>, Diani
             </li>
           </ol>
+          <div className="grid sm:grid-cols-3 gap-4 mb-6">
+            {propertyPhotos.map((ph) => (
+              <figure key={ph.name}>
+                <div className="overflow-hidden rounded-sm border border-border-flat">
+                  <Image src={ph.src} alt={ph.alt} width={ph.width} height={ph.height} className="w-full h-48 sm:h-40 object-cover" />
+                </div>
+                <figcaption className="mt-2 text-sm text-text-gray">
+                  {ph.href ? (
+                    <Link href={ph.href} className="text-gold-flat hover:underline">{ph.name}</Link>
+                  ) : (
+                    ph.name
+                  )}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
           <p className="text-text-gray">
             He has also worked with Mt Longonot Country Resort. Elsamere Lodge and Silent Palms Villa have published case studies with real numbers.
           </p>
