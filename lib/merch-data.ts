@@ -51,7 +51,7 @@ export const MERCH: MerchProduct = {
     image: '/merch/tee-worn.jpg',
     width: 1000,
     height: 1333,
-    alt: 'Person wearing the black BookedUp Africa t-shirt with arms raised on a stone path through trees at a lodge with thatched huts',
+    alt: 'Jo Mogere wearing the black BookedUp Africa t-shirt with arms raised on a stone path through trees at a lodge with thatched huts',
   },
   designs: [
     {

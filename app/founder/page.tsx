@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/site'
 
@@ -93,11 +94,23 @@ export default function FounderPage() {
           <Link href="/" className="hover:text-gold-flat">Home</Link> / Founder
         </div>
 
-        <header className="mb-10">
-          <p className="text-gold-flat uppercase tracking-[2px] text-xs md:text-sm mb-3">Founder</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-balance">About {NAME}</h1>
-          <p className="text-gold-flat mb-1">Known as Jo Mogere</p>
-          <p className="text-text-gray">Founder, BookedUp Africa. Based in Kenya.</p>
+        <header className="mb-10 flex flex-col-reverse sm:flex-row sm:items-center gap-6 sm:gap-8">
+          <div className="flex-1">
+            <p className="text-gold-flat uppercase tracking-[2px] text-xs md:text-sm mb-3">Founder</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-3 text-balance">About {NAME}</h1>
+            <p className="text-gold-flat mb-1">Known as Jo Mogere</p>
+            <p className="text-text-gray">Founder, BookedUp Africa. Based in Kenya.</p>
+          </div>
+          <div className="w-40 sm:w-48 md:w-56 shrink-0 overflow-hidden rounded-sm border border-border-flat">
+            <Image
+              src="/founder/jo-mogere.jpg"
+              alt="Portrait of Julius Onyiego Mogere, known as Jo Mogere, founder of BookedUp Africa"
+              width={800}
+              height={803}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
         </header>
 
         <section className="space-y-5 text-lg text-text-gray leading-relaxed mb-12">
@@ -193,6 +206,7 @@ export default function FounderPage() {
             description:
               'Founder of BookedUp Africa, a digital marketing consultancy for hotels and resorts in Kenya and East Africa.',
             url: `${SITE_URL}/founder`,
+            image: `${SITE_URL}/founder/jo-mogere.jpg`,
             worksFor: { '@type': 'Organization', name: 'BookedUp Africa', url: SITE_URL },
             knowsAbout: ['Local SEO for hotels', 'Direct hotel bookings', 'Experiential marketing', 'Google Business Profile'],
             sameAs,
