@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.BETTER_AUTH_URL || 'https://bookedupafrica.com'
+  const baseUrl = SITE_URL
   return {
     rules: {
       userAgent: '*',

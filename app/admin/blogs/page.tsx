@@ -193,7 +193,7 @@ export default function AdminBlogsPage() {
                 className="bg-white/10 border-white/20"
               />
               <p className="text-xs text-text-gray mt-1">
-                bookedupafrica.com/blog/{formData.slug || 'your-article'}
+                /blog/{formData.slug || 'your-article'}
               </p>
             </div>
 

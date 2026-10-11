@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import './globals.css'
+import { SITE_URL } from '@/lib/site'
 
 const dmSans = DM_Sans({ 
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'BookedUp Africa' }],
   creator: 'BookedUp Africa',
   publisher: 'BookedUp Africa',
-  metadataBase: new URL(process.env.BETTER_AUTH_URL || 'https://bookedupafrica.com'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
   },

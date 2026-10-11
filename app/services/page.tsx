@@ -2,6 +2,7 @@ import { SERVICES } from '@/lib/services-data'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, TrendingUp, Sparkles } from 'lucide-react'
+import { SITE_URL } from '@/lib/site'
 
 const ICONS: Record<string, typeof MapPin> = {
   'local-seo': MapPin,
@@ -96,13 +97,13 @@ export default function ServicesPage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://bookedupafrica.com',
+                item: `${SITE_URL}`,
               },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Services',
-                item: 'https://bookedupafrica.com/services',
+                item: `${SITE_URL}/services`,
               },
             ],
           }),

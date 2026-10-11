@@ -1,4 +1,5 @@
 // Schema Markup Generator for Topical Authority
+import { SITE_URL } from '@/lib/site'
 // Generates JSON-LD structured data for SEO
 
 export const generateArticleSchema = (article: {
@@ -20,7 +21,7 @@ export const generateArticleSchema = (article: {
   },
   datePublished: article.datePublished,
   dateModified: article.dateModified || article.datePublished,
-  image: article.image || 'https://bookedupafrica.com/og-image.jpg',
+  image: article.image || `${SITE_URL}/og-image.jpg`,
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': article.url,
@@ -55,9 +56,9 @@ export const generateTopicalAuthoritySchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'BookedUp Africa',
-  url: 'https://bookedupafrica.com',
+  url: `${SITE_URL}`,
   description: 'Hospitality marketing consultancy helping African hotels, resorts, and tourism businesses increase direct bookings through local SEO and strategic marketing.',
-  logo: 'https://bookedupafrica.com/logo.jpg',
+  logo: `${SITE_URL}/logo.jpg`,
   sameAs: [
     'https://www.facebook.com/bookedupafrica',
     'https://www.linkedin.com/company/bookedupafrica',
@@ -80,14 +81,14 @@ export const generateHomepageSchema = () => ({
   '@graph': [
     {
       '@type': ['Organization', 'ProfessionalService'],
-      '@id': 'https://bookedupafrica.com/#organization',
+      '@id': `${SITE_URL}/#organization`,
       name: 'BookedUp Africa',
-      url: 'https://bookedupafrica.com/',
+      url: `${SITE_URL}/`,
       description:
         'Hospitality marketing consultancy helping African hotels, resorts, and tourism businesses increase direct bookings through local SEO and strategic marketing.',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bookedupafrica.com/logo.jpg',
+        url: `${SITE_URL}/logo.jpg`,
       },
       areaServed: [
         { '@type': 'Country', name: 'Kenya' },
@@ -105,19 +106,19 @@ export const generateHomepageSchema = () => ({
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://bookedupafrica.com/#website',
+      '@id': `${SITE_URL}/#website`,
       name: 'BookedUp Africa',
-      url: 'https://bookedupafrica.com/',
-      publisher: { '@id': 'https://bookedupafrica.com/#organization' },
+      url: `${SITE_URL}/`,
+      publisher: { '@id': `${SITE_URL}/#organization` },
       inLanguage: 'en',
     },
     {
       '@type': 'WebPage',
-      '@id': 'https://bookedupafrica.com/#webpage',
-      url: 'https://bookedupafrica.com/',
+      '@id': `${SITE_URL}/#webpage`,
+      url: `${SITE_URL}/`,
       name: 'BookedUp Africa — Transform Your Hospitality Business',
-      isPartOf: { '@id': 'https://bookedupafrica.com/#website' },
-      about: { '@id': 'https://bookedupafrica.com/#organization' },
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@id': `${SITE_URL}/#organization` },
       inLanguage: 'en',
     },
   ],

@@ -1,9 +1,10 @@
 import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SERVICES } from '@/lib/services-data'
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.BETTER_AUTH_URL || 'https://bookedupafrica.com'
+  const baseUrl = SITE_URL
 
   let blogs = []
 

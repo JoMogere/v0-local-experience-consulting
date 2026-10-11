@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { MapPin, TrendingUp, Sparkles } from 'lucide-react'
+import { SITE_URL } from '@/lib/site'
 
 const PILLAR_ICONS: Record<string, typeof MapPin> = {
   'local-seo-hotels': MapPin,
@@ -174,7 +175,7 @@ export default function PillarHubPage() {
             '@type': 'CollectionPage',
             name: 'Hospitality Marketing Guides - BookedUp Africa',
             description: 'In-depth, practical guides on hospitality marketing for hotels and resorts',
-            url: 'https://bookedupafrica.com/pillar',
+            url: `${SITE_URL}/pillar`,
           }),
         }}
       />

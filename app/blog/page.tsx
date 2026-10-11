@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
 import { PreferredSourceButton } from '@/components/preferred-source-button'
 import { getPublishedBlogs } from '@/app/actions/blogs'
+import { SITE_URL } from '@/lib/site'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
   'local-seo-for-hotels': MapPin,
@@ -242,7 +243,7 @@ export default async function BlogPage() {
             publisher: {
               '@type': 'Organization',
               name: 'BookedUp Africa',
-              url: 'https://bookedupafrica.com',
+              url: `${SITE_URL}`,
             },
           }),
         }}
