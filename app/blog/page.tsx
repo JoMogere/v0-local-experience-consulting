@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
 import { PreferredSourceButton } from '@/components/preferred-source-button'
+import { getPublishedBlogs } from '@/app/actions/blogs'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
   'local-seo-for-hotels': MapPin,
@@ -28,7 +29,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  let latestPosts: Awaited<ReturnType<typeof getPublishedBlogs>> = []
+  try {
+    latestPosts = await getPublishedBlogs()
+  } catch {
+    // Database unavailable (e.g. during build) — show the guides only.
+  }
+
   const pillars = [
     {
       title: 'Local SEO for Hotels',
@@ -92,6 +100,39 @@ export default function BlogPage() {
             Comprehensive guides on local SEO, direct bookings, content marketing, and experiential marketing for African hotels. Learn the strategies that drive real bookings and revenue.
           </p>
         </header>
+
+        {/* Latest Articles (published from the admin panel) */}
+        {latestPosts.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-8">Latest Articles</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {latestPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}`}
+                  className="group p-6 bg-navy-alt border border-border-flat rounded-sm hover:bg-[#262626] transition-all"
+                >
+                  {post.category && (
+                    <span className="text-xs uppercase tracking-wide text-gold-flat">
+                      {post.category}
+                    </span>
+                  )}
+                  <h3 className="text-lg font-bold text-[#F9F6F0] group-hover:text-gold-flat transition-colors mt-1 mb-2">
+                    {post.title}
+                  </h3>
+                  {post.excerpt && (
+                    <p className="text-text-gray text-sm leading-relaxed mb-3">{post.excerpt}</p>
+                  )}
+                  {post.publishedAt && (
+                    <p className="text-xs text-text-gray">
+                      {new Date(post.publishedAt).toLocaleDateString()}
+                    </p>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Pillar Pages */}
         <section className="mb-16">
