@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import { getBlogBySlug, getPublishedBlogs } from '@/app/actions/blogs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { BlogContent } from '@/components/blog-content'
+import { plainText } from '@/lib/markdown'
 
 interface Params {
   slug: string
@@ -17,14 +19,14 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
   return {
     title: `${post.title} | BookedUp Africa`,
-    description: post.excerpt || post.content.substring(0, 155),
+    description: post.excerpt || plainText(post.content),
     keywords: post.category || undefined,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
     openGraph: {
       title: post.title,
-      description: post.excerpt || post.content.substring(0, 155),
+      description: post.excerpt || plainText(post.content),
       type: 'article',
     },
   }
@@ -86,9 +88,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
 
         {/* Main Content */}
         <div className="prose prose-invert max-w-none mb-12">
-          <div className="text-lg text-white/90 leading-relaxed whitespace-pre-wrap">
-            {post.content}
-          </div>
+          <BlogContent>{post.content}</BlogContent>
         </div>
 
         {/* CTA */}
@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
             headline: post.title,
-            description: post.excerpt,
+            description: post.excerpt || plainText(post.content),
             datePublished: post.publishedAt,
             author: {
               '@type': 'Organization',

@@ -14,6 +14,7 @@ import { slugify } from '@/lib/slug'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { MarkdownEditor } from '@/components/admin/markdown-editor'
 
 type Blog = Awaited<ReturnType<typeof getBlogs>>[number]
 
@@ -219,15 +220,10 @@ export default function AdminBlogsPage() {
 
             <div>
               <Label className="text-white">Content</Label>
-              <textarea
+              <MarkdownEditor
                 value={formData.content}
-                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                rows={14}
-                className="w-full bg-white/10 border border-white/20 rounded text-white p-3"
+                onChange={(content) => setFormData((prev) => ({ ...prev, content }))}
               />
-              <p className="text-xs text-text-gray mt-1">
-                Plain text. Blank lines start a new paragraph.
-              </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
