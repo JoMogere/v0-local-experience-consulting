@@ -64,7 +64,7 @@ const columns = [
     links: [
       { label: "Founder", href: "/founder" },
       { label: "Contact", href: "/contact" },
-      { label: "Book a Strategy Call", href: "https://calendly.com/mogerejulius41/30min", external: true },
+      { label: "Book a Demo & Quote", href: "/book-demo" },
       { label: "Shop", href: "/shop" },
     ],
   },

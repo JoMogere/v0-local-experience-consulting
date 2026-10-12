@@ -69,6 +69,12 @@ export default function ContactPage() {
           </div>
         </section>
 
+        <p className="text-center mb-8">
+          <Link href="/book-demo" className="text-gold-flat font-bold hover:underline">
+            Want a demo and written quote? Book one here →
+          </Link>
+        </p>
+
         <section className="bg-navy-alt border border-border-flat rounded-sm p-8 text-center">
           <h2 className="text-lg font-bold mb-3">Prefer email?</h2>
           <p className="text-text-gray text-sm mb-4">
