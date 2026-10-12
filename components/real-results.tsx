@@ -34,17 +34,23 @@ export function RealResults() {
           </div>
         </div>
 
-        <figure className="mt-12 max-w-2xl mx-auto bg-navy-deep border border-border-flat rounded-sm p-6 md:p-8">
-          <blockquote>
-            <p className="text-xl md:text-2xl text-[#F9F6F0] leading-snug">
-              &ldquo;Btw Google profile naona inawork poa.&rdquo;
-            </p>
-            <p className="text-text-gray text-sm mt-2">
-              (&ldquo;By the way, I can see the Google profile is working well.&rdquo;)
-            </p>
-          </blockquote>
-          <figcaption className="text-gold-flat text-sm mt-4">
-            Hospitality client in Kenya &middot; message to Jo Mogere on WhatsApp, May 2026
+        <figure className="mt-12 max-w-xl mx-auto">
+          <div className="rounded-sm overflow-hidden border border-border-flat">
+            <Image
+              src="/testimonials/client-whatsapp-may-2026.png"
+              alt="WhatsApp message from a hospitality client, 7 May 2026: Btw Google profile naona inawork poa. What else do you recommend."
+              width={954}
+              height={232}
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="text-sm mt-4 text-center">
+            <span className="text-[#F9F6F0]">
+              &ldquo;By the way, I can see the Google profile is working well. What else do you recommend?&rdquo;
+            </span>
+            <span className="block text-gold-flat mt-1">
+              Real client message on WhatsApp, 7 May 2026. Name withheld for privacy.
+            </span>
           </figcaption>
         </figure>
       </div>
