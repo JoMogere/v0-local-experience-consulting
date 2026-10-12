@@ -101,6 +101,22 @@ const propertyPhotos = [
     href: undefined as string | undefined,
   },
   {
+    name: 'Elsamere Lodge',
+    src: '/founder/properties/elsamere-lodge.jpg',
+    width: 851,
+    height: 315,
+    alt: 'Aerial view of Elsamere Lodge beside Lake Naivasha, with buildings scattered among yellow acacia trees along the shore and a road on the left',
+    href: '/blog/case-study-elsamere-lodge' as string | undefined,
+  },
+  {
+    name: 'Elsamere Lodge, Lake Naivasha',
+    src: '/founder/properties/elsamere-lodge.jpg',
+    width: 851,
+    height: 315,
+    alt: 'Aerial view of Elsamere Lodge on the shore of Lake Naivasha, with buildings scattered among yellow-barked acacia trees beside the lake and a road on the left',
+    href: '/blog/case-study-elsamere-lodge' as string | undefined,
+  },
+  {
     name: 'Silent Palms Villa, Diani',
     src: '/founder/properties/silent-palms-villa.jpg',
     width: 1000,
@@ -209,11 +225,11 @@ export default function FounderPage() {
               <Link href="/blog/case-study-silent-palms-villa" className="text-gold-flat hover:underline">Silent Palms Villa</Link>, Diani
             </li>
           </ol>
-          <div className="grid sm:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {propertyPhotos.map((ph) => (
               <figure key={ph.name}>
                 <div className="overflow-hidden rounded-sm border border-border-flat">
-                  <Image src={ph.src} alt={ph.alt} width={ph.width} height={ph.height} className="w-full h-48 sm:h-40 object-cover" />
+                  <Image src={ph.src} alt={ph.alt} width={ph.width} height={ph.height} className="w-full h-32 sm:h-40 object-cover" />
                 </div>
                 <figcaption className="mt-2 text-sm text-text-gray">
                   {ph.href ? (
