@@ -33,6 +33,20 @@ export function RealResults() {
             </Link>
           </div>
         </div>
+
+        <figure className="mt-12 max-w-2xl mx-auto bg-navy-deep border border-border-flat rounded-sm p-6 md:p-8">
+          <blockquote>
+            <p className="text-xl md:text-2xl text-[#F9F6F0] leading-snug">
+              &ldquo;Btw Google profile naona inawork poa.&rdquo;
+            </p>
+            <p className="text-text-gray text-sm mt-2">
+              (&ldquo;By the way, I can see the Google profile is working well.&rdquo;)
+            </p>
+          </blockquote>
+          <figcaption className="text-gold-flat text-sm mt-4">
+            Hospitality client in Kenya &middot; message to Jo Mogere on WhatsApp, May 2026
+          </figcaption>
+        </figure>
       </div>
     </section>
   )
