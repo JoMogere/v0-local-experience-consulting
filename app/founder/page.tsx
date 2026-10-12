@@ -166,7 +166,7 @@ export default function FounderPage() {
           <p>
             His approach comes from the day-to-day work: managing Google Business Profiles, booking engines and channel managers for real properties, with direct experience on platforms like Zeevou, Beds24 and Lodgify. He shares what he learns through{' '}
             <Link href="/blog" className="text-gold-flat hover:underline">free guides</Link>, <Link href="/videos" className="text-gold-flat hover:underline">videos</Link>, published{' '}
-            <Link href="/blog/hospitality-case-studies" className="text-gold-flat hover:underline">case studies</Link> with real numbers, and two{' '}
+            <Link href="/case-studies" className="text-gold-flat hover:underline">case studies</Link> with real numbers, and two{' '}
             <Link href="/playbooks" className="text-gold-flat hover:underline">playbooks</Link> for hotel owners.
           </p>
           <blockquote className="border-l-2 border-gold-flat pl-4 italic text-[#EAE5DF]/90">

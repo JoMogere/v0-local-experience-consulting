@@ -113,7 +113,7 @@ export const PLAYBOOKS: Playbook[] = [
       { href: '/hotel-guest-experience-optimization-kenya', label: 'Hotel Guest Experience Optimization in Kenya' },
       { href: '/blog/experiential-marketing-hotels', label: 'Experiential Marketing for Hotels' },
       { href: '/pillar/local-seo-hotels/generate-hotel-reviews', label: 'How to Generate Hotel Reviews' },
-      { href: '/blog/hospitality-case-studies', label: 'Hospitality Case Studies' },
+      { href: '/case-studies', label: 'Hospitality Case Studies' },
     ],
     faq: [
       {

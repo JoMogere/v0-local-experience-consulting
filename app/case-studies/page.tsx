@@ -1,9 +1,10 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/blog/hospitality-case-studies',
+    canonical: '/case-studies',
   },
   title: 'Hospitality Case Studies | BookedUp Africa',
   description: 'Real, verified results from our work with hotels and resorts — no placeholder numbers, just what actually happened.',
@@ -14,11 +15,32 @@ export default function CaseStudiesHub() {
   return (
     <article className="min-h-screen bg-navy-deep text-white pt-24">
       <div className="max-w-3xl mx-auto px-4 md:px-6">
-        <div className="text-sm text-text-gray mb-8"><Link href="/blog" className="hover:text-orange-500">Blog</Link> / Case Studies</div>
+        <div className="text-sm text-text-gray mb-8">Case Studies</div>
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Hospitality Case Studies: Real Results, Real Numbers</h1>
           <p className="text-xl text-text-gray mb-6">Every number here is verified and pulled straight from the source — no rounded-up estimates, no placeholders.</p>
         </header>
+
+        <section className="mb-12 grid md:grid-cols-2 gap-6 items-center">
+          <div className="rounded-sm overflow-hidden border border-white/10">
+            <Image
+              src="/case-studies/elsamere-lodge-booking-clicks.png"
+              alt="Google Business Profile Performance dashboard for Elsamere Lodge showing 124 clicks on the hotel's free booking link between February and July 2026."
+              width={1200}
+              height={484}
+              className="w-full h-auto"
+            />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-3">Elsamere Lodge: 124 Free Booking Link Clicks</h2>
+            <p className="text-text-gray mb-4">
+              Over six months, Elsamere Lodge's Google Business Profile generated 124 clicks on its free hotel booking link, the direct "Book" button Google shows on verified hotel listings. Zero commission, pure high-intent traffic.
+            </p>
+            <Link href="/blog/case-study-elsamere-lodge" className="text-orange-500 font-bold hover:underline">
+              Read the full case study →
+            </Link>
+          </div>
+        </section>
 
         <section className="space-y-8">
           <div className="grid md:grid-cols-2 gap-6">
@@ -38,6 +60,22 @@ export default function CaseStudiesHub() {
               <div className="text-2xl font-bold text-green-400">8,427 views, 443 directions, 115 calls</div>
             </Link>
           </div>
+
+          <figure className="max-w-xl mx-auto">
+            <div className="rounded-sm overflow-hidden border border-white/10">
+              <Image
+                src="/testimonials/client-whatsapp-may-2026.png"
+                alt="WhatsApp message from a hospitality client, 7 May 2026: Btw Google profile naona inawork poa. What else do you recommend."
+                width={954}
+                height={232}
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="text-sm mt-4 text-center">
+              <span className="text-white">&ldquo;By the way, I can see the Google profile is working well. What else do you recommend?&rdquo;</span>
+              <span className="block text-orange-500 mt-1">Real client message on WhatsApp, 7 May 2026. Name withheld for privacy.</span>
+            </figcaption>
+          </figure>
 
           <div className="p-8 bg-white/5 border border-white/10 rounded-lg text-center">
             <p className="text-text-gray">More case studies from our work with hotels and resorts across Kenya are on the way.</p>

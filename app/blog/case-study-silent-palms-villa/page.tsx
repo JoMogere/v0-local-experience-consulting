@@ -17,7 +17,7 @@ export default function SilentPalmsCaseStudy() {
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         <div className="text-sm text-text-gray mb-8">
           <Link href="/blog" className="hover:text-orange-500">Blog</Link> /{' '}
-          <Link href="/blog/hospitality-case-studies" className="hover:text-orange-500">Case Studies</Link> / Silent Palms Villa
+          <Link href="/case-studies" className="hover:text-orange-500">Case Studies</Link> / Silent Palms Villa
         </div>
 
         <header className="mb-12">

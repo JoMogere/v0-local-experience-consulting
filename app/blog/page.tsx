@@ -84,7 +84,7 @@ export default async function BlogPage() {
     {
       title: 'Case Studies',
       description: 'Real examples of how hotels increased bookings and revenue through strategic optimization.',
-      link: '/blog/hospitality-case-studies',
+      link: '/case-studies',
       articles: 6,
     },
   ]

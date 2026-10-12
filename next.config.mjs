@@ -35,6 +35,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/blog/hospitality-case-studies',
+        destination: '/case-studies',
+        permanent: true,
+      },
+      {
         source: '/merch',
         destination: '/shop',
         permanent: true,

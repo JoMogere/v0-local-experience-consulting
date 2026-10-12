@@ -24,7 +24,7 @@ export default function BlogManagement() {
     { id: 5, title: 'Direct Bookings', slug: 'direct-hotel-bookings', articles: 8, link: '/blog/direct-hotel-bookings' },
     { id: 6, title: 'Hotel Websites', slug: 'hotel-website-design-seo', articles: 8, link: '/blog/hotel-website-design-seo' },
     { id: 7, title: 'AI for Hotels', slug: 'ai-for-hotels', articles: 7, link: '/blog/ai-for-hotels' },
-    { id: 8, title: 'Case Studies', slug: 'hospitality-case-studies', articles: 6, link: '/blog/hospitality-case-studies' },
+    { id: 8, title: 'Case Studies', slug: 'hospitality-case-studies', articles: 6, link: '/case-studies' },
   ]
 
   const [showForm, setShowForm] = useState(false)

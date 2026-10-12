@@ -2,7 +2,6 @@ import { Metadata } from "next"
 import { Hero } from "@/components/hero"
 import { ServicesOverview } from "@/components/services-overview"
 import { TrustMarquee } from "@/components/trust-marquee"
-import { RealResults } from "@/components/real-results"
 import { HowWeWork } from "@/components/how-we-work"
 import { About } from "@/components/about"
 import { Playbooks } from "@/components/playbooks"
@@ -23,7 +22,6 @@ export default function HomePage() {
       <Hero />
       <ServicesOverview />
       <TrustMarquee />
-      <RealResults />
       <HowWeWork />
       <About />
       <Playbooks />
