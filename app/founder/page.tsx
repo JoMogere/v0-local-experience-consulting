@@ -170,7 +170,7 @@ export default function FounderPage() {
             <Link href="/playbooks" className="text-gold-flat hover:underline">playbooks</Link> for hotel owners.
           </p>
           <blockquote className="border-l-2 border-gold-flat pl-4 italic text-[#EAE5DF]/90">
-            "Research and implementation for local search, experiential marketing, and direct bookings — for hotels that want the work done, not just a report explaining it."
+            "Research and implementation for local search, experiential marketing, and hospitality growth — for hotels that want the work done, not just a report explaining it."
           </blockquote>
         </section>
 

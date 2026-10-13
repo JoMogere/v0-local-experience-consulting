@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'BookedUp Africa — Transform Your Hospitality Business',
-  description: 'Research and implementation for local search, experiential marketing, and direct bookings. Empowering East African hotels and resorts.',
+  description: 'Research and implementation for local search, experiential marketing, and hospitality growth. Empowering African hotels and resorts.',
   keywords: 'hotel marketing Africa, local search optimization, hospitality growth, direct bookings, East Africa tourism',
   authors: [{ name: 'BookedUp Africa' }],
   creator: 'BookedUp Africa',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     url: '/',
     siteName: 'BookedUp Africa',
     title: 'BookedUp Africa — Transform Your Hospitality Business',
-    description: 'Research and implementation for local search, experiential marketing, and direct bookings.',
+    description: 'Research and implementation for local search, experiential marketing, and hospitality growth.',
   },
   twitter: {
     card: 'summary_large_image',

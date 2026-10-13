@@ -19,7 +19,7 @@ export function About() {
               <a href="/founder" className="text-gold-flat hover:underline">More about Julius &rarr;</a>
             </p>
             <p className="italic text-[#EAE5DF]/90">
-              "Research and implementation for local search, experiential marketing, and direct bookings — for hotels that want the work done, not just a report explaining it."
+              "Research and implementation for local search, experiential marketing, and hospitality growth — for hotels that want the work done, not just a report explaining it."
             </p>
           </div>
         </div>

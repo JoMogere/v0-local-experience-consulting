@@ -26,10 +26,10 @@ export function Hero() {
           <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-[#F9F6F0] text-balance">
             Research and implementation
             <span className="block text-lg md:text-[26px] font-light mt-2.5 tracking-normal">
-              for <span className="text-gold-flat font-bold">local SEO</span>,{" "}
+              for <span className="text-gold-flat font-bold">local search</span>,{" "}
               <span className="text-gold-flat font-bold">experiential marketing</span>,
               <br className="hidden md:block" />
-              and <span className="text-gold-flat font-bold">direct bookings</span>
+              and <span className="text-gold-flat font-bold">hospitality growth</span>
             </span>
           </h1>
           <div className="w-20 h-px bg-gold-flat my-8 md:my-10 mx-auto md:mx-0" />

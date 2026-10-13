@@ -9,7 +9,7 @@ const seoPages = [
     url: '/',
     meta: {
       title: 'BookedUp Africa — Transform Your Hospitality Business',
-      description: 'Research and implementation for local search, experiential marketing, and direct bookings. Empowering East African hotels and resorts.',
+      description: 'Research and implementation for local search, experiential marketing, and hospitality growth. Empowering African hotels and resorts.',
       keywords: 'hotel marketing Africa, local search optimization, hospitality growth',
     },
   },
