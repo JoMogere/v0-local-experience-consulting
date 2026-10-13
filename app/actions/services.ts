@@ -1,16 +1,14 @@
 'use server'
 
-import { auth } from '@/lib/auth'
+import { requireAdmin } from '@/lib/admin'
 import { db } from '@/lib/db'
 import { services } from '@/lib/db/schema'
 import { eq, desc } from 'drizzle-orm'
-import { headers } from 'next/headers'
 import { revalidatePath } from 'next/cache'
 
 async function getUserId() {
-  const session = await auth.api.getSession({ headers: await headers() })
-  if (!session?.user) throw new Error('Unauthorized')
-  return session.user.id
+  const user = await requireAdmin()
+  return user.id
 }
 
 export async function getServices() {

@@ -14,6 +14,10 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     autoSignIn: true,
+    // Public sign-up is closed: only the admin account exists. To create a
+    // new admin, temporarily set ALLOW_SIGNUP=true on Vercel, sign up, then
+    // remove it again (and add the email to ADMIN_EMAILS).
+    disableSignUp: process.env.ALLOW_SIGNUP !== 'true',
   },
   // The live database has all-lowercase, unquoted column names (see
   // lib/db/schema.ts for the full explanation). Better Auth is given a raw

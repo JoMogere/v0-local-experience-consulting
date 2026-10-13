@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -68,6 +69,14 @@ const nextConfig = {
             value: 'same-origin-allow-popups',
           },
           {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(), payment=()',
+          },
+          {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
@@ -83,7 +92,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "frame-src 'self' https://www.youtube.com https://www.google.com",
+              "frame-src 'self' https://www.youtube.com https://www.google.com https://www.tiktok.com https://www.instagram.com https://www.facebook.com https://web.facebook.com",
               "connect-src 'self' https://api.github.com https://www.googleapis.com",
             ].join('; '),
           },
