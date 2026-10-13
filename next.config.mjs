@@ -30,14 +30,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        // Old Vercel address -> real domain (production host only, so
-        // preview deployments keep working).
-        source: '/:path*',
-        has: [{ type: 'host', value: 'v0-local-experience-consulting.vercel.app' }],
-        destination: 'https://bookedupafrica.com/:path*',
-        permanent: true,
-      },
-      {
         source: '/blogs',
         destination: '/blog',
         permanent: true,
