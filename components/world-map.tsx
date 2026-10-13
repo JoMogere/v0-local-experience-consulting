@@ -10,10 +10,8 @@ const pos = (lon: number, lat: number) => ({
   y: ((80 - lat) / data.step) * CELL + CELL / 2,
 })
 
-const MARKERS = [
-  { name: 'Naivasha', ...pos(36.43, -0.72), primary: true },
-  { name: 'Diani Beach', ...pos(39.59, -4.28), primary: false },
-]
+// Add clients here as you win them, e.g. { name: 'Naivasha', ...pos(36.43, -0.72), primary: true }
+const MARKERS: { name: string; x: number; y: number; primary: boolean }[] = []
 
 export function WorldMap() {
   return (
@@ -21,7 +19,7 @@ export function WorldMap() {
       <svg
         viewBox={`0 0 ${W} ${H}`}
         role="img"
-        aria-label="Dotted world map with markers on Kenya, where BookedUp Africa works with hotels in Naivasha and Diani Beach"
+        aria-label="Dotted world map"
         className="w-full h-auto"
       >
         <g fill="currentColor" className="text-white/15">
@@ -40,14 +38,6 @@ export function WorldMap() {
           </g>
         ))}
       </svg>
-      <figcaption className="mt-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm text-text-gray">
-        <span className="flex items-center gap-2">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1d4ed8]" /> Naivasha, Kenya
-        </span>
-        <span className="flex items-center gap-2">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#60a5fa]" /> Diani Beach, Kenya
-        </span>
-      </figcaption>
     </figure>
   )
 }
