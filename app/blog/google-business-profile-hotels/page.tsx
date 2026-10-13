@@ -223,6 +223,15 @@ export default function GBPPillar() {
         <section className="mt-16 pt-8 border-t border-white/10">
           <h2 className="text-2xl font-bold mb-6">Related Reading</h2>
           <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/blog/content-marketing-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Hotel Content Marketing Guide</h3>
+            </Link>
+            <Link href="/case-studies" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Hotel Case Studies: Real Results</h3>
+            </Link>
+            <Link href="/book-demo" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <h3 className="font-semibold text-orange-500">Book a Demo & Get a Quote</h3>
+            </Link>
             <Link href="/blog/local-seo-for-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Local SEO for Hotels</h3>
             </Link>
@@ -250,6 +259,9 @@ export default function GBPPillar() {
           <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors">
             Get Your Free Audit
           </Link>
+          <p className="mt-4 text-sm text-text-gray">
+            Prefer to talk it through? <Link href="/book-demo" className="text-orange-500 hover:underline">Book a free demo and get a quote</Link>.
+          </p>
         </section>
       </div>
     </article>
