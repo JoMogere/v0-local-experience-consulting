@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { getBlogBySlug, getPublishedBlogs } from '@/app/actions/blogs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { PreferredSourceButton } from '@/components/preferred-source-button'
 import { BlogContent } from '@/components/blog-content'
 import { plainText } from '@/lib/markdown'
 
@@ -90,6 +91,8 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         <div className="prose prose-invert max-w-none mb-12">
           <BlogContent>{post.content}</BlogContent>
         </div>
+
+        <PreferredSourceButton />
 
         {/* CTA */}
         <div className="mt-12 p-8 bg-gold/10 border border-gold/20 rounded-lg text-center">

@@ -8,6 +8,7 @@ import { Playbooks } from "@/components/playbooks"
 import { FAQ } from "@/components/faq"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
+import { PreferredSourceButton } from "@/components/preferred-source-button"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export const metadata: Metadata = {
@@ -26,6 +27,9 @@ export default function HomePage() {
       <About />
       <Playbooks />
       <FAQ />
+      <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <PreferredSourceButton />
+      </div>
       <Newsletter />
       <Contact />
       <WhatsAppButton />
