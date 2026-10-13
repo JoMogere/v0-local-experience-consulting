@@ -46,23 +46,10 @@ export const metadata: Metadata = {
     title: 'BookedUp Africa',
     description: 'Transforming African hospitality through local search and experiential marketing',
   },
-  generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: [{ url: '/brand-icon.png', type: 'image/png' }],
+    shortcut: '/favicon.ico',
+    apple: '/brand-icon.png',
   },
 }
 
