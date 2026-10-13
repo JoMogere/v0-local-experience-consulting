@@ -31,12 +31,11 @@ const nextConfig = {
     return [
       {
         // Old Vercel address -> real domain (production host only, so
-        // preview deployments keep working). Temporary (307) for now so
-        // browsers don't cache it; switch to permanent once confirmed.
+        // preview deployments keep working).
         source: '/:path*',
         has: [{ type: 'host', value: 'v0-local-experience-consulting.vercel.app' }],
         destination: 'https://bookedupafrica.com/:path*',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/blogs',
