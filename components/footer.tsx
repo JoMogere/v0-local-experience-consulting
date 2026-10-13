@@ -77,9 +77,9 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h3 className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
                 {col.title}
-              </h3>
+              </p>
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
@@ -99,9 +99,9 @@ export function Footer() {
           ))}
 
           <nav aria-label="Social">
-            <h3 className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
+            <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
               Social
-            </h3>
+            </p>
             <ul className="space-y-3">
               {socialLinks.map((social) => (
                 <li key={social.name}>

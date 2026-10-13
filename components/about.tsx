@@ -5,7 +5,7 @@ export function About() {
         <div className="grid lg:grid-cols-[1fr_2fr] gap-8 md:gap-12 items-start">
           <div>
             <p className="text-clay text-sm uppercase tracking-[2px] mb-4">Who's Behind This</p>
-            <h2 className="text-3xl md:text-[42px] font-bold tracking-[-0.02em] text-[#F9F6F0]">Julius Mogere</h2>
+            <h2 className="text-3xl md:text-[42px] font-bold tracking-[-0.02em] text-[#F9F6F0]">Meet Julius Mogere, Hospitality Growth Consultant</h2>
             <p className="text-text-gray mt-2">Founder, BookedUp Africa</p>
           </div>
           <div className="space-y-4 text-text-gray">
