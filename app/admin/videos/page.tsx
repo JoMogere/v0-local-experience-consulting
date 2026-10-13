@@ -88,15 +88,15 @@ export default function VideoManagement() {
             </div>
 
             <div>
-              <Label className="text-white">YouTube URL</Label>
+              <Label className="text-white">Video link (YouTube, TikTok, Instagram or Facebook)</Label>
               <Input
                 value={formData.youtubeUrl}
                 onChange={(e) => setFormData({ ...formData, youtubeUrl: e.target.value })}
-                placeholder="https://youtube.com/watch?v=..."
+                placeholder="Paste the full video link"
                 className="bg-white/10 border-white/20"
               />
               <p className="text-xs text-text-gray mt-1">
-                Paste full YouTube URL (youtube.com, youtu.be, or embed links)
+                Open the video, copy its address and paste it here. TikTok links look like tiktok.com/@name/video/123; short vm.tiktok.com links won't work.
               </p>
             </div>
 
@@ -171,7 +171,7 @@ export default function VideoManagement() {
         </div>
       ) : (
         <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
-          <p className="text-text-gray">No videos yet. Add your first YouTube video!</p>
+          <p className="text-text-gray">No videos yet. Add your first video!</p>
         </div>
       )}
     </div>

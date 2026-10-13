@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { getChannelVideos, YouTubeDebugInfo } from '@/lib/youtube'
+import { getPublicVideos } from '@/app/actions/videos'
+import { fromStoredKey, PLATFORM_LABEL } from '@/lib/social-video'
 
 export const metadata: Metadata = {
   alternates: {
@@ -16,6 +18,14 @@ export default async function VideosPage({ searchParams }: { searchParams: Promi
   const { debug: debugParam } = await searchParams
   const debug: YouTubeDebugInfo = {}
   const videos = await getChannelVideos(debugParam === '1' ? debug : undefined)
+  const social = await getPublicVideos()
+    .then((rows) =>
+      rows
+        .filter((r) => /^(tiktok|instagram|facebook):/.test(r.youtubeId))
+        .map((r) => ({ row: r, info: fromStoredKey(r.youtubeId) }))
+        .filter((x) => x.info),
+    )
+    .catch(() => [])
   const featured = videos.slice(0, 3)
   const rest = videos.slice(3)
 
@@ -78,6 +88,39 @@ export default async function VideosPage({ searchParams }: { searchParams: Promi
                   </div>
                   <div className="p-4">
                     <h3 className="font-bold text-sm line-clamp-2">{video.title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {social.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold mb-6">From Our Social Channels</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {social.map(({ row, info }) => (
+                <div key={row.id} className="bg-navy-alt border border-border-flat rounded-sm overflow-hidden">
+                  <div className={info!.vertical ? 'aspect-[9/16]' : 'aspect-video'}>
+                    <iframe
+                      src={info!.embedUrl}
+                      title={row.title}
+                      className="w-full h-full"
+                      loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-sm line-clamp-2">{row.title}</h3>
+                    <a
+                      href={info!.watchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-gold-flat hover:underline"
+                    >
+                      Watch on {PLATFORM_LABEL[info!.platform]} →
+                    </a>
                   </div>
                 </div>
               ))}

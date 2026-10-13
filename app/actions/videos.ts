@@ -1,16 +1,15 @@
 'use server'
 
-import { auth } from '@/lib/auth'
+import { requireAdmin } from '@/lib/admin'
+import { parseVideoUrl } from '@/lib/social-video'
 import { db } from '@/lib/db'
 import { videos } from '@/lib/db/schema'
 import { eq, desc } from 'drizzle-orm'
-import { headers } from 'next/headers'
 import { revalidatePath } from 'next/cache'
 
 async function getUserId() {
-  const session = await auth.api.getSession({ headers: await headers() })
-  if (!session?.user) throw new Error('Unauthorized')
-  return session.user.id
+  const user = await requireAdmin()
+  return user.id
 }
 
 export async function getVideos() {
@@ -81,31 +80,33 @@ export async function deleteVideo(id: number) {
   revalidatePath('/videos')
 }
 
-function extractYoutubeId(url: string): string | null {
-  const patterns = [
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
-  ]
-  for (const pattern of patterns) {
-    const match = url.match(pattern)
-    if (match) return match[1]
-  }
-  return null
-}
-
 export async function createVideoFromUrl(data: {
   title: string
   youtubeUrl: string
   description?: string
   category?: string
 }) {
-  const youtubeId = extractYoutubeId(data.youtubeUrl)
-  if (!youtubeId) throw new Error('Invalid YouTube URL')
+  const parsed = parseVideoUrl(data.youtubeUrl)
+  if (!parsed) {
+    throw new Error(
+      'Link not recognised. Paste a full YouTube, TikTok (…/@name/video/123), Instagram (post or reel) or Facebook video link. Short links like vm.tiktok.com must be opened first and the full address copied.',
+    )
+  }
 
-  return createVideo({
-    title: data.title,
-    youtubeId,
-    description: data.description,
-    category: data.category,
-    thumbnail: `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`,
-  })
+  try {
+    return await createVideo({
+      title: data.title,
+      youtubeId: parsed.key,
+      description: data.description,
+      category: data.category,
+      thumbnail:
+        parsed.platform === 'youtube'
+          ? `https://img.youtube.com/vi/${parsed.key}/maxresdefault.jpg`
+          : undefined,
+    })
+  } catch (error) {
+    const msg = error instanceof Error ? error.message : String(error)
+    if (/duplicate key|unique/i.test(msg)) throw new Error('That video has already been added.')
+    throw error
+  }
 }
