@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { Hero } from "@/components/hero"
 import { ServicesOverview } from "@/components/services-overview"
 import { SearchChanged } from "@/components/search-changed"
+import { WebsiteLikeHotel } from "@/components/website-like-hotel"
 import { TrustMarquee } from "@/components/trust-marquee"
 import { HowWeWork } from "@/components/how-we-work"
 import { About } from "@/components/about"
@@ -35,6 +36,7 @@ export default function HomePage() {
       <Hero />
       <ServicesOverview />
       <SearchChanged />
+      <WebsiteLikeHotel />
       <TrustMarquee />
       <HowWeWork />
       <About />
