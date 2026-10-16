@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/pillar/experiential-marketing',
   },
-  title: 'Experiential Marketing for Hotels | BookedUp Africa',
+  title: 'Hotel Experiential Marketing in Kenya | BookedUp Africa',
   description: 'How to turn your property into the stay guests can\'t stop talking about — real experiences, real stories, real word of mouth.',
   keywords: 'experiential marketing hotels, guest experience, hotel storytelling, Kenya hospitality marketing',
 }

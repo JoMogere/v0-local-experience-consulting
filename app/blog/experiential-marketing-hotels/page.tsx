@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/experiential-marketing-hotels',
   },
-  title: 'Experiential Marketing for Hotels | BookedUp Africa',
+  title: 'Turning Hotel Stays Into Stories | BookedUp Africa',
   description: 'Why amenity lists stop working and experience-driven marketing takes over — local partnerships, storytelling, and what makes content actually get shared.',
-  keywords: 'experiential marketing hotels, hotel experiential marketing, guest experiences, hotel storytelling, destination marketing',
+  keywords: 'hotel storytelling, guest experiences, local partnerships hotels, shareable hotel content, destination marketing',
 }
 
 export default function ExperientialPillar() {
