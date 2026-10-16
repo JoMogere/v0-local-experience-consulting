@@ -24,12 +24,12 @@ export function Hero() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 w-full">
         <div className="max-w-[700px] relative z-5 text-center md:text-left">
           <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-[#F9F6F0] text-balance">
-            Research and implementation
+            Hotel marketing in Kenya
             <span className="block text-lg md:text-[26px] font-light mt-2.5 tracking-normal">
-              for <span className="text-gold-flat font-bold">local search</span>,{" "}
-              <span className="text-gold-flat font-bold">experiential marketing</span>,
+              <span className="text-gold-flat font-bold">Local SEO</span>,{" "}
+              <span className="text-gold-flat font-bold">direct bookings</span>
               <br className="hidden md:block" />
-              and <span className="text-gold-flat font-bold">hospitality growth</span>
+              {" "}and <span className="text-gold-flat font-bold">experiential marketing</span> for hotels
             </span>
           </h1>
           <div className="w-20 h-px bg-gold-flat my-8 md:my-10 mx-auto md:mx-0" />

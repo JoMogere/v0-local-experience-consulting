@@ -12,8 +12,19 @@ import { PreferredSourceButton } from "@/components/preferred-source-button"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export const metadata: Metadata = {
+  title: { absolute: 'Hotel Marketing in Kenya | BookedUp Africa' },
+  description:
+    'BookedUp Africa helps hotels in Kenya get found on Google, win more direct bookings and stand out with experiential marketing.',
+  keywords: 'hotel marketing Kenya, local SEO for hotels, direct bookings, experiential marketing, Google Business Profile',
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    title: 'Hotel Marketing in Kenya | BookedUp Africa',
+    description:
+      'Get found on Google, win more direct bookings and stand out with experiential marketing for your hotel.',
+    url: '/',
+    type: 'website',
   },
 }
 

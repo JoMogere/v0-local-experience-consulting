@@ -14,7 +14,7 @@ export function ServicesOverview() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
         <p className="text-clay text-sm uppercase tracking-[2px] mb-4">What We Do</p>
         <h2 className="text-3xl md:text-[42px] font-bold mb-4 tracking-[-0.02em] text-[#F9F6F0]">
-          Three Pillars, One Connected System
+          Local SEO, Direct Bookings and Experiential Marketing for Hotels
         </h2>
         <p className="text-text-gray max-w-2xl mb-12">
           Not three unrelated services bundled into a retainer — each one feeds the next, from getting found to getting booked.
