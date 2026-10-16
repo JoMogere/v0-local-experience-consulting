@@ -26,7 +26,8 @@ export function Hero() {
           <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-[#F9F6F0] text-balance">
             Hotel marketing in Kenya
             <span className="block text-lg md:text-[26px] font-light mt-2.5 tracking-normal">
-              <span className="text-gold-flat font-bold">Local SEO</span>,{" "}
+              Research and implementation for{" "}
+              <span className="text-gold-flat font-bold">local SEO</span>,{" "}
               <span className="text-gold-flat font-bold">direct bookings</span>
               <br className="hidden md:block" />
               {" "}and <span className="text-gold-flat font-bold">experiential marketing</span> for hotels
