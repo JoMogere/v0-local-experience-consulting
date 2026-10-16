@@ -22,6 +22,12 @@ export function SearchChanged() {
           don&apos;t give ten links. They name a few places. We help your hotel get found on Google, mentioned
           by the assistants and chosen by the guest.
         </p>
+        <p className="text-text-gray max-w-3xl mb-12 -mt-8">
+          Your guests also ask in Swahili, or a mix of Swahili and English. Your hotel needs to show up for{' '}
+          <span lang="sw" className="text-gold-flat font-medium">malazi</span>,{' '}
+          <span lang="sw" className="text-gold-flat font-medium">hoteli karibu nami</span> and{' '}
+          <span lang="sw" className="text-gold-flat font-medium">weka nafasi</span> as well.
+        </p>
 
         <div className="grid md:grid-cols-2 border border-border-flat">
           {/* Then */}
@@ -30,6 +36,10 @@ export function SearchChanged() {
             <div className="flex items-center gap-3 border border-border-flat px-4 py-3 mb-6 text-[#F9F6F0] text-sm">
               <Search className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
               <span>lodge near hell&apos;s gate naivasha</span>
+            </div>
+            <div className="flex items-center gap-3 border border-border-flat px-4 py-3 mb-6 text-[#F9F6F0] text-sm -mt-3">
+              <Search className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
+              <span lang="sw">malazi karibu na hell&apos;s gate naivasha</span>
             </div>
             <ol className="space-y-5">
               {OLD_RESULTS.map((r, i) => (
@@ -52,6 +62,10 @@ export function SearchChanged() {
               <Sparkles className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
               <span>where should we stay near hell&apos;s gate naivasha for a weekend?</span>
             </div>
+            <div className="flex items-center gap-3 border border-border-flat px-4 py-3 mb-6 text-[#F9F6F0] text-sm -mt-3">
+              <Sparkles className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
+              <span lang="sw">tunaweza kukaa wapi karibu na hell&apos;s gate wikendi hii?</span>
+            </div>
             <div className="space-y-4 text-text-gray leading-relaxed">
               <p>
                 For a relaxed weekend near Hell&apos;s Gate, look at lodges that are{' '}
@@ -66,6 +80,9 @@ export function SearchChanged() {
               <p className="text-[#F9F6F0]">
                 <strong>Short answer:</strong> pick the lodge that is easy to find, easy to trust and easy to book.
               </p>
+              <p lang="sw" className="text-[#F9F6F0]">
+                <strong>Jibu fupi:</strong> chagua hoteli rahisi kupata, rahisi kuamini na rahisi kuweka nafasi.
+              </p>
             </div>
           </div>
         </div>
@@ -75,12 +92,13 @@ export function SearchChanged() {
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
-            { h: 'Be easy to find', p: 'A complete, active Google profile and clear location pages, so Google and the assistants know exactly who you are and where you are.' },
-            { h: 'Be easy to trust', p: 'Fresh reviews you reply to, real photos and the same details everywhere your hotel is listed.' },
-            { h: 'Be easy to book', p: 'Clear prices and a simple way to book direct, so the guest who picks you doesn’t end up on a booking site.' },
+            { h: 'Be easy to find', sw: 'Rahisi kupatikana', p: 'A complete, active Google profile and clear location pages, so Google and the assistants know exactly who you are and where you are.' },
+            { h: 'Be easy to trust', sw: 'Rahisi kuaminika', p: 'Fresh reviews you reply to, real photos and the same details everywhere your hotel is listed.' },
+            { h: 'Be easy to book', sw: 'Rahisi kuweka nafasi', p: 'Clear prices and a simple way to book direct, so the guest who picks you doesn’t end up on a booking site.' },
           ].map((c) => (
             <div key={c.h} className="p-6 bg-navy-deep border border-border-flat rounded-sm">
-              <h3 className="text-xl font-bold mb-2 text-[#F9F6F0]">{c.h}</h3>
+              <h3 className="text-xl font-bold mb-1 text-[#F9F6F0]">{c.h}</h3>
+              <p lang="sw" className="text-sm text-gold-flat mb-3">{c.sw}</p>
               <p className="text-text-gray">{c.p}</p>
             </div>
           ))}
