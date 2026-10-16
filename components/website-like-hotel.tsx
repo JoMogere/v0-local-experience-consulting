@@ -36,12 +36,25 @@ export function WebsiteLikeHotel() {
         <h2 className="text-3xl md:text-[42px] font-bold mb-4 tracking-[-0.02em] text-[#F9F6F0]">
           Your Website Should Feel Like Walking Into Your Hotel
         </h2>
-        <p className="text-text-gray max-w-3xl mb-12">
-          Offline, you would never leave guests to find you on their own. You put up a signboard on the road,
-          direction signs at every junction, a welcoming gate and someone at reception. Your website needs to
-          do the same job online. <span lang="sw" className="text-gold-flat font-medium">Karibu</span>, but
-          only after they have found you.
-        </p>
+        <div className="relative max-w-3xl mb-14">
+          <figure className="border border-gold-flat/60 px-6 py-6 md:px-8 md:py-7">
+            <p className="text-xs uppercase tracking-[2px] text-gold-flat mb-3">Think of it this way</p>
+            <blockquote className="text-lg md:text-xl text-[#F9F6F0] leading-relaxed">
+              &ldquo;Offline, you would never leave guests to find you on their own. You put up a signboard on
+              the road, direction signs at every junction, a welcoming gate and someone at reception. Your
+              website needs to do the same job online.&rdquo;
+            </blockquote>
+            <figcaption className="mt-3 text-text-gray text-sm">
+              <span lang="sw" className="text-gold-flat font-medium">Karibu</span>, but only after they have found you.
+            </figcaption>
+          </figure>
+          {/* thought trail */}
+          <div className="absolute left-8 top-full flex flex-col gap-1.5 pt-2" aria-hidden="true">
+            <span className="block w-3 h-3 rounded-full border border-gold-flat/60" />
+            <span className="block w-2 h-2 rounded-full border border-gold-flat/60 ml-1" />
+            <span className="block w-1.5 h-1.5 rounded-full border border-gold-flat/60 ml-1.5" />
+          </div>
+        </div>
 
         <ol className="border border-border-flat">
           {STEPS.map((s, i) => (
