@@ -3,6 +3,7 @@ import { DM_Sans, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SiteChrome } from '@/components/site-chrome'
 import { SiteSchema } from '@/components/site-schema'
+import { MetaPixel } from '@/components/meta-pixel'
 import './globals.css'
 import { SITE_URL } from '@/lib/site'
 
@@ -62,6 +63,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background scroll-smooth">
       <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased text-foreground`}>
         <SiteSchema />
+        <MetaPixel />
         <SiteChrome>{children}</SiteChrome>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
