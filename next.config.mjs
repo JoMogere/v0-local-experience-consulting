@@ -58,6 +58,13 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Keep the temporary *.vercel.app address out of Google so only
+        // bookedupafrica.com shows in search results.
+        source: '/:path*',
+        has: [{ type: 'host', value: '(?<h>.*\\.vercel\\.app)' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
         source: '/:path*',
         headers: [
           {
