@@ -278,6 +278,7 @@ export default function DirectBookingsPage() {
             { text: 'Reduce OTA commission', href: '/guides/direct-bookings/reduce-ota-dependence' },
             { text: 'Stop depending on Booking.com', href: '/guides/direct-bookings/reduce-ota-dependence' },
             { text: 'Booking engine for a small hotel', href: '/guides/direct-bookings/booking-engine-setup' },
+            { text: 'Channel manager setup in Kenya', href: '/channel-manager-setup-kenya' },
             { text: 'Get more direct bookings', href: '/guides/direct-bookings/website-conversion' },
             { text: 'Book direct and save' },
             { text: 'Best rate for direct bookers' },

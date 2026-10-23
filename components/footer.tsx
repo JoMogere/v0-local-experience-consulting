@@ -48,6 +48,7 @@ const columns = [
       { label: "All Services", href: "/services" },
       { label: "Hotel Local SEO", href: "/hotel-local-seo-kenya" },
       { label: "Booking Leak Audit", href: "/hotel-booking-leak-audit-kenya" },
+      { label: "Channel Manager Setup", href: "/channel-manager-setup-kenya" },
       { label: "Guest Experience", href: "/hotel-guest-experience-optimization-kenya" },
       { label: "Growth Partnership", href: "/hotel-growth-partnership-kenya" },
     ],

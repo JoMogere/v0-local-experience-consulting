@@ -241,6 +241,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/channel-manager-setup-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/guides/experiential-marketing/telling-your-story`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
