@@ -7,7 +7,7 @@ type Property = { name: string; logo?: Logo }
 const PROPERTIES: Property[] = [
   { name: 'Silent Palms Villas', logo: { src: '/logos/silent-palms-villas.webp', width: 275, height: 200, tile: 'bg-white px-4 py-2' } },
   { name: 'Elsamere Lodge, Naivasha', logo: { src: '/logos/elsamere-naivasha.webp', width: 334, height: 100, tile: 'bg-white px-4 py-2' } },
-  { name: 'Mt Longonot Country Resort' },
+  { name: 'Mt Longonot Country Resort', logo: { src: '/logos/mt-longonot-country-resort.webp', width: 318, height: 200, tile: 'bg-white px-4 py-2' } },
   { name: 'Luna Light Guest House' },
   { name: 'Wild Wood Escapes', logo: { src: '/logos/wild-wood-escapes.webp', width: 374, height: 196, tile: 'bg-[#1A1A1A] border border-border-flat px-4 py-2' } },
   { name: 'Jazby Guest House', logo: { src: '/logos/jazby-guest-house.webp', width: 240, height: 240, tile: 'bg-[#120f2a]' } },
