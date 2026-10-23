@@ -31,51 +31,59 @@ const STEPS = [
 export function WebsiteLikeHotel() {
   return (
     <section className="py-16 md:py-24 bg-navy-deep" id="website-like-your-hotel">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-        <p className="text-clay text-sm uppercase tracking-[2px] mb-4">A simple way to think about it</p>
-        <h2 className="text-3xl md:text-[42px] font-bold mb-4 tracking-[-0.02em] text-[#F9F6F0]">
-          Your Website Should Feel Like Walking Into Your Hotel
-        </h2>
-        <div className="relative max-w-3xl mb-14">
-          <figure className="border border-gold-flat/60 px-6 py-6 md:px-8 md:py-7">
-            <p className="text-xs uppercase tracking-[2px] text-gold-flat mb-3">Think of it this way</p>
-            <blockquote className="text-lg md:text-xl text-[#F9F6F0] leading-relaxed">
-              &ldquo;Offline, you would never leave guests to find you on their own. You put up a signboard on
-              the road, direction signs at every junction, a welcoming gate and someone at reception. Your
-              website needs to do the same job online.&rdquo;
-            </blockquote>
-            <figcaption className="mt-3 text-text-gray text-sm">
-              <span lang="sw" className="text-gold-flat font-medium">Karibu</span>, but only after they have found you.
-            </figcaption>
-          </figure>
-          {/* thought trail */}
-          <div className="absolute left-8 top-full flex flex-col gap-1.5 pt-2" aria-hidden="true">
-            <span className="block w-3 h-3 rounded-full border border-gold-flat/60" />
-            <span className="block w-2 h-2 rounded-full border border-gold-flat/60 ml-1" />
-            <span className="block w-1.5 h-1.5 rounded-full border border-gold-flat/60 ml-1.5" />
+      <div className="max-w-[1000px] mx-auto px-4 md:px-10">
+        <p className="text-clay text-sm uppercase tracking-[2px] mb-8 text-center">A simple way to think about it</p>
+
+        {/* Speech-bubble quote */}
+        <div className="relative px-3 md:px-8 pb-14">
+          <span
+            className="absolute -top-6 left-0 md:left-2 font-serif text-[88px] md:text-[120px] leading-none text-[#F9F6F0] select-none"
+            aria-hidden="true"
+          >
+            &ldquo;
+          </span>
+          <span
+            className="absolute bottom-6 right-0 md:right-2 font-serif text-[88px] md:text-[120px] leading-none text-[#F9F6F0] select-none"
+            aria-hidden="true"
+          >
+            &rdquo;
+          </span>
+
+          <div className="relative border-4 border-[#F9F6F0] bg-[#E6AD45] text-[#0D0D0D] rounded-3xl px-6 py-10 md:px-14 md:py-14">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-6 text-balance">
+              Your Website Should Feel Like Walking Into Your Hotel
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto mb-10">
+              Offline, you would never leave guests to find you on their own. You put up a signboard on the road,
+              direction signs at every junction, a welcoming gate and someone at reception. Your website needs to do
+              the same job online. <span lang="sw" className="font-bold">Karibu</span>, but only after they have found you.
+            </p>
+
+            <ol className="border-t-2 border-[#0D0D0D]/40">
+              {STEPS.map((s, i) => (
+                <li key={s.offline} className="py-5 border-b-2 border-[#0D0D0D]/40 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-8">
+                  <div className="mb-2 md:mb-0">
+                    <p className="text-xs uppercase tracking-[2px] opacity-70 mb-1">0{i + 1} &middot; Offline</p>
+                    <h3 className="text-lg md:text-xl font-bold">{s.offline}</h3>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[2px] opacity-70 mb-1">Online</p>
+                    <h4 className="font-bold mb-1">{s.online}</h4>
+                    <p className="text-[15px] leading-relaxed">{s.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            {/* Bubble tail */}
+            <div
+              className="absolute -bottom-[24px] left-12 md:left-20 w-10 h-10 rotate-45 bg-[#E6AD45] border-r-4 border-b-4 border-[#F9F6F0]"
+              aria-hidden="true"
+            />
           </div>
         </div>
 
-        <ol className="border border-border-flat">
-          {STEPS.map((s, i) => (
-            <li
-              key={s.offline}
-              className="grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] border-b last:border-b-0 border-border-flat"
-            >
-              <div className="p-6 md:p-8 bg-navy-alt">
-                <p className="text-xs uppercase tracking-[2px] text-text-gray mb-2">0{i + 1} &middot; Offline</p>
-                <h3 className="text-xl font-bold text-[#F9F6F0]">{s.offline}</h3>
-              </div>
-              <div className="p-6 md:p-8">
-                <p className="text-xs uppercase tracking-[2px] text-gold-flat mb-2">Online</p>
-                <h3 className="text-lg font-bold mb-2 text-[#F9F6F0]">{s.online}</h3>
-                <p className="text-text-gray">{s.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        <div className="mt-10">
+        <div className="mt-4 text-center">
           <Link
             href="/contact"
             className="inline-block px-8 py-4 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity text-sm md:text-base uppercase tracking-[0.5px]"
