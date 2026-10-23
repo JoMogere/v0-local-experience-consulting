@@ -35,25 +35,31 @@ export function WebsiteLikeHotel() {
         <p className="text-clay text-sm uppercase tracking-[2px] mb-8 text-center">A simple way to think about it</p>
 
         {/* Speech-bubble quote */}
-        <div className="relative px-3 md:px-8 pb-14">
+        <div className="relative px-0 md:px-8 pb-6 md:pb-14">
           <span
-            className="absolute -top-6 left-0 md:left-2 font-serif text-[88px] md:text-[120px] leading-none text-[#F9F6F0] select-none"
+            className="hidden md:block absolute -top-6 left-2 font-serif text-[120px] leading-none text-[#F9F6F0] select-none"
             aria-hidden="true"
           >
             &ldquo;
           </span>
           <span
-            className="absolute bottom-6 right-0 md:right-2 font-serif text-[88px] md:text-[120px] leading-none text-[#F9F6F0] select-none"
+            className="hidden md:block absolute bottom-6 right-2 font-serif text-[120px] leading-none text-[#F9F6F0] select-none"
             aria-hidden="true"
           >
             &rdquo;
           </span>
 
-          <div className="relative border-4 border-[#F9F6F0] bg-[#E6AD45] text-[#0D0D0D] rounded-3xl px-6 py-10 md:px-14 md:py-14">
-            <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-6 text-balance">
+          <span
+            className="md:hidden block h-9 font-serif text-[72px] leading-[0.9] text-[#F9F6F0] select-none"
+            aria-hidden="true"
+          >
+            &ldquo;
+          </span>
+          <div className="relative border-[3px] md:border-4 border-[#F9F6F0] bg-[#E6AD45] text-[#0D0D0D] rounded-2xl md:rounded-3xl px-5 py-8 md:px-14 md:py-14">
+            <h2 className="font-serif text-[26px] leading-tight md:text-5xl font-bold text-center mb-5 md:mb-6 text-balance">
               Your Website Should Feel Like Walking Into Your Hotel
             </h2>
-            <p className="text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto mb-10">
+            <p className="text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto mb-8 md:mb-10 italic">
               Offline, you would never leave guests to find you on their own. You put up a signboard on the road,
               direction signs at every junction, a welcoming gate and someone at reception. Your website needs to do
               the same job online. <span lang="sw" className="font-bold">Karibu</span>, but only after they have found you.
@@ -81,6 +87,12 @@ export function WebsiteLikeHotel() {
               aria-hidden="true"
             />
           </div>
+          <span
+            className="md:hidden block h-9 text-right font-serif text-[72px] leading-[0.9] text-[#F9F6F0] select-none mt-5"
+            aria-hidden="true"
+          >
+            &rdquo;
+          </span>
         </div>
 
         <div className="mt-4 text-center">
