@@ -72,10 +72,6 @@ export default function CaseStudiesHub() {
                 className="w-full h-auto"
               />
             </div>
-            <figcaption className="text-sm mt-4 text-center">
-              <span className="text-white">&ldquo;By the way, I can see the Google profile is working well. What else do you recommend?&rdquo;</span>
-              <span className="block text-orange-500 mt-1">Real client message on WhatsApp, 7 May 2026. Name withheld for privacy.</span>
-            </figcaption>
           </figure>
 
           <div className="p-8 bg-white/5 border border-white/10 rounded-lg text-center">
