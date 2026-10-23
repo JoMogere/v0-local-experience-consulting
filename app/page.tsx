@@ -7,6 +7,7 @@ import { TrustMarquee } from "@/components/trust-marquee"
 import { HowWeWork } from "@/components/how-we-work"
 import { About } from "@/components/about"
 import { Playbooks } from "@/components/playbooks"
+import { InstagramFeed } from "@/components/instagram-feed"
 import { FAQ } from "@/components/faq"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
@@ -41,6 +42,7 @@ export default function HomePage() {
       <HowWeWork />
       <About />
       <Playbooks />
+      <InstagramFeed />
       <FAQ />
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         <PreferredSourceButton />
