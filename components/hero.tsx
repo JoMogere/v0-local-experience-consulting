@@ -59,7 +59,6 @@ export function Hero() {
             >
               Claim Your Free Growth Audit →
             </a>
-            <p className="text-text-gray text-xs mt-3">No obligation. No sales pitch — just a real look at what's costing you bookings.</p>
           </div>
         </div>
       </div>
