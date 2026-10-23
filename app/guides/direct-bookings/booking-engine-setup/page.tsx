@@ -4,7 +4,7 @@ import { ChannelManagerDiagram } from '@/components/diagrams/channel-manager-dia
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar/direct-bookings/booking-engine-setup',
+    canonical: '/guides/direct-bookings/booking-engine-setup',
   },
   title: 'Channel Manager & Direct Bookings Setup | BookedUp Africa',
   description: 'How to mix a channel manager with direct bookings without conflicts — plus Google Hotel Search setup for small African properties.',
@@ -18,9 +18,9 @@ export default function BookingEngineSetupPage() {
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar" className="hover:text-white transition-colors">Guides</Link>
+          <Link href="/guides" className="hover:text-white transition-colors">Guides</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar/direct-bookings" className="hover:text-white transition-colors">Direct Bookings</Link>
+          <Link href="/guides/direct-bookings" className="hover:text-white transition-colors">Direct Bookings</Link>
           <span className="mx-2">/</span>
           <span>Booking Engine Setup</span>
         </nav>
@@ -93,7 +93,7 @@ export default function BookingEngineSetupPage() {
 
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
             <h2 className="text-2xl font-bold mb-4">Back to the Guide</h2>
-            <a href="/pillar/direct-bookings" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Direct Bookings Guide</a>
+            <a href="/guides/direct-bookings" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Direct Bookings Guide</a>
           </section>
         </section>
       </article>

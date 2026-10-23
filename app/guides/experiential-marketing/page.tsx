@@ -4,7 +4,7 @@ import { RelatedSearches } from '@/components/related-searches'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar/experiential-marketing',
+    canonical: '/guides/experiential-marketing',
   },
   title: 'Hotel Experiential Marketing in Kenya | BookedUp Africa',
   description: 'How to turn your property into the stay guests can\'t stop talking about — real experiences, real stories, real word of mouth.',
@@ -18,7 +18,7 @@ export default function ExperientialMarketingPage() {
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar" className="hover:text-white transition-colors">Guides</Link>
+          <Link href="/guides" className="hover:text-white transition-colors">Guides</Link>
           <span className="mx-2">/</span>
           <span>Experiential Marketing</span>
         </nav>
@@ -180,10 +180,10 @@ export default function ExperientialMarketingPage() {
         <RelatedSearches
           intro="This idea goes by many names. If you searched for any of these, you are in the right place."
           items={[
-            { text: 'Improve the guest experience', href: '/pillar/experiential-marketing/telling-your-story' },
-            { text: 'Word of mouth for hotels', href: '/pillar/experiential-marketing/turning-moments-into-content' },
-            { text: 'Partner with local businesses', href: '/pillar/experiential-marketing/local-partnerships' },
-            { text: 'Hotel storytelling', href: '/pillar/experiential-marketing/telling-your-story' },
+            { text: 'Improve the guest experience', href: '/guides/experiential-marketing/telling-your-story' },
+            { text: 'Word of mouth for hotels', href: '/guides/experiential-marketing/turning-moments-into-content' },
+            { text: 'Partner with local businesses', href: '/guides/experiential-marketing/local-partnerships' },
+            { text: 'Hotel storytelling', href: '/guides/experiential-marketing/telling-your-story' },
             { text: 'Things guests can do near your hotel' },
             { text: 'Uzoefu wa wageni', sw: true },
           ]}

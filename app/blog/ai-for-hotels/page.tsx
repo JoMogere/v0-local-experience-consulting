@@ -88,7 +88,7 @@ export default function AIPillar() {
             <Link href="/blog/semantic-seo-for-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Semantic SEO for Hotels</h3>
             </Link>
-            <Link href="/pillar/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+            <Link href="/guides/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Local SEO: In-Depth Guide</h3>
             </Link>
           </div>

@@ -63,16 +63,16 @@ export default function HotelVsDigitalAgencyPost() {
           <h3 className="text-xl font-bold text-orange-500 pt-2">(i). They don't know booking engines or channel managers</h3>
           <p>
             Ask a general digital marketing agency about Zeevou, Beds24, or a{' '}
-            <Link href="/pillar/direct-bookings/booking-engine-setup" className="text-orange-500 hover:text-orange-400">Google Hotel Center feed</Link>{' '}
+            <Link href="/guides/direct-bookings/booking-engine-setup" className="text-orange-500 hover:text-orange-400">Google Hotel Center feed</Link>{' '}
             and you'll usually get a blank look. These aren't marketing tools — they're hospitality infrastructure. But your{' '}
-            <Link href="/pillar/direct-bookings" className="text-orange-500 hover:text-orange-400">direct bookings</Link>{' '}
+            <Link href="/guides/direct-bookings" className="text-orange-500 hover:text-orange-400">direct bookings</Link>{' '}
             live and die by them. A general agency can send you traffic all day; if your booking engine isn't set up right, that traffic just bounces to Booking.com anyway.
           </p>
 
           <h3 className="text-xl font-bold text-orange-500 pt-2">(ii). They treat "reviews" as one generic tactic</h3>
           <p>
             For most businesses, "get more reviews" means a generic email asking for five stars. For a hotel, review generation is tied to guest experience timing, NAP consistency across every OTA you're listed on, and your{' '}
-            <Link href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400">Google Business Profile category</Link>{' '}
+            <Link href="/guides/local-seo-hotels" className="text-orange-500 hover:text-orange-400">Google Business Profile category</Link>{' '}
             — get the category wrong and you may not even show up in the map pack, no matter how many reviews you collect.
           </p>
 

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/experiential-marketing-hotels',
   },
-  title: 'Turning Hotel Stays Into Stories | BookedUp Africa',
+  title: 'Experiential Marketing for Hotels: Stays Into Stories',
   description: 'Why amenity lists stop working and experience-driven marketing takes over — local partnerships, storytelling, and what makes content actually get shared.',
   keywords: 'hotel storytelling, guest experiences, local partnerships hotels, shareable hotel content, destination marketing',
 }
@@ -83,7 +83,7 @@ export default function ExperientialPillar() {
             </ul>
             <p>
               This is where experiential marketing connects directly to your{' '}
-              <Link href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400">local SEO work</Link>{' '}
+              <Link href="/guides/local-seo-hotels" className="text-orange-500 hover:text-orange-400">local SEO work</Link>{' '}
               — content built around real experiences earns the engagement and shares that build long-term visibility, not just a one-time post.
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function ExperientialPillar() {
         <section className="mt-16 pt-8 border-t border-white/10">
           <h2 className="text-2xl font-bold mb-6">Related Reading</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/pillar/experiential-marketing" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+            <Link href="/guides/experiential-marketing" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Experiential Marketing: In-Depth Guide</h3>
               <p className="text-sm text-text-gray mt-2">Local partnerships, content, and storytelling in full depth</p>
             </Link>

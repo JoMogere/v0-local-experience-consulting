@@ -4,7 +4,7 @@ import { RelatedSearches } from '@/components/related-searches'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar/local-seo-hotels',
+    canonical: '/guides/local-seo-hotels',
   },
   title: 'Local SEO for Hotels: Complete Guide | BookedUp Africa',
   description: 'How hotels in Africa rank in Google Maps and local search — practical strategies that drive direct bookings, not just theory.',
@@ -24,7 +24,7 @@ export default function LocalSEOPage() {
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar" className="hover:text-white transition-colors">Guides</Link>
+          <Link href="/guides" className="hover:text-white transition-colors">Guides</Link>
           <span className="mx-2">/</span>
           <span>Local SEO for Hotels</span>
         </nav>
@@ -139,7 +139,7 @@ export default function LocalSEOPage() {
             </p>
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mb-6">
               <p className="text-blue-400 text-sm">
-                Ready to dive deeper? See our detailed guide on <Link href="/pillar/local-seo-hotels/google-maps-ranking" className="underline hover:text-blue-300">how to rank higher in Google Maps</Link>.
+                Ready to dive deeper? See our detailed guide on <Link href="/guides/local-seo-hotels/google-maps-ranking" className="underline hover:text-blue-300">how to rank higher in Google Maps</Link>.
               </p>
             </div>
 
@@ -184,7 +184,7 @@ export default function LocalSEOPage() {
             </p>
             <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4 mb-6">
               <p className="text-purple-400 text-sm">
-                Learn why <Link href="/pillar/local-seo-hotels/nap-consistency" className="underline hover:text-purple-300">NAP (Name, Address, Phone) consistency</Link> is critical and how to audit your business information across all platforms.
+                Learn why <Link href="/guides/local-seo-hotels/nap-consistency" className="underline hover:text-purple-300">NAP (Name, Address, Phone) consistency</Link> is critical and how to audit your business information across all platforms.
               </p>
             </div>
 
@@ -244,7 +244,7 @@ export default function LocalSEOPage() {
             </p>
             <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mb-6">
               <p className="text-green-400 text-sm">
-                Get the step-by-step system for <Link href="/pillar/local-seo-hotels/generate-hotel-reviews" className="underline hover:text-green-300">generating authentic hotel reviews</Link> that boost both SEO and guest satisfaction.
+                Get the step-by-step system for <Link href="/guides/local-seo-hotels/generate-hotel-reviews" className="underline hover:text-green-300">generating authentic hotel reviews</Link> that boost both SEO and guest satisfaction.
               </p>
             </div>
 
@@ -406,11 +406,11 @@ export default function LocalSEOPage() {
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Content</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <Link href="/pillar/direct-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
+              <Link href="/guides/direct-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
                 <h3 className="font-bold text-orange-500 mb-2">Direct Bookings Guide →</h3>
                 <p className="text-text-gray text-sm">Turn local search visibility into confirmed bookings</p>
               </Link>
-              <Link href="/pillar/direct-bookings/website-conversion" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
+              <Link href="/guides/direct-bookings/website-conversion" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors">
                 <h3 className="font-bold text-orange-500 mb-2">Website Conversion →</h3>
                 <p className="text-text-gray text-sm">Turn website visitors into confirmed bookings</p>
               </Link>
@@ -439,10 +439,10 @@ export default function LocalSEOPage() {
         <RelatedSearches
           intro="Guests and hotel owners use many words for the same thing. This guide covers all of them."
           items={[
-            { text: 'Hotels near me', href: '/pillar/local-seo-hotels/google-maps-ranking' },
-            { text: 'Show up on Google Maps', href: '/pillar/local-seo-hotels/google-maps-ranking' },
-            { text: 'Get more Google reviews', href: '/pillar/local-seo-hotels/generate-hotel-reviews' },
-            { text: 'Fix wrong hotel details online', href: '/pillar/local-seo-hotels/nap-consistency' },
+            { text: 'Hotels near me', href: '/guides/local-seo-hotels/google-maps-ranking' },
+            { text: 'Show up on Google Maps', href: '/guides/local-seo-hotels/google-maps-ranking' },
+            { text: 'Get more Google reviews', href: '/guides/local-seo-hotels/generate-hotel-reviews' },
+            { text: 'Fix wrong hotel details online', href: '/guides/local-seo-hotels/nap-consistency' },
             { text: 'Google Business Profile for hotels', href: '/blog/google-business-profile-hotels' },
             { text: 'SEO for hotels and lodges' },
             { text: 'Malazi karibu nami', sw: true },

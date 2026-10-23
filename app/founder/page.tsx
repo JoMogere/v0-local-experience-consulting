@@ -160,8 +160,8 @@ export default function FounderPage() {
           <p>
             Julius Onyiego Mogere is the founder of BookedUp Africa, a digital marketing consultancy built specifically for hotels and resorts in Kenya and East Africa. <strong className="text-white">Jo Mogere</strong> is his personal brand. He has worked in hospitality digital marketing since March 2025, hands-on with individual properties on{' '}
             <Link href="/hotel-local-seo-kenya" className="text-gold-flat hover:underline">local SEO</Link>,{' '}
-            <Link href="/pillar/direct-bookings" className="text-gold-flat hover:underline">direct bookings</Link> and{' '}
-            <Link href="/pillar/experiential-marketing" className="text-gold-flat hover:underline">experiential marketing</Link>.
+            <Link href="/guides/direct-bookings" className="text-gold-flat hover:underline">direct bookings</Link> and{' '}
+            <Link href="/guides/experiential-marketing" className="text-gold-flat hover:underline">experiential marketing</Link>.
           </p>
           <p>
             His approach comes from the day-to-day work: managing Google Business Profiles, booking engines and channel managers for real properties, with direct experience on platforms like Zeevou, Beds24 and Lodgify. He shares what he learns through{' '}
@@ -202,7 +202,7 @@ export default function FounderPage() {
             </li>
             <li>
               <strong className="text-white">Direct bookings.</strong> Booking engines, channel managers and the free Google booking link, so guests book with the hotel instead of through a commission-charging platform. See{' '}
-              <Link href="/pillar/direct-bookings/reduce-ota-dependence" className="text-gold-flat hover:underline">how to reduce OTA dependence</Link>.
+              <Link href="/guides/direct-bookings/reduce-ota-dependence" className="text-gold-flat hover:underline">how to reduce OTA dependence</Link>.
             </li>
             <li>
               <strong className="text-white">Experiential marketing.</strong> Turning the guest experience into reviews, content and repeat business. Read{' '}

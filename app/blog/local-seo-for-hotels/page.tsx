@@ -124,7 +124,7 @@ export default function LocalSEOPillar() {
             <h3 className="text-xl font-bold text-orange-500 mt-6">(iii). Your reviews</h3>
             <p>
               Reviews are both a ranking factor and the first thing a guest actually reads. That means a consistent collection process, professional responses to every review — including the bad ones — and paying attention to how fast new reviews are coming in, not just the star average. Our{' '}
-              <Link href="/pillar/local-seo-hotels/generate-hotel-reviews" className="text-orange-500 hover:text-orange-400">
+              <Link href="/guides/local-seo-hotels/generate-hotel-reviews" className="text-orange-500 hover:text-orange-400">
                 review generation guide
               </Link>{' '}
               covers this in full.
@@ -133,7 +133,7 @@ export default function LocalSEOPillar() {
             <h3 className="text-xl font-bold text-orange-500 mt-6">(iv). Your schema markup</h3>
             <p>
               Structured data doesn't change what a guest sees — it changes what Google understands about your page. Hotel schema, LocalBusiness (your NAP — see our{' '}
-              <Link href="/pillar/local-seo-hotels/nap-consistency" className="text-orange-500 hover:text-orange-400">
+              <Link href="/guides/local-seo-hotels/nap-consistency" className="text-orange-500 hover:text-orange-400">
                 NAP consistency guide
               </Link>
               ), review aggregate ratings, and FAQ markup are the ones worth prioritizing.
@@ -174,7 +174,7 @@ export default function LocalSEOPillar() {
             <Link href="/book-demo" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Book a Demo & Get a Quote</h3>
             </Link>
-            <Link href="/pillar/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+            <Link href="/guides/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Local SEO for Hotels: In-Depth Guide</h3>
               <p className="text-sm text-text-gray mt-2">Google Maps ranking, NAP consistency, and review generation in full depth</p>
             </Link>

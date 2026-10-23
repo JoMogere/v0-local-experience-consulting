@@ -69,8 +69,8 @@ export const PLAYBOOKS: Playbook[] = [
     related: [
       { href: '/blog/google-business-profile-hotels', label: 'Google Business Profile: The Complete Setup Guide' },
       { href: '/blog/local-seo-for-hotels', label: 'Local SEO for Hotels' },
-      { href: '/pillar/direct-bookings/reduce-ota-dependence', label: 'How to Reduce OTA Dependence' },
-      { href: '/pillar/direct-bookings/booking-engine-setup', label: 'Booking Engine Setup Guide' },
+      { href: '/guides/direct-bookings/reduce-ota-dependence', label: 'How to Reduce OTA Dependence' },
+      { href: '/guides/direct-bookings/booking-engine-setup', label: 'Booking Engine Setup Guide' },
       { href: '/blog/case-study-elsamere-lodge', label: 'Case Study: Elsamere Lodge' },
     ],
     faq: [
@@ -112,7 +112,7 @@ export const PLAYBOOKS: Playbook[] = [
     related: [
       { href: '/hotel-guest-experience-optimization-kenya', label: 'Hotel Guest Experience Optimization in Kenya' },
       { href: '/blog/experiential-marketing-hotels', label: 'Experiential Marketing for Hotels' },
-      { href: '/pillar/local-seo-hotels/generate-hotel-reviews', label: 'How to Generate Hotel Reviews' },
+      { href: '/guides/local-seo-hotels/generate-hotel-reviews', label: 'How to Generate Hotel Reviews' },
       { href: '/case-studies', label: 'Hospitality Case Studies' },
     ],
     faq: [

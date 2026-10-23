@@ -11,7 +11,7 @@ const PILLAR_ICONS: Record<string, typeof MapPin> = {
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar',
+    canonical: '/guides',
   },
   title: 'Hospitality Marketing Guides | BookedUp Africa',
   description: 'In-depth, practical guides on hospitality marketing to help your hotel win more direct bookings — written for African hospitality.',
@@ -24,9 +24,9 @@ export default function PillarHubPage() {
       slug: 'local-seo-hotels',
       description: 'Master local search optimization and dominate Google Maps rankings to attract direct bookings from your local market.',
       topics: [
-        { label: 'Google Maps Ranking', href: '/pillar/local-seo-hotels/google-maps-ranking' },
-        { label: 'NAP Consistency', href: '/pillar/local-seo-hotels/nap-consistency' },
-        { label: 'Review Generation', href: '/pillar/local-seo-hotels/generate-hotel-reviews' },
+        { label: 'Google Maps Ranking', href: '/guides/local-seo-hotels/google-maps-ranking' },
+        { label: 'NAP Consistency', href: '/guides/local-seo-hotels/nap-consistency' },
+        { label: 'Review Generation', href: '/guides/local-seo-hotels/generate-hotel-reviews' },
         { label: 'Local Citations', href: null },
       ],
     },
@@ -35,9 +35,9 @@ export default function PillarHubPage() {
       slug: 'direct-bookings',
       description: 'Reduce OTA commission costs and build a booking engine that turns website visitors into confirmed guests.',
       topics: [
-        { label: 'Reduce OTA Dependence', href: '/pillar/direct-bookings/reduce-ota-dependence' },
-        { label: 'Booking Engine Setup', href: '/pillar/direct-bookings/booking-engine-setup' },
-        { label: 'Website Conversion', href: '/pillar/direct-bookings/website-conversion' },
+        { label: 'Reduce OTA Dependence', href: '/guides/direct-bookings/reduce-ota-dependence' },
+        { label: 'Booking Engine Setup', href: '/guides/direct-bookings/booking-engine-setup' },
+        { label: 'Website Conversion', href: '/guides/direct-bookings/website-conversion' },
         { label: 'Google Hotel Search', href: null },
       ],
     },
@@ -46,9 +46,9 @@ export default function PillarHubPage() {
       slug: 'experiential-marketing',
       description: 'Turn your property into the stay guests can\'t stop talking about — real experiences, real stories, real word of mouth.',
       topics: [
-        { label: 'Local Partnerships', href: '/pillar/experiential-marketing/local-partnerships' },
-        { label: 'Turning Moments Into Content', href: '/pillar/experiential-marketing/turning-moments-into-content' },
-        { label: 'Telling Your Story', href: '/pillar/experiential-marketing/telling-your-story' },
+        { label: 'Local Partnerships', href: '/guides/experiential-marketing/local-partnerships' },
+        { label: 'Turning Moments Into Content', href: '/guides/experiential-marketing/turning-moments-into-content' },
+        { label: 'Telling Your Story', href: '/guides/experiential-marketing/telling-your-story' },
       ],
     },
   ]
@@ -72,7 +72,7 @@ export default function PillarHubPage() {
                 key={pillar.slug}
                 className="group bg-navy-alt border border-border-flat rounded-sm p-8 hover:border-gold-flat/50 hover:bg-[#262626] transition-all"
               >
-                <Link href={`/pillar/${pillar.slug}`} className="block">
+                <Link href={`/guides/${pillar.slug}`} className="block">
                   <div className="text-gold-flat mb-4">
                     {(() => {
                       const Icon = PILLAR_ICONS[pillar.slug]
@@ -106,7 +106,7 @@ export default function PillarHubPage() {
                   </div>
                 </div>
 
-                <Link href={`/pillar/${pillar.slug}`} className="text-gold-flat group-hover:text-gold-flat font-bold">
+                <Link href={`/guides/${pillar.slug}`} className="text-gold-flat group-hover:text-gold-flat font-bold">
                   Read Guide →
                 </Link>
               </div>
@@ -175,7 +175,7 @@ export default function PillarHubPage() {
             '@type': 'CollectionPage',
             name: 'Hospitality Marketing Guides - BookedUp Africa',
             description: 'In-depth, practical guides on hospitality marketing for hotels and resorts',
-            url: `${SITE_URL}/pillar`,
+            url: `${SITE_URL}/guides`,
           }),
         }}
       />

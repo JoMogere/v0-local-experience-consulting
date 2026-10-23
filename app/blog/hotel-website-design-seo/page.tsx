@@ -102,7 +102,7 @@ export default function WebsitePillar() {
             <Link href="/blog/direct-hotel-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Increase Direct Hotel Bookings</h3>
             </Link>
-            <Link href="/pillar/direct-bookings/website-conversion" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+            <Link href="/guides/direct-bookings/website-conversion" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Website Conversion: In-Depth Guide</h3>
             </Link>
           </div>

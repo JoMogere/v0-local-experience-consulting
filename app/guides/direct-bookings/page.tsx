@@ -6,7 +6,7 @@ import { OTAvsDirectChart } from '@/components/diagrams/ota-vs-direct-chart'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar/direct-bookings',
+    canonical: '/guides/direct-bookings',
   },
   title: 'Direct Bookings Guide for Hotels | BookedUp Africa',
   description: 'A practical guide for African hotels to reduce OTA dependence, set up a converting booking engine, and win back commission-free bookings.',
@@ -26,7 +26,7 @@ export default function DirectBookingsPage() {
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar" className="hover:text-white transition-colors">Guides</Link>
+          <Link href="/guides" className="hover:text-white transition-colors">Guides</Link>
           <span className="mx-2">/</span>
           <span>Direct Bookings</span>
         </nav>
@@ -275,10 +275,10 @@ export default function DirectBookingsPage() {
         <RelatedSearches
           intro="Hotel owners and guests describe this in different ways. If you were searching for any of these, this guide is for you."
           items={[
-            { text: 'Reduce OTA commission', href: '/pillar/direct-bookings/reduce-ota-dependence' },
-            { text: 'Stop depending on Booking.com', href: '/pillar/direct-bookings/reduce-ota-dependence' },
-            { text: 'Booking engine for a small hotel', href: '/pillar/direct-bookings/booking-engine-setup' },
-            { text: 'Get more direct bookings', href: '/pillar/direct-bookings/website-conversion' },
+            { text: 'Reduce OTA commission', href: '/guides/direct-bookings/reduce-ota-dependence' },
+            { text: 'Stop depending on Booking.com', href: '/guides/direct-bookings/reduce-ota-dependence' },
+            { text: 'Booking engine for a small hotel', href: '/guides/direct-bookings/booking-engine-setup' },
+            { text: 'Get more direct bookings', href: '/guides/direct-bookings/website-conversion' },
             { text: 'Book direct and save' },
             { text: 'Best rate for direct bookers' },
             { text: 'Weka nafasi moja kwa moja', sw: true },

@@ -100,7 +100,7 @@ export default function SemanticSeoForHotels() {
               Name the real places guests care about and say how far they are. &ldquo;Fifteen minutes from the Hell&apos;s Gate
               gate&rdquo; tells guests and search engines far more than &ldquo;perfectly located&rdquo;. Add the lake, the
               restaurants, the viewpoints and the things you recommend. This is exactly what{' '}
-              <Link href="/pillar/experiential-marketing/local-partnerships" className="text-orange-500 hover:text-orange-400 underline">
+              <Link href="/guides/experiential-marketing/local-partnerships" className="text-orange-500 hover:text-orange-400 underline">
                 local partnerships
               </Link>{' '}
               give you: real places to mention that are genuinely connected to your stay.
@@ -121,7 +121,7 @@ export default function SemanticSeoForHotels() {
               Your name, address, phone number and opening details should match on your website, Google, Facebook and booking
               sites. When the details disagree, search engines are less sure the places are the same hotel. We cover this in
               the guide to{' '}
-              <Link href="/pillar/local-seo-hotels/nap-consistency" className="text-orange-500 hover:text-orange-400 underline">
+              <Link href="/guides/local-seo-hotels/nap-consistency" className="text-orange-500 hover:text-orange-400 underline">
                 keeping your hotel details consistent
               </Link>
               .
@@ -169,7 +169,7 @@ export default function SemanticSeoForHotels() {
         <section className="mt-16 pt-8 border-t border-white/10">
           <h2 className="text-2xl font-bold mb-6">Related Reading</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/pillar/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+            <Link href="/guides/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Local SEO for Hotels: Full Guide</h3>
             </Link>
             <Link href="/blog/ai-for-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">

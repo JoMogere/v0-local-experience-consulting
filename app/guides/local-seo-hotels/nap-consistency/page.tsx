@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar/local-seo-hotels/nap-consistency',
+    canonical: '/guides/local-seo-hotels/nap-consistency',
   },
   title: 'NAP Consistency for Hotels | BookedUp Africa',
   description: 'Keep your hotel\'s Name, Address, and Phone number consistent across every platform so guests — and Google — can always find you.',
@@ -69,7 +69,7 @@ export default function NAPConsistencyPage() {
 
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
             <h2 className="text-2xl font-bold mb-4">Back to the Guide</h2>
-            <a href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Local SEO for Hotels Guide</a>
+            <a href="/guides/local-seo-hotels" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Local SEO for Hotels Guide</a>
           </section>
         </section>
       </article>

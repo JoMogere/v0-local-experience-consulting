@@ -11,7 +11,7 @@ export default function ContentArchitecturePage() {
       id: 'local-seo-hotels',
       title: 'Local SEO for Hotels',
       status: 'published',
-      url: '/pillar/local-seo-hotels',
+      url: '/guides/local-seo-hotels',
       wordCount: 4200,
       clusters: [
         {
@@ -19,21 +19,21 @@ export default function ContentArchitecturePage() {
           title: 'How to Rank Higher in Google Maps',
           status: 'published',
           wordCount: 2100,
-          url: '/pillar/local-seo-hotels/google-maps-ranking',
+          url: '/guides/local-seo-hotels/google-maps-ranking',
         },
         {
           id: 'generate-reviews',
           title: 'How to Generate Hotel Reviews',
           status: 'published',
           wordCount: 1850,
-          url: '/pillar/local-seo-hotels/generate-hotel-reviews',
+          url: '/guides/local-seo-hotels/generate-hotel-reviews',
         },
         {
           id: 'nap-consistency',
           title: 'NAP Consistency for Hotels',
           status: 'published',
           wordCount: 1500,
-          url: '/pillar/local-seo-hotels/nap-consistency',
+          url: '/guides/local-seo-hotels/nap-consistency',
         },
       ],
     },

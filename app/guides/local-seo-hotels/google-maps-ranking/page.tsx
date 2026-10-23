@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar/local-seo-hotels/google-maps-ranking',
+    canonical: '/guides/local-seo-hotels/google-maps-ranking',
   },
   title: 'Rank Higher in Google Maps for Hotels | BookedUp Africa',
   description: 'The complete, step-by-step strategy for hotels to rank higher in Google Maps and local search results, with real examples.',
@@ -87,7 +87,7 @@ export default function GoogleMapsRankingPage() {
 
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
             <h2 className="text-2xl font-bold mb-4">Back to the Guide</h2>
-            <a href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Local SEO for Hotels Guide</a>
+            <a href="/guides/local-seo-hotels" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Local SEO for Hotels Guide</a>
           </section>
         </section>
       </article>

@@ -97,7 +97,7 @@ export default function DirectBookingsPillar() {
             </ul>
             <p>
               The full technical setup — channel managers, Google Hotel Search, rate parity strategy — is covered in our{' '}
-              <Link href="/pillar/direct-bookings" className="text-orange-500 hover:text-orange-400">Direct Bookings guide</Link>.
+              <Link href="/guides/direct-bookings" className="text-orange-500 hover:text-orange-400">Direct Bookings guide</Link>.
             </p>
           </div>
 
@@ -126,7 +126,7 @@ export default function DirectBookingsPillar() {
             <Link href="/book-demo" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Book a Demo & Get a Quote</h3>
             </Link>
-              <Link href="/pillar/direct-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+              <Link href="/guides/direct-bookings" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
                 <h3 className="font-bold text-orange-500 mb-2">Direct Bookings: The Complete Guide →</h3>
                 <p className="text-text-gray text-sm">OTA costs, booking engines, rate parity, and Google Hotel Search</p>
               </Link>

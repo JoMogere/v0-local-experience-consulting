@@ -62,7 +62,7 @@ export default function SilentPalmsCaseStudy() {
           <section>
             <h2 className="text-3xl font-bold mb-4">What Position 9 Actually Means</h2>
             <p className="text-text-gray">
-              Position 9 means Silent Palms is appearing on the first page of results, just not high enough yet to win most of the clicks — the difference between position 9 and position 3 is usually the difference between a handful of impressions turning into visits and a steady stream of them. Moving up that stretch of page one is exactly the work covered in our <Link href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400">Local SEO guide</Link> — category accuracy, review velocity, and consistent citations compounding over months, not days.
+              Position 9 means Silent Palms is appearing on the first page of results, just not high enough yet to win most of the clicks — the difference between position 9 and position 3 is usually the difference between a handful of impressions turning into visits and a steady stream of them. Moving up that stretch of page one is exactly the work covered in our <Link href="/guides/local-seo-hotels" className="text-orange-500 hover:text-orange-400">Local SEO guide</Link> — category accuracy, review velocity, and consistent citations compounding over months, not days.
             </p>
           </section>
 

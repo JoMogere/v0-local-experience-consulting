@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/pillar/experiential-marketing/telling-your-story',
+    canonical: '/guides/experiential-marketing/telling-your-story',
   },
   title: 'Telling Your Property\'s Story | BookedUp Africa',
   description: 'How to find and tell the story that makes your property memorable, instead of sounding like every other listing.',
@@ -17,9 +17,9 @@ export default function TellingYourStoryPage() {
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar" className="hover:text-white transition-colors">Guides</Link>
+          <Link href="/guides" className="hover:text-white transition-colors">Guides</Link>
           <span className="mx-2">/</span>
-          <Link href="/pillar/experiential-marketing" className="hover:text-white transition-colors">Experiential Marketing</Link>
+          <Link href="/guides/experiential-marketing" className="hover:text-white transition-colors">Experiential Marketing</Link>
           <span className="mx-2">/</span>
           <span>Telling Your Story</span>
         </nav>
@@ -71,7 +71,7 @@ export default function TellingYourStoryPage() {
 
           <section className="bg-white/5 border border-white/10 rounded-lg p-8 mt-12">
             <h2 className="text-2xl font-bold mb-4">Back to the Guide</h2>
-            <a href="/pillar/experiential-marketing" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Experiential Marketing Guide</a>
+            <a href="/guides/experiential-marketing" className="text-orange-500 hover:text-orange-400 font-bold">← Return to Experiential Marketing Guide</a>
           </section>
         </section>
       </article>

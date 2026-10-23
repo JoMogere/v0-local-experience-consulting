@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/contact',
   },
-  title: 'Get Your Free Hotel Growth Audit | BookedUp Africa',
+  title: 'Contact Us for a Free Hotel Growth Audit | BookedUp Africa',
   description: 'Request a free audit covering local SEO, direct bookings, and experiential marketing for your hotel or resort. We reply within 24 hours.',
   keywords: 'free hotel audit, hotel SEO audit, hotel marketing consultation Kenya',
 }
@@ -21,7 +21,7 @@ export default function ContactPage() {
         <header className="text-center mb-12">
           <p className="text-gold-flat text-sm uppercase tracking-[2px] mb-4">Free Audit</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Get a Free Growth Audit for Your Property
+            Contact Us for a Free Growth Audit of Your Property
           </h1>
           <p className="text-xl text-text-gray leading-relaxed">
             Tell us a bit about your property and we'll send back a short, honest review covering local search visibility, direct booking readiness, and quick wins — no obligation.

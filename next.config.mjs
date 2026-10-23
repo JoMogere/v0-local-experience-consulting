@@ -39,6 +39,12 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // The guides moved from /pillar to /guides.
+        source: '/pillar/:path*',
+        destination: '/guides/:path*',
+        permanent: true,
+      },
+      {
         source: '/blogs',
         destination: '/blog',
         permanent: true,

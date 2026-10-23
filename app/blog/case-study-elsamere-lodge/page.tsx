@@ -54,7 +54,7 @@ export default function ElsamereLodgeCaseStudy() {
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
               <h3 className="font-bold text-blue-400 mb-3">Why This Matters</h3>
               <p className="text-text-gray">
-                Most hotels never see this button at all, because it depends on the Google Business Profile being correctly set up as a hotel-category listing with a working booking link connected — not just a standard business listing. This is the same "free booking link" setup covered in our <Link href="/pillar/direct-bookings/booking-engine-setup" className="text-orange-500 hover:text-orange-400">Booking Engine Setup guide</Link>.
+                Most hotels never see this button at all, because it depends on the Google Business Profile being correctly set up as a hotel-category listing with a working booking link connected — not just a standard business listing. This is the same "free booking link" setup covered in our <Link href="/guides/direct-bookings/booking-engine-setup" className="text-orange-500 hover:text-orange-400">Booking Engine Setup guide</Link>.
               </p>
             </div>
           </section>
@@ -80,7 +80,7 @@ export default function ElsamereLodgeCaseStudy() {
           <section>
             <h2 className="text-3xl font-bold mb-4">The Bigger Picture</h2>
             <p className="text-text-gray">
-              124 clicks in one channel over six months isn't the whole story on its own — it's one piece of a Google Business Profile working the way it's supposed to. It reflects a listing that's correctly categorized, verified, and connected to a working booking link, which is the foundation covered in our <Link href="/pillar/local-seo-hotels" className="text-orange-500 hover:text-orange-400">Local SEO guide</Link>.
+              124 clicks in one channel over six months isn't the whole story on its own — it's one piece of a Google Business Profile working the way it's supposed to. It reflects a listing that's correctly categorized, verified, and connected to a working booking link, which is the foundation covered in our <Link href="/guides/local-seo-hotels" className="text-orange-500 hover:text-orange-400">Local SEO guide</Link>.
             </p>
           </section>
 

@@ -72,7 +72,7 @@ export default function GBPPillar() {
               </li>
               <li>
                 <strong className="text-white">Keep your details identical everywhere.</strong> Your name, address and phone number should match across your website, social pages and listings. We explain why in our{' '}
-                <Link href="/pillar/local-seo-hotels/nap-consistency" className="text-orange-500 hover:text-orange-400">NAP consistency guide</Link>.
+                <Link href="/guides/local-seo-hotels/nap-consistency" className="text-orange-500 hover:text-orange-400">NAP consistency guide</Link>.
               </li>
               <li>
                 <strong className="text-white">Plan around your seasons.</strong> Refresh photos and Posts ahead of your busy periods. For Mara-area properties that is roughly the July to October migration season, and for most of Kenya it also includes the December holidays and Easter.
@@ -136,7 +136,7 @@ export default function GBPPillar() {
                 124 clicks on their free booking link in six months
               </Link>{' '}
               — zero commission, pure high-intent traffic. The setup steps are covered in our{' '}
-              <Link href="/pillar/direct-bookings/booking-engine-setup" className="text-orange-500 hover:text-orange-400">
+              <Link href="/guides/direct-bookings/booking-engine-setup" className="text-orange-500 hover:text-orange-400">
                 booking engine setup guide
               </Link>
               .
@@ -154,7 +154,7 @@ export default function GBPPillar() {
             </ul>
             <p className="mt-4">
               Want a repeatable process? See{' '}
-              <Link href="/pillar/local-seo-hotels/generate-hotel-reviews" className="text-orange-500 hover:text-orange-400">how to generate hotel reviews</Link>.
+              <Link href="/guides/local-seo-hotels/generate-hotel-reviews" className="text-orange-500 hover:text-orange-400">how to generate hotel reviews</Link>.
             </p>
           </div>
 
@@ -247,7 +247,7 @@ export default function GBPPillar() {
             <Link href="/playbooks/local-search-direct-bookings-playbook" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Playbook: Turn Local Searches Into Direct Bookings</h3>
             </Link>
-            <Link href="/pillar/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
+            <Link href="/guides/local-seo-hotels" className="p-4 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors block">
               <h3 className="font-semibold text-orange-500">Local SEO: In-Depth Guide</h3>
             </Link>
           </div>
