@@ -1,13 +1,5 @@
 import Link from 'next/link'
-import { Search, Sparkles } from 'lucide-react'
-
-// Illustrative example only: generic property types, no real businesses.
-const OLD_RESULTS = [
-  { site: 'booking-site.com', title: 'Lodges near Hell’s Gate, Naivasha – Prices & Deals', note: 'Compare rooms, rates and reviews from many lodges.' },
-  { site: 'travel-guide.com', title: '10 Best Places to Stay in Naivasha', note: 'A list article with the usual big names.' },
-  { site: 'your-hotel.com', title: 'Your Lodge | Naivasha', note: 'Your own site, buried on page two with the old photos.' },
-  { site: 'review-site.com', title: 'Naivasha Lodges – Traveller Reviews', note: 'Ratings and opinions from past guests.' },
-]
+import Image from 'next/image'
 
 export function SearchChanged() {
   return (
@@ -29,65 +21,43 @@ export function SearchChanged() {
           <span lang="sw" className="text-gold-flat font-medium">weka nafasi</span> as well.
         </p>
 
-        <div className="grid md:grid-cols-2 border border-border-flat">
-          {/* Then */}
-          <div className="p-6 md:p-8 bg-navy-deep md:border-r border-b md:border-b-0 border-border-flat">
-            <p className="text-xs uppercase tracking-[2px] text-text-gray mb-4">Then &middot; Google results</p>
-            <div className="flex items-center gap-3 border border-border-flat px-4 py-3 mb-6 text-[#F9F6F0] text-sm">
-              <Search className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
-              <span>lodge near hell&apos;s gate naivasha</span>
-            </div>
-            <div className="flex items-center gap-3 border border-border-flat px-4 py-3 mb-6 text-[#F9F6F0] text-sm -mt-3">
-              <Search className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
-              <span lang="sw">malazi karibu na hell&apos;s gate naivasha</span>
-            </div>
-            <ol className="space-y-5">
-              {OLD_RESULTS.map((r, i) => (
-                <li key={r.site} className="flex gap-4">
-                  <span className="text-xs text-text-gray pt-1">0{i + 1}</span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[1px] text-text-gray">{r.site}</p>
-                    <p className="text-gold-flat font-medium">{r.title}</p>
-                    <p className="text-sm text-text-gray">{r.note}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          <figure className="border border-border-flat bg-navy-deep">
+            <figcaption className="p-4 md:p-5 border-b border-border-flat">
+              <p className="text-xs uppercase tracking-[2px] text-gold-flat mb-1">Google</p>
+              <p className="text-[#F9F6F0] text-sm">
+                Search: <span className="font-medium">&ldquo;hotel near hells gate&rdquo;</span>
+              </p>
+            </figcaption>
+            <Image
+              src="/search-examples/google-hotel-search.webp"
+              alt="Google hotel results for 'hotel near hells gate', showing a map with prices and a list of properties with photos, ratings and prices."
+              width={640}
+              height={516}
+              className="w-full h-auto"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </figure>
 
-          {/* Now */}
-          <div className="p-6 md:p-8 bg-navy-deep">
-            <p className="text-xs uppercase tracking-[2px] text-text-gray mb-4">Now &middot; AI assistants</p>
-            <div className="flex items-center gap-3 border border-border-flat px-4 py-3 mb-6 text-[#F9F6F0] text-sm">
-              <Sparkles className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
-              <span>where should we stay near hell&apos;s gate naivasha for a weekend?</span>
-            </div>
-            <div className="flex items-center gap-3 border border-border-flat px-4 py-3 mb-6 text-[#F9F6F0] text-sm -mt-3">
-              <Sparkles className="w-4 h-4 text-gold-flat shrink-0" aria-hidden="true" />
-              <span lang="sw">tunaweza kukaa wapi karibu na hell&apos;s gate wikendi hii?</span>
-            </div>
-            <div className="space-y-4 text-text-gray leading-relaxed">
-              <p>
-                For a relaxed weekend near Hell&apos;s Gate, look at lodges that are{' '}
-                <span className="text-gold-flat font-medium">close to the park gate</span>, have{' '}
-                <span className="text-gold-flat font-medium">strong recent reviews</span> and let you{' '}
-                <span className="text-gold-flat font-medium">book directly</span> with clear prices.
+          <figure className="border border-border-flat bg-navy-deep">
+            <figcaption className="p-4 md:p-5 border-b border-border-flat">
+              <p className="text-xs uppercase tracking-[2px] text-gold-flat mb-1">AI assistant</p>
+              <p className="text-[#F9F6F0] text-sm">
+                Ask: <span className="font-medium">&ldquo;where should we stay near hell&apos;s gate naivasha for a weekend?&rdquo;</span>
               </p>
-              <p>
-                Check that the lodge&apos;s Google profile has current photos, opening details and answers to
-                common questions before you decide.
-              </p>
-              <p className="text-[#F9F6F0]">
-                <strong>Short answer:</strong> pick the lodge that is easy to find, easy to trust and easy to book.
-              </p>
-              <p lang="sw" className="text-[#F9F6F0]">
-                <strong>Jibu fupi:</strong> chagua hoteli rahisi kupata, rahisi kuamini na rahisi kuweka nafasi.
-              </p>
-            </div>
-          </div>
+            </figcaption>
+            <Image
+              src="/search-examples/ai-assistant-answer.webp"
+              alt="An AI assistant answering the question about where to stay near Hell's Gate, Naivasha, with a short recommendation and a shortlist of places to stay with a budget guide."
+              width={880}
+              height={489}
+              className="w-full h-auto"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </figure>
         </div>
         <p className="text-xs text-text-gray mt-3">
-          Illustrative example. Real assistants word their answers differently, but they favour the same things.
+          Real searches run on 23 October 2026. Results change by person, place and day. Property names belong to their owners.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
