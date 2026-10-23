@@ -5,6 +5,7 @@ import { SiteChrome } from '@/components/site-chrome'
 import { SiteSchema } from '@/components/site-schema'
 import { MetaPixel } from '@/components/meta-pixel'
 import { ScrollTopOnReload } from '@/components/scroll-top-on-reload'
+import { Hreflang } from '@/components/hreflang'
 import './globals.css'
 import { SITE_URL } from '@/lib/site'
 
@@ -31,6 +32,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
   verification: {
     google: 'R4EcsFocCZIX3AYkXYQzgQxhSNfunB66fq2hhKXxXa4',
@@ -66,6 +78,7 @@ export default function RootLayout({
         <SiteSchema />
         <MetaPixel />
         <ScrollTopOnReload />
+        <Hreflang />
         <SiteChrome>{children}</SiteChrome>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

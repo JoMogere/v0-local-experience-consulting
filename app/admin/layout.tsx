@@ -1,6 +1,12 @@
+import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { AdminNav } from '@/components/admin-nav'
 import { getAdminSession } from '@/lib/admin'
+
+export const metadata: Metadata = {
+  title: 'Admin | BookedUp Africa',
+  robots: { index: false, follow: false },
+}
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const { session, isAdmin } = await getAdminSession()
