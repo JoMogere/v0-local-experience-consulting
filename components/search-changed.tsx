@@ -56,10 +56,6 @@ export function SearchChanged() {
             />
           </figure>
         </div>
-        <p className="text-xs text-text-gray mt-3">
-          Real searches run on 23 October 2026. Results change by person, place and day. Property names belong to their owners.
-        </p>
-
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
             { h: 'Be easy to find', sw: 'Rahisi kupatikana', p: 'A complete, active Google profile and clear location pages, so Google and the assistants know exactly who you are and where you are.' },
