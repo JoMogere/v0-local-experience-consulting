@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SiteChrome } from '@/components/site-chrome'
 import { SiteSchema } from '@/components/site-schema'
 import { MetaPixel } from '@/components/meta-pixel'
+import { ScrollTopOnReload } from '@/components/scroll-top-on-reload'
 import './globals.css'
 import { SITE_URL } from '@/lib/site'
 
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased text-foreground`}>
         <SiteSchema />
         <MetaPixel />
+        <ScrollTopOnReload />
         <SiteChrome>{children}</SiteChrome>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
