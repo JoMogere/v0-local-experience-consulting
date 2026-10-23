@@ -1,7 +1,6 @@
 import Script from 'next/script'
 
-// Instagram and TikTok feeds by Elfsight. The widget script loads only after the page has
-// finished loading, and the feed itself loads lazily when scrolled into view.
+// Instagram and TikTok feeds by Elfsight. 
 export function InstagramFeed() {
   return (
     <section className="py-16 md:py-24 bg-navy-alt" id="instagram">
@@ -33,10 +32,28 @@ export function InstagramFeed() {
           on TikTok.
         </p>
         <h3 className="text-xl font-bold text-[#F9F6F0] mb-4">Instagram</h3>
-        <div className="elfsight-app-1cbe8a3b-5578-45e4-9dc2-6b61a50d478d" data-elfsight-app-lazy />
+        <div className="elfsight-app-1cbe8a3b-5578-45e4-9dc2-6b61a50d478d" />
+        <a
+          href="https://www.instagram.com/bookedupafrica"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-4 px-6 py-3 border border-gold-flat text-gold-flat font-semibold hover:bg-gold-flat hover:text-[#0D0D0D] transition-colors text-sm uppercase tracking-[0.5px]"
+        >
+          Follow on Instagram &rarr;
+        </a>
+
         <h3 className="text-xl font-bold text-[#F9F6F0] mt-12 mb-4">TikTok</h3>
-        <div className="elfsight-app-7fb7ddb3-5086-4add-9d26-28d35187e1e1" data-elfsight-app-lazy />
-        <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
+        <div className="elfsight-app-7fb7ddb3-5086-4add-9d26-28d35187e1e1" />
+        <a
+          href="https://www.tiktok.com/@bookedupafrica"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-4 px-6 py-3 border border-gold-flat text-gold-flat font-semibold hover:bg-gold-flat hover:text-[#0D0D0D] transition-colors text-sm uppercase tracking-[0.5px]"
+        >
+          Follow on TikTok &rarr;
+        </a>
+
+        <Script src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" />
       </div>
     </section>
   )
