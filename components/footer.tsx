@@ -75,15 +75,15 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="py-14 md:py-20 border-t border-border-flat bg-navy-deep">
+    <footer className="py-8 md:py-10 border-t border-border-flat bg-navy-deep">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-6">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-3">
                 {col.title}
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -102,10 +102,10 @@ export function Footer() {
           ))}
 
           <nav aria-label="Social">
-            <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-5">
+            <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-3">
               Social
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {socialLinks.map((social) => (
                 <li key={social.name}>
                   <Link
@@ -123,7 +123,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-12 md:mt-16 pt-8 border-t border-border-flat md:flex md:items-center md:justify-between gap-8">
+        <div className="mt-8 md:mt-10 pt-6 border-t border-border-flat md:flex md:items-center md:justify-between gap-8">
           <div className="max-w-xl">
             <p className="text-[#F9F6F0] font-semibold mb-2">Want to see more from us in your Google results?</p>
             <p className="text-text-gray text-sm">
@@ -146,7 +146,7 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="mt-12 md:mt-16 pt-8 border-t border-border-flat flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="mt-8 md:mt-10 pt-6 border-t border-border-flat flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="font-serif italic text-gold text-lg md:text-[22px] tracking-[0.5px]">
             Transform. Book. Grow.
           </p>
