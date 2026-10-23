@@ -1,4 +1,6 @@
 import Link from "next/link"
+import Image from "next/image"
+import { SITE_HOST } from "@/lib/site"
 
 const socialLinks = [
   {
@@ -118,6 +120,29 @@ export function Footer() {
               ))}
             </ul>
           </nav>
+        </div>
+
+        <div className="mt-12 md:mt-16 pt-8 border-t border-border-flat md:flex md:items-center md:justify-between gap-8">
+          <div className="max-w-xl">
+            <p className="text-[#F9F6F0] font-semibold mb-2">Want to see more from us in your Google results?</p>
+            <p className="text-text-gray text-sm">
+              Mark BookedUp Africa as a Preferred Source and we&apos;ll show up more often when you search for hotel marketing topics.
+            </p>
+          </div>
+          <a
+            href={`https://www.google.com/preferences/source?q=${SITE_HOST}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-5 md:mt-0 shrink-0 hover:opacity-90 transition-opacity"
+          >
+            <Image
+              src="/google-preferred-source.png"
+              alt="Add BookedUp Africa as a preferred source on Google"
+              width={246}
+              height={78}
+              className="h-14 w-auto"
+            />
+          </a>
         </div>
 
         <div className="mt-12 md:mt-16 pt-8 border-t border-border-flat flex flex-col md:flex-row md:items-center md:justify-between gap-4">

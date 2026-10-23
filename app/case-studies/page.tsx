@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PreferredSourceButton } from '@/components/preferred-source-button'
 
 export const metadata: Metadata = {
   alternates: {
@@ -79,7 +78,6 @@ export default function CaseStudiesHub() {
           </div>
         </section>
 
-        <PreferredSourceButton />
 
         <section className="mt-16 p-8 bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-4">Ready to Create Your Own Result?</h2>

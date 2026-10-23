@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
-import { PreferredSourceButton } from '@/components/preferred-source-button'
 import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SITE_URL } from '@/lib/site'
 
@@ -171,7 +170,6 @@ export default async function BlogPage() {
           </div>
         </section>
 
-        <PreferredSourceButton />
 
         {/* Why These Guides */}
         <section className="mb-16 bg-navy-alt border border-border-flat rounded-sm p-8">
