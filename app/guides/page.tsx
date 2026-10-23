@@ -49,6 +49,7 @@ export default function PillarHubPage() {
         { label: 'Local Partnerships', href: '/guides/experiential-marketing/local-partnerships' },
         { label: 'Turning Moments Into Content', href: '/guides/experiential-marketing/turning-moments-into-content' },
         { label: 'Telling Your Story', href: '/guides/experiential-marketing/telling-your-story' },
+        { label: 'Sensory Experiences', href: '/guides/experiential-marketing/sensory-experiences-for-hotels' },
       ],
     },
   ]

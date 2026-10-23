@@ -184,6 +184,7 @@ export default function ExperientialMarketingPage() {
             { text: 'Word of mouth for hotels', href: '/guides/experiential-marketing/turning-moments-into-content' },
             { text: 'Partner with local businesses', href: '/guides/experiential-marketing/local-partnerships' },
             { text: 'Hotel storytelling', href: '/guides/experiential-marketing/telling-your-story' },
+            { text: 'Memorable hotel experiences', href: '/guides/experiential-marketing/sensory-experiences-for-hotels' },
             { text: 'Things guests can do near your hotel' },
             { text: 'Uzoefu wa wageni', sw: true },
           ]}

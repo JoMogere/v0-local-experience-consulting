@@ -245,6 +245,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly',
     },
+    {
+      url: `${baseUrl}/guides/experiential-marketing/sensory-experiences-for-hotels`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
     ...serviceRoutes,
     ...blogRoutes,
   ]
