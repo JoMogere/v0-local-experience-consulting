@@ -34,6 +34,7 @@ const RESERVED_SLUGS = new Set([
   'hotel-website-design-seo',
   'how-to-choose-a-hotel-marketing-agency-kenya',
   'local-seo-for-hotels',
+  'semantic-seo-for-hotels',
 ])
 
 function refreshSite(slug?: string) {
