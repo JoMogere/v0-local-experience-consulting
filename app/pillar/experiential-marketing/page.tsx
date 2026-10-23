@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { RelatedSearches } from '@/components/related-searches'
 
 export const metadata: Metadata = {
   alternates: {
@@ -176,6 +177,17 @@ export default function ExperientialMarketingPage() {
           </section>
         </section>
 
+        <RelatedSearches
+          intro="This idea goes by many names. If you searched for any of these, you are in the right place."
+          items={[
+            { text: 'Improve the guest experience', href: '/pillar/experiential-marketing/telling-your-story' },
+            { text: 'Word of mouth for hotels', href: '/pillar/experiential-marketing/turning-moments-into-content' },
+            { text: 'Partner with local businesses', href: '/pillar/experiential-marketing/local-partnerships' },
+            { text: 'Hotel storytelling', href: '/pillar/experiential-marketing/telling-your-story' },
+            { text: 'Things guests can do near your hotel' },
+            { text: 'Uzoefu wa wageni', sw: true },
+          ]}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -185,7 +197,8 @@ export default function ExperientialMarketingPage() {
               headline: "Turn Your Stay Into a Story Guests Can't Stop Sharing",
               description: 'How to turn your property into the stay guests can\'t stop talking about.',
               author: { '@type': 'Organization', name: 'BookedUp Africa' },
-              datePublished: new Date().toISOString(),
+              dateModified: '2026-10-23',
+              about: [{ '@type': 'Thing', name: 'Guest experience' }, { '@type': 'Thing', name: 'Word-of-mouth marketing' }, { '@type': 'Thing', name: 'Destination marketing' }],
             }),
           }}
         />

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { RelatedSearches } from '@/components/related-searches'
 import { OTAvsDirectChart } from '@/components/diagrams/ota-vs-direct-chart'
 
 export const metadata: Metadata = {
@@ -271,6 +272,18 @@ export default function DirectBookingsPage() {
           </section>
         </section>
 
+        <RelatedSearches
+          intro="Hotel owners and guests describe this in different ways. If you were searching for any of these, this guide is for you."
+          items={[
+            { text: 'Reduce OTA commission', href: '/pillar/direct-bookings/reduce-ota-dependence' },
+            { text: 'Stop depending on Booking.com', href: '/pillar/direct-bookings/reduce-ota-dependence' },
+            { text: 'Booking engine for a small hotel', href: '/pillar/direct-bookings/booking-engine-setup' },
+            { text: 'Get more direct bookings', href: '/pillar/direct-bookings/website-conversion' },
+            { text: 'Book direct and save' },
+            { text: 'Best rate for direct bookers' },
+            { text: 'Weka nafasi moja kwa moja', sw: true },
+          ]}
+        />
         {/* Schema Markup */}
         <script
           type="application/ld+json"
@@ -284,7 +297,8 @@ export default function DirectBookingsPage() {
                 '@type': 'Organization',
                 name: 'BookedUp Africa',
               },
-              datePublished: new Date().toISOString(),
+              dateModified: '2026-10-23',
+              about: [{ '@type': 'Thing', name: 'Direct hotel bookings' }, { '@type': 'Thing', name: 'Online travel agency commission' }, { '@type': 'Thing', name: 'Hotel booking engine' }],
             }),
           }}
         />

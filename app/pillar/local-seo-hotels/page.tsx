@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { RelatedSearches } from '@/components/related-searches'
 
 export const metadata: Metadata = {
   alternates: {
@@ -435,6 +436,18 @@ export default function LocalSEOPage() {
           </section>
         </section>
 
+        <RelatedSearches
+          intro="Guests and hotel owners use many words for the same thing. This guide covers all of them."
+          items={[
+            { text: 'Hotels near me', href: '/pillar/local-seo-hotels/google-maps-ranking' },
+            { text: 'Show up on Google Maps', href: '/pillar/local-seo-hotels/google-maps-ranking' },
+            { text: 'Get more Google reviews', href: '/pillar/local-seo-hotels/generate-hotel-reviews' },
+            { text: 'Fix wrong hotel details online', href: '/pillar/local-seo-hotels/nap-consistency' },
+            { text: 'Google Business Profile for hotels', href: '/blog/google-business-profile-hotels' },
+            { text: 'SEO for hotels and lodges' },
+            { text: 'Malazi karibu nami', sw: true },
+          ]}
+        />
         {/* Schema Markup */}
         <script
           type="application/ld+json"
@@ -448,7 +461,8 @@ export default function LocalSEOPage() {
                 '@type': 'Organization',
                 name: 'BookedUp Africa',
               },
-              datePublished: new Date().toISOString(),
+              dateModified: '2026-10-23',
+              about: [{ '@type': 'Thing', name: 'Local search engine optimization' }, { '@type': 'Thing', name: 'Google Business Profile' }, { '@type': 'Thing', name: 'Google Maps' }],
             }),
           }}
         />
