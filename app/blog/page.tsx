@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
 import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SITE_URL } from '@/lib/site'
+import { STATIC_POSTS } from '@/lib/static-posts'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
   'local-seo-for-hotels': MapPin,
@@ -36,6 +37,24 @@ export default async function BlogPage() {
   } catch {
     // Database unavailable (e.g. during build) — show the guides only.
   }
+
+  // Articles published from the admin panel come first, then the built-in articles.
+  const articles = [
+    ...latestPosts.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      category: p.category,
+      date: p.publishedAt ? new Date(p.publishedAt).toLocaleDateString() : undefined,
+    })),
+    ...STATIC_POSTS.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      category: p.category,
+      date: p.date ? new Date(p.date).toLocaleDateString() : undefined,
+    })),
+  ]
 
   const pillars = [
     {
@@ -102,13 +121,13 @@ export default async function BlogPage() {
         </header>
 
         {/* Latest Articles (published from the admin panel) */}
-        {latestPosts.length > 0 && (
+        {articles.length > 0 && (
           <section className="mb-16">
             <h2 className="text-3xl font-bold mb-8">Latest Articles</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {latestPosts.map((post) => (
+              {articles.map((post) => (
                 <Link
-                  key={post.id}
+                  key={post.slug}
                   href={`/blog/${post.slug}`}
                   className="group p-6 bg-navy-alt border border-border-flat rounded-sm hover:bg-[#262626] transition-all"
                 >
@@ -123,10 +142,8 @@ export default async function BlogPage() {
                   {post.excerpt && (
                     <p className="text-text-gray text-sm leading-relaxed mb-3">{post.excerpt}</p>
                   )}
-                  {post.publishedAt && (
-                    <p className="text-xs text-text-gray">
-                      {new Date(post.publishedAt).toLocaleDateString()}
-                    </p>
+                  {post.date && (
+                    <p className="text-xs text-text-gray">{post.date}</p>
                   )}
                 </Link>
               ))}
