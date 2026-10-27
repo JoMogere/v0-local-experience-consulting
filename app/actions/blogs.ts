@@ -22,6 +22,7 @@ export interface BlogInput {
 // with one of these would be silently shadowed by the static page.
 const RESERVED_SLUGS = new Set([
   'ai-for-hotels',
+  'african-basil-uses-for-hotels',
   'case-study-elsamere-lodge',
   'case-study-naivasha-hotel-google-business-profile',
   'case-study-silent-palms-villa',

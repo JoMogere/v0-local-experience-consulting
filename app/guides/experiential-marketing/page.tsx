@@ -185,6 +185,7 @@ export default function ExperientialMarketingPage() {
             { text: 'Partner with local businesses', href: '/guides/experiential-marketing/local-partnerships' },
             { text: 'Hotel storytelling', href: '/guides/experiential-marketing/telling-your-story' },
             { text: 'Memorable hotel experiences', href: '/guides/experiential-marketing/sensory-experiences-for-hotels' },
+            { text: 'Local plants and herbs for hotels', href: '/blog/african-basil-uses-for-hotels' },
             { text: 'Things guests can do near your hotel' },
             { text: 'Uzoefu wa wageni', sw: true },
           ]}
