@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
   description:
     'African basil can do more for a hotel than flavour a meal. Eight practical ideas for the kitchen, the garden, guest activities and content.',
   keywords: 'African basil hotels, Ocimum gratissimum, hotel herb garden Kenya, local ingredients hotels, hotel guest experience',
+  openGraph: {
+    images: [{ url: '/blog/african-basil-plant.webp', width: 900, height: 900, alt: 'African basil plant with green leaves and flower spikes' }],
+  },
 }
 
 type Section = { id: string; title: string; body: React.ReactNode[] }
@@ -115,6 +119,18 @@ export default function AfricanBasilForHotels() {
             restaurant menus or additional facilities. But sometimes, there are opportunities growing right in the garden.
           </p>
         </header>
+
+        <figure className="mb-12 mx-auto max-w-[520px]">
+          <Image
+            src="/blog/african-basil-plant.webp"
+            alt="African basil (Ocimum gratissimum) plant with green serrated leaves and flower spikes"
+            width={900}
+            height={900}
+            priority
+            className="w-full h-auto border border-white/10"
+          />
+          <figcaption className="text-sm text-text-gray mt-2 text-center">African basil (<em>Ocimum gratissimum</em>)</figcaption>
+        </figure>
 
         <nav className="bg-white/5 border border-white/10 rounded-lg p-6 mb-12">
           <h2 className="font-bold mb-4">Table Of Contents</h2>
@@ -257,6 +273,7 @@ export default function AfricanBasilForHotels() {
                 author: { '@id': `${SITE_URL}/#organization` },
                 publisher: { '@id': `${SITE_URL}/#organization` },
                 dateModified: '2026-10-27',
+                image: `${SITE_URL}/blog/african-basil-plant.webp`,
                 mainEntityOfPage: `${SITE_URL}/blog/african-basil-uses-for-hotels`,
               },
               {
