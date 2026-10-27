@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: '/guides/local-seo-hotels',
   },
   title: 'Local SEO for Hotels: Complete Guide | BookedUp Africa',
-  description: 'How hotels in Africa rank in Google Maps and local search — practical strategies that drive direct bookings, not just theory.',
+  description: 'Show up on Google Maps when guests search for hotels near them. A practical local SEO guide for hotels in Kenya: profile, reviews, details and more.',
   keywords: 'local SEO hotels, hotel local search optimization, Google Maps ranking hotels, hotel direct bookings SEO, Africa hospitality marketing',
   openGraph: {
     title: 'Local SEO for Hotels: Complete Guide to Google Maps Domination',

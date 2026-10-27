@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/local-seo-for-hotels',
   },
-  title: 'Rank Higher in Local Hotel Search | BookedUp Africa',
-  description: 'A practical guide to local SEO for hotels — Google Maps rankings, review strategy, citations, and the search intent behind every booking.',
+  title: 'Hotel Local SEO Basics: Rank Higher in Local Search | BookedUp Africa',
+  description: 'New to hotel local SEO? A plain-language start on Google Maps rankings, reviews and why guests search the way they do.',
   keywords: 'local SEO for hotels, hotel local search, Google Maps rankings, Google Business Profile, hotel visibility',
   openGraph: {
     title: 'How to Rank Higher in Local Hotel Search: The Complete Guide',
