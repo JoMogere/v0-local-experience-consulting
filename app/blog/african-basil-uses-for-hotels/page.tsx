@@ -142,6 +142,23 @@ export default function AfricanBasilForHotels() {
             </p>
           </section>
 
+          <section aria-label="Video" className="flex flex-col items-center">
+            <div className="w-full max-w-[320px] aspect-[9/16] border border-white/10 bg-black">
+              <iframe
+                src="https://www.youtube.com/embed/n0r8wZuQRrs"
+                title="African basil for hotels, a short video from BookedUp Africa"
+                className="w-full h-full"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <p className="text-sm text-text-gray mt-3">
+              Prefer to watch? See more on our{' '}
+              <Link href="/videos" className="text-orange-500 hover:text-orange-400 underline">videos page</Link>.
+            </p>
+          </section>
+
           {SECTIONS.map((s) => (
             <section key={s.id} id={s.id} className="space-y-4">
               <h2 className="text-3xl font-bold text-white">{s.title}</h2>
