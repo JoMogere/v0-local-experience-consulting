@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { SubscribeForm } from "./subscribe-form"
 
 export function Newsletter() {
   return (
@@ -23,18 +23,7 @@ export function Newsletter() {
           who are transforming their properties.
         </p>
 
-        {/* CTA Button */}
-        <Link
-          href="https://jomogere.substack.com/subscribe"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-gold-flat hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity uppercase tracking-[1px] md:tracking-[2px] text-xs md:text-sm"
-        >
-          <svg viewBox="0 0 24 24" width="18" height="18" className="md:w-5 md:h-5" fill="currentColor">
-            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
-          </svg>
-          Yes, Send Me Weekly Insights →
-        </Link>
+        <SubscribeForm buttonLabel="Send Me Weekly Insights" />
 
         {/* Trust indicator */}
         <p className="text-text-gray/60 text-xs md:text-sm mt-5 md:mt-6">
