@@ -58,7 +58,7 @@ export async function getChannelVideos(debug?: YouTubeDebugInfo): Promise<YouTub
     // Costs ~1 quota unit per page — negligible even for hundreds of videos.
     for (let i = 0; i < 10; i++) {
       const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsPlaylistId}&key=${apiKey}${pageToken ? `&pageToken=${pageToken}` : ''}`
-      const res = await fetch(url, { next: { revalidate: 3600 } })
+      const res = await fetch(url, { next: { revalidate: 600 } })
       if (!res.ok) {
         if (debug) {
           debug.playlistItemsStatus = res.status
@@ -72,6 +72,8 @@ export async function getChannelVideos(debug?: YouTubeDebugInfo): Promise<YouTub
       for (const item of data.items || []) {
         const snippet = item.snippet
         if (!snippet?.resourceId?.videoId) continue
+        // YouTube keeps removed and private uploads in the playlist as placeholders.
+        if (snippet.title === 'Deleted video' || snippet.title === 'Private video') continue
         videos.push({
           id: snippet.resourceId.videoId,
           title: snippet.title,
