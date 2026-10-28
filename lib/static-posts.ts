@@ -6,6 +6,7 @@ export type StaticPost = {
   excerpt: string
   category: string
   date?: string
+  image?: string
 }
 
 export const STATIC_POSTS: StaticPost[] = [
@@ -15,6 +16,7 @@ export const STATIC_POSTS: StaticPost[] = [
     excerpt: 'Eight practical ideas for the kitchen, the garden, guest activities and content.',
     category: 'Guest Experience',
     date: '2026-10-27',
+    image: '/blog/african-basil-plant.webp',
   },
   {
     slug: 'semantic-seo-for-hotels',

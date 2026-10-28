@@ -12,3 +12,11 @@ export function plainText(markdown: string, maxLength = 155) {
     .trim()
   return text.length > maxLength ? text.slice(0, maxLength - 1).trimEnd() + '…' : text
 }
+
+// The first image used in an article's markdown, used as its cover on the blog list.
+export function firstImage(markdown: string): string | undefined {
+  const md = markdown.match(/!\[[^\]]*\]\(\s*<?([^)\s>]+)/)
+  if (md) return md[1]
+  const html = markdown.match(/<img[^>]+src=["']([^"']+)["']/i)
+  return html ? html[1] : undefined
+}

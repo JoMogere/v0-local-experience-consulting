@@ -3,7 +3,7 @@ import { getBlogBySlug, getPublishedBlogs } from '@/app/actions/blogs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { BlogContent } from '@/components/blog-content'
-import { plainText } from '@/lib/markdown'
+import { plainText, firstImage } from '@/lib/markdown'
 
 interface Params {
   slug: string
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       title: post.title,
       description: post.excerpt || plainText(post.content),
       type: 'article',
+      images: firstImage(post.content) ? [firstImage(post.content) as string] : undefined,
     },
   }
 }

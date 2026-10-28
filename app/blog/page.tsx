@@ -4,6 +4,7 @@ import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart
 import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SITE_URL } from '@/lib/site'
 import { STATIC_POSTS } from '@/lib/static-posts'
+import { firstImage } from '@/lib/markdown'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
   'local-seo-for-hotels': MapPin,
@@ -45,6 +46,7 @@ export default async function BlogPage() {
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
+      image: firstImage(p.content),
       date: p.publishedAt ? new Date(p.publishedAt).toLocaleDateString() : undefined,
     })),
     ...STATIC_POSTS.map((p) => ({
@@ -52,6 +54,7 @@ export default async function BlogPage() {
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
+      image: p.image,
       date: p.date ? new Date(p.date).toLocaleDateString() : undefined,
     })),
   ]
@@ -129,8 +132,18 @@ export default async function BlogPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group p-6 bg-navy-alt border border-border-flat rounded-sm hover:bg-[#262626] transition-all"
+                  className="group bg-navy-alt border border-border-flat rounded-sm hover:bg-[#262626] transition-all overflow-hidden"
                 >
+                  {post.image && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      loading="lazy"
+                      className="w-full aspect-video object-cover group-hover:opacity-90 transition-opacity"
+                    />
+                  )}
+                  <div className="p-6">
                   {post.category && (
                     <span className="text-xs uppercase tracking-wide text-gold-flat">
                       {post.category}
@@ -145,6 +158,7 @@ export default async function BlogPage() {
                   {post.date && (
                     <p className="text-xs text-text-gray">{post.date}</p>
                   )}
+                  </div>
                 </Link>
               ))}
             </div>
