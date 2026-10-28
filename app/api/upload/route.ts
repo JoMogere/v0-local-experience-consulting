@@ -12,11 +12,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  // Vercel names the token after the store prefix, so accept any *_READ_WRITE_TOKEN.
+  const tokenKey = Object.keys(process.env).find((k) => k.endsWith('READ_WRITE_TOKEN') && process.env[k])
+  const token = tokenKey ? process.env[tokenKey] : undefined
+
+  if (!token) {
     return NextResponse.json(
       {
         error:
-          'Image storage is not set up yet. In Vercel, open your project, go to Storage, create a Blob store and connect it to this project, then redeploy.',
+          'Image storage is not set up yet. In Vercel, open your project, go to Storage, create a Blob store and connect it to this project for Production, then redeploy.',
       },
       { status: 503 }
     )
@@ -41,7 +45,7 @@ export async function POST(request: Request) {
 
   const safeName = file.name.toLowerCase().replace(/[^a-z0-9.]+/g, '-').replace(/^-+|-+$/g, '') || 'image'
   try {
-    const blob = await put(`blog/${safeName}`, file, { access: 'public', addRandomSuffix: true })
+    const blob = await put(`blog/${safeName}`, file, { access: 'public', addRandomSuffix: true, token })
     return NextResponse.json({ url: blob.url })
   } catch (error) {
     console.error('Image upload failed', error)
