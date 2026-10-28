@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
 import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SITE_URL } from '@/lib/site'
-import { STATIC_POSTS } from '@/lib/static-posts'
+import { BUILTIN_POSTS } from '@/lib/builtin-posts'
 import { firstImage } from '@/lib/markdown'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
@@ -49,12 +49,12 @@ export default async function BlogPage() {
       image: firstImage(p.content),
       date: p.publishedAt ? new Date(p.publishedAt).toLocaleDateString() : undefined,
     })),
-    ...STATIC_POSTS.map((p) => ({
+    ...BUILTIN_POSTS.filter((p) => !latestPosts.some((l) => l.slug === p.slug)).map((p) => ({
       slug: p.slug,
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
-      image: p.image,
+      image: p.image ?? firstImage(p.content),
       date: p.date ? new Date(p.date).toLocaleDateString() : undefined,
     })),
   ]

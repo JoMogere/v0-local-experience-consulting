@@ -4,7 +4,8 @@ import { db } from '@/lib/db'
 import { blogs } from '@/lib/db/schema'
 import { requireAdmin } from '@/lib/admin'
 import { slugify } from '@/lib/slug'
-import { eq, desc } from 'drizzle-orm'
+import { eq, desc, inArray } from 'drizzle-orm'
+import { BUILTIN_POSTS } from '@/lib/builtin-posts'
 import { revalidatePath } from 'next/cache'
 
 export type BlogStatus = 'draft' | 'published'
@@ -22,20 +23,13 @@ export interface BlogInput {
 // with one of these would be silently shadowed by the static page.
 const RESERVED_SLUGS = new Set([
   'ai-for-hotels',
-  'african-basil-uses-for-hotels',
-  'case-study-elsamere-lodge',
-  'case-study-naivasha-hotel-google-business-profile',
-  'case-study-silent-palms-villa',
   'content-marketing-hotels',
   'direct-hotel-bookings',
   'experiential-marketing-hotels',
   'google-business-profile-hotels',
   'hospitality-case-studies',
-  'hotel-marketing-agency-vs-digital-marketing-agency',
   'hotel-website-design-seo',
-  'how-to-choose-a-hotel-marketing-agency-kenya',
   'local-seo-for-hotels',
-  'semantic-seo-for-hotels',
 ])
 
 function refreshSite(slug?: string) {
@@ -166,4 +160,38 @@ export async function deleteBlog(id: number) {
   const existing = await db.select().from(blogs).where(eq(blogs.id, id)).limit(1)
   await db.delete(blogs).where(eq(blogs.id, id))
   refreshSite(existing[0]?.slug)
+}
+
+// Built-in articles that are not in the admin yet.
+export async function getPendingBuiltInSlugs() {
+  await requireAdmin()
+  const rows = await db.select({ slug: blogs.slug }).from(blogs).where(inArray(blogs.slug, BUILTIN_POSTS.map((p) => p.slug)))
+  const have = new Set(rows.map((r) => r.slug))
+  return BUILTIN_POSTS.filter((p) => !have.has(p.slug)).map((p) => p.slug)
+}
+
+// Copies the built-in articles into the admin so they can be edited and republished.
+// Safe to run more than once: articles already in the admin are left alone.
+export async function importBuiltInPosts() {
+  const user = await requireAdmin()
+  const pending = new Set(await getPendingBuiltInSlugs())
+  const todo = BUILTIN_POSTS.filter((p) => pending.has(p.slug))
+  for (const p of todo) {
+    await db
+      .insert(blogs)
+      .values({
+        title: p.title,
+        slug: p.slug,
+        content: p.content,
+        excerpt: p.excerpt,
+        category: p.category,
+        status: 'published',
+        userId: user.id,
+        publishedAt: new Date(p.date),
+      })
+      .onConflictDoNothing()
+    revalidatePath(`/blog/${p.slug}`)
+  }
+  refreshSite()
+  return todo.length
 }

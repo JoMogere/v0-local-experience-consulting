@@ -4,6 +4,20 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { BlogContent } from '@/components/blog-content'
 import { plainText, firstImage } from '@/lib/markdown'
+import { BUILTIN_POSTS } from '@/lib/builtin-posts'
+import { SITE_URL } from '@/lib/site'
+
+// The admin copy wins; until an article is imported, the built-in copy is shown.
+async function loadPost(slug: string) {
+  const db = await getBlogBySlug(slug).catch(() => null)
+  if (db) {
+    if (db.status !== 'published') return null
+    return { title: db.title, slug: db.slug, content: db.content, excerpt: db.excerpt, category: db.category, publishedAt: db.publishedAt, updatedAt: db.updatedAt, description: null as string | null }
+  }
+  const b = BUILTIN_POSTS.find((p) => p.slug === slug)
+  if (!b) return null
+  return { title: b.title, slug: b.slug, content: b.content, excerpt: b.excerpt, category: b.category, publishedAt: new Date(b.date), updatedAt: new Date(b.date), description: b.description }
+}
 
 interface Params {
   slug: string
@@ -11,15 +25,15 @@ interface Params {
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params
-  const post = await getBlogBySlug(slug)
+  const post = await loadPost(slug)
 
-  if (!post || post.status !== 'published') {
+  if (!post) {
     notFound()
   }
 
   return {
     title: `${post.title} | BookedUp Africa`,
-    description: post.excerpt || plainText(post.content),
+    description: post.description || post.excerpt || plainText(post.content),
     keywords: post.category || undefined,
     alternates: {
       canonical: `/blog/${post.slug}`,
@@ -49,9 +63,9 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params
-  const post = await getBlogBySlug(slug)
+  const post = await loadPost(slug)
 
-  if (!post || post.status !== 'published') {
+  if (!post) {
     notFound()
   }
 
@@ -122,10 +136,11 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             headline: post.title,
             description: post.excerpt || plainText(post.content),
             datePublished: post.publishedAt,
-            author: {
-              '@type': 'Organization',
-              name: 'BookedUp Africa',
-            },
+            dateModified: post.updatedAt ?? post.publishedAt,
+            mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+            image: (() => { const i = firstImage(post.content); return i ? (i.startsWith('http') ? i : `${SITE_URL}${i}`) : undefined })(),
+            author: { '@id': `${SITE_URL}/#founder` },
+            publisher: { '@id': `${SITE_URL}/#organization` },
           }),
         }}
       />

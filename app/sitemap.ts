@@ -1,4 +1,5 @@
 import { getPublishedBlogs } from '@/app/actions/blogs'
+import { BUILTIN_POSTS } from '@/lib/builtin-posts'
 import { SERVICES } from '@/lib/services-data'
 import { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site'
@@ -27,7 +28,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }))
 
-  const blogRoutes = blogs.map((blog) => ({
+  // The built-in articles already have fixed entries below, so skip their admin copies here.
+  const builtinSlugs = new Set(BUILTIN_POSTS.map((p) => p.slug))
+  const blogRoutes = blogs.filter((b) => !builtinSlugs.has(b.slug)).map((blog) => ({
     url: `${baseUrl}/blog/${blog.slug}`,
     lastModified: new Date(blog.updatedAt || blog.createdAt),
     changeFrequency: 'weekly' as const,

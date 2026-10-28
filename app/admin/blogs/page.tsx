@@ -8,6 +8,8 @@ import {
   updateBlog,
   setBlogStatus,
   deleteBlog,
+  getPendingBuiltInSlugs,
+  importBuiltInPosts,
   type BlogStatus,
 } from '@/app/actions/blogs'
 import { slugify } from '@/lib/slug'
@@ -30,10 +32,29 @@ export default function AdminBlogsPage() {
   const [error, setError] = useState<string | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
   const [formData, setFormData] = useState(EMPTY_FORM)
+  const [pendingImport, setPendingImport] = useState(0)
+  const [importing, setImporting] = useState(false)
 
   useEffect(() => {
     loadBlogs()
+    getPendingBuiltInSlugs().then((s) => setPendingImport(s.length)).catch(() => {})
   }, [])
+
+  const runImport = async () => {
+    setError(null)
+    setNotice(null)
+    setImporting(true)
+    try {
+      const n = await importBuiltInPosts()
+      setNotice(`${n} built-in articles are now in your list. Open any of them to edit and republish.`)
+      setPendingImport(0)
+      await loadBlogs()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Import failed')
+    } finally {
+      setImporting(false)
+    }
+  }
 
   const loadBlogs = async () => {
     try {
@@ -148,6 +169,17 @@ export default function AdminBlogsPage() {
           {showForm ? 'Close' : '+ New Article'}
         </Button>
       </div>
+
+      {pendingImport > 0 && (
+        <div className="mb-6 p-4 bg-white/5 border border-white/10 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <p className="text-text-gray text-sm">
+            {pendingImport} articles on your site can&apos;t be edited here yet. Import them to edit and republish.
+          </p>
+          <Button onClick={runImport} disabled={importing} className="bg-orange-500 hover:bg-orange-600 text-white">
+            {importing ? 'Importing…' : 'Import built-in articles'}
+          </Button>
+        </div>
+      )}
 
       {error && (
         <div className="mb-6 p-4 bg-red-900/20 border border-red-500 text-red-300 rounded">
