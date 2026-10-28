@@ -26,7 +26,7 @@ export const auth = betterAuth({
   // camelCase field names. Without these explicit mappings, every Better
   // Auth query fails to find the real (lowercase) column, exactly like the
   // "column emailVerified does not exist" error this whole investigation
-  // started from. Verified against /api/db-diagnostic.
+  // started from.
   user: {
     fields: {
       emailVerified: 'emailverified',
