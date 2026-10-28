@@ -16,15 +16,8 @@ export async function POST(request: Request) {
   const tokenKey = Object.keys(process.env).find((k) => k.endsWith('READ_WRITE_TOKEN') && process.env[k])
   const token = tokenKey ? process.env[tokenKey] : undefined
 
-  if (!token) {
-    return NextResponse.json(
-      {
-        error:
-          'Image storage is not set up yet. In Vercel, open your project, go to Storage, create a Blob store and connect it to this project for Production, then redeploy.',
-      },
-      { status: 503 }
-    )
-  }
+  // No gate on the token: newer Blob stores connect with BLOB_STORE_ID and no token variable,
+  // and the SDK works out the credentials itself. Real failures are reported below.
 
   let file: FormDataEntryValue | null
   try {
@@ -45,10 +38,11 @@ export async function POST(request: Request) {
 
   const safeName = file.name.toLowerCase().replace(/[^a-z0-9.]+/g, '-').replace(/^-+|-+$/g, '') || 'image'
   try {
-    const blob = await put(`blog/${safeName}`, file, { access: 'public', addRandomSuffix: true, token })
+    const blob = await put(`blog/${safeName}`, file, { access: 'public', addRandomSuffix: true, ...(token ? { token } : {}) })
     return NextResponse.json({ url: blob.url })
   } catch (error) {
     console.error('Image upload failed', error)
-    return NextResponse.json({ error: 'Upload failed. Please try again.' }, { status: 500 })
+    const detail = error instanceof Error ? error.message : 'unknown error'
+    return NextResponse.json({ error: `Upload failed: ${detail}` }, { status: 500 })
   }
 }
