@@ -55,8 +55,8 @@ export const verification = pgTable('verification', {
 })
 
 // --- App tables ------------------------------------------------------------
-// All column name strings below are verified against the live database via
-// the live database. Every table here actually exists in production.
+// All column name strings below are verified against the live database.
+// Every table here actually exists in production.
 
 export const blogs = pgTable('blogs', {
   id: serial('id').primaryKey(),
