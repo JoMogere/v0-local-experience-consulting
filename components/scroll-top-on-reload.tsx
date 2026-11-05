@@ -12,12 +12,13 @@ export function ScrollTopOnReload() {
       const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined
       if (nav?.type !== 'reload' || window.location.hash) return
 
-      const toTop = () => window.scrollTo(0, 0)
-      toTop()
-      const timers = [50, 200, 600].map((ms) => window.setTimeout(toTop, ms))
+      const toTop = () => {
+        if (window.scrollY > 0) window.scrollTo({ top: 0, behavior: 'auto' })
+      }
+      const frame = window.requestAnimationFrame(toTop)
       window.addEventListener('load', toTop, { once: true })
       return () => {
-        timers.forEach(window.clearTimeout)
+        window.cancelAnimationFrame(frame)
         window.removeEventListener('load', toTop)
       }
     } catch {
