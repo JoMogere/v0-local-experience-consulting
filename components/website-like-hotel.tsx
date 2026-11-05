@@ -1,9 +1,15 @@
 import Link from 'next/link'
 
-export function WebsiteLikeHotel() {
+// `embedded` places the quote inside another section (the search section on the homepage):
+// no background of its own and no button, since that section has its own.
+export function WebsiteLikeHotel({ embedded = false }: { embedded?: boolean }) {
+  const Wrapper = embedded ? 'div' : 'section'
   return (
-    <section className="py-8 md:py-14 bg-navy-deep" id="website-like-your-hotel">
-      <div className="max-w-[620px] mx-auto px-8 md:px-4">
+    <Wrapper
+      className={embedded ? 'py-14 md:py-20' : 'py-8 md:py-14 bg-navy-deep'}
+      id={embedded ? undefined : 'website-like-your-hotel'}
+    >
+      <div className="max-w-[620px] mx-auto px-4 md:px-4">
         {/* Speech-bubble quote */}
         <figure className="relative px-0 md:px-6 pb-1 md:pb-10 mb-4">
           <span
@@ -51,6 +57,7 @@ export function WebsiteLikeHotel() {
           </span>
         </figure>
 
+        {!embedded && (
         <div className="text-center">
           <Link
             href="/contact"
@@ -59,7 +66,8 @@ export function WebsiteLikeHotel() {
             Walk through your hotel&apos;s website with us
           </Link>
         </div>
+        )}
       </div>
-    </section>
+    </Wrapper>
   )
 }

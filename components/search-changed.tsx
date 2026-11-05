@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { WebsiteLikeHotel } from './website-like-hotel'
 
 export function SearchChanged() {
   return (
@@ -56,7 +57,9 @@ export function SearchChanged() {
             />
           </figure>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
+        <WebsiteLikeHotel embedded />
+
+        <div className="grid md:grid-cols-3 gap-6">
           {[
             { h: 'Be easy to find', sw: 'Rahisi kupatikana', p: 'A complete, active Google profile and clear location pages, so Google and the assistants know exactly who you are and where you are.' },
             { h: 'Be easy to trust', sw: 'Rahisi kuaminika', p: 'Fresh reviews you reply to, real photos and the same details everywhere your hotel is listed.' },
