@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { DM_Sans, Playfair_Display } from 'next/font/google'
+import { DM_Sans, Playfair_Display, Barlow_Condensed, Newsreader } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SiteChrome } from '@/components/site-chrome'
 import { SiteSchema } from '@/components/site-schema'
@@ -20,6 +20,19 @@ const playfair = Playfair_Display({
   weight: ['400', '700'],
   style: ['normal', 'italic']
 });
+
+// Homepage voice: Barlow Condensed is close to the lettering on road signs; Newsreader is for reading.
+const barlow = Barlow_Condensed({
+  subsets: ['latin'],
+  variable: '--font-sign',
+  weight: ['500', '600', '700'],
+})
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  variable: '--font-prose',
+  style: ['normal', 'italic'],
+})
 
 export const metadata: Metadata = {
   title: 'BookedUp Africa — Transform Your Hospitality Business',
@@ -73,7 +86,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background scroll-smooth">
-      <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased text-foreground`}>
+      <body className={`${dmSans.variable} ${playfair.variable} ${barlow.variable} ${newsreader.variable} font-sans antialiased text-foreground`}>
         <SiteSchema />
           <MetaPixel />
         <Hreflang />

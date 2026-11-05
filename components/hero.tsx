@@ -1,66 +1,42 @@
-import { MapPin, Star, TrendingUp } from "lucide-react"
-import Image from "next/image"
+import { SignPlate } from './sign-plate'
 
-const icons = [
-  { icon: MapPin, label: "Local SEO" },
-  { icon: Star, label: "Experiential Marketing" },
-  { icon: TrendingUp, label: "Direct Bookings" },
-]
-
+// The hero is a signpost. Each plate points to one of the three services.
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center relative pt-48 pb-24 md:pt-32 md:pb-0 overflow-hidden">
-      <Image
-        src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=60&w=1600"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center -z-20"
-      />
-      <div
-        className="absolute inset-0 -z-10 bg-[#0D0D0D]/85"
-      />
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 w-full">
-        <div className="max-w-[700px] relative z-5 text-center md:text-left">
-          <h1 className="text-[clamp(32px,6vw,72px)] font-bold leading-[1.1] tracking-[-0.02em] mb-5 text-[#F9F6F0] text-balance">
-            Hotel marketing in Kenya
-            <span className="block text-lg md:text-[26px] font-light mt-2.5 tracking-normal">
-              Research and implementation for{" "}
-              <span className="text-gold-flat font-bold">local SEO</span>,{" "}
-              <span className="text-gold-flat font-bold">direct bookings</span>
-              <br className="hidden md:block" />
-              {" "}and <span className="text-gold-flat font-bold">experiential marketing</span> for hotels
-            </span>
-          </h1>
-          <div className="w-20 h-px bg-gold-flat my-8 md:my-10 mx-auto md:mx-0" />
-          <p className="font-serif italic text-gold-flat text-lg md:text-[22px] tracking-[0.5px]">
-            Search. Stay. Succeed.
-          </p>
-          <div className="flex gap-8 md:gap-15 mt-10 md:mt-15 justify-center md:justify-start">
-            {icons.map((item, index) => (
-              <div
-                key={index}
-                className="text-center md:text-left opacity-90 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-100"
-              >
-                <div className="w-10 h-10 md:w-[45px] md:h-[45px] mb-2 md:mb-3 flex items-center justify-center mx-auto md:mx-0">
-                  <item.icon className="w-full h-full text-clay fill-clay" />
-                </div>
-                <div className="text-[11px] md:text-[13px] font-bold text-[#EAE5DF] uppercase tracking-[1px]">
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 md:mt-14">
-            <a
-              href="/contact"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity text-sm md:text-base uppercase tracking-[0.5px]"
-            >
-              Claim Your Free Growth Audit →
-            </a>
-          </div>
-        </div>
+    <section className="bg-[#15110E] pt-36 md:pt-44 text-center overflow-hidden">
+      <div className="max-w-[900px] mx-auto px-6">
+        <h1 className="font-sign font-bold text-[#F4EFE6] text-[clamp(44px,9vw,104px)] leading-[0.95] tracking-[-0.01em] text-balance">
+          Hotel marketing in Kenya
+        </h1>
+        <p className="font-prose text-lg md:text-2xl text-[#EAE5DF]/90 mt-6 mx-auto max-w-[34ch] md:max-w-[44ch] text-balance leading-snug">
+          Research and implementation for local SEO, direct bookings and experiential marketing for hotels
+        </p>
+      </div>
+
+      {/* Signpost */}
+      <div className="relative max-w-[900px] mx-auto mt-14 md:mt-20 pb-20 md:pb-28">
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-3 md:w-4 bg-[#3A2413]" aria-hidden="true" />
+        <nav aria-label="Our services" className="relative flex flex-col items-center gap-4 md:gap-5 pt-2">
+          <SignPlate href="/services/local-seo" direction="right" tone="gold" tilt={-1.5}>
+            Local SEO
+          </SignPlate>
+          <SignPlate href="/services/direct-bookings" direction="left" tone="paper" tilt={1}>
+            Direct bookings
+          </SignPlate>
+          <SignPlate href="/services/experiential-marketing" direction="right" tone="clay" size="md" tilt={-0.5}>
+            Experiential marketing
+          </SignPlate>
+        </nav>
+      </div>
+
+      <div className="pb-16 md:pb-24 relative">
+        <a
+          href="/contact"
+          className="inline-block px-8 py-4 bg-[#E6AD45] hover:bg-[#F1BE5E] text-[#15110E] font-sign font-bold text-xl md:text-2xl rounded-sm transition-colors"
+        >
+          Claim your free growth audit
+        </a>
+        <div className="road-dash h-20 md:h-28 mx-auto mt-12" aria-hidden="true" />
       </div>
     </section>
   )

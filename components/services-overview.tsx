@@ -1,41 +1,43 @@
 import Link from 'next/link'
-import { MapPin, TrendingUp, Sparkles } from 'lucide-react'
 import { SERVICES } from '@/lib/services-data'
+import { SignPlate } from './sign-plate'
 
-const ICONS: Record<string, typeof MapPin> = {
-  'local-seo': MapPin,
-  'direct-bookings': TrendingUp,
-  'experiential-marketing': Sparkles,
-}
+const TONES = ['gold', 'paper', 'clay'] as const
 
+// Three junction signs, one per service, pointing alternately left and right.
 export function ServicesOverview() {
   return (
-    <section className="py-16 md:py-24 bg-navy-deep" id="services-overview">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-        <p className="text-clay text-sm uppercase tracking-[2px] mb-4">What We Do</p>
-        <h2 className="text-3xl md:text-[42px] font-bold mb-4 tracking-[-0.02em] text-[#F9F6F0]">
-          Local SEO, Direct Bookings and Experiential Marketing for Hotels
+    <section className="py-16 md:py-24 bg-[#15110E] text-center" id="services-overview">
+      <div className="max-w-[900px] mx-auto px-6">
+        <h2 className="font-sign font-bold text-[#F4EFE6] text-4xl md:text-6xl leading-[0.98] text-balance">
+          Local SEO, direct bookings and experiential marketing for hotels
         </h2>
-        <p className="text-text-gray max-w-2xl mb-12">
-          Not three unrelated services bundled into a retainer — each one feeds the next, from getting found to getting booked.
+        <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/90 mt-5 mx-auto max-w-[52ch] leading-relaxed">
+          Not three unrelated services bundled into a retainer. Each one feeds the next, from getting found to getting booked.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {SERVICES.map((service) => {
-            const Icon = ICONS[service.slug]
-            return (
-              <Link
-                key={service.slug}
+        <div className="mt-14 md:mt-20 space-y-16 md:space-y-24">
+          {SERVICES.map((service, i) => (
+            <div key={service.slug}>
+              <SignPlate
                 href={`/services/${service.slug}`}
-                className="block p-6 bg-navy-alt border border-border-flat rounded-sm hover:border-gold-flat/50 transition-colors group"
+                direction={i % 2 === 0 ? 'right' : 'left'}
+                tone={TONES[i % TONES.length]}
+                size="md"
               >
-                <div className="text-gold-flat mb-4">{Icon && <Icon size={32} strokeWidth={1.5} />}</div>
-                <h3 className="text-xl font-bold mb-2 text-[#F9F6F0] group-hover:text-gold-flat transition-colors">{service.title}</h3>
-                <p className="text-text-gray text-sm mb-4">{service.description}</p>
-                <span className="text-gold-flat text-sm font-bold">Learn more →</span>
+                {service.title}
+              </SignPlate>
+              <p className="font-prose text-lg text-[#EAE5DF]/90 mt-6 mx-auto max-w-[56ch] leading-relaxed">
+                {service.description}
+              </p>
+              <Link
+                href={`/services/${service.slug}`}
+                className="inline-block mt-4 font-sign font-semibold text-xl text-[#E6AD45] underline decoration-2 underline-offset-4 hover:text-[#F1BE5E]"
+              >
+                See how {service.title} works
               </Link>
-            )
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

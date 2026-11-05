@@ -159,3 +159,10 @@
 .animate-marquee {
   animation: marquee-ltr 32s linear infinite;
 }
+
+/* Homepage type: sign lettering for headings, a reading serif for text */
+.font-sign { font-family: var(--font-sign), 'Arial Narrow', sans-serif; }
+.font-prose { font-family: var(--font-prose), Georgia, serif; }
+
+/* The dashed centre line of the road that links the homepage sections */
+.road-dash { width: 0; border-left: 4px dashed #E6AD45; }

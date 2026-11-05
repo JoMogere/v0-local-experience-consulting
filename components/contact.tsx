@@ -8,8 +8,8 @@ export function Contact() {
     <section className="py-16 md:py-24 bg-off-white text-navy-deep" id="contact">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20">
-          <div className="text-center lg:text-left">
-            <h2 className="text-3xl md:text-[48px] font-bold mb-4 md:mb-5 tracking-[-0.02em] text-balance">
+          <div className="text-center">
+            <h2 className="font-sign text-4xl md:text-6xl font-bold leading-[0.98] mb-4 md:mb-5 text-balance">
               Stop Losing Bookings to OTA Commissions
             </h2>
             <p className="text-base md:text-lg mb-6 md:mb-10 text-navy-deep/70">

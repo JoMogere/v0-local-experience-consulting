@@ -29,30 +29,35 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-16 md:py-24 bg-navy-deep" id="faq">
-      <div className="max-w-[900px] mx-auto px-4 md:px-10">
-        <p className="text-clay text-sm uppercase tracking-[2px] mb-4 text-center">Common Questions</p>
-        <h2 className="text-3xl md:text-[42px] font-bold mb-12 tracking-[-0.02em] text-center text-[#F9F6F0]">
-          Before You Reach Out
+    <section className="py-16 md:py-24 bg-[#15110E] text-center" id="faq">
+      <div className="max-w-[720px] mx-auto px-6">
+        <h2 className="font-sign font-bold text-[#F4EFE6] text-4xl md:text-6xl leading-[0.98] text-balance">
+          Before you reach out
         </h2>
 
-        <div className="space-y-3">
-          {FAQS.map((faq, index) => (
-            <div key={index} className="border border-border-flat rounded-sm overflow-hidden">
-              <h3 className="m-0">
-                <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full text-left px-6 py-4 flex justify-between items-center bg-navy-alt hover:bg-[#202020] transition-colors font-semibold text-[#F9F6F0]"
-                >
-                  <span>{faq.q}</span>
-                  <span className={`text-gold-flat transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>▼</span>
-                </button>
-              </h3>
-              {openIndex === index && (
-                <div className="px-6 py-4 text-text-gray text-sm border-t border-border-flat">{faq.a}</div>
-              )}
-            </div>
-          ))}
+        <div className="mt-12 md:mt-14 border-t-[3px] border-dashed border-[#E6AD45]/50">
+          {FAQS.map((faq, index) => {
+            const open = openIndex === index
+            return (
+              <div key={index} className="border-b-[3px] border-dashed border-[#E6AD45]/50">
+                <h3 className="m-0">
+                  <button
+                    onClick={() => setOpenIndex(open ? null : index)}
+                    aria-expanded={open}
+                    className="w-full px-2 py-5 font-sign font-semibold text-2xl md:text-3xl text-[#F4EFE6] hover:text-[#E6AD45] focus-visible:text-[#E6AD45] transition-colors text-balance"
+                  >
+                    {faq.q}
+                    <span className="sr-only">{open ? ' (hide answer)' : ' (show answer)'}</span>
+                  </button>
+                </h3>
+                {open && (
+                  <p className="font-prose text-lg text-[#EAE5DF]/90 leading-relaxed px-2 pb-6 mx-auto max-w-[52ch]">
+                    {faq.a}
+                  </p>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
 
