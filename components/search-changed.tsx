@@ -77,7 +77,7 @@ export function SearchChanged() {
           ))}
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 text-center">
           <Link
             href="/contact"
             className="inline-block px-8 py-4 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity text-sm md:text-base uppercase tracking-[0.5px]"
