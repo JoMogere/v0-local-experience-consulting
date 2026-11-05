@@ -6,10 +6,10 @@ export function WebsiteLikeHotel({ embedded = false }: { embedded?: boolean }) {
   const Wrapper = embedded ? 'div' : 'section'
   return (
     <Wrapper
-      className={embedded ? 'py-14 md:py-20' : 'py-8 md:py-14 bg-navy-deep'}
+      className={embedded ? 'py-2' : 'py-8 md:py-14 bg-navy-deep'}
       id={embedded ? undefined : 'website-like-your-hotel'}
     >
-      <div className="max-w-[620px] mx-auto px-4 md:px-4">
+      <div className={embedded ? 'max-w-[560px] mx-auto' : 'max-w-[620px] mx-auto px-8 md:px-4'}>
         {/* Speech-bubble quote */}
         <figure className="relative px-0 md:px-6 pb-1 md:pb-10 mb-4">
           <span

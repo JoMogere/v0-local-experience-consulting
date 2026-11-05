@@ -6,21 +6,27 @@ export function SearchChanged() {
   return (
     <section className="py-16 md:py-24 bg-navy-alt" id="search-has-changed">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
+        <div className="grid lg:grid-cols-[1.25fr_1fr] gap-x-12 gap-y-8 items-center mb-12">
+        <div>
         <p className="text-clay text-sm uppercase tracking-[2px] mb-4">How guests find hotels now</p>
         <h2 className="text-3xl md:text-[42px] font-bold mb-4 tracking-[-0.02em] text-[#F9F6F0]">
           Guests Search Differently Now. Is Your Hotel Showing Up?
         </h2>
-        <p className="text-text-gray max-w-3xl mb-12">
+        <p className="text-text-gray max-w-3xl mb-6">
           Your guests still search Google, but many now also ask AI assistants where to stay. Those assistants
           don&apos;t give ten links. They name a few places. We help your hotel get found on Google, mentioned
           by the assistants and chosen by the guest.
         </p>
-        <p className="text-text-gray max-w-3xl mb-12 -mt-8">
+        <p className="text-text-gray max-w-3xl">
           Your guests also ask in Swahili, or a mix of Swahili and English. Your hotel needs to show up for{' '}
           <span lang="sw" className="text-gold-flat font-medium">malazi</span>,{' '}
           <span lang="sw" className="text-gold-flat font-medium">hoteli karibu nami</span> and{' '}
           <span lang="sw" className="text-gold-flat font-medium">weka nafasi</span> as well.
         </p>
+        </div>
+
+        <WebsiteLikeHotel embedded />
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           <figure className="border border-border-flat bg-navy-deep">
@@ -57,9 +63,7 @@ export function SearchChanged() {
             />
           </figure>
         </div>
-        <WebsiteLikeHotel embedded />
-
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
             { h: 'Be easy to find', sw: 'Rahisi kupatikana', p: 'A complete, active Google profile and clear location pages, so Google and the assistants know exactly who you are and where you are.' },
             { h: 'Be easy to trust', sw: 'Rahisi kuaminika', p: 'Fresh reviews you reply to, real photos and the same details everywhere your hotel is listed.' },
