@@ -16,7 +16,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   const hidePublicChrome = NO_PUBLIC_CHROME_PREFIXES.some((p) => pathname?.startsWith(p))
   if (hidePublicChrome) return <>{children}</>
   return (
-    <>
+    <div className="public-site">
       <Navigation />
       <main className="pt-20 md:pt-24">{children}</main>
       {pathname && FEED_PATH.test(pathname) && (
@@ -32,6 +32,6 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
         </>
       )}
       <Footer />
-    </>
+    </div>
   )
 }

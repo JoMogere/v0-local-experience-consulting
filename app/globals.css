@@ -4,24 +4,24 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #0D0D0D;
+  --background: #15110E;
   --foreground: #F9F6F0;
-  --card: #1A1A1A;
+  --card: #1D1712;
   --card-foreground: #F9F6F0;
-  --popover: #1A1A1A;
+  --popover: #1D1712;
   --popover-foreground: #F9F6F0;
   --primary: #D4AF37;
   --primary-foreground: #0D0D0D;
-  --secondary: #141414;
+  --secondary: #1D1712;
   --secondary-foreground: #F9F6F0;
-  --muted: #141414;
+  --muted: #1D1712;
   --muted-foreground: #EAE5DF;
   --accent: #F9F6F0;
   --accent-foreground: #0D0D0D;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #262626;
-  --input: #262626;
+  --border: #3A2D22;
+  --input: #3A2D22;
   --ring: #D4AF37;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -44,11 +44,11 @@
   --gold-dark: #B8962D;
   --gold-flat: #E6AD45;
   --clay: #D46A43;
-  --navy-deep: #0D0D0D;
-  --navy-alt: #1A1A1A;
+  --navy-deep: #15110E;
+  --navy-alt: #1D1712;
   --off-white: #F9F6F0;
   --text-gray: #EAE5DF;
-  --border-flat: #262626;
+  --border-flat: #3A2D22;
 }
 
 .dark {
@@ -166,3 +166,59 @@
 
 /* The dashed centre line of the road that links the homepage sections */
 .road-dash { width: 0; border-left: 4px dashed #E6AD45; }
+
+/* ---------------------------------------------------------------------------
+   Public-site look (everything outside /admin): sign lettering for headings,
+   a reading serif for text, centered headings, no stacks of identical cards.
+   Long reading (articles, forms, lists, tables) stays left-aligned.
+--------------------------------------------------------------------------- */
+.public-site :is(h1, h2, h3, h4) {
+  font-family: var(--font-sign), 'Arial Narrow', sans-serif;
+  text-align: center;
+  text-wrap: balance;
+  letter-spacing: 0;
+}
+.public-site :is(p, li, blockquote, summary, dd, figcaption) {
+  font-family: var(--font-prose), Georgia, serif;
+  font-size-adjust: 0.5;
+}
+.public-site p { text-align: center; }
+.public-site :is(li, ul, ol, table, form, label) { text-align: left; }
+.public-site :is(article, .longform, form, table, ul, ol, details) :is(h1, h2, h3, h4, p) { text-align: left; }
+
+/* Small uppercase labels: hidden when they only sit above a heading, otherwise plain sentence case */
+.public-site :is(p, span, div).uppercase:has(+ :is(h1, h2, h3)) { display: none; }
+.public-site :is(p, span, a, button, h1, h2, h3, li).uppercase { text-transform: none; }
+.public-site :is(p, span, a, button, h1, h2, h3, li)[class*='tracking-['] { letter-spacing: 0; }
+
+/* Buttons: one solid road-paint yellow instead of a gradient wash, set in sign lettering */
+.public-site [class*='from-[#D46A43]'],
+.public-site [class*='from-gold-light'] {
+  background-image: none;
+  background-color: #E6AD45;
+  color: #15110E;
+  font-family: var(--font-sign), 'Arial Narrow', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+}
+
+/* Bordered card grids become open blocks divided by a dashed road line. Cards with pictures keep their frame. */
+.public-site .grid > :is(a, div).border.border-border-flat:not(:has(img)) {
+  border-width: 3px 0 0 0;
+  border-style: dashed;
+  border-color: rgb(230 173 69 / 0.45);
+  background: transparent;
+  border-radius: 0;
+  text-align: center;
+}
+
+/* Navigation links in sign lettering */
+.public-site nav a:not([class*='from-']) {
+  font-family: var(--font-sign), 'Arial Narrow', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+/* An explicit font class always wins over the site-wide defaults above */
+.public-site .font-sign { font-family: var(--font-sign), 'Arial Narrow', sans-serif; }
+.public-site .font-prose { font-family: var(--font-prose), Georgia, serif; }
