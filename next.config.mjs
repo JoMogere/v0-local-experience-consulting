@@ -55,6 +55,12 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // The Resources page only repeated the articles, so it now goes to the blog.
+        source: '/resources',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
         source: '/merch',
         destination: '/shop',
         permanent: true,

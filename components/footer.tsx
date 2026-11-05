@@ -58,7 +58,7 @@ const columns = [
     links: [
       { label: "Articles", href: "/blog" },
       { label: "Playbooks", href: "/playbooks" },
-      { label: "Guides & Resources", href: "/resources" },
+      { label: "In-Depth Guides", href: "/guides" },
       { label: "Videos", href: "/videos" },
     ],
   },

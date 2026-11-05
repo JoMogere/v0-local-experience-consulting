@@ -165,6 +165,14 @@ export default async function BlogPage() {
           </section>
         )}
 
+        <p className="-mt-8 mb-16 text-sm text-text-gray">
+          Also publishing on{' '}
+          <a href="https://medium.com/@mogerejulius41" target="_blank" rel="noopener noreferrer" className="text-gold-flat hover:underline">
+            Medium
+          </a>
+          .
+        </p>
+
         {/* Pillar Pages */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">In-Depth Guides</h2>
