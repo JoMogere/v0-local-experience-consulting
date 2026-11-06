@@ -4,7 +4,7 @@ import { WebsiteLikeHotel } from './website-like-hotel'
 
 export function SearchChanged() {
   return (
-    <section className="py-16 md:py-24 bg-[#1D1712] text-center" id="search-has-changed">
+    <section className="py-16 md:py-24 bg-[#241A12] text-center" id="search-has-changed">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
         <div className="grid lg:grid-cols-[1.25fr_1fr] gap-x-12 gap-y-10 items-center mb-14">
         <div>

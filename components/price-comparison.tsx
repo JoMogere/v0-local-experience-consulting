@@ -17,7 +17,7 @@ const OTHERS = [
 export function PriceComparison() {
   return (
     <figure className="max-w-[1000px] mx-auto">
-      <div className="relative rounded-sm bg-[#1D1712] border border-[#3A2D22] px-4 py-10 md:py-14 overflow-hidden">
+      <div className="relative rounded-sm bg-[#241A12] border border-[#3A2D22] px-4 py-10 md:py-14 overflow-hidden">
         {/* Nearby hotels, shown as price pins on a dashed road */}
         <div className="absolute inset-x-0 top-1/2 border-t-[3px] border-dashed border-[#E6AD45]/20" aria-hidden="true" />
         {PINS.map((p) => (

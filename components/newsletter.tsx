@@ -2,7 +2,7 @@ import { SubscribeForm } from "./subscribe-form"
 
 export function Newsletter() {
   return (
-    <section className="py-16 md:py-24 bg-[#1D1712] text-center">
+    <section className="py-16 md:py-24 bg-[#241A12] text-center">
       <div className="max-w-[720px] mx-auto px-6">
         <h2 className="font-sign font-bold text-[#F4EFE6] text-4xl md:text-6xl leading-[0.98] text-balance">
           One hotel marketing idea, every week

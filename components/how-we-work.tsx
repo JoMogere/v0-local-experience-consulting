@@ -20,7 +20,7 @@ const STEPS = [
 // The steps really are a sequence, so they are marked like distance posts along the road.
 export function HowWeWork() {
   return (
-    <section className="py-16 md:py-24 bg-[#1D1712] text-center" id="how-we-work">
+    <section className="py-16 md:py-24 bg-[#241A12] text-center" id="how-we-work">
       <div className="max-w-[720px] mx-auto px-6">
         <h2 className="font-sign font-bold text-[#F4EFE6] text-4xl md:text-6xl leading-[0.98] text-balance">
           What happens after you reach out

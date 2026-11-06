@@ -6,15 +6,15 @@
 :root {
   --background: #15110E;
   --foreground: #F9F6F0;
-  --card: #1D1712;
+  --card: #241A12;
   --card-foreground: #F9F6F0;
-  --popover: #1D1712;
+  --popover: #241A12;
   --popover-foreground: #F9F6F0;
   --primary: #D4AF37;
   --primary-foreground: #0D0D0D;
-  --secondary: #1D1712;
+  --secondary: #241A12;
   --secondary-foreground: #F9F6F0;
-  --muted: #1D1712;
+  --muted: #241A12;
   --muted-foreground: #EAE5DF;
   --accent: #F9F6F0;
   --accent-foreground: #0D0D0D;
@@ -45,7 +45,7 @@
   --gold-flat: #E6AD45;
   --clay: #D46A43;
   --navy-deep: #15110E;
-  --navy-alt: #1D1712;
+  --navy-alt: #241A12;
   --off-white: #F9F6F0;
   --text-gray: #EAE5DF;
   --border-flat: #3A2D22;
