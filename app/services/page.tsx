@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services',
   },
-  title: 'Our Services | BookedUp Africa',
+  title: 'Hotel Marketing Services in Kenya | BookedUp Africa',
   description: 'Local SEO, Experiential Marketing, and Direct Bookings strategy for African hotels and resorts — real results, not recycled stats.',
   keywords: 'local SEO hotels, experiential marketing, direct bookings, hospitality consulting Kenya',
 }

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/videos',
   },
-  title: 'Hotel Growth Videos | BookedUp Africa',
+  title: 'Hotel Growth Videos and Marketing Tips | BookedUp Africa',
   description: 'Practical strategies and implementation guides for increasing direct bookings and guest satisfaction, from the BookedUp Africa YouTube channel.',
 }
 

@@ -15,20 +15,27 @@ interface Params {
   slug: string
 }
 
+// Search titles, written to be a useful length (about 50 to 60 characters).
+const SEO_TITLES: Record<string, string> = {
+  'local-seo': 'Local SEO for Hotels in Kenya | BookedUp Africa',
+  'direct-bookings': 'Direct Bookings for Hotels in Kenya | BookedUp Africa',
+  'experiential-marketing': 'Experiential Marketing for Hotels in Kenya | BookedUp Africa',
+}
+
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params
   const service = getServiceBySlug(slug)
   if (!service) notFound()
 
   return {
-    title: `${service.title} | BookedUp Africa`,
+    title: SEO_TITLES[service.slug] ?? `${service.title} for Hotels in Kenya | BookedUp Africa`,
     description: service.metaDescription,
     keywords: service.features.join(', '),
     alternates: {
       canonical: `/services/${service.slug}`,
     },
     openGraph: {
-      title: service.title,
+      title: SEO_TITLES[service.slug] ?? service.title,
       description: service.metaDescription,
       type: 'article',
     },

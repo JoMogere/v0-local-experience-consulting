@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog',
   },
-  title: 'Hotel Marketing Blog | BookedUp Africa',
+  title: 'Hotel Marketing Blog: SEO and Bookings | BookedUp Africa',
   description: 'Comprehensive guides on local SEO, direct bookings, content marketing, and experiential marketing for African hotels.',
   keywords: 'hotel marketing blog, hotel SEO, direct bookings, hospitality marketing, local search',
   openGraph: {
-    title: 'Hotel Marketing Blog | BookedUp Africa',
+    title: 'Hotel Marketing Blog: SEO and Bookings | BookedUp Africa',
     description: 'Expert guides on growing hotel bookings and revenue.',
     type: 'website',
   },
@@ -276,7 +276,7 @@ export default async function BlogPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Blog',
-            name: 'Hotel Marketing Blog | BookedUp Africa',
+            name: 'Hotel Marketing Blog: SEO and Bookings | BookedUp Africa',
             description: 'Comprehensive guides on hotel marketing and growth strategies',
             publisher: {
               '@type': 'Organization',
