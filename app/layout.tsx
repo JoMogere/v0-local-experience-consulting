@@ -11,21 +11,22 @@ import { SITE_URL } from '@/lib/site'
 const dmSans = DM_Sans({ 
   subsets: ["latin"],
   variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '700']
+  weight: ['400', '500', '700']
 });
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"],
   variable: '--font-playfair',
   weight: ['400', '700'],
-  style: ['normal', 'italic']
+  style: ['normal', 'italic'],
+  preload: false,
 });
 
 // Homepage voice: Barlow Condensed is close to the lettering on road signs; Newsreader is for reading.
 const barlow = Barlow_Condensed({
   subsets: ['latin'],
   variable: '--font-sign',
-  weight: ['500', '600', '700'],
+  weight: ['600', '700'],
 })
 
 const newsreader = Newsreader({

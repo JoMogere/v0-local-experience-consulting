@@ -2,12 +2,12 @@ import Script from 'next/script'
 
 const PIXEL_ID = '2667629360350138'
 
-// Meta (Facebook) Pixel. Loaded after the page is interactive so it never
-// slows down first paint.
+// Meta (Facebook) Pixel. Loaded when the browser is idle so it never
+// competes with the page for speed.
 export function MetaPixel() {
   return (
     <>
-      <Script id="meta-pixel" strategy="afterInteractive">
+      <Script id="meta-pixel" strategy="lazyOnload">
         {`!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};

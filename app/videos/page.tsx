@@ -86,6 +86,7 @@ export default async function VideosPage({ searchParams }: { searchParams: Promi
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-4">
@@ -111,6 +112,7 @@ export default async function VideosPage({ searchParams }: { searchParams: Promi
                       loading="lazy"
                       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen"
                       allowFullScreen
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-4">

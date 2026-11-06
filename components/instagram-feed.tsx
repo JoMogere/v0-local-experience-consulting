@@ -31,8 +31,9 @@ export function InstagramFeed() {
           </a>{' '}
           on TikTok.
         </p>
+        <ElfsightLoader />
         <h3 className="text-xl font-bold text-[#F9F6F0] mb-4">Instagram</h3>
-        <div className="elfsight-app-1cbe8a3b-5578-45e4-9dc2-6b61a50d478d" />
+        <div className="min-h-[320px]"><div className="elfsight-app-1cbe8a3b-5578-45e4-9dc2-6b61a50d478d" /></div>
         <a
           href="https://www.instagram.com/bookedupafrica"
           target="_blank"
@@ -43,7 +44,7 @@ export function InstagramFeed() {
         </a>
 
         <h3 className="text-xl font-bold text-[#F9F6F0] mt-12 mb-4">TikTok</h3>
-        <div className="elfsight-app-7fb7ddb3-5086-4add-9d26-28d35187e1e1" />
+        <div className="min-h-[320px]"><div className="elfsight-app-7fb7ddb3-5086-4add-9d26-28d35187e1e1" /></div>
         <a
           href="https://www.tiktok.com/@bookedupafrica"
           target="_blank"
@@ -53,7 +54,6 @@ export function InstagramFeed() {
           Follow on TikTok &rarr;
         </a>
 
-        <ElfsightLoader />
       </div>
     </section>
   )
