@@ -5,6 +5,165 @@ import { useState } from 'react'
 const WHATSAPP = '254799022671'
 const kes = (n: number) => `KES ${Math.round(n).toLocaleString('en-KE')}`
 
+
+type Summary = {
+  rate: number
+  commission: number
+  ota: number
+  direct: number
+  perBooking: number
+  monthly: number
+  yearly: number
+  directShare: number
+  moved: number
+  savedYearly: number
+}
+
+const CARD_W = 1080
+const CARD_H = 1350
+
+function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
+  const words = text.split(' ')
+  const lines: string[] = []
+  let line = ''
+  for (const w of words) {
+    const test = line ? `${line} ${w}` : w
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line)
+      line = w
+    } else {
+      line = test
+    }
+  }
+  if (line) lines.push(line)
+  return lines
+}
+
+// Draws the result as a picture the owner can save or share.
+function drawCard(d: Summary): HTMLCanvasElement {
+  const canvas = document.createElement('canvas')
+  canvas.width = CARD_W
+  canvas.height = CARD_H
+  const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+  const sign = '"Arial Narrow", "Helvetica Neue", Arial, sans-serif'
+  const serif = 'Georgia, "Times New Roman", serif'
+
+  ctx.fillStyle = '#15110E'
+  ctx.fillRect(0, 0, CARD_W, CARD_H)
+  ctx.textAlign = 'center'
+
+  let y = 150
+  ctx.fillStyle = '#F4EFE6'
+  ctx.font = `bold 64px ${sign}`
+  ctx.fillText('What the booking sites cost my hotel', CARD_W / 2, y)
+
+  y += 190
+  ctx.fillStyle = '#E6AD45'
+  ctx.font = `bold 150px ${sign}`
+  ctx.fillText(kes(d.yearly), CARD_W / 2, y)
+
+  y += 80
+  ctx.fillStyle = '#F4EFE6'
+  ctx.font = `38px ${serif}`
+  ctx.fillText('goes to the OTAs every year.', CARD_W / 2, y)
+
+  y += 60
+  ctx.fillStyle = '#E6AD45'
+  ctx.font = `italic 34px ${serif}`
+  ctx.fillText(`Hiyo ${kes(d.yearly)} si profit yako. Ni ya OTA.`, CARD_W / 2, y)
+
+  y += 70
+  ctx.strokeStyle = 'rgba(230,173,69,0.5)'
+  ctx.lineWidth = 4
+  ctx.setLineDash([18, 14])
+  ctx.beginPath()
+  ctx.moveTo(140, y)
+  ctx.lineTo(CARD_W - 140, y)
+  ctx.stroke()
+  ctx.setLineDash([])
+
+  const rows = [
+    `Room price: ${kes(d.rate)} per night`,
+    `OTA commission: ${d.commission}%, so ${kes(d.perBooking)} on each booking`,
+    `Each month: ${d.ota} OTA bookings, ${d.direct} direct`,
+    `Commission paid each month: ${kes(d.monthly)}`,
+    `Direct bookings: ${d.directShare}% of the total`,
+  ]
+  y += 80
+  ctx.fillStyle = '#EAE5DF'
+  ctx.font = `36px ${serif}`
+  for (const r of rows) {
+    for (const l of wrap(ctx, r, CARD_W - 240)) {
+      ctx.fillText(l, CARD_W / 2, y)
+      y += 48
+    }
+    y += 14
+  }
+
+  if (d.moved > 0) {
+    y += 20
+    ctx.fillStyle = '#F4EFE6'
+    ctx.font = `bold 40px ${serif}`
+    for (const l of wrap(ctx, `Move ${d.moved} OTA ${d.moved === 1 ? 'booking' : 'bookings'} a month to direct and keep ${kes(d.savedYearly)} a year.`, CARD_W - 240)) {
+      ctx.fillText(l, CARD_W / 2, y)
+      y += 54
+    }
+  }
+
+  ctx.fillStyle = '#E6AD45'
+  ctx.font = `bold 40px ${sign}`
+  ctx.fillText('BookedUp Africa', CARD_W / 2, CARD_H - 120)
+  ctx.fillStyle = '#EAE5DF'
+  ctx.font = `30px ${serif}`
+  ctx.fillText('bookedupafrica.com/ota-commission-calculator-kenya', CARD_W / 2, CARD_H - 70)
+  return canvas
+}
+
+// A single-page PDF that holds the picture. Built by hand so no extra library is needed.
+function jpegToPdf(jpeg: Uint8Array, w: number, h: number): Blob {
+  const enc = new TextEncoder()
+  const parts: Uint8Array[] = []
+  const offsets: number[] = []
+  let length = 0
+  const push = (d: string | Uint8Array) => {
+    const b = typeof d === 'string' ? enc.encode(d) : d
+    parts.push(b)
+    length += b.length
+  }
+  const pw = 595
+  const ph = Math.round((595 * h) / w)
+  push('%PDF-1.4\n')
+  offsets[1] = length
+  push('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n')
+  offsets[2] = length
+  push('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n')
+  offsets[3] = length
+  push(`3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>\nendobj\n`)
+  offsets[4] = length
+  push(`4 0 obj\n<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpeg.length} >>\nstream\n`)
+  push(jpeg)
+  push('\nendstream\nendobj\n')
+  const content = `q ${pw} 0 0 ${ph} 0 0 cm /Im0 Do Q`
+  offsets[5] = length
+  push(`5 0 obj\n<< /Length ${content.length} >>\nstream\n${content}\nendstream\nendobj\n`)
+  const xref = length
+  let table = 'xref\n0 6\n0000000000 65535 f \n'
+  for (let i = 1; i <= 5; i++) table += `${String(offsets[i]).padStart(10, '0')} 00000 n \n`
+  push(`${table}trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`)
+  return new Blob(parts as BlobPart[], { type: 'application/pdf' })
+}
+
+function save(blob: Blob, name: string) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = name
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+  setTimeout(() => URL.revokeObjectURL(url), 2000)
+}
+
 function Field({
   id,
   label,
@@ -95,6 +254,20 @@ export function OtaCalculator() {
     setShift('')
   }
 
+  const summary: Summary = { rate: rateN || 0, commission: commN || 0, ota: ready ? otaN : 0, direct: directN, perBooking: feePerBooking, monthly, yearly, directShare, moved, savedYearly }
+
+  const downloadImage = () => {
+    drawCard(summary).toBlob((blob) => blob && save(blob, 'ota-commission-result.png'), 'image/png')
+  }
+  const downloadPdf = () => {
+    const canvas = drawCard(summary)
+    const b64 = canvas.toDataURL('image/jpeg', 0.92).split(',')[1]
+    const bin = atob(b64)
+    const bytes = new Uint8Array(bin.length)
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i)
+    save(jpegToPdf(bytes, CARD_W, CARD_H), 'ota-commission-result.pdf')
+  }
+
   const message = `Niliangalia calculator yenu. Room yangu ni ${kes(rateN || 0)} per night, nipo na ${ready ? otaN : 0} OTA bookings na ${directN} direct kwa mwezi. OTA zinachukua ${kes(yearly)} kwa mwaka. Naomba msaada wa kuongeza direct bookings.`
 
   return (
@@ -143,16 +316,32 @@ export function OtaCalculator() {
                   you would keep <strong className="text-[#E6AD45]">{kes(savedYearly)}</strong> a year.
                 </p>
               )}
-              <a
-                href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-6 px-8 py-4 bg-[#E6AD45] hover:bg-[#F1BE5E] text-[#15110E] font-sign font-bold text-2xl rounded-sm transition-colors"
-              >
-                Send these numbers to Jo on WhatsApp
-              </a>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-[#E6AD45] hover:bg-[#F1BE5E] text-[#15110E] font-sign font-bold text-xl rounded-sm transition-colors"
+                >
+                  Send to Jo on WhatsApp
+                </a>
+                <button
+                  type="button"
+                  onClick={downloadImage}
+                  className="px-6 py-3 border-2 border-[#E6AD45] text-[#E6AD45] hover:bg-[#E6AD45] hover:text-[#15110E] font-sign font-bold text-xl rounded-sm transition-colors"
+                >
+                  Download as image
+                </button>
+                <button
+                  type="button"
+                  onClick={downloadPdf}
+                  className="px-6 py-3 border-2 border-[#E6AD45] text-[#E6AD45] hover:bg-[#E6AD45] hover:text-[#15110E] font-sign font-bold text-xl rounded-sm transition-colors"
+                >
+                  Download as PDF
+                </button>
+              </div>
               <p className="font-prose text-[#EAE5DF]/60 mt-4">
-                Nothing is saved. The numbers stay on your phone until you send them.
+                Nothing is saved on our side. Your figures stay on your phone unless you send them.
               </p>
             </div>
           </>
