@@ -26,7 +26,7 @@ export function Playbooks() {
               <div
                 className={`relative aspect-[4/3] w-full bg-[#f5f3ef] shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:rotate-0 ${TILTS[i % TILTS.length]}`}
               >
-                <Image src={playbook.image} alt="" fill sizes="340px" className="object-contain p-4" />
+                <Image src={playbook.image} alt={`${playbook.title} playbook cover for hotels`} fill sizes="340px" className="object-contain p-4" />
               </div>
               <h3 className="font-sign font-bold text-[#F8F5EC] text-3xl mt-6 group-hover:text-[#F6B12C] transition-colors">
                 {playbook.title}

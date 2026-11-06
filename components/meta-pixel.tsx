@@ -25,7 +25,7 @@ fbq('track', 'PageView');`}
           height="1"
           width="1"
           hidden
-          alt=""
+          alt="Meta tracking pixel"
           src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
         />
       </noscript>
