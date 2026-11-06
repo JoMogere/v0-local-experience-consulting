@@ -18,8 +18,8 @@ export default function OtaCalculatorPage() {
           How much is your hotel paying the OTAs?
         </h1>
         <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/90 mt-5 leading-relaxed">
-          Put in your own numbers. The starting figures are a real example: a room at KES 10,000 a night, 20% commission,
-          10 OTA bookings and 5 direct bookings a month.
+          Enter your own figures: your room price, the commission the booking sites take and how many bookings you get
+          each month. The answer appears as you type.
         </p>
         <p lang="sw" className="font-prose italic text-lg text-[#E6AD45] mt-3">
           Weka namba zako mwenyewe. Utaona OTA zinachukua kiasi gani kwa mwaka.
