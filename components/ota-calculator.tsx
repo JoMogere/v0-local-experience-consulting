@@ -12,6 +12,7 @@ type Summary = {
   ota: number
   direct: number
   perBooking: number
+  nights: number
   monthly: number
   yearly: number
   directShare: number
@@ -84,7 +85,7 @@ function drawCard(d: Summary): HTMLCanvasElement {
 
   const rows = [
     `Room price: ${kes(d.rate)} per night`,
-    `OTA commission: ${d.commission}%, so ${kes(d.perBooking)} on each booking`,
+    `Each booking: ${d.nights} ${d.nights === 1 ? 'night' : 'nights'} at ${kes(d.rate)}, ${d.commission}% commission = ${kes(d.perBooking)}`,
     `Each month: ${d.ota} OTA bookings, ${d.direct} direct`,
     `Commission paid each month: ${kes(d.monthly)}`,
     `Direct bookings: ${d.directShare}% of the total`,
@@ -254,7 +255,7 @@ export function OtaCalculator() {
     setShift('')
   }
 
-  const summary: Summary = { rate: rateN || 0, commission: commN || 0, ota: ready ? otaN : 0, direct: directN, perBooking: feePerBooking, monthly, yearly, directShare, moved, savedYearly }
+  const summary: Summary = { rate: rateN || 0, commission: commN || 0, ota: ready ? otaN : 0, direct: directN, perBooking: feePerBooking, nights: nightsN, monthly, yearly, directShare, moved, savedYearly }
 
   const downloadImage = () => {
     drawCard(summary).toBlob((blob) => blob && save(blob, 'ota-commission-result.png'), 'image/png')
@@ -277,7 +278,7 @@ export function OtaCalculator() {
         <Field id="commission" label="OTA commission" value={commission} onChange={setCommission} suffix="%" placeholder="20" hint="Check your booking site statement. Often 15% to 20%." />
         <Field id="ota" label="Bookings from OTAs each month" value={ota} onChange={setOta} placeholder="10" hint="Booking.com, Expedia and similar." />
         <Field id="direct" label="Direct bookings each month" value={direct} onChange={setDirect} placeholder="5" hint="Phone, WhatsApp, walk-in and your website. Leave empty if none." />
-        <Field id="nights" label="Average nights per booking" value={nights} onChange={setNights} placeholder="1" hint="Leave empty for 1 night." />
+        <Field id="nights" label="Average nights per booking" value={nights} onChange={setNights} placeholder="1" hint="Leave empty for 1 night. If a guest stays 2 nights, the commission is taken on both." />
         <Field id="shift" label="OTA bookings you could move to direct" value={shift} onChange={setShift} suffix="a month" placeholder="3" hint="Leave empty and we assume about 3 in 10." />
       </form>
 
@@ -296,6 +297,10 @@ export function OtaCalculator() {
           <>
             <p className="font-sign text-2xl text-[#EAE5DF]">
               Each OTA booking costs you {kes(feePerBooking)} in commission.
+            </p>
+            <p className="font-prose text-[#EAE5DF]/70 mt-1">
+              {nightsN === 1 ? '' : `${nightsN} nights × ${kes(rateN)} = ${kes(perBooking)}, then `}
+              {commN}% of {kes(perBooking)} = {kes(feePerBooking)}
             </p>
             <p className="font-sign font-bold text-[#E6AD45] text-6xl md:text-8xl leading-none mt-4">{kes(yearly)}</p>
             <p className="font-prose text-xl text-[#F4EFE6] mt-3">
