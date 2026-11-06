@@ -124,7 +124,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 flex justify-center">
+        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 flex justify-start md:justify-end">
           <a
             href={`https://www.google.com/preferences/source?q=${SITE_HOST}`}
             target="_blank"
