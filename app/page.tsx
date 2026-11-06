@@ -4,7 +4,6 @@ import { ServicesOverview } from "@/components/services-overview"
 import { SearchChanged } from "@/components/search-changed"
 import { TrustMarquee } from "@/components/trust-marquee"
 import { HowWeWork } from "@/components/how-we-work"
-import { About } from "@/components/about"
 import { Playbooks } from "@/components/playbooks"
 import { InstagramFeed } from "@/components/instagram-feed"
 import { FAQ } from "@/components/faq"
@@ -37,7 +36,6 @@ export default function HomePage() {
       <SearchChanged />
       <TrustMarquee />
       <HowWeWork />
-      <About />
       <Playbooks />
       <InstagramFeed />
       <FAQ />
