@@ -124,18 +124,12 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 md:flex md:items-center md:justify-between gap-8">
-          <div className="max-w-xl">
-            <p className="text-[#F9F6F0] font-semibold mb-1">Want to see more from us in your Google results?</p>
-            <p className="text-text-gray text-[13px]">
-              Mark BookedUp Africa as a Preferred Source and we&apos;ll show up more often when you search for hotel marketing topics.
-            </p>
-          </div>
+        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 flex justify-center">
           <a
             href={`https://www.google.com/preferences/source?q=${SITE_HOST}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-3 md:mt-0 shrink-0 hover:opacity-90 transition-opacity"
+            className="inline-block hover:opacity-90 transition-opacity"
           >
             <Image
               src="/google-preferred-source.png"
