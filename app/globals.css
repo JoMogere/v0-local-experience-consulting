@@ -222,3 +222,6 @@
 /* An explicit font class always wins over the site-wide defaults above */
 .public-site .font-sign { font-family: var(--font-sign), 'Arial Narrow', sans-serif; }
 .public-site .font-prose { font-family: var(--font-prose), Georgia, serif; }
+
+/* Footer text stays left-aligned so it lines up with the link lists */
+.public-site footer p { text-align: left; }

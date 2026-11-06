@@ -76,15 +76,15 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="py-8 md:py-10 border-t-4 border-dashed border-[#E6AD45]/60 bg-[#3A2413]">
+    <footer className="py-5 md:py-6 border-t-4 border-dashed border-[#E6AD45]/60 bg-[#3A2413]">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-5 gap-y-5">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-3">
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-2">
                 {col.title}
               </p>
-              <ul className="space-y-2">
+              <ul className="space-y-1">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -92,7 +92,7 @@ export function Footer() {
                       {...("external" in link && link.external
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="text-sm text-text-gray hover:text-gold-flat transition-colors"
+                      className="text-[13px] text-text-gray hover:text-gold-flat transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -103,17 +103,17 @@ export function Footer() {
           ))}
 
           <nav aria-label="Social">
-            <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-3">
+            <p className="text-xs md:text-sm font-semibold uppercase tracking-[2px] text-[#F9F6F0] mb-2">
               Social
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {socialLinks.map((social) => (
                 <li key={social.name}>
                   <Link
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-text-gray hover:text-gold-flat transition-colors"
+                    className="flex items-center gap-3 text-[13px] text-text-gray hover:text-gold-flat transition-colors"
                   >
                     {social.icon}
                     {social.name}
@@ -124,10 +124,10 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 md:mt-10 pt-6 border-t border-[#E6AD45]/25 md:flex md:items-center md:justify-between gap-8">
+        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 md:flex md:items-center md:justify-between gap-8">
           <div className="max-w-xl">
-            <p className="text-[#F9F6F0] font-semibold mb-2">Want to see more from us in your Google results?</p>
-            <p className="text-text-gray text-sm">
+            <p className="text-[#F9F6F0] font-semibold mb-1">Want to see more from us in your Google results?</p>
+            <p className="text-text-gray text-[13px]">
               Mark BookedUp Africa as a Preferred Source and we&apos;ll show up more often when you search for hotel marketing topics.
             </p>
           </div>
@@ -135,20 +135,20 @@ export function Footer() {
             href={`https://www.google.com/preferences/source?q=${SITE_HOST}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-5 md:mt-0 shrink-0 hover:opacity-90 transition-opacity"
+            className="inline-block mt-3 md:mt-0 shrink-0 hover:opacity-90 transition-opacity"
           >
             <Image
               src="/google-preferred-source.png"
               alt="Add BookedUp Africa as a preferred source on Google"
               width={246}
               height={78}
-              className="h-14 w-auto"
+              className="h-10 w-auto"
             />
           </a>
         </div>
 
-        <div className="mt-8 md:mt-10 pt-6 border-t border-[#E6AD45]/25 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <p className="font-serif italic text-gold text-lg md:text-[22px] tracking-[0.5px]">
+        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="font-serif italic text-gold text-base md:text-lg tracking-[0.5px]">
             Transform. Book. Grow.
           </p>
           <p className="text-[10px] md:text-[11px] opacity-40 tracking-[1px]">
