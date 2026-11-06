@@ -1,4 +1,4 @@
-import Script from 'next/script'
+import { ElfsightLoader } from './elfsight-loader'
 
 // Instagram and TikTok feeds by Elfsight. 
 export function InstagramFeed() {
@@ -53,7 +53,7 @@ export function InstagramFeed() {
           Follow on TikTok &rarr;
         </a>
 
-        <Script src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" />
+        <ElfsightLoader />
       </div>
     </section>
   )
