@@ -7,7 +7,7 @@ const TONES = ['gold', 'paper', 'clay'] as const
 // Three junction signs, one per service, pointing alternately left and right.
 export function ServicesOverview() {
   return (
-    <section className="py-16 md:py-24 bg-[#000000] text-center" id="services-overview">
+    <section className="pt-8 pb-16 md:pt-10 md:pb-24 bg-[#000000] text-center" id="services-overview">
       <div className="max-w-[900px] mx-auto px-6">
         <h2 className="font-sign font-bold text-[#F8F5EC] text-4xl md:text-6xl leading-[0.98] text-balance">
           Local SEO, direct bookings and experiential marketing for hotels
