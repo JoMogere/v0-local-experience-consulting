@@ -20,7 +20,7 @@ const STEPS = [
 ]
 
 // The steps really are a sequence, so they are drawn as a route: a wide winding road with a location pin
-// at each stop and a card for each step. Phones show the same pieces stacked down a straight road.
+// at each stop and a card for each step. Phones get the same picture and swipe sideways.
 const ICONS = [Search, Compass, Wrench, CalendarCheck]
 const PIN_COLORS = ['#F26A0A', '#F6B12C', '#F8F5EC', '#BA3206']
 const PIN_TEXT = ['#000000', '#000000', '#000000', '#F8F5EC']
@@ -71,21 +71,10 @@ export function HowWeWork() {
           What happens after you reach out
         </h2>
 
-        {/* Phones: pins and cards stacked along a straight road */}
-        <ol className="md:hidden max-w-[360px] mx-auto mt-12">
-          {STEPS.map((step, i) => (
-            <li key={step.title}>
-              <div className="road-dash h-10 mx-auto" aria-hidden="true" />
-              <Pin i={i} />
-              <div className="mt-3">
-                <StepCard i={i} step={step} />
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        {/* Wide screens: a wide winding road with a pin at each stop, and the steps in a row below */}
-        <div className="hidden md:block mt-12">
+        {/* The same route on every screen. On a phone it keeps its shape and swipes sideways. */}
+        <p className="md:hidden font-prose text-[#EAE5DF]/70 mt-4">Swipe sideways to follow the road</p>
+        <div className="mt-8 md:mt-12 overflow-x-auto -mx-6 px-6 pb-4 snap-x">
+          <div className="min-w-[980px]">
           <div className="relative h-[310px]" aria-hidden="true">
             <svg
               className="absolute inset-x-0 w-full h-[210px] overflow-visible"
@@ -115,6 +104,7 @@ export function HowWeWork() {
               </li>
             ))}
           </ol>
+          </div>
         </div>
       </div>
     </section>
