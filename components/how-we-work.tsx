@@ -1,3 +1,5 @@
+import { Search, Compass, Wrench, CalendarCheck } from 'lucide-react'
+
 const STEPS = [
   {
     title: 'Audit',
@@ -17,37 +19,49 @@ const STEPS = [
   },
 ]
 
-// The steps really are a sequence, so they are drawn as a route: a winding road with a roadside sign at each stop.
-// Small screens show the signs stacked down a straight road; wide screens show the winding route.
+// The steps really are a sequence, so they are drawn as a route: a wide winding road with a location pin
+// at each stop and a card for each step. Phones show the same pieces stacked down a straight road.
+const ICONS = [Search, Compass, Wrench, CalendarCheck]
+const PIN_COLORS = ['#F26A0A', '#F6B12C', '#F8F5EC', '#BA3206']
+const PIN_TEXT = ['#000000', '#000000', '#000000', '#F8F5EC']
 const STOP_X = ['12.5%', '37.5%', '62.5%', '87.5%']
-const BOARD_TONES = ['bg-[#F6B12C]', 'bg-[#F8F5EC]', 'bg-[#F26A0A]', 'bg-[#F6B12C]']
+// Height of each stop on the road, in px from the top of the road drawing.
+const STOP_Y = [40, 170, 40, 170]
+const ROAD_TOP = 70
 
-function Marker({ n }: { n: number }) {
+function Pin({ i }: { i: number }) {
+  const Icon = ICONS[i]
   return (
-    <span
-      className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-black text-[#F6B12C] font-sign font-bold text-3xl ring-4 ring-[#F6B12C]"
-      aria-hidden="true"
-    >
-      {n}
+    <span className="relative inline-block w-12 h-12" aria-hidden="true">
+      <span
+        className="absolute inset-0 -rotate-45 rounded-[50%_50%_50%_0] shadow-[0_6px_14px_rgba(0,0,0,0.6)] ring-2 ring-black"
+        style={{ background: PIN_COLORS[i] }}
+      />
+      <span className="absolute inset-0 flex items-center justify-center" style={{ color: PIN_TEXT[i] }}>
+        <Icon className="w-5 h-5" strokeWidth={2.4} />
+      </span>
     </span>
   )
 }
 
-// The sign itself: a board with a black inset border, like the plates on a road.
-function Board({ index, title, description }: { index: number; title: string; description: string }) {
+function StepCard({ i, step }: { i: number; step: { title: string; description: string } }) {
   return (
-    <div
-      className={`${BOARD_TONES[index]} text-black rounded-md px-5 py-4 shadow-[inset_0_0_0_4px_#000000,0_8px_20px_rgba(0,0,0,0.5)]`}
-    >
-      <h3 className="font-sign font-bold text-black text-3xl leading-none">{title}</h3>
-      <p className="font-prose text-black text-[16px] mt-2 leading-snug">{description}</p>
+    <div className="relative bg-[#F8F5EC] text-black rounded-md px-5 pt-9 pb-5 shadow-[0_8px_20px_rgba(0,0,0,0.5)] h-full">
+      <span
+        className="absolute -top-5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center w-10 h-10 rounded-full font-sign font-bold text-2xl ring-4 ring-[#121212]"
+        style={{ background: PIN_COLORS[i] === '#F8F5EC' ? '#F6B12C' : PIN_COLORS[i], color: PIN_TEXT[i] === '#F8F5EC' ? '#F8F5EC' : '#000000' }}
+        aria-hidden="true"
+      >
+        {i + 1}
+      </span>
+      <h3 className="font-sign font-bold text-black text-3xl leading-none">{step.title}</h3>
+      <p className="font-prose text-black/90 text-[16px] mt-2 leading-snug">{step.description}</p>
     </div>
   )
 }
 
-function Post({ className = '' }: { className?: string }) {
-  return <span className={`block w-2 bg-[#5A2308] ${className}`} aria-hidden="true" />
-}
+const ROAD_PATH =
+  'M 0 105 C 60 105 70 40 125 40 S 310 170 375 170 S 560 40 625 40 S 810 170 875 170 S 960 105 1000 105'
 
 export function HowWeWork() {
   return (
@@ -57,77 +71,49 @@ export function HowWeWork() {
           What happens after you reach out
         </h2>
 
-        {/* Phones: signs stacked along a straight road */}
+        {/* Phones: pins and cards stacked along a straight road */}
         <ol className="md:hidden max-w-[360px] mx-auto mt-12">
           {STEPS.map((step, i) => (
             <li key={step.title}>
               <div className="road-dash h-10 mx-auto" aria-hidden="true" />
-              <Marker n={i + 1} />
-              <Post className="h-5 mx-auto" />
-              <Board index={i} title={step.title} description={step.description} />
+              <Pin i={i} />
+              <div className="mt-3">
+                <StepCard i={i} step={step} />
+              </div>
             </li>
           ))}
         </ol>
 
-        {/* Wide screens: a winding route with a roadside sign at each stop */}
-        <div className="hidden md:block relative h-[740px] mt-14">
-          <svg
-            className="absolute inset-x-0 top-[280px] w-full h-[180px] overflow-visible"
-            viewBox="0 0 1000 180"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M 0 90 C 60 90 70 0 125 0 S 310 180 375 180 S 560 0 625 0 S 810 180 875 180 S 960 90 1000 90"
-              fill="none"
-              stroke="#262626"
-              strokeWidth="34"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-            />
-            <path
-              d="M 0 90 C 60 90 70 0 125 0 S 310 180 375 180 S 560 0 625 0 S 810 180 875 180 S 960 90 1000 90"
-              fill="none"
-              stroke="#F6B12C"
-              strokeWidth="4"
-              strokeDasharray="16 14"
-              vectorEffect="non-scaling-stroke"
-            />
-          </svg>
+        {/* Wide screens: a wide winding road with a pin at each stop, and the steps in a row below */}
+        <div className="hidden md:block mt-12">
+          <div className="relative h-[310px]" aria-hidden="true">
+            <svg
+              className="absolute inset-x-0 w-full h-[210px] overflow-visible"
+              style={{ top: ROAD_TOP }}
+              viewBox="0 0 1000 210"
+              preserveAspectRatio="none"
+            >
+              <path d={ROAD_PATH} fill="none" stroke="#F8F5EC" strokeWidth="76" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.9" />
+              <path d={ROAD_PATH} fill="none" stroke="#1A1A1A" strokeWidth="68" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+              <path d={ROAD_PATH} fill="none" stroke="#F8F5EC" strokeWidth="3" strokeDasharray="18 14" vectorEffect="non-scaling-stroke" />
+            </svg>
+            {STEPS.map((step, i) => (
+              <div
+                key={step.title}
+                className="absolute -translate-x-1/2"
+                style={{ left: STOP_X[i], top: ROAD_TOP + STOP_Y[i] - 58 }}
+              >
+                <Pin i={i} />
+              </div>
+            ))}
+          </div>
 
-          <ol>
-            {STEPS.map((step, i) => {
-              const upper = i % 2 === 0
-              return (
-                <li
-                  key={step.title}
-                  className="absolute top-0 h-full w-[23%] -translate-x-1/2"
-                  style={{ left: STOP_X[i] }}
-                >
-                  {upper ? (
-                    <>
-                      <div className="absolute inset-x-0 top-0 h-[236px] flex flex-col justify-end">
-                        <Board index={i} title={step.title} description={step.description} />
-                      </div>
-                      <Post className="absolute left-1/2 -translate-x-1/2 top-[236px] h-[16px]" />
-                      <div className="absolute left-1/2 -translate-x-1/2" style={{ top: 252 }}>
-                        <Marker n={i + 1} />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="absolute left-1/2 -translate-x-1/2" style={{ top: 432 }}>
-                        <Marker n={i + 1} />
-                      </div>
-                      <Post className="absolute left-1/2 -translate-x-1/2 top-[488px] h-[16px]" />
-                      <div className="absolute inset-x-0 top-[504px]">
-                        <Board index={i} title={step.title} description={step.description} />
-                      </div>
-                    </>
-                  )}
-                </li>
-              )
-            })}
+          <ol className="grid grid-cols-4 gap-x-5 -mt-2">
+            {STEPS.map((step, i) => (
+              <li key={step.title} className="pt-5">
+                <StepCard i={i} step={step} />
+              </li>
+            ))}
           </ol>
         </div>
       </div>
