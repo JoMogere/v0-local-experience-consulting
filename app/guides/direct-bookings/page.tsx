@@ -37,7 +37,7 @@ export default function DirectBookingsPage() {
             Direct Bookings for Hotels: The Complete Guide to Cutting OTA Commissions
           </h1>
           <p className="text-xl text-text-gray leading-relaxed">
-            Every booking that comes through Booking.com or Expedia costs you 15-25% in commission. This guide covers exactly how to build a direct booking channel that earns guests back — from parity strategy to the booking engine itself.
+            Every booking that comes through <a href="https://www.booking.com/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Booking.com</a> or <a href="https://www.expedia.com/Hotels" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Expedia</a> costs you 15-25% in commission. This guide covers exactly how to build a direct booking channel that earns guests back — from parity strategy to the booking engine itself.
           </p>
         </header>
 

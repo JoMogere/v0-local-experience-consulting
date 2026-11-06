@@ -135,7 +135,7 @@ export default function LocalSEOPage() {
           <section id="google-maps">
             <h2 className="text-4xl font-bold mb-6">Google Maps Optimization: Your Digital Front Door</h2>
             <p className="text-lg text-text-gray leading-relaxed mb-6">
-              Your Google Business Profile (GBP) is the single most important element of local SEO. This is where Google showcases your hotel's information directly in search results and maps.
+              Your <a href="https://business.google.com/en-all/business-profile/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Google Business Profile</a> (GBP) is the single most important element of local SEO. This is where Google showcases your hotel's information directly in search results and maps.
             </p>
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mb-6">
               <p className="text-blue-400 text-sm">

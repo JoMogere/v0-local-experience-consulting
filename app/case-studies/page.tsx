@@ -34,7 +34,7 @@ export default function CaseStudiesHub() {
           <div>
             <h2 className="text-2xl font-bold mb-3">Elsamere Lodge: 124 Free Booking Link Clicks</h2>
             <p className="text-text-gray mb-4">
-              Over six months, Elsamere Lodge's Google Business Profile generated 124 clicks on its free hotel booking link, the direct "Book" button Google shows on verified hotel listings. Zero commission, pure high-intent traffic.
+              Over six months, <a href="https://elsaconservationtrust.org/visit-and-experience/stay-at-elsamere-lodge-naivasha/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Elsamere Lodge</a>'s <a href="https://business.google.com/en-all/business-profile/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Google Business Profile</a> generated 124 clicks on its <a href="https://support.google.com/hotelprices/answer/10472393?hl=en" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">free hotel booking link</a>, the direct "Book" button Google shows on verified hotel listings. Zero commission, pure high-intent traffic.
             </p>
             <Link href="/blog/case-study-elsamere-lodge" className="text-orange-500 font-bold hover:underline">
               Read the full case study →

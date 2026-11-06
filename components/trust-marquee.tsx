@@ -1,21 +1,29 @@
 import Image from 'next/image'
 
 type Logo = { src: string; width: number; height: number; tile: string }
-type Property = { name: string; logo?: Logo }
+type Property = { name: string; logo?: Logo; href?: string }
 
 // Properties with a logo show it; the rest show their name until a logo is added.
 const PROPERTIES: Property[] = [
-  { name: 'Silent Palms Villas', logo: { src: '/logos/silent-palms-villas.webp', width: 275, height: 200, tile: 'bg-white px-4 py-2' } },
-  { name: 'Elsamere Lodge, Naivasha', logo: { src: '/logos/elsamere-naivasha.webp', width: 334, height: 100, tile: 'bg-white px-4 py-2' } },
+  { name: 'Silent Palms Villas', href: 'https://silentpalms.com/', logo: { src: '/logos/silent-palms-villas.webp', width: 275, height: 200, tile: 'bg-white px-4 py-2' } },
+  { name: 'Elsamere Lodge, Naivasha', href: 'https://elsaconservationtrust.org/visit-and-experience/stay-at-elsamere-lodge-naivasha/', logo: { src: '/logos/elsamere-naivasha.webp', width: 334, height: 100, tile: 'bg-white px-4 py-2' } },
   { name: 'Mt Longonot Country Resort', logo: { src: '/logos/mt-longonot-country-resort.webp', width: 318, height: 200, tile: 'bg-white px-4 py-2' } },
   { name: 'Luna Light Guest House' },
-  { name: 'Wild Wood Escapes', logo: { src: '/logos/wild-wood-escapes.webp', width: 374, height: 196, tile: 'bg-[#1A1A1A] border border-border-flat px-4 py-2' } },
+  { name: 'Wild Wood Escapes', href: 'https://wildwoodescapes.co.ke/wild-wood-cottages', logo: { src: '/logos/wild-wood-escapes.webp', width: 374, height: 196, tile: 'bg-[#1A1A1A] border border-border-flat px-4 py-2' } },
   { name: 'Jazby Guest House', logo: { src: '/logos/jazby-guest-house.webp', width: 240, height: 240, tile: 'bg-[#120f2a]' } },
 ]
 
 function Item({ property }: { property: Property }) {
+  const link = (node: React.ReactNode) =>
+    property.href ? (
+      <a href={property.href} target="_blank" rel="noopener noreferrer" aria-label={`${property.name} website`} className="shrink-0 flex items-center">
+        {node}
+      </a>
+    ) : (
+      node
+    )
   if (property.logo) {
-    return (
+    return link(
       <span className={`mx-6 md:mx-10 flex items-center justify-center h-14 md:h-[68px] shrink-0 ${property.logo.tile}`}>
         <Image
           src={property.logo.src}
@@ -51,7 +59,7 @@ export function TrustMarquee() {
             {/* Second copy keeps the scroll seamless; hidden from screen readers */}
             <div className="flex items-center" aria-hidden="true">
               {PROPERTIES.map((p) => (
-                <Item key={`copy-${p.name}`} property={{ ...p, logo: p.logo && { ...p.logo } }} />
+                <Item key={`copy-${p.name}`} property={{ ...p, href: undefined, logo: p.logo && { ...p.logo } }} />
               ))}
             </div>
           </div>

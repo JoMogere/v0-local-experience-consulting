@@ -46,7 +46,7 @@ export default function ChannelManagerSetupPage() {
             Channel Manager Setup for Hotels in Kenya
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            One calendar for Booking.com, Expedia and your own website. No double bookings, no updating three places by
+            One calendar for <a href="https://www.booking.com/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Booking.com</a>, <a href="https://www.expedia.com/Hotels" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Expedia</a> and your own website. No double bookings, no updating three places by
             hand, and more guests booking direct.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -79,7 +79,7 @@ export default function ChannelManagerSetupPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Choosing One for a Small Hotel</h2>
           <p className="text-text-gray mb-6">
-            There is no single best channel manager. We have set up Zeevou, Beds24 and Lodgify, and the right choice comes
+            There is no single best channel manager. We have set up <a href="https://zeevou.direct/kenya" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Zeevou</a>, Beds24 and Lodgify, and the right choice comes
             down to a few honest questions:
           </p>
           <ul className="space-y-3 text-text-gray">

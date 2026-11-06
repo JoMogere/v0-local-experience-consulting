@@ -39,7 +39,7 @@ export default function BookingEngineSetupPage() {
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
               <h3 className="font-bold text-blue-400 mb-3">Key Point</h3>
               <p className="text-text-gray">
-                Zeevou is the channel manager we work with most for East African properties — it handles OTA sync, direct booking, and a full property management layer in one system. Beds24 and Lodgify are common alternatives worth considering, particularly for simpler setups. The right choice usually comes down to how many rooms/units you're managing and whether you need a full property management system or just booking + sync.
+                <a href="https://zeevou.direct/kenya" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Zeevou</a> is the channel manager we work with most for East African properties — it handles OTA sync, direct booking, and a full property management layer in one system. Beds24 and Lodgify are common alternatives worth considering, particularly for simpler setups. The right choice usually comes down to how many rooms/units you're managing and whether you need a full property management system or just booking + sync.
               </p>
             </div>
           </section>
@@ -56,7 +56,7 @@ export default function BookingEngineSetupPage() {
               </div>
               <div className="bg-white/5 border border-white/10 rounded-lg p-6">
                 <h3 className="font-bold text-orange-500 mb-3">2. A Google Hotel Center Price Feed</h3>
-                <p className="text-text-gray text-sm">An XML feed of your live rates and availability, submitted through Google Hotel Center. This is what lets Google show your actual price next to Booking.com and Expedia's.</p>
+                <p className="text-text-gray text-sm">An XML feed of your live rates and availability, submitted through <a href="https://hotelcenter.google.com/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Google Hotel Center</a>. This is what lets Google show your actual price next to Booking.com and Expedia's. Google explains how hotel prices appear in its <a href="https://support.google.com/hotelprices/answer/10472393?hl=en" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">hotel prices help page</a>.</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-lg p-6">
                 <h3 className="font-bold text-orange-500 mb-3">3. A Booking Engine That Can Take the Booking</h3>

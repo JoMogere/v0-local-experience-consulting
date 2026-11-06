@@ -55,7 +55,7 @@ export default function GBPPillar() {
           <div id="kenya">
             <h2 className="text-3xl font-bold text-white">Setting Up in Kenya: Addresses, Verification, Seasons</h2>
             <p>
-              Most Google Business Profile advice is written for cities with tidy street addresses. Lodges, camps and guesthouses across Kenya often don't fit that mould, and that's where profiles go wrong. These are the Kenya-specific things worth getting right:
+              Most <a href="https://business.google.com/en-all/business-profile/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#F1BE5E]">Google Business Profile</a> advice is written for cities with tidy street addresses. Lodges, camps and guesthouses across Kenya often don't fit that mould, and that's where profiles go wrong. These are the Kenya-specific things worth getting right:
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li>
