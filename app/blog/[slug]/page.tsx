@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { BlogContent } from '@/components/blog-content'
 import { plainText, firstImage } from '@/lib/markdown'
 import { BUILTIN_POSTS } from '@/lib/builtin-posts'
+import { THUMBNAILS } from '@/lib/thumbnails'
 import { SITE_URL } from '@/lib/site'
 
 // The admin copy wins; until an article is imported, the built-in copy is shown.
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       title: post.title,
       description: post.excerpt || plainText(post.content),
       type: 'article',
-      images: firstImage(post.content) ? [firstImage(post.content) as string] : undefined,
+      images: (THUMBNAILS[post.slug] ?? firstImage(post.content)) ? [(THUMBNAILS[post.slug] ?? firstImage(post.content)) as string] : undefined,
     },
   }
 }
@@ -103,6 +104,10 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
 
         {/* Main Content */}
         <div className="prose prose-invert max-w-none mb-12">
+          {THUMBNAILS[post.slug] && !post.content.includes(THUMBNAILS[post.slug]) && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={THUMBNAILS[post.slug]} alt={post.title} className="w-full rounded-sm mb-8" />
+          )}
           <BlogContent>{post.content}</BlogContent>
         </div>
 
@@ -138,7 +143,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             datePublished: post.publishedAt,
             dateModified: post.updatedAt ?? post.publishedAt,
             mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
-            image: (() => { const i = firstImage(post.content); return i ? (i.startsWith('http') ? i : `${SITE_URL}${i}`) : undefined })(),
+            image: (() => { const i = THUMBNAILS[post.slug] ?? firstImage(post.content); return i ? (i.startsWith('http') ? i : `${SITE_URL}${i}`) : undefined })(),
             author: { '@id': `${SITE_URL}/#founder` },
             publisher: { '@id': `${SITE_URL}/#organization` },
           }),

@@ -5,6 +5,7 @@ import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SITE_URL } from '@/lib/site'
 import { BUILTIN_POSTS } from '@/lib/builtin-posts'
 import { firstImage } from '@/lib/markdown'
+import { THUMBNAILS } from '@/lib/thumbnails'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
   'local-seo-for-hotels': MapPin,
@@ -46,7 +47,7 @@ export default async function BlogPage() {
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
-      image: firstImage(p.content),
+      image: THUMBNAILS[p.slug] ?? firstImage(p.content),
       date: p.publishedAt ? new Date(p.publishedAt).toLocaleDateString() : undefined,
     })),
     ...BUILTIN_POSTS.filter((p) => !latestPosts.some((l) => l.slug === p.slug)).map((p) => ({
@@ -54,7 +55,7 @@ export default async function BlogPage() {
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
-      image: p.image ?? firstImage(p.content),
+      image: THUMBNAILS[p.slug] ?? p.image ?? firstImage(p.content),
       date: p.date ? new Date(p.date).toLocaleDateString() : undefined,
     })),
   ]
