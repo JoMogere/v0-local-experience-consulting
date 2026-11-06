@@ -25,6 +25,8 @@ export const CONTENT_FEED: FeedItem[] = [
   { href: '/guides/direct-bookings/booking-engine-setup', title: 'Channel Managers and Direct Bookings', excerpt: 'How to mix both without double bookings.', kind: 'Guide', topic: 'direct-bookings' },
   { href: '/guides/direct-bookings/website-conversion', title: 'Turn Website Visitors Into Bookings', excerpt: 'Small changes that stop guests leaving without booking.', kind: 'Guide', topic: 'direct-bookings' },
   { href: '/channel-manager-setup-kenya', title: 'Channel Manager Setup for Hotels in Kenya', excerpt: 'One calendar for every booking site and your own website.', kind: 'Guide', topic: 'direct-bookings' },
+  { href: '/ota-commission-calculator-kenya', title: 'OTA Commission Calculator', excerpt: 'Type in your own numbers and see what the booking sites cost you each year.', kind: 'Guide', topic: 'direct-bookings' },
+  { href: '/blog/ota-commission-lodge-example', title: 'How a Lodge Loses KES 240,000 a Year to Commission', excerpt: 'A worked example in English and Kiswahili.', kind: 'Article', topic: 'direct-bookings' },
   { href: '/blog/direct-hotel-bookings', title: 'Direct Hotel Bookings', excerpt: 'Why direct bookings matter and how to win them.', kind: 'Article', topic: 'direct-bookings' },
   { href: '/blog/hotel-website-design-seo', title: 'Hotel Website Design and SEO', excerpt: 'A website that ranks and turns visitors into guests.', kind: 'Article', topic: 'direct-bookings' },
 

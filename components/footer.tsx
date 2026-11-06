@@ -60,6 +60,7 @@ const columns = [
       { label: "Playbooks", href: "/playbooks" },
       { label: "In-Depth Guides", href: "/guides" },
       { label: "Videos", href: "/videos" },
+      { label: "OTA Commission Calculator", href: "/ota-commission-calculator-kenya" },
     ],
   },
   {

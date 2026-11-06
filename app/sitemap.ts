@@ -124,6 +124,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/ota-commission-calculator-kenya`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/blog/ota-commission-lodge-example`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    },
+    {
       url: `${baseUrl}/blog/semantic-seo-for-hotels`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
