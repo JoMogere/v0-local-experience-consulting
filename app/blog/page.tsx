@@ -261,7 +261,7 @@ export default async function BlogPage() {
             href="https://calendly.com/mogerejulius41/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-colors"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-colors"
           >
             Book a Strategy Call
           </a>

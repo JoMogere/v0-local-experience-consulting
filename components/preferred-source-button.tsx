@@ -11,7 +11,7 @@ export function PreferredSourceButton() {
         href={`https://www.google.com/preferences/source?q=${SITE_HOST}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] font-bold rounded-sm hover:opacity-90 transition-opacity text-sm uppercase tracking-[0.5px]"
+        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] font-bold rounded-sm hover:opacity-90 transition-opacity text-sm uppercase tracking-[0.5px]"
       >
         Add as Preferred Source
       </a>

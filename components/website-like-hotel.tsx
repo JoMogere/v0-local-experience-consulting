@@ -31,7 +31,7 @@ export function WebsiteLikeHotel({ embedded = false }: { embedded?: boolean }) {
             &ldquo;
           </span>
 
-          <div className="relative border-[3px] md:border-4 border-[#F9F6F0] bg-[#E6AD45] text-[#0D0D0D] rounded-xl md:rounded-2xl px-5 py-5 md:px-8 md:py-7">
+          <div className="relative border-[3px] md:border-4 border-[#F9F6F0] bg-[#F6B12C] text-[#0D0D0D] rounded-xl md:rounded-2xl px-5 py-5 md:px-8 md:py-7">
             <blockquote className="font-serif text-[15px] md:text-xl leading-snug font-semibold text-center text-balance">
               Think of your website like your hotel. You would never leave guests to find you on their own. You put up a
               signboard on the road, signs at every junction, a welcoming gate and someone at reception. Your website has
@@ -44,7 +44,7 @@ export function WebsiteLikeHotel({ embedded = false }: { embedded?: boolean }) {
 
             {/* Bubble tail */}
             <div
-              className="absolute -bottom-[15px] left-10 md:left-14 w-6 h-6 rotate-45 bg-[#E6AD45] border-r-[3px] border-b-[3px] border-[#F9F6F0]"
+              className="absolute -bottom-[15px] left-10 md:left-14 w-6 h-6 rotate-45 bg-[#F6B12C] border-r-[3px] border-b-[3px] border-[#F9F6F0]"
               aria-hidden="true"
             />
           </div>
@@ -61,7 +61,7 @@ export function WebsiteLikeHotel({ embedded = false }: { embedded?: boolean }) {
         <div className="text-center">
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity text-sm md:text-base uppercase tracking-[0.5px]"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity text-sm md:text-base uppercase tracking-[0.5px]"
           >
             Walk through your hotel&apos;s website with us
           </Link>

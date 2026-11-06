@@ -7,9 +7,9 @@ const TONES = ['gold', 'paper', 'clay'] as const
 // Three junction signs, one per service, pointing alternately left and right.
 export function ServicesOverview() {
   return (
-    <section className="py-16 md:py-24 bg-[#15110E] text-center" id="services-overview">
+    <section className="py-16 md:py-24 bg-[#000000] text-center" id="services-overview">
       <div className="max-w-[900px] mx-auto px-6">
-        <h2 className="font-sign font-bold text-[#F4EFE6] text-4xl md:text-6xl leading-[0.98] text-balance">
+        <h2 className="font-sign font-bold text-[#F8F5EC] text-4xl md:text-6xl leading-[0.98] text-balance">
           Local SEO, direct bookings and experiential marketing for hotels
         </h2>
         <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/90 mt-5 mx-auto max-w-[52ch] leading-relaxed">
@@ -32,7 +32,7 @@ export function ServicesOverview() {
               </p>
               <Link
                 href={`/services/${service.slug}`}
-                className="inline-block mt-4 font-sign font-semibold text-xl text-[#E6AD45] underline decoration-2 underline-offset-4 hover:text-[#F1BE5E]"
+                className="inline-block mt-4 font-sign font-semibold text-xl text-[#F6B12C] underline decoration-2 underline-offset-4 hover:text-[#FFC24A]"
               >
                 See how {service.title} works
               </Link>

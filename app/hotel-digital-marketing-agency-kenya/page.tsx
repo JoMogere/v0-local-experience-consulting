@@ -24,7 +24,7 @@ export default function HotelDigitalMarketingAgencyPage() {
             BookedUp Africa works exclusively with hotels, lodges, and resorts across Kenya — Local SEO, direct bookings, and experiential marketing, built around how guests actually search and book.
           </p>
           <div className="flex gap-4 flex-wrap">
-            <Link href="#why-specialist" className="px-6 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
+            <Link href="#why-specialist" className="px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
               See What's Different
             </Link>
             <Link href="/contact" className="px-6 py-3 border border-orange-500 text-gold-flat rounded hover:bg-gold-flat/10 transition-colors">
@@ -134,7 +134,7 @@ export default function HotelDigitalMarketingAgencyPage() {
         <div className="max-w-4xl mx-auto text-center bg-navy-alt border border-border-flat rounded-sm p-12">
           <h2 className="text-3xl font-bold mb-4">Talk to a Specialist, Not a Generalist</h2>
           <p className="text-gray-300 mb-8">Get a free audit covering Local SEO, direct bookings, and experiential marketing for your property.</p>
-          <Link href="/contact" className="inline-block px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-colors">
+          <Link href="/contact" className="inline-block px-8 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-colors">
             Claim My Free Audit — No Obligation →
           </Link>
         </div>

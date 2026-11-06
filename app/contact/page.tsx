@@ -62,7 +62,7 @@ export default function ContactPage() {
               href="https://calendly.com/mogerejulius41/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 font-bold rounded-sm hover:opacity-90 transition-colors"
+              className="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] hover:opacity-90 font-bold rounded-sm hover:opacity-90 transition-colors"
             >
               Claim My Free Call →
             </Link>

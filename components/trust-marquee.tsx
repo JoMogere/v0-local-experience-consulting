@@ -36,9 +36,9 @@ function Item({ property }: { property: Property }) {
 
 export function TrustMarquee() {
   return (
-    <section className="py-14 md:py-20 bg-[#15110E] overflow-hidden">
+    <section className="py-14 md:py-20 bg-[#000000] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10 mb-10 text-center">
-        <p className="font-sign font-semibold text-[#F4EFE6] text-3xl md:text-4xl">
+        <p className="font-sign font-semibold text-[#F8F5EC] text-3xl md:text-4xl">
           Trusted by Kenya&apos;s leading hospitality brands
         </p>
       </div>

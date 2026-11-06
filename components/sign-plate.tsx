@@ -6,9 +6,9 @@ const SHAPES = {
   left: `polygon(${POINT}px 0, 100% 0, 100% 100%, ${POINT}px 100%, 0 50%)`,
 }
 const TONES = {
-  gold: 'bg-[#E6AD45]',
-  paper: 'bg-[#F4EFE6]',
-  clay: 'bg-[#D46A43]',
+  gold: 'bg-[#F6B12C]',
+  paper: 'bg-[#F8F5EC]',
+  clay: 'bg-[#F26A0A]',
 }
 
 // A roadside direction plate: a link shaped like a sign with a pointed end.
@@ -35,7 +35,7 @@ export function SignPlate({
   return (
     <Link
       href={href}
-      className={`font-sign font-bold leading-none text-[#15110E] inline-block hover:brightness-110 focus-visible:underline decoration-4 underline-offset-4 transition ${TONES[tone]} ${pad} ${text}`}
+      className={`font-sign font-bold leading-none text-[#000000] inline-block hover:brightness-110 focus-visible:underline decoration-4 underline-offset-4 transition ${TONES[tone]} ${pad} ${text}`}
       style={{ clipPath: SHAPES[direction], transform: tilt ? `rotate(${tilt}deg)` : undefined }}
     >
       {children}

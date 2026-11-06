@@ -56,7 +56,7 @@ export default function BookDemoPage() {
             href="https://calendly.com/mogerejulius41/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] font-bold rounded-sm hover:opacity-90"
+            className="inline-flex px-8 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] font-bold rounded-sm hover:opacity-90"
           >
             Book My Demo Call →
           </Link>

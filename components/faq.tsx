@@ -29,22 +29,22 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-16 md:py-24 bg-[#15110E] text-center" id="faq">
+    <section className="py-16 md:py-24 bg-[#000000] text-center" id="faq">
       <div className="max-w-[720px] mx-auto px-6">
-        <h2 className="font-sign font-bold text-[#F4EFE6] text-4xl md:text-6xl leading-[0.98] text-balance">
+        <h2 className="font-sign font-bold text-[#F8F5EC] text-4xl md:text-6xl leading-[0.98] text-balance">
           Before you reach out
         </h2>
 
-        <div className="mt-12 md:mt-14 border-t-[3px] border-dashed border-[#E6AD45]/50">
+        <div className="mt-12 md:mt-14 border-t-[3px] border-dashed border-[#F6B12C]/50">
           {FAQS.map((faq, index) => {
             const open = openIndex === index
             return (
-              <div key={index} className="border-b-[3px] border-dashed border-[#E6AD45]/50">
+              <div key={index} className="border-b-[3px] border-dashed border-[#F6B12C]/50">
                 <h3 className="m-0">
                   <button
                     onClick={() => setOpenIndex(open ? null : index)}
                     aria-expanded={open}
-                    className="w-full px-2 py-5 font-sign font-semibold text-2xl md:text-3xl text-[#F4EFE6] hover:text-[#E6AD45] focus-visible:text-[#E6AD45] transition-colors text-balance"
+                    className="w-full px-2 py-5 font-sign font-semibold text-2xl md:text-3xl text-[#F8F5EC] hover:text-[#F6B12C] focus-visible:text-[#F6B12C] transition-colors text-balance"
                   >
                     {faq.q}
                     <span className="sr-only">{open ? ' (hide answer)' : ' (show answer)'}</span>

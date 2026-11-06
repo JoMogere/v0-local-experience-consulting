@@ -24,7 +24,7 @@ export default function DirectBookingAuditPage() {
             Identify where bookings are leaking to OTAs and get a clear action plan to improve visibility, conversions, and direct revenue. This is your diagnostic authority layer.
           </p>
           <div className="flex gap-4">
-            <Link href="#audit" className="px-6 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
+            <Link href="#audit" className="px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
               See Audit Process
             </Link>
             <Link href="/contact" className="px-6 py-3 border border-orange-500 text-gold-flat rounded hover:bg-gold-flat/10 transition-colors">

@@ -7,9 +7,9 @@ const TILTS = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-1']
 // The playbooks are laid out like booklets left on a reception counter.
 export function Playbooks() {
   return (
-    <section id="playbooks" className="py-16 md:py-24 bg-[#241A12] text-center">
+    <section id="playbooks" className="py-16 md:py-24 bg-[#121212] text-center">
       <div className="max-w-[1000px] mx-auto px-6">
-        <h2 className="font-sign font-bold text-[#F4EFE6] text-4xl md:text-6xl leading-[0.98] text-balance">
+        <h2 className="font-sign font-bold text-[#F8F5EC] text-4xl md:text-6xl leading-[0.98] text-balance">
           Playbooks and guides
         </h2>
         <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/90 mt-5 mx-auto max-w-[52ch] leading-relaxed">
@@ -28,12 +28,12 @@ export function Playbooks() {
               >
                 <Image src={playbook.image} alt="" fill sizes="340px" className="object-contain p-4" />
               </div>
-              <h3 className="font-sign font-bold text-[#F4EFE6] text-3xl mt-6 group-hover:text-[#E6AD45] transition-colors">
+              <h3 className="font-sign font-bold text-[#F8F5EC] text-3xl mt-6 group-hover:text-[#F6B12C] transition-colors">
                 {playbook.title}
               </h3>
-              <p className="font-prose italic text-[#E6AD45] mt-1">{playbook.subtitle}</p>
+              <p className="font-prose italic text-[#F6B12C] mt-1">{playbook.subtitle}</p>
               <p className="font-prose text-[#EAE5DF]/90 mt-3 leading-relaxed">{playbook.description}</p>
-              <span className="inline-block mt-3 font-sign font-semibold text-xl text-[#E6AD45] underline decoration-2 underline-offset-4">
+              <span className="inline-block mt-3 font-sign font-semibold text-xl text-[#F6B12C] underline decoration-2 underline-offset-4">
                 View the playbook
               </span>
             </Link>

@@ -76,7 +76,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="py-5 md:py-6 border-t-4 border-dashed border-[#E6AD45]/60 bg-[#3A2413]">
+    <footer className="py-5 md:py-6 border-t-4 border-dashed border-[#F6B12C]/60 bg-[#3A1706]">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-5 gap-y-5">
           {columns.map((col) => (
@@ -124,7 +124,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 flex justify-start md:justify-end">
+        <div className="mt-5 pt-4 border-t border-[#F6B12C]/25 flex justify-start md:justify-end">
           <a
             href={`https://www.google.com/preferences/source?q=${SITE_HOST}`}
             target="_blank"
@@ -141,7 +141,7 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="mt-5 pt-4 border-t border-[#E6AD45]/25 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="mt-5 pt-4 border-t border-[#F6B12C]/25 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="font-serif italic text-gold text-base md:text-lg tracking-[0.5px]">
             Transform. Book. Grow.
           </p>

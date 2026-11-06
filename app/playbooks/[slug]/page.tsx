@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 const buttonClass =
-  'inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity'
+  'inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#0D0D0D] font-bold rounded-sm transition-opacity'
 
 export default async function PlaybookPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params

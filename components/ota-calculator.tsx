@@ -49,27 +49,27 @@ function drawCard(d: Summary): HTMLCanvasElement {
   const sign = '"Arial Narrow", "Helvetica Neue", Arial, sans-serif'
   const serif = 'Georgia, "Times New Roman", serif'
 
-  ctx.fillStyle = '#15110E'
+  ctx.fillStyle = '#000000'
   ctx.fillRect(0, 0, CARD_W, CARD_H)
   ctx.textAlign = 'center'
 
   let y = 150
-  ctx.fillStyle = '#F4EFE6'
+  ctx.fillStyle = '#F8F5EC'
   ctx.font = `bold 64px ${sign}`
   ctx.fillText('What the booking sites cost my hotel', CARD_W / 2, y)
 
   y += 190
-  ctx.fillStyle = '#E6AD45'
+  ctx.fillStyle = '#F6B12C'
   ctx.font = `bold 150px ${sign}`
   ctx.fillText(kes(d.yearly), CARD_W / 2, y)
 
   y += 80
-  ctx.fillStyle = '#F4EFE6'
+  ctx.fillStyle = '#F8F5EC'
   ctx.font = `38px ${serif}`
   ctx.fillText('goes to the OTAs every year.', CARD_W / 2, y)
 
   y += 60
-  ctx.fillStyle = '#E6AD45'
+  ctx.fillStyle = '#F6B12C'
   ctx.font = `italic 34px ${serif}`
   ctx.fillText(`Hiyo ${kes(d.yearly)} si profit yako. Ni ya OTA.`, CARD_W / 2, y)
 
@@ -103,7 +103,7 @@ function drawCard(d: Summary): HTMLCanvasElement {
 
   if (d.moved > 0) {
     y += 20
-    ctx.fillStyle = '#F4EFE6'
+    ctx.fillStyle = '#F8F5EC'
     ctx.font = `bold 40px ${serif}`
     for (const l of wrap(ctx, `Move ${d.moved} OTA ${d.moved === 1 ? 'booking' : 'bookings'} a month to direct and keep ${kes(d.savedYearly)} a year.`, CARD_W - 240)) {
       ctx.fillText(l, CARD_W / 2, y)
@@ -111,7 +111,7 @@ function drawCard(d: Summary): HTMLCanvasElement {
     }
   }
 
-  ctx.fillStyle = '#E6AD45'
+  ctx.fillStyle = '#F6B12C'
   ctx.font = `bold 40px ${sign}`
   ctx.fillText('BookedUp Africa', CARD_W / 2, CARD_H - 120)
   ctx.fillStyle = '#EAE5DF'
@@ -184,7 +184,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block font-sign font-semibold text-xl text-[#F4EFE6] mb-1">
+      <label htmlFor={id} className="block font-sign font-semibold text-xl text-[#F8F5EC] mb-1">
         {label}
       </label>
       <div className="flex items-center gap-2">
@@ -196,7 +196,7 @@ function Field({
           value={value}
           placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full px-4 py-3 bg-[#15110E] border border-[#3A2D22] rounded-sm text-[#F4EFE6] text-lg placeholder:text-[#EAE5DF]/35 focus:outline-none focus:border-[#E6AD45]"
+          className="w-full px-4 py-3 bg-[#000000] border border-[#2A2A2A] rounded-sm text-[#F8F5EC] text-lg placeholder:text-[#EAE5DF]/35 focus:outline-none focus:border-[#F6B12C]"
         />
         {suffix && <span className="text-[#EAE5DF]/80 whitespace-nowrap">{suffix}</span>}
       </div>
@@ -283,14 +283,14 @@ export function OtaCalculator() {
       </form>
 
       <div className="text-center mt-4">
-        <button type="button" onClick={fillExample} className="font-prose text-[#E6AD45] underline underline-offset-4 hover:text-[#F1BE5E]">
+        <button type="button" onClick={fillExample} className="font-prose text-[#F6B12C] underline underline-offset-4 hover:text-[#FFC24A]">
           Not sure? Fill in an example
         </button>
       </div>
 
       <div className="mt-12 text-center" aria-live="polite">
         {!ready ? (
-          <p className="font-prose text-xl text-[#EAE5DF]/80 border-t-[3px] border-dashed border-[#E6AD45]/50 pt-8">
+          <p className="font-prose text-xl text-[#EAE5DF]/80 border-t-[3px] border-dashed border-[#F6B12C]/50 pt-8">
             Fill in the first three boxes and your answer appears here.
           </p>
         ) : (
@@ -302,15 +302,15 @@ export function OtaCalculator() {
               {nightsN === 1 ? '' : `${nightsN} nights × ${kes(rateN)} = ${kes(perBooking)}, then `}
               {commN}% of {kes(perBooking)} = {kes(feePerBooking)}
             </p>
-            <p className="font-sign font-bold text-[#E6AD45] text-6xl md:text-8xl leading-none mt-4">{kes(yearly)}</p>
-            <p className="font-prose text-xl text-[#F4EFE6] mt-3">
+            <p className="font-sign font-bold text-[#F6B12C] text-6xl md:text-8xl leading-none mt-4">{kes(yearly)}</p>
+            <p className="font-prose text-xl text-[#F8F5EC] mt-3">
               goes to the OTAs every year. That is {kes(monthly)} a month. It is not your profit.
             </p>
-            <p lang="sw" className="font-prose italic text-lg text-[#E6AD45] mt-2">
+            <p lang="sw" className="font-prose italic text-lg text-[#F6B12C] mt-2">
               Hiyo {kes(yearly)} si profit yako. Ni ya OTA.
             </p>
 
-            <div className="border-t-[3px] border-dashed border-[#E6AD45]/50 mt-10 pt-8">
+            <div className="border-t-[3px] border-dashed border-[#F6B12C]/50 mt-10 pt-8">
               <p className="font-prose text-lg text-[#EAE5DF]/90">
                 {directShare}% of your bookings are direct. {verdict}
               </p>
@@ -318,7 +318,7 @@ export function OtaCalculator() {
                 <p className="font-prose text-lg text-[#EAE5DF]/90 mt-3">
                   {assumed ? 'If you moved about 3 in 10 of your OTA bookings, ' : 'If you moved '}
                   {assumed ? `that is ${moved} a month, ` : `${moved} OTA ${moved === 1 ? 'booking' : 'bookings'} a month to direct, `}
-                  you would keep <strong className="text-[#E6AD45]">{kes(savedYearly)}</strong> a year.
+                  you would keep <strong className="text-[#F6B12C]">{kes(savedYearly)}</strong> a year.
                 </p>
               )}
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
@@ -326,21 +326,21 @@ export function OtaCalculator() {
                   href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-[#E6AD45] hover:bg-[#F1BE5E] text-[#15110E] font-sign font-bold text-xl rounded-sm transition-colors"
+                  className="inline-block px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#000000] font-sign font-bold text-xl rounded-sm transition-colors"
                 >
                   Send to Jo on WhatsApp
                 </a>
                 <button
                   type="button"
                   onClick={downloadImage}
-                  className="px-6 py-3 border-2 border-[#E6AD45] text-[#E6AD45] hover:bg-[#E6AD45] hover:text-[#15110E] font-sign font-bold text-xl rounded-sm transition-colors"
+                  className="px-6 py-3 border-2 border-[#F6B12C] text-[#F6B12C] hover:bg-[#F6B12C] hover:text-[#000000] font-sign font-bold text-xl rounded-sm transition-colors"
                 >
                   Download as image
                 </button>
                 <button
                   type="button"
                   onClick={downloadPdf}
-                  className="px-6 py-3 border-2 border-[#E6AD45] text-[#E6AD45] hover:bg-[#E6AD45] hover:text-[#15110E] font-sign font-bold text-xl rounded-sm transition-colors"
+                  className="px-6 py-3 border-2 border-[#F6B12C] text-[#F6B12C] hover:bg-[#F6B12C] hover:text-[#000000] font-sign font-bold text-xl rounded-sm transition-colors"
                 >
                   Download as PDF
                 </button>

@@ -24,7 +24,7 @@ export default function GuestExperienceOptimizationPage() {
             Improve the full guest journey from discovery to post-stay engagement to increase repeat bookings, referrals, and five-star reviews. This is how you build loyalty.
           </p>
           <div className="flex gap-4">
-            <Link href="#journey" className="px-6 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
+            <Link href="#journey" className="px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
               See Framework
             </Link>
             <Link href="/contact" className="px-6 py-3 border border-orange-500 text-gold-flat rounded hover:bg-gold-flat/10 transition-colors">

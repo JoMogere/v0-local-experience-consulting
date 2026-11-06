@@ -24,7 +24,7 @@ export default function GrowthPartnershipPage() {
             A long-term partnership managing your Local SEO, reputation, and booking performance to increase direct revenue consistently. This is your hotel growth engine.
           </p>
           <div className="flex gap-4">
-            <Link href="#strategy" className="px-6 py-3 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
+            <Link href="#strategy" className="px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] hover:opacity-90 rounded hover:opacity-90 transition-colors">
               Learn More
             </Link>
             <Link href="/contact" className="px-6 py-3 border border-orange-500 text-gold-flat rounded hover:bg-gold-flat/10 transition-colors">

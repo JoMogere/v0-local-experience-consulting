@@ -45,7 +45,7 @@ export function Navigation() {
               href="https://calendly.com/mogerejulius41/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] font-bold rounded-sm transition-opacity hover:opacity-90 uppercase tracking-[1px] text-[12px] no-underline whitespace-nowrap"
+              className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] font-bold rounded-sm transition-opacity hover:opacity-90 uppercase tracking-[1px] text-[12px] no-underline whitespace-nowrap"
             >
               Book a Call
             </Link>
@@ -82,7 +82,7 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-2 w-full px-4 py-2.5 bg-gradient-to-r from-[#D46A43] to-[#E6AD45] text-[#0D0D0D] font-bold rounded-sm text-center text-sm uppercase tracking-[1px] no-underline"
+                className="mt-2 w-full px-4 py-2.5 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] text-[#0D0D0D] font-bold rounded-sm text-center text-sm uppercase tracking-[1px] no-underline"
               >
                 Book a Call
               </Link>

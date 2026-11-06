@@ -4,25 +4,25 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #15110E;
-  --foreground: #F9F6F0;
-  --card: #241A12;
+  --background: #000000;
+  --foreground: #F8F5EC;
+  --card: #121212;
   --card-foreground: #F9F6F0;
-  --popover: #241A12;
+  --popover: #121212;
   --popover-foreground: #F9F6F0;
-  --primary: #D4AF37;
+  --primary: #F26A0A;
   --primary-foreground: #0D0D0D;
-  --secondary: #241A12;
+  --secondary: #121212;
   --secondary-foreground: #F9F6F0;
-  --muted: #241A12;
+  --muted: #121212;
   --muted-foreground: #EAE5DF;
   --accent: #F9F6F0;
   --accent-foreground: #0D0D0D;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #3A2D22;
-  --input: #3A2D22;
-  --ring: #D4AF37;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --ring: #F26A0A;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -39,16 +39,16 @@
   --sidebar-ring: oklch(0.708 0 0);
   
   /* Custom colors for this design */
-  --gold: #D4AF37;
-  --gold-light: #F1D592;
-  --gold-dark: #B8962D;
-  --gold-flat: #E6AD45;
-  --clay: #D46A43;
-  --navy-deep: #15110E;
-  --navy-alt: #241A12;
-  --off-white: #F9F6F0;
+  --gold: #F26A0A;
+  --gold-light: #F6B12C;
+  --gold-dark: #BA3206;
+  --gold-flat: #F6B12C;
+  --clay: #F26A0A;
+  --navy-deep: #000000;
+  --navy-alt: #121212;
+  --off-white: #F8F5EC;
   --text-gray: #EAE5DF;
-  --border-flat: #3A2D22;
+  --border-flat: #2A2A2A;
 }
 
 .dark {
@@ -165,7 +165,7 @@
 .font-prose { font-family: var(--font-prose), Georgia, serif; }
 
 /* The dashed centre line of the road that links the homepage sections */
-.road-dash { width: 0; border-left: 4px dashed #E6AD45; }
+.road-dash { width: 0; border-left: 4px dashed #F6B12C; }
 
 /* ---------------------------------------------------------------------------
    Public-site look (everything outside /admin): sign lettering for headings,
@@ -191,12 +191,10 @@
 .public-site :is(p, span, a, button, h1, h2, h3, li).uppercase { text-transform: none; }
 .public-site :is(p, span, a, button, h1, h2, h3, li)[class*='tracking-['] { letter-spacing: 0; }
 
-/* Buttons: one solid road-paint yellow instead of a gradient wash, set in sign lettering */
-.public-site [class*='from-[#D46A43]'],
+/* Buttons keep the logo's orange-to-amber gradient, set in sign lettering */
+.public-site [class*='from-[#F26A0A]'],
 .public-site [class*='from-gold-light'] {
-  background-image: none;
-  background-color: #E6AD45;
-  color: #15110E;
+  color: #000000;
   font-family: var(--font-sign), 'Arial Narrow', sans-serif;
   font-size: 1.25rem;
   letter-spacing: 0;
@@ -206,7 +204,7 @@
 .public-site .grid > :is(a, div).border.border-border-flat:not(:has(img)) {
   border-width: 3px 0 0 0;
   border-style: dashed;
-  border-color: rgb(230 173 69 / 0.45);
+  border-color: rgb(246 177 44 / 0.45);
   background: transparent;
   border-radius: 0;
   text-align: center;
