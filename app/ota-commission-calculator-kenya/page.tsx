@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { OtaCalculator } from '@/components/ota-calculator'
+import { PriceComparison } from '@/components/price-comparison'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/ota-commission-calculator-kenya' },
@@ -24,6 +25,10 @@ export default function OtaCalculatorPage() {
         <p lang="sw" className="font-prose italic text-lg text-[#E6AD45] mt-3">
           Weka namba zako mwenyewe. Utaona OTA zinachukua kiasi gani kwa mwaka.
         </p>
+      </div>
+
+      <div className="mb-16">
+        <PriceComparison />
       </div>
 
       <OtaCalculator />

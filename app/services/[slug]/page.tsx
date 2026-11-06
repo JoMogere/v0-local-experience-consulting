@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { PriceComparison } from '@/components/price-comparison'
 import { getServiceBySlug, SERVICES } from '@/lib/services-data'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -72,6 +73,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
             </p>
           ))}
         </section>
+
+        {service.slug === 'direct-bookings' && (
+          <section className="mb-12">
+            <PriceComparison />
+          </section>
+        )}
 
         <section className="bg-white/5 border border-white/10 rounded-lg p-8 mb-12">
           <h2 className="text-xl font-bold mb-4">What's Included</h2>
