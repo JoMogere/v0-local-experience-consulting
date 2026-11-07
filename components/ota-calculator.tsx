@@ -3,7 +3,21 @@
 import { useState } from 'react'
 
 const WHATSAPP = '254799022671'
-const kes = (n: number) => `KES ${Math.round(n).toLocaleString('en-KE')}`
+// The chosen currency is set while the component renders, so the image, PDF and message use it too.
+const CURRENCIES = {
+  KES: { example: '10000', decimals: 0 },
+  UGX: { example: '250000', decimals: 0 },
+  TZS: { example: '250000', decimals: 0 },
+  USD: { example: '80', decimals: 2 },
+  EUR: { example: '75', decimals: 2 },
+  GBP: { example: '65', decimals: 2 },
+} as const
+type Cur = keyof typeof CURRENCIES
+let currency: Cur = 'KES'
+const kes = (n: number) => {
+  const d = CURRENCIES[currency].decimals
+  return `${currency} ${(d ? Math.round(n * 100) / 100 : Math.round(n)).toLocaleString('en-KE', { maximumFractionDigits: d })}`
+}
 
 
 type Summary = {
@@ -219,6 +233,8 @@ export function OtaCalculator() {
   const [nights, setNights] = useState('')
   const [shift, setShift] = useState('')
   // Booking counts can be typed per month or per year. Everything below works in months.
+  const [cur, setCur] = useState<Cur>('KES')
+  currency = cur
   const [period, setPeriod] = useState<'month' | 'year'>('month')
   const f = period === 'year' ? 1 / 12 : 1
   const per = period === 'year' ? 'each year' : 'each month'
@@ -252,9 +268,9 @@ export function OtaCalculator() {
       : 'You get most bookings direct. Protect that, and keep growing it.'
 
   const fillExample = () => {
-    setRate('10000')
     setCommission('15')
     setPeriod('month')
+    setRate(CURRENCIES[cur].example)
     setOta('10')
     setDirect('5')
     setNights('1')
@@ -279,6 +295,23 @@ export function OtaCalculator() {
 
   return (
     <div className="max-w-[760px] mx-auto">
+      <div className="flex justify-center items-center gap-3 mb-4">
+        <label htmlFor="currency" className="font-sign font-semibold text-xl text-[#F8F5EC]">
+          Currency
+        </label>
+        <select
+          id="currency"
+          value={cur}
+          onChange={(e) => setCur(e.target.value as Cur)}
+          className="px-3 py-2 bg-[#000000] border border-[#F6B12C] text-[#F8F5EC] text-lg rounded-sm focus:outline-none"
+        >
+          {(Object.keys(CURRENCIES) as Cur[]).map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="flex justify-center mb-6" role="group" aria-label="Enter bookings per">
         {(['month', 'year'] as const).map((p) => (
           <button
@@ -296,7 +329,7 @@ export function OtaCalculator() {
       </div>
 
       <form onSubmit={(e) => e.preventDefault()} className="grid sm:grid-cols-2 gap-6">
-        <Field id="rate" label="Your room price per night" value={rate} onChange={setRate} suffix="KES" placeholder="10000" />
+        <Field id="rate" label="Your room price per night" value={rate} onChange={setRate} suffix={cur} placeholder={CURRENCIES[cur].example} />
         <Field id="commission" label="OTA commission" value={commission} onChange={setCommission} suffix="%" placeholder="15" hint="Check your booking site statement. Often 15% to 18%." />
         <Field id="ota" label={`Bookings from OTAs ${per}`} value={ota} onChange={setOta} placeholder={period === 'year' ? '120' : '10'} hint="Stays that actually happened in an average month. Leave out cancellations and no-shows." />
         <Field id="direct" label={`Direct bookings ${per}`} value={direct} onChange={setDirect} placeholder={period === 'year' ? '60' : '5'} hint="Phone, WhatsApp, walk-in and your website. Leave empty if none." />
