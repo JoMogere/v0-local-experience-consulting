@@ -46,6 +46,11 @@ export default function OtaCalculatorPage() {
           If you leave the number of bookings to move empty, the calculator assumes 3 in every 10 OTA bookings. It is
           only a starting point. Type your own number to see what a more or less ambitious plan is worth.
         </p>
+        <p className="font-prose text-lg text-[#EAE5DF]/80 mt-6 leading-relaxed">
+          Read the yearly figure as an upper estimate. It repeats your monthly numbers for 12 months, so use an
+          average month, not your busiest one. Bookings that were cancelled pay no commission, and a guest who books
+          direct still costs you a little in payment fees, so the real saving is somewhat lower.
+        </p>
         <h2 className="font-sign font-bold text-[#F8F5EC] text-4xl md:text-5xl mt-14">Where the savings come from</h2>
         <ol className="font-prose text-lg text-[#EAE5DF]/90 mt-6 leading-relaxed space-y-4 text-left list-decimal pl-6">
           <li>A booking option on your own website that loads fast on a phone and takes the payments your guests use, such as M-Pesa and cards.</li>

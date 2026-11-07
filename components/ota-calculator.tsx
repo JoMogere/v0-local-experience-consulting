@@ -248,7 +248,7 @@ export function OtaCalculator() {
 
   const fillExample = () => {
     setRate('10000')
-    setCommission('20')
+    setCommission('15')
     setOta('10')
     setDirect('5')
     setNights('1')
@@ -275,8 +275,8 @@ export function OtaCalculator() {
     <div className="max-w-[760px] mx-auto">
       <form onSubmit={(e) => e.preventDefault()} className="grid sm:grid-cols-2 gap-6">
         <Field id="rate" label="Your room price per night" value={rate} onChange={setRate} suffix="KES" placeholder="10000" />
-        <Field id="commission" label="OTA commission" value={commission} onChange={setCommission} suffix="%" placeholder="20" hint="Check your booking site statement. Often 15% to 20%." />
-        <Field id="ota" label="Bookings from OTAs each month" value={ota} onChange={setOta} placeholder="10" hint="Booking.com, Expedia and similar." />
+        <Field id="commission" label="OTA commission" value={commission} onChange={setCommission} suffix="%" placeholder="15" hint="Check your booking site statement. Often 15% to 18%." />
+        <Field id="ota" label="Bookings from OTAs each month" value={ota} onChange={setOta} placeholder="10" hint="Stays that actually happened in an average month. Leave out cancellations and no-shows." />
         <Field id="direct" label="Direct bookings each month" value={direct} onChange={setDirect} placeholder="5" hint="Phone, WhatsApp, walk-in and your website. Leave empty if none." />
         <Field id="nights" label="Average nights per booking" value={nights} onChange={setNights} placeholder="1" hint="Leave empty for 1 night. If a guest stays 2 nights, the commission is taken on both." />
         <Field id="shift" label="OTA bookings you could move to direct" value={shift} onChange={setShift} suffix="a month" placeholder="3" hint="Leave empty and we assume about 3 in 10." />
