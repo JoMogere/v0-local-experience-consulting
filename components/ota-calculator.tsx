@@ -218,11 +218,15 @@ export function OtaCalculator() {
   const [direct, setDirect] = useState('')
   const [nights, setNights] = useState('')
   const [shift, setShift] = useState('')
+  // Booking counts can be typed per month or per year. Everything below works in months.
+  const [period, setPeriod] = useState<'month' | 'year'>('month')
+  const f = period === 'year' ? 1 / 12 : 1
+  const per = period === 'year' ? 'each year' : 'each month'
 
   const rateN = num(rate)
   const commN = num(commission)
-  const otaN = num(ota)
-  const directN = Number.isNaN(num(direct)) ? 0 : num(direct)
+  const otaN = num(ota) * f
+  const directN = Number.isNaN(num(direct)) ? 0 : num(direct) * f
   const nightsN = Number.isNaN(num(nights)) || num(nights) === 0 ? 1 : num(nights)
   const ready = !Number.isNaN(rateN) && !Number.isNaN(commN) && !Number.isNaN(otaN) && rateN > 0
 
@@ -234,9 +238,10 @@ export function OtaCalculator() {
   const directShare = total > 0 ? Math.round((directN / total) * 100) : 0
 
   // If they do not say how many bookings they could move, assume about 3 in 10 of their OTA bookings.
-  const shiftInput = num(shift)
+  const shiftInput = num(shift) * f
   const moved = ready ? Math.min(Number.isNaN(shiftInput) ? Math.max(1, Math.round(otaN * 0.3)) : shiftInput, otaN) : 0
   const assumed = Number.isNaN(shiftInput)
+  const movedShown = Math.round((moved / f) * 10) / 10
   const savedYearly = feePerBooking * moved * 12
 
   const verdict =
@@ -249,13 +254,14 @@ export function OtaCalculator() {
   const fillExample = () => {
     setRate('10000')
     setCommission('15')
+    setPeriod('month')
     setOta('10')
     setDirect('5')
     setNights('1')
     setShift('')
   }
 
-  const summary: Summary = { rate: rateN || 0, commission: commN || 0, ota: ready ? otaN : 0, direct: directN, perBooking: feePerBooking, nights: nightsN, monthly, yearly, directShare, moved, savedYearly }
+  const summary: Summary = { rate: rateN || 0, commission: commN || 0, ota: ready ? Math.round(otaN * 10) / 10 : 0, direct: Math.round(directN * 10) / 10, perBooking: feePerBooking, nights: nightsN, monthly, yearly, directShare, moved: Math.round(moved * 10) / 10, savedYearly }
 
   const downloadImage = () => {
     drawCard(summary).toBlob((blob) => blob && save(blob, 'ota-commission-result.png'), 'image/png')
@@ -269,17 +275,33 @@ export function OtaCalculator() {
     save(jpegToPdf(bytes, CARD_W, CARD_H), 'ota-commission-result.pdf')
   }
 
-  const message = `Niliangalia calculator yenu. Room yangu ni ${kes(rateN || 0)} per night, nipo na ${ready ? otaN : 0} OTA bookings na ${directN} direct kwa mwezi. OTA zinachukua ${kes(yearly)} kwa mwaka. Naomba msaada wa kuongeza direct bookings.`
+  const message = `Niliangalia calculator yenu. Room yangu ni ${kes(rateN || 0)} per night, nipo na ${ready ? Math.round(otaN * 10) / 10 : 0} OTA bookings na ${Math.round(directN * 10) / 10} direct kwa mwezi. OTA zinachukua ${kes(yearly)} kwa mwaka. Naomba msaada wa kuongeza direct bookings.`
 
   return (
     <div className="max-w-[760px] mx-auto">
+      <div className="flex justify-center mb-6" role="group" aria-label="Enter bookings per">
+        {(['month', 'year'] as const).map((p) => (
+          <button
+            key={p}
+            type="button"
+            onClick={() => setPeriod(p)}
+            aria-pressed={period === p}
+            className={`px-5 py-2 font-sign font-bold text-xl border-2 border-[#F6B12C] transition-colors ${
+              period === p ? 'bg-[#F6B12C] text-[#000000]' : 'text-[#F6B12C] hover:bg-[#F6B12C]/15'
+            }`}
+          >
+            {p === 'month' ? 'Monthly figures' : 'Yearly figures'}
+          </button>
+        ))}
+      </div>
+
       <form onSubmit={(e) => e.preventDefault()} className="grid sm:grid-cols-2 gap-6">
         <Field id="rate" label="Your room price per night" value={rate} onChange={setRate} suffix="KES" placeholder="10000" />
         <Field id="commission" label="OTA commission" value={commission} onChange={setCommission} suffix="%" placeholder="15" hint="Check your booking site statement. Often 15% to 18%." />
-        <Field id="ota" label="Bookings from OTAs each month" value={ota} onChange={setOta} placeholder="10" hint="Stays that actually happened in an average month. Leave out cancellations and no-shows." />
-        <Field id="direct" label="Direct bookings each month" value={direct} onChange={setDirect} placeholder="5" hint="Phone, WhatsApp, walk-in and your website. Leave empty if none." />
+        <Field id="ota" label={`Bookings from OTAs ${per}`} value={ota} onChange={setOta} placeholder={period === 'year' ? '120' : '10'} hint="Stays that actually happened in an average month. Leave out cancellations and no-shows." />
+        <Field id="direct" label={`Direct bookings ${per}`} value={direct} onChange={setDirect} placeholder={period === 'year' ? '60' : '5'} hint="Phone, WhatsApp, walk-in and your website. Leave empty if none." />
         <Field id="nights" label="Average nights per booking" value={nights} onChange={setNights} placeholder="1" hint="Leave empty for 1 night. If a guest stays 2 nights, the commission is taken on both." />
-        <Field id="shift" label="OTA bookings you could move to direct" value={shift} onChange={setShift} suffix="a month" placeholder="3" hint="Leave empty and we assume about 3 in 10." />
+        <Field id="shift" label="OTA bookings you could move to direct" value={shift} onChange={setShift} suffix={period === 'year' ? 'a year' : 'a month'} placeholder={period === 'year' ? '36' : '3'} hint="Leave empty and we assume about 3 in 10." />
       </form>
 
       <div className="text-center mt-4">
@@ -317,7 +339,7 @@ export function OtaCalculator() {
               {moved > 0 && (
                 <p className="font-prose text-lg text-[#EAE5DF]/90 mt-3">
                   {assumed ? 'If you moved about 3 in 10 of your OTA bookings, ' : 'If you moved '}
-                  {assumed ? `that is ${moved} a month, ` : `${moved} OTA ${moved === 1 ? 'booking' : 'bookings'} a month to direct, `}
+                  {assumed ? `that is ${movedShown} ${per}, ` : `${movedShown} OTA ${movedShown === 1 ? 'booking' : 'bookings'} ${per} to direct, `}
                   you would keep <strong className="text-[#F6B12C]">{kes(savedYearly)}</strong> a year.
                 </p>
               )}
