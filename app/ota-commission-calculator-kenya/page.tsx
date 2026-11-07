@@ -33,6 +33,27 @@ export default function OtaCalculatorPage() {
 
       <OtaCalculator />
 
+      <section className="max-w-[640px] mx-auto mt-20 text-center">
+        <h2 className="font-sign font-bold text-[#F8F5EC] text-4xl md:text-5xl">How this is calculated</h2>
+        <div className="font-prose text-lg text-[#EAE5DF]/90 mt-6 leading-relaxed space-y-2">
+          <p>Cost of one booking = room price × nights</p>
+          <p>Commission on one booking = cost of one booking × commission %</p>
+          <p>Monthly commission = commission on one booking × OTA bookings a month</p>
+          <p>Yearly commission = monthly commission × 12</p>
+          <p>Yearly saving = commission on one booking × bookings moved to direct × 12</p>
+        </div>
+        <p className="font-prose text-lg text-[#EAE5DF]/80 mt-6 leading-relaxed">
+          If you leave the number of bookings to move empty, the calculator assumes 3 in every 10 OTA bookings. It is
+          only a starting point. Type your own number to see what a more or less ambitious plan is worth.
+        </p>
+        <h2 className="font-sign font-bold text-[#F8F5EC] text-4xl md:text-5xl mt-14">Where the savings come from</h2>
+        <ol className="font-prose text-lg text-[#EAE5DF]/90 mt-6 leading-relaxed space-y-4 text-left list-decimal pl-6">
+          <li>A booking option on your own website that loads fast on a phone and takes the payments your guests use, such as M-Pesa and cards.</li>
+          <li>A message after every stay, on WhatsApp or email, with a reason to book direct next time.</li>
+          <li>A complete Google Business Profile, so guests who search your hotel name find your own booking link ahead of the booking sites.</li>
+        </ol>
+      </section>
+
       <p className="font-prose text-lg text-[#EAE5DF]/80 mt-16 max-w-[52ch] mx-auto">
         Want the worked example in words? Read{' '}
         <Link href="/blog/ota-commission-lodge-example" className="text-[#F6B12C] underline underline-offset-4">
