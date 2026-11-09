@@ -72,15 +72,6 @@ export const MERCH: MerchProduct = {
       alt: 'Black BookedUp Africa t-shirt, front with the logo and back reading "Research and Implementation for local search, experiential marketing, and hospitality growth" in a bold condensed font',
       note: 'Bold condensed lettering on the back.',
     },
-    {
-      id: 'script',
-      name: 'Script back print',
-      image: '/merch/tee-script.jpg',
-      width: 1426,
-      height: 798,
-      alt: 'Black BookedUp Africa t-shirt, front with the logo and back reading "Research and Implementation" with the tagline in a flowing script font',
-      note: 'Bold heading with a flowing script tagline.',
-    },
   ],
 }
 

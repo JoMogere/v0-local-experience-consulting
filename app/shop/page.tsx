@@ -74,7 +74,7 @@ export default function ShopPage() {
           ))}
         </section>
 
-        <h2 className="text-2xl font-bold mb-6">The two back prints</h2>
+        <h2 className="text-2xl font-bold mb-6">The back print</h2>
         <section className="space-y-12">
           {MERCH.designs.map((d) => (
             <figure key={d.id}>
@@ -96,7 +96,7 @@ export default function ShopPage() {
 
         <section className="mt-16 p-8 bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-3">Want yours?</h2>
-          <p className="text-text-gray mb-6">Tell us which back print you prefer and we'll take it from there.</p>
+          <p className="text-text-gray mb-6">Message us on WhatsApp and we'll take it from there.</p>
           <a
             href={whatsappLink(`Hi, I'd like to order the ${MERCH.name}. Please share sizes and pricing.`)}
             target="_blank"
