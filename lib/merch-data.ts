@@ -29,6 +29,7 @@ export interface MerchProduct {
   price?: string
   buyUrl?: string
   photo: MerchPhoto
+  gallery: MerchPhoto[]
   designs: MerchDesign[]
 }
 
@@ -53,6 +54,14 @@ export const MERCH: MerchProduct = {
     height: 1333,
     alt: 'Jo Mogere wearing the black BookedUp Africa t-shirt with arms raised on a stone path through trees at a lodge with thatched huts',
   },
+  gallery: [
+    {
+      image: '/merch/tee-front-worn.webp',
+      width: 1040,
+      height: 1560,
+      alt: 'Jo Mogere smiling in a grey BookedUp Africa t-shirt with the logo on the front',
+    },
+  ],
   designs: [
     {
       id: 'classic',

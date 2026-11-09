@@ -65,6 +65,15 @@ export default function ShopPage() {
           </div>
         </header>
 
+        <h2 className="text-2xl font-bold mb-6">The logo on the front</h2>
+        <section className="mb-14 flex flex-wrap gap-6">
+          {MERCH.gallery.map((g) => (
+            <div key={g.image} className="overflow-hidden rounded-sm border border-border-flat w-full max-w-sm">
+              <Image src={g.image} alt={g.alt} width={g.width} height={g.height} className="w-full h-auto" />
+            </div>
+          ))}
+        </section>
+
         <h2 className="text-2xl font-bold mb-6">The two back prints</h2>
         <section className="space-y-12">
           {MERCH.designs.map((d) => (
