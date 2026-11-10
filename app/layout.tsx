@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SiteChrome } from '@/components/site-chrome'
 import { SiteSchema } from '@/components/site-schema'
 import { MetaPixel } from '@/components/meta-pixel'
+import { GoogleTagManager } from '@/components/google-tag-manager'
 import { Hreflang } from '@/components/hreflang'
 import './globals.css'
 import { SITE_URL } from '@/lib/site'
@@ -90,6 +91,7 @@ export default function RootLayout({
       <body className={`${dmSans.variable} ${playfair.variable} ${barlow.variable} ${newsreader.variable} font-sans antialiased text-foreground`}>
         <SiteSchema />
           <MetaPixel />
+          <GoogleTagManager />
         <Hreflang />
         <SiteChrome>{children}</SiteChrome>
         {process.env.NODE_ENV === 'production' && <Analytics />}
