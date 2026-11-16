@@ -6,12 +6,12 @@ import { SITE_URL } from '@/lib/site'
 const NAME = 'Julius Onyiego Mogere'
 
 export const metadata: Metadata = {
-  title: 'About Julius Onyiego Mogere (Jo Mogere) – Founder of BookedUp Africa',
+  title: 'Julius Onyiego Mogere (Jo Mogere) | BookedUp Africa',
   description:
-    'Julius Onyiego Mogere, known publicly as Jo Mogere, is the founder of BookedUp Africa, a hospitality digital marketing consultancy helping hotels and resorts in Kenya and East Africa with local SEO, direct bookings and experiential marketing.',
+    'Julius Onyiego Mogere, known as Jo Mogere, founded BookedUp Africa to help hotels in Kenya and East Africa with local SEO and direct bookings.',
   alternates: { canonical: '/founder' },
   openGraph: {
-    title: 'About Julius Onyiego Mogere (Jo Mogere) – Founder of BookedUp Africa',
+    title: 'Julius Onyiego Mogere (Jo Mogere) | BookedUp Africa',
     description:
       'Founder of BookedUp Africa. Local SEO, direct bookings and experiential marketing for hotels and resorts in Kenya and East Africa.',
     type: 'profile',

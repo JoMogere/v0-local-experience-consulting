@@ -5,7 +5,7 @@ import { DemoRequestForm } from '@/components/demo-request-form'
 export const metadata: Metadata = {
   title: 'Book a Demo & Get a Quote | BookedUp Africa',
   description:
-    'Book a free demo call for your hotel or guesthouse in Kenya. See how direct bookings, Google visibility and a booking engine would work for your property, then get a clear written quote.',
+    'Book a free demo call for your hotel or guesthouse in Kenya. See how direct bookings and Google visibility would work for you, then get a written quote.',
   alternates: { canonical: '/book-demo' },
 }
 

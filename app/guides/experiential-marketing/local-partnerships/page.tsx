@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
+import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
   alternates: {
     canonical: '/guides/experiential-marketing/local-partnerships',
   },
-  title: 'Finding Local Partners for Guest Experiences | BookedUp Africa',
+  title: 'Local Partners for Guest Experiences | BookedUp Africa',
   description: 'A simple, friendly guide to finding and working with local guides, chefs, and artisans to create experiences guests love.',
   keywords: 'local partnerships hotels, guest experiences Kenya, hotel local guides',
 }
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function LocalPartnershipsPage() {
   return (
     <main className="min-h-screen bg-navy-deep text-white pt-32">
+      <ArticleJsonLd path={metadata.alternates?.canonical as string} title={metadata.title as string} description={metadata.description as string} />
       <article className="max-w-4xl mx-auto px-4 md:px-6 pb-16">
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>

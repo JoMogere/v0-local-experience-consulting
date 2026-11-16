@@ -61,6 +61,12 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Searchers still land on an old pricing address. Quotes are given on request.
+        source: '/pricing',
+        destination: '/book-demo',
+        permanent: true,
+      },
+      {
         source: '/merch',
         destination: '/shop',
         permanent: true,

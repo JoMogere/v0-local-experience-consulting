@@ -5,7 +5,7 @@ import { PriceComparison } from '@/components/price-comparison'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/ota-commission-calculator-kenya' },
-  title: 'OTA Commission Calculator for Hotels in Kenya | BookedUp Africa',
+  title: 'OTA Commission Calculator for Hotels | BookedUp Africa',
   description:
     'Work out how much your hotel or lodge pays Booking.com and other OTAs in commission every year, and what you keep by moving bookings to direct.',
   keywords: 'OTA commission calculator, Booking.com commission Kenya, direct bookings calculator hotel, hotel commission loss',

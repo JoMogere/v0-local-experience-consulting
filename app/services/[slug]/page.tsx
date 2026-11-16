@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     openGraph: {
       title: SEO_TITLES[service.slug] ?? service.title,
       description: service.metaDescription,
-      type: 'article',
+      type: 'website',
     },
   }
 }

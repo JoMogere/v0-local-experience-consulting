@@ -5,6 +5,7 @@ import { SiteChrome } from '@/components/site-chrome'
 import { SiteSchema } from '@/components/site-schema'
 import { MetaPixel } from '@/components/meta-pixel'
 import { GoogleTagManager } from '@/components/google-tag-manager'
+import { SocialTags } from '@/components/social-tags'
 import { Hreflang } from '@/components/hreflang'
 import './globals.css'
 import { SITE_URL } from '@/lib/site'
@@ -63,9 +64,6 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: '/',
-    siteName: 'BookedUp Africa',
     title: 'BookedUp Africa — Transform Your Hospitality Business',
     description: 'Research and implementation for local search, experiential marketing, and hospitality growth.',
   },
@@ -92,6 +90,7 @@ export default function RootLayout({
         <SiteSchema />
           <MetaPixel />
           <GoogleTagManager />
+        <SocialTags />
         <Hreflang />
         <SiteChrome>{children}</SiteChrome>
         {process.env.NODE_ENV === 'production' && <Analytics />}

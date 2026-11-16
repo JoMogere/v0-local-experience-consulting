@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function GBPPillar() {
   return (
     <article className="min-h-screen bg-navy-deep text-white pt-24">
+      <ArticleJsonLd path={metadata.alternates?.canonical as string} title={metadata.title as string} description={metadata.description as string} />
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         <div className="text-sm text-text-gray mb-8"><Link href="/blog" className="hover:text-orange-500">Blog</Link> / Google Business Profile for Hotels</div>
         <header className="mb-12">

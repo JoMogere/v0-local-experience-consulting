@@ -22,7 +22,6 @@ const graph = {
         { '@type': 'Country', name: 'Kenya' },
         { '@type': 'Place', name: 'East Africa' },
       ],
-      serviceType: ['Hotel local SEO', 'Hotel direct booking strategy', 'Experiential marketing for hotels'],
       knowsAbout: ['Local SEO for hotels', 'Google Business Profile', 'Direct hotel bookings', 'Experiential marketing'],
       sameAs: [
         'https://www.youtube.com/@bookedupafrica',

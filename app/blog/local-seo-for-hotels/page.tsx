@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
 import { LocalSEOFactorsDiagram } from '@/components/diagrams/local-seo-factors-diagram'
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/local-seo-for-hotels',
   },
-  title: 'Hotel Local SEO Basics: Rank Higher in Local Search | BookedUp Africa',
+  title: 'Hotel Local SEO Basics for Kenya | BookedUp Africa',
   description: 'New to hotel local SEO? A plain-language start on Google Maps rankings, reviews and why guests search the way they do.',
   keywords: 'local SEO for hotels, hotel local search, Google Maps rankings, Google Business Profile, hotel visibility',
   openGraph: {
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default function LocalSEOPillar() {
   return (
     <article className="min-h-screen bg-navy-deep text-white pt-24">
+      <ArticleJsonLd path={metadata.alternates?.canonical as string} title={metadata.title as string} description={metadata.description as string} />
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         <div className="text-sm text-text-gray mb-8">
           <Link href="/blog" className="hover:text-orange-500">Blog</Link> / Local SEO for Hotels

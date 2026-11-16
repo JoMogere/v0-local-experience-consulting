@@ -6,7 +6,7 @@ import { MERCH, SHOP_NAME, SHOP_HEADLINE, whatsappLink } from '@/lib/merch-data'
 export const metadata: Metadata = {
   title: `${SHOP_NAME} – ${SHOP_HEADLINE}`,
   description:
-    'Shop BookedUp Africa merch: the Signature Tee in black, with our logo on the front and Research and Implementation for hospitality growth on the back. Order on WhatsApp.',
+    'BookedUp Africa merch: the Signature Tee in black, with our logo on the front and our promise on the back. Order on WhatsApp.',
   alternates: { canonical: '/shop' },
   openGraph: {
     title: `${SHOP_NAME} – ${SHOP_HEADLINE}`,

@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
+import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
   alternates: {
     canonical: '/guides/experiential-marketing/sensory-experiences-for-hotels',
   },
-  title: 'Sensory Experiences for Hotels: Five Senses Guide | BookedUp Africa',
+  title: 'Sensory Experiences for Hotels | BookedUp Africa',
   description:
     'How Kenyan hotels can shape what guests see, hear, smell, touch and taste, so the stay is remembered and talked about.',
   keywords: 'sensory experiences hotels, hotel guest experience Kenya, memorable hotel stay, five senses hospitality',
@@ -67,6 +68,7 @@ const SENSES = [
 export default function SensoryExperiencesPage() {
   return (
     <main className="min-h-screen bg-navy-deep text-white pt-32">
+      <ArticleJsonLd path={metadata.alternates?.canonical as string} title={metadata.title as string} description={metadata.description as string} />
       <article className="max-w-4xl mx-auto px-4 md:px-6 pb-16">
         <nav className="mb-8 text-sm text-text-gray">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>

@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     title: 'Hotel Marketing in Kenya | Local SEO & Direct Bookings',
     description:
       'Get found on Google, win more direct bookings and stand out with experiential marketing for your hotel.',
-    url: '/',
     type: 'website',
   },
 }

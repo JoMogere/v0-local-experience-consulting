@@ -32,16 +32,23 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     notFound()
   }
 
+  // Search results show roughly 110 to 160 characters, so keep the description in that range.
+  const raw = post.description || post.excerpt || ''
+  const body = plainText(post.content)
+  let description = raw.length >= 110 ? raw : `${raw} ${body}`.trim()
+  if (description.length > 158) description = description.slice(0, 155).replace(/\s+\S*$/, '') + '...'
+  const full = `${post.title} | BookedUp Africa`
+
   return {
-    title: `${post.title} | BookedUp Africa`,
-    description: post.description || post.excerpt || plainText(post.content),
+    title: full.length <= 60 ? full : post.title,
+    description,
     keywords: post.category || undefined,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
     openGraph: {
       title: post.title,
-      description: post.excerpt || plainText(post.content),
+      description,
       type: 'article',
       images: (THUMBNAILS[post.slug] ?? firstImage(post.content)) ? [(THUMBNAILS[post.slug] ?? firstImage(post.content)) as string] : undefined,
     },

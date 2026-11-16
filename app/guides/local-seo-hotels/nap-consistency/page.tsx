@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { ArticleJsonLd } from '@/components/article-json-ld'
 
 export const metadata: Metadata = {
   alternates: {
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function NAPConsistencyPage() {
   return (
     <main className="min-h-screen bg-navy-deep text-white pt-32">
+      <ArticleJsonLd path={metadata.alternates?.canonical as string} title={metadata.title as string} description={metadata.description as string} />
       <article className="max-w-4xl mx-auto px-4 md:px-6 pb-16">
         <header className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">NAP Consistency for Hotels: Why Your Details Need to Match Everywhere</h1>
