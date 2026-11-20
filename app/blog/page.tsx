@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { MapPin, Building2, Sparkles, FileText, TrendingUp, Globe, Bot, BarChart3 } from 'lucide-react'
+import { MapPin, Sparkles, TrendingUp, BarChart3 } from 'lucide-react'
 import { getPublishedBlogs } from '@/app/actions/blogs'
 import { SITE_URL } from '@/lib/site'
 import { BUILTIN_POSTS } from '@/lib/builtin-posts'
@@ -9,15 +9,23 @@ import { THUMBNAILS } from '@/lib/thumbnails'
 import { getMediumPosts } from '@/lib/medium'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
-  'local-seo-for-hotels': MapPin,
-  'google-business-profile-hotels': Building2,
-  'experiential-marketing-hotels': Sparkles,
-  'content-marketing-hotels': FileText,
-  'direct-hotel-bookings': TrendingUp,
-  'hotel-website-design-seo': Globe,
-  'ai-for-hotels': Bot,
-  'hospitality-case-studies': BarChart3,
+  'local-seo-hotels': MapPin,
+  'direct-bookings': TrendingUp,
+  'experiential-marketing': Sparkles,
+  'case-studies': BarChart3,
 }
+
+
+// The long-form articles that live as their own pages. They are articles, so they sit in the list with the rest.
+const STATIC_ARTICLES = [
+  { slug: 'local-seo-for-hotels', title: 'How to Rank Higher in Local Hotel Search', excerpt: 'A plain-language start on Google Maps rankings, reviews and why guests search the way they do.', category: 'Local SEO' },
+  { slug: 'google-business-profile-hotels', title: 'Google Business Profile: The Complete Setup Guide', excerpt: 'Set up and improve your hotel profile so guests find you, call you and book direct.', category: 'Local SEO' },
+  { slug: 'direct-hotel-bookings', title: 'Increase Direct Hotel Bookings: A Practical Guide', excerpt: 'How a hotel moves guests from booking sites to its own website and WhatsApp.', category: 'Direct Bookings' },
+  { slug: 'hotel-website-design-seo', title: 'Hotel Website Design & SEO: What Actually Converts', excerpt: 'What a hotel website needs to rank in search and turn visitors into guests.', category: 'Website' },
+  { slug: 'experiential-marketing-hotels', title: 'Experiential Marketing for Hotels: Turning Stays Into Stories', excerpt: 'Turn guest experiences into reasons to book, review and tell others.', category: 'Guest Experience' },
+  { slug: 'content-marketing-hotels', title: 'Content Marketing for Hotels: What Actually Gets Read', excerpt: 'What to publish, and how to make it bring in guests rather than just clicks.', category: 'Content' },
+  { slug: 'ai-for-hotels', title: 'AI for Hotels: Where It Actually Helps', excerpt: 'Where AI genuinely helps hotel marketing and where it quietly costs you guests.', category: 'AI' },
+]
 
 export const metadata: Metadata = {
   alternates: {
@@ -61,56 +69,40 @@ export default async function BlogPage() {
       image: THUMBNAILS[p.slug] ?? p.image ?? firstImage(p.content),
       date: p.date ? new Date(p.date).toLocaleDateString() : undefined,
     })),
+    ...STATIC_ARTICLES.filter((p) => !latestPosts.some((l) => l.slug === p.slug)).map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      category: p.category,
+      image: THUMBNAILS[p.slug] ?? null,
+      date: undefined as string | undefined,
+    })),
   ]
 
   const pillars = [
     {
       title: 'Local SEO for Hotels',
-      description: 'Master local search optimization and dominate Google Maps rankings to attract direct bookings.',
-      link: '/blog/local-seo-for-hotels',
-      articles: 11,
-    },
-    {
-      title: 'Google Business Profile',
-      description: 'Optimize your GBP for maximum hotel visibility, reviews, and direct bookings from local search.',
-      link: '/blog/google-business-profile-hotels',
-      articles: 9,
-    },
-    {
-      title: 'Experiential Marketing',
-      description: 'Create memorable guest experiences that drive bookings, loyalty, and word-of-mouth marketing.',
-      link: '/blog/experiential-marketing-hotels',
-      articles: 8,
-    },
-    {
-      title: 'Content Marketing',
-      description: 'Build authority and drive bookings through strategic, guest-focused content.',
-      link: '/blog/content-marketing-hotels',
-      articles: 9,
+      description: 'Google Maps ranking, consistent business details and getting more reviews, so nearby guests find you.',
+      link: '/guides/local-seo-hotels',
+      cta: 'Read the guide',
     },
     {
       title: 'Direct Bookings',
-      description: 'Reduce OTA dependence and increase direct bookings through optimized websites and conversion strategies.',
-      link: '/blog/direct-hotel-bookings',
-      articles: 8,
+      description: 'Reduce booking-site commission and build a booking option that turns website visitors into guests.',
+      link: '/guides/direct-bookings',
+      cta: 'Read the guide',
     },
     {
-      title: 'Hotel Website Design & SEO',
-      description: 'Create a website that ranks in search engines and converts visitors into guests.',
-      link: '/blog/hotel-website-design-seo',
-      articles: 8,
-    },
-    {
-      title: 'AI for Hotels',
-      description: 'Leverage AI to automate operations, improve marketing, and deliver better guest experiences.',
-      link: '/blog/ai-for-hotels',
-      articles: 7,
+      title: 'Experiential Marketing',
+      description: 'Turn your property into the stay guests talk about: local partners, stories and sensory details.',
+      link: '/guides/experiential-marketing',
+      cta: 'Read the guide',
     },
     {
       title: 'Case Studies',
-      description: 'Real examples of how hotels increased bookings and revenue through strategic optimization.',
+      description: 'Real examples of hotels that got more bookings and visibility through the work in these guides.',
       link: '/case-studies',
-      articles: 6,
+      cta: 'See the results',
     },
   ]
 
@@ -214,7 +206,8 @@ export default async function BlogPage() {
 
         {/* Pillar Pages */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">In-Depth Guides</h2>
+          <h2 className="text-3xl font-bold mb-2">Start with a guide</h2>
+          <p className="text-text-gray mb-8">Each guide covers one topic from start to finish, with short pages for the details.</p>
           <div className="grid md:grid-cols-2 gap-6">
             {pillars.map((pillar, idx) => (
               <Link
@@ -237,10 +230,7 @@ export default async function BlogPage() {
                     <p className="text-text-gray text-sm leading-relaxed mb-3">
                       {pillar.description}
                     </p>
-                    <div className="text-xs text-text-gray/70 flex items-center justify-between">
-                      <span>{pillar.articles} articles</span>
-                      <span className="text-gold-flat font-semibold">Read →</span>
-                    </div>
+                    <span className="text-gold-flat font-semibold text-sm">{pillar.cta} →</span>
                   </div>
                 </div>
               </Link>
