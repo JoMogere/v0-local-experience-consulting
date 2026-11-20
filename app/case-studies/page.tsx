@@ -11,89 +11,119 @@ export const metadata: Metadata = {
   keywords: 'hotel case studies, hospitality marketing examples, hotel success stories',
 }
 
+const CASES = [
+  {
+    slug: 'case-study-elsamere-lodge',
+    name: 'Elsamere Lodge',
+    place: 'Lake Naivasha',
+    summary:
+      "Over six months, the lodge's Google Business Profile sent guests straight to its free booking link, with no commission to a booking site, alongside steady organic search traffic.",
+    image: '/case-studies/elsamere-lodge-booking-clicks.png',
+    alt: 'Google Business Profile Performance dashboard for Elsamere Lodge showing 124 clicks on the free booking link between February and July 2026.',
+    width: 1196,
+    height: 483,
+    metrics: [
+      { value: '124', label: 'free booking link clicks' },
+      { value: '205', label: 'organic search clicks' },
+    ],
+  },
+  {
+    slug: 'case-study-silent-palms-villa',
+    name: 'Silent Palms Villa',
+    place: 'Early-stage local SEO',
+    summary: 'An honest look at what the first months of local SEO really look like, not a highlight reel.',
+    image: '/case-studies/silent-palms-search-console.png',
+    alt: 'Google Search Console performance chart for Silent Palms Villa.',
+    width: 1069,
+    height: 386,
+    metrics: [
+      { value: '14', label: 'search clicks' },
+      { value: '9', label: 'average position, climbing' },
+    ],
+  },
+  {
+    slug: 'case-study-naivasha-hotel-google-business-profile',
+    name: 'Naivasha Hotel',
+    place: 'Google Business Profile',
+    summary: 'What a working Google Business Profile looks like, and the zero in it that still needs fixing.',
+    image: '/case-studies/naivasha-hotel-gbp-insights.jpg',
+    alt: 'Google Business Profile insights for a Naivasha hotel showing profile views, directions and calls.',
+    width: 1261,
+    height: 641,
+    metrics: [
+      { value: '8,427', label: 'profile views' },
+      { value: '443', label: 'direction requests' },
+      { value: '115', label: 'calls' },
+    ],
+  },
+]
+
 export default function CaseStudiesHub() {
   return (
-    <article className="min-h-screen bg-navy-deep text-white pt-24">
-      <div className="max-w-3xl mx-auto px-4 md:px-6">
-        <div className="text-sm text-text-gray mb-8">Case Studies</div>
-        <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Hospitality Case Studies: Real Results, Real Numbers</h1>
-          <p className="text-xl text-text-gray mb-6">Every number here is verified and pulled straight from the source — no rounded-up estimates, no placeholders.</p>
+    <main className="min-h-screen bg-black text-[#F9F6F0] pt-28 pb-20">
+      <div className="max-w-5xl mx-auto px-4 md:px-6">
+        <header className="text-center max-w-2xl mx-auto mb-14">
+          <h1 className="font-sign font-bold text-5xl md:text-7xl leading-[0.95] text-[#F8F5EC]">Hospitality Case Studies</h1>
+          <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/85 mt-5 leading-relaxed">
+            Results from hotels we have worked with, taken straight from Google's own reports. No rounded-up estimates and no placeholders.
+          </p>
         </header>
 
-        <section className="mb-12 grid md:grid-cols-2 gap-6 items-center">
-          <div className="rounded-sm overflow-hidden border border-white/10">
+        <div className="space-y-10">
+          {CASES.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/blog/${c.slug}`}
+              className="group grid md:grid-cols-5 gap-0 border border-white/15 hover:border-[#F6B12C]/70 transition-colors bg-[#0D0D0D]"
+            >
+              <div className="md:col-span-3 bg-[#161616] flex items-center">
+                <Image src={c.image} alt={c.alt} width={c.width} height={c.height} className="w-full h-auto" />
+              </div>
+              <div className="md:col-span-2 p-6 md:p-8 flex flex-col text-left">
+                <p className="font-prose italic text-[#F6B12C] text-sm">{c.place}</p>
+                <h2 className="font-sign font-bold text-3xl md:text-4xl text-[#F8F5EC] mt-1 mb-3 !text-left">{c.name}</h2>
+                <p className="font-prose text-[#EAE5DF]/85 leading-relaxed mb-5 !text-left">{c.summary}</p>
+                <dl className="flex flex-wrap gap-x-8 gap-y-4 mb-6">
+                  {c.metrics.map((m) => (
+                    <div key={m.label}>
+                      <dt className="font-sign font-bold text-4xl text-[#F6B12C] leading-none">{m.value}</dt>
+                      <dd className="font-prose text-sm text-[#EAE5DF]/75 mt-1">{m.label}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <span className="mt-auto font-sign font-bold text-xl text-[#F6B12C] group-hover:underline underline-offset-4">
+                  Read the case study →
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <figure className="max-w-xl mx-auto mt-16 text-center">
+          <h2 className="font-sign font-bold text-3xl text-[#F8F5EC] mb-4">From a client</h2>
+          <div className="overflow-hidden border border-white/15">
             <Image
-              src="/case-studies/elsamere-lodge-booking-clicks.png"
-              alt="Google Business Profile Performance dashboard for Elsamere Lodge showing 124 clicks on the hotel's free booking link between February and July 2026."
-              width={1200}
-              height={484}
+              src="/testimonials/client-whatsapp-may-2026.png"
+              alt="WhatsApp message from a hospitality client, 7 May 2026: Btw Google profile naona inawork poa. What else do you recommend."
+              width={954}
+              height={232}
               className="w-full h-auto"
             />
           </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-3">Elsamere Lodge: 124 Free Booking Link Clicks</h2>
-            <p className="text-text-gray mb-4">
-              Over six months, Elsamere Lodge's <a href="https://business.google.com/en-all/business-profile/" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#FFC24A]">Google Business Profile</a> generated 124 clicks on its <a href="https://support.google.com/hotelprices/answer/10472393?hl=en" target="_blank" rel="noopener noreferrer" className="text-gold-flat underline underline-offset-2 hover:text-[#FFC24A]">free hotel booking link</a>, the direct "Book" button Google shows on verified hotel listings. Zero commission, pure high-intent traffic.
-            </p>
-            <Link href="/blog/case-study-elsamere-lodge" className="text-orange-500 font-bold hover:underline">
-              Read the full case study →
-            </Link>
-          </div>
-        </section>
+          <figcaption className="font-prose text-sm text-[#EAE5DF]/70 mt-3">A WhatsApp message from a hospitality client, 7 May 2026.</figcaption>
+        </figure>
 
-        <section className="space-y-8">
-          <div className="grid md:grid-cols-2 gap-6">
-            <Link href="/blog/case-study-elsamere-lodge" className="p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors block">
-              <Image
-                src="/blog/elsamere-lodge-lake-naivasha.webp"
-                alt="Elsamere Lodge gazebos on the lawn beside Lake Naivasha"
-                width={729}
-                height={486}
-                className="w-full h-40 object-cover rounded-sm mb-4"
-              />
-              <h3 className="text-xl font-bold text-orange-500 mb-2">Elsamere Lodge: Real Search Results →</h3>
-              <p className="text-text-gray text-sm mb-4">124 free booking link clicks and 205 organic search clicks in the same period — zero commission, verified Google data</p>
-              <div className="text-2xl font-bold text-green-400">124 clicks + 205 organic clicks</div>
-            </Link>
-            <Link href="/blog/case-study-silent-palms-villa" className="p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors block">
-              <h3 className="text-xl font-bold text-orange-500 mb-2">Silent Palms Villa: Early-Stage Numbers →</h3>
-              <p className="text-text-gray text-sm mb-4">An honest look at what the early months of local SEO actually look like — not a highlight reel</p>
-              <div className="text-2xl font-bold text-blue-400">14 clicks, position 9 → climbing</div>
-            </Link>
-            <Link href="/blog/case-study-naivasha-hotel-google-business-profile" className="p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors block">
-              <h3 className="text-xl font-bold text-orange-500 mb-2">Naivasha Hotel: Google Profile Results →</h3>
-              <p className="text-text-gray text-sm mb-4">What a working Google Business Profile looks like, and the zero in it that needs fixing</p>
-              <div className="text-2xl font-bold text-green-400">8,427 views, 443 directions, 115 calls</div>
-            </Link>
-          </div>
-
-          <figure className="max-w-xl mx-auto">
-            <div className="rounded-sm overflow-hidden border border-white/10">
-              <Image
-                src="/testimonials/client-whatsapp-may-2026.png"
-                alt="WhatsApp message from a hospitality client, 7 May 2026: Btw Google profile naona inawork poa. What else do you recommend."
-                width={954}
-                height={232}
-                className="w-full h-auto"
-              />
-            </div>
-          </figure>
-
-          <div className="p-8 bg-white/5 border border-white/10 rounded-lg text-center">
-            <p className="text-text-gray">More case studies from our work with hotels and resorts across Kenya are on the way.</p>
-          </div>
-        </section>
-
-
-        <section className="mt-16 p-8 bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-lg text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Create Your Own Result?</h2>
-          <p className="text-text-gray mb-6">Let's build a strategy that produces numbers worth putting on this page.</p>
-          <Link href="/contact" className="inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-navy-deep font-bold rounded-sm transition-colors">
-            Get Your Free Audit
+        <section className="mt-16 border-t-4 border-dashed border-[#F6B12C]/60 pt-12 text-center">
+          <h2 className="font-sign font-bold text-4xl md:text-5xl text-[#F8F5EC]">Want a result like these?</h2>
+          <p className="font-prose text-lg text-[#EAE5DF]/85 mt-3 mb-8">Start with a free audit of how your hotel shows up on Google today.</p>
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#000000] font-sign font-bold text-xl rounded-sm transition-opacity"
+          >
+            Get your free audit
           </Link>
         </section>
       </div>
-    </article>
+    </main>
   )
 }
