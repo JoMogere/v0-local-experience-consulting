@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/site'
 import { BUILTIN_POSTS } from '@/lib/builtin-posts'
 import { firstImage } from '@/lib/markdown'
 import { THUMBNAILS } from '@/lib/thumbnails'
+import { getMediumPosts } from '@/lib/medium'
 
 const CATEGORY_ICONS: Record<string, typeof MapPin> = {
   'local-seo-for-hotels': MapPin,
@@ -39,6 +40,8 @@ export default async function BlogPage() {
   } catch {
     // Database unavailable (e.g. during build) — show the guides only.
   }
+
+  const mediumPosts = await getMediumPosts()
 
   // Articles published from the admin panel come first, then the built-in articles.
   const articles = [
@@ -166,6 +169,40 @@ export default async function BlogPage() {
           </section>
         )}
 
+        {mediumPosts.length > 0 ? (
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-2">Also on Medium</h2>
+            <p className="text-text-gray mb-8">
+              Newer articles are published on{' '}
+              <a href="https://medium.com/@mogerejulius41" target="_blank" rel="noopener noreferrer" className="text-gold-flat hover:underline">
+                Medium
+              </a>
+              . They open there.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {mediumPosts.map((post) => (
+                <a
+                  key={post.link}
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-navy-alt border border-border-flat rounded-sm hover:bg-[#262626] transition-all overflow-hidden"
+                >
+                  {post.image && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={post.image} alt={post.title} loading="lazy" className="w-full aspect-video object-cover group-hover:opacity-90 transition-opacity" />
+                  )}
+                  <div className="p-6">
+                    <span className="text-xs uppercase tracking-wide text-gold-flat">{post.category ?? 'Medium'}</span>
+                    <h3 className="text-lg font-bold text-[#F9F6F0] group-hover:text-gold-flat transition-colors mt-1 mb-2">{post.title}</h3>
+                    {post.excerpt && <p className="text-text-gray text-sm leading-relaxed mb-3">{post.excerpt}</p>}
+                    <p className="text-xs text-text-gray">{new Date(post.date).toLocaleDateString()} · Read on Medium →</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : (
         <p className="-mt-8 mb-16 text-sm text-text-gray">
           Also publishing on{' '}
           <a href="https://medium.com/@mogerejulius41" target="_blank" rel="noopener noreferrer" className="text-gold-flat hover:underline">
@@ -173,6 +210,7 @@ export default async function BlogPage() {
           </a>
           .
         </p>
+        )}
 
         {/* Pillar Pages */}
         <section className="mb-16">
