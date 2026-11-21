@@ -20,7 +20,7 @@ export function ArticleJsonLd({
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}${path}` },
     author: { '@id': `${SITE_URL}/#founder` },
     publisher: { '@id': `${SITE_URL}/#organization` },
-    image: `${SITE_URL}/opengraph-image`,
+    image: `${SITE_URL}/opengraph-image.png`,
     inLanguage: 'en',
   }
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
