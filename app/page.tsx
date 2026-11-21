@@ -5,7 +5,6 @@ import { SearchChanged } from "@/components/search-changed"
 import { TrustMarquee } from "@/components/trust-marquee"
 import { HowWeWork } from "@/components/how-we-work"
 import { Playbooks } from "@/components/playbooks"
-import { InstagramFeed } from "@/components/instagram-feed"
 import { FAQ } from "@/components/faq"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
@@ -36,7 +35,6 @@ export default function HomePage() {
       <TrustMarquee />
       <HowWeWork />
       <Playbooks />
-      <InstagramFeed />
       <FAQ />
       <div className="max-w-3xl mx-auto px-4 md:px-6">
       </div>

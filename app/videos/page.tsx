@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { getChannelVideos, YouTubeDebugInfo } from '@/lib/youtube'
 import { getPublicVideos } from '@/app/actions/videos'
 import { fromStoredKey, PLATFORM_LABEL } from '@/lib/social-video'
-import { InstagramFeed } from '@/components/instagram-feed'
 import { VideoGrid } from '@/components/video-grid'
 
 export const metadata: Metadata = {
@@ -138,7 +137,6 @@ export default async function VideosPage({ searchParams }: { searchParams: Promi
           </section>
         )}
       </div>
-      <InstagramFeed />
     </main>
   )
 }
