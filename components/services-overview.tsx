@@ -43,7 +43,7 @@ export function ServicesOverview() {
           <p className="font-prose text-lg text-[#EAE5DF]/90">Not sure which one you need first?</p>
           <Link
             href="/build-your-growth-system"
-            className="inline-block mt-3 font-sign font-bold text-2xl text-[#F6B12C] underline decoration-2 underline-offset-4 hover:text-[#FFC24A]"
+            className="inline-block mt-3 px-8 py-3 border-2 border-[#F6B12C] text-[#F6B12C] hover:bg-[#F6B12C]/10 font-sign font-bold text-2xl transition-colors"
           >
             Build your own growth plan
           </Link>

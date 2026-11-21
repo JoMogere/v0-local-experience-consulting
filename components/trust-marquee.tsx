@@ -41,6 +41,9 @@ export function TrustMarquee() {
         <p className="font-sign font-semibold text-[#F8F5EC] text-3xl md:text-4xl">
           Trusted by Kenya&apos;s leading hospitality brands
         </p>
+        <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/85 mt-4 mx-auto max-w-[56ch] text-balance leading-snug">
+          Helping East African properties turn search visibility into direct website bookings and phone inquiries without heavy OTA commissions.
+        </p>
       </div>
       <div className="border-t border-border-flat">
         <div className="relative w-full py-8 md:py-10">

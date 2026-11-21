@@ -51,6 +51,7 @@ const columns = [
       { label: "Channel Manager Setup", href: "/channel-manager-setup-kenya" },
       { label: "Guest Experience", href: "/hotel-guest-experience-optimization-kenya" },
       { label: "Growth Partnership", href: "/hotel-growth-partnership-kenya" },
+      { label: "Build Your System", href: "/build-your-growth-system" },
     ],
   },
   {
