@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import Image from 'next/image'
 import { Check, MapPin, Search, Smartphone, Star } from 'lucide-react'
 
 // Prices stay off until real figures are filled in here. With `enabled: false` the summary says the
@@ -24,6 +25,7 @@ const PROPERTIES = [
     short: 'Safari camp',
     name: 'Boutique or safari lodge',
     name2: 'Your Lodge',
+    photo: '/builder/lodge.webp',
     query: 'tented camp near me',
     headline: 'Wake up in the bush',
     info: 'Boutique and safari lodge: high-value direct enquiries, and search that tells your story.',
@@ -33,6 +35,7 @@ const PROPERTIES = [
     short: 'City hotel',
     name: 'Urban or business hotel',
     name2: 'Your Hotel',
+    photo: '/builder/city.webp',
     query: 'business hotel in Nairobi',
     headline: 'Business stays, made easy',
     info: 'Urban and business hotel: winning the Google Maps results and repeat corporate bookings.',
@@ -42,6 +45,7 @@ const PROPERTIES = [
     short: 'Villa group',
     name: 'Multi-property or villa group',
     name2: 'Your Villas',
+    photo: '/builder/villa.webp',
     query: 'villas in Naivasha',
     headline: 'Pick your villa',
     info: 'Villa group: one trusted brand that shows up in every location.',
@@ -87,70 +91,9 @@ const INTENSITIES = [
 
 const kes = (n: number) => `KES ${Math.round(n).toLocaleString('en-KE')}`
 
-/* ---------- Pictures of the three property types ---------- */
+/* ---------- The studio stage: one fixed box, phone in the middle ---------- */
 
-function PropertyArt({ kind }: { kind: string }) {
-  if (kind === 'urban') {
-    const wins: ReactNode[] = []
-    const b = [
-      [10, 40, 38], [52, 18, 44], [100, 52, 34], [140, 30, 40], [188, 12, 46], [236, 46, 34],
-    ]
-    b.forEach(([x, top, w], i) => {
-      for (let r = 0; r < 6; r++)
-        for (let c = 0; c < 3; c++)
-          if ((r * 3 + c + i) % 3 !== 0)
-            wins.push(<rect key={`${i}-${r}-${c}`} x={x + 5 + c * ((w - 10) / 3)} y={top + 8 + r * 12} width={5} height={6} fill="#FFD27A" />)
-    })
-    return (
-      <svg viewBox="0 0 270 130" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
-        <defs>
-          <linearGradient id="skyU" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#3A1706" /><stop offset="1" stopColor="#F26A0A" /></linearGradient>
-        </defs>
-        <rect width="270" height="130" fill="url(#skyU)" />
-        {b.map(([x, top, w], i) => (
-          <rect key={i} x={x} y={top} width={w} height={130 - top} fill="#0D0D0D" />
-        ))}
-        {wins}
-      </svg>
-    )
-  }
-  if (kind === 'group') {
-    return (
-      <svg viewBox="0 0 270 130" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
-        <rect width="270" height="130" fill="#E9E4D2" />
-        <path d="M0 95 C60 70 110 110 170 80 S250 70 270 85 V130 H0Z" fill="#BFD7C0" />
-        <path d="M-5 30 L90 55 L175 35 L275 70" stroke="#FFFFFF" strokeWidth="7" fill="none" />
-        <path d="M120 -5 L135 60 L110 135" stroke="#FFFFFF" strokeWidth="6" fill="none" />
-        <circle cx="215" cy="30" r="14" fill="#9CC9E8" />
-        {[[70, 52], [150, 46], [205, 78], [105, 92]].map(([x, y], i) => (
-          <g key={i} transform={`translate(${x} ${y})`}>
-            <path d="M0 0 C-9 -12 -9 -24 0 -24 S9 -12 0 0Z" fill="#F26A0A" transform="translate(0 0)" />
-            <circle cx="0" cy="-17" r="3" fill="#fff" />
-          </g>
-        ))}
-      </svg>
-    )
-  }
-  return (
-    <svg viewBox="0 0 270 130" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
-      <defs>
-        <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#F6B12C" /><stop offset="1" stopColor="#F26A0A" /></linearGradient>
-      </defs>
-      <rect width="270" height="130" fill="url(#skyB)" />
-      <circle cx="205" cy="62" r="24" fill="#FFE29A" />
-      <rect y="92" width="270" height="38" fill="#3A1706" />
-      <path d="M26 92 V62 M26 66 C6 62 0 52 -2 50 M26 66 C46 62 54 54 56 52 M26 60 C16 54 10 46 8 44 M26 60 C38 54 46 46 48 44" stroke="#0D0D0D" strokeWidth="3" fill="none" />
-      <path d="M70 94 L108 60 L146 94Z" fill="#E8D3A8" />
-      <path d="M98 94 L108 74 L118 94Z" fill="#3A1706" />
-      <path d="M150 96 L184 68 L218 96Z" fill="#D8BD8C" />
-      <path d="M176 96 L184 82 L192 96Z" fill="#3A1706" />
-    </svg>
-  )
-}
-
-/* ---------- The hotel preview, drawn at 560x400 and scaled to fit ---------- */
-
-const W = 560
+const W = 640
 const H = 400
 
 function Pin({ x, y, on, label, onClick }: { x: number; y: number; on: boolean; label: string; onClick: () => void }) {
@@ -160,23 +103,20 @@ function Pin({ x, y, on, label, onClick }: { x: number; y: number; on: boolean; 
       onClick={onClick}
       aria-label={`${on ? 'Turn off' : 'Turn on'} ${label}`}
       aria-pressed={on}
-      style={{ left: x, top: y }}
-      className="absolute z-30 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-lg font-bold text-black shadow-lg"
+      style={{ left: x - 16, top: y - 16 }}
+      className="absolute z-30 flex h-8 w-8 items-center justify-center rounded-full border border-[#F6B12C] bg-[#1A1408] text-lg font-bold text-[#F6B12C] shadow-[0_0_14px_rgba(246,177,44,0.55)]"
     >
-      {!on && <span className="absolute inset-0 animate-ping rounded-full bg-[#F6B12C]/70" aria-hidden="true" />}
-      <span className={`relative flex h-full w-full items-center justify-center rounded-full ${on ? 'bg-[#2F9E5B] text-white' : 'bg-[#F6B12C]'}`}>
-        {on ? <Check size={18} strokeWidth={3} /> : '+'}
-      </span>
+      {!on && <span className="absolute inset-0 animate-ping rounded-full bg-[#F6B12C]/40" aria-hidden="true" />}
+      <span className="relative">{on ? <Check size={16} strokeWidth={3} /> : '+'}</span>
     </button>
   )
 }
 
-const layer = (on: boolean, from: string) =>
-  `transition-all duration-500 ease-out ${on ? 'opacity-100 translate-x-0 translate-y-0 scale-100' : `opacity-0 ${from} pointer-events-none`}`
+// A card that is switched off stays in place but is dimmed, so before and after never show together.
+const card = (on: boolean) =>
+  `absolute z-20 transition-all duration-500 ease-out ${on ? 'opacity-100 scale-100' : 'opacity-25 scale-[0.97] grayscale'}`
 
-const ghost = 'absolute rounded-md border-2 border-dashed border-[#B8B2A5] bg-[#F3EFE6]/70 text-[13px] text-[#8A8579] flex items-center justify-center'
-
-function Preview({ property, on, toggle }: { property: (typeof PROPERTIES)[number]; on: Record<ModuleId, boolean>; toggle: (id: ModuleId) => void }) {
+function Stage({ property, on, toggle }: { property: (typeof PROPERTIES)[number]; on: Record<ModuleId, boolean>; toggle: (id: ModuleId) => void }) {
   const wrap = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(0.7)
   useEffect(() => {
@@ -191,131 +131,96 @@ function Preview({ property, on, toggle }: { property: (typeof PROPERTIES)[numbe
 
   return (
     <div ref={wrap} className="w-full overflow-hidden" style={{ height: H * scale }}>
-      <div className="relative origin-top-left select-none" style={{ width: W, height: H, transform: `scale(${scale})` }}>
-        {/* Google search pane */}
-        <div className="absolute left-0 top-0 h-[400px] w-[270px] overflow-hidden rounded-xl bg-white shadow-xl font-sans">
-          <div className="m-3 flex h-8 items-center gap-2 rounded-full border border-[#DADCE0] px-3 text-[13px] text-[#3C4043]">
-            <Search size={14} className="text-[#9AA0A6]" />
-            <span className="truncate">{property.query}</span>
-          </div>
+      <div className="relative origin-top-left select-none font-sans" style={{ width: W, height: H, transform: `scale(${scale})` }}>
+        {/* soft ring behind the phone */}
+        <div className="absolute left-1/2 top-1/2 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15" />
 
-          {/* Map pack slot */}
-          <div className="absolute left-3 right-3 top-[54px] h-[122px]">
-            <div className={`${ghost} inset-0 flex-col gap-1`}>
-              <span>Other camps in the map results</span>
-              <span className="text-[11px]">Rank: not in the top 3</span>
-            </div>
-            <div className={`absolute inset-0 overflow-hidden rounded-md border border-[#DADCE0] bg-white shadow ${layer(on.gbp, 'translate-y-4 scale-95')}`}>
-              <div className="flex h-[52px] gap-[2px]">
-                <div className="flex-1 bg-gradient-to-br from-[#F6B12C] to-[#F26A0A]" />
-                <div className="flex-1 bg-gradient-to-br from-[#7BB27E] to-[#3E7A56]" />
-                <div className="flex-1 bg-gradient-to-br from-[#E8D3A8] to-[#B98B4E]" />
-              </div>
-              <div className="px-2 pt-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-[14px] font-bold text-[#202124]">{property.name2}</span>
-                  <span className="rounded bg-[#F26A0A] px-1.5 py-[1px] text-[11px] font-bold text-white">#1 Ranking</span>
-                </div>
-                <div className="flex items-center gap-1 text-[12px] text-[#202124]">
-                  <span className="font-semibold">4.9</span>
-                  <span className="text-[#F6B12C]">★★★★★</span>
-                  <span className="text-[#70757A]">· Hotel</span>
-                </div>
-                <div className="mt-[2px] flex gap-3 text-[11px] font-semibold text-[#1A73E8]">
-                  <span>Website</span><span>Directions</span><span>Call</span>
-                </div>
-              </div>
-            </div>
+        {/* Google Maps card, left */}
+        <div className={`${card(on.gbp)} left-[6px] top-[118px] h-[138px] w-[232px] overflow-hidden rounded-xl border-2 border-[#3E9B63] bg-white shadow-xl`}>
+          <div className="relative h-[68px] bg-[#E8EFE4]">
+            <svg viewBox="0 0 232 68" className="absolute inset-0 h-full w-full" aria-hidden="true">
+              <path d="M0 50 L90 24 L170 40 L262 8" stroke="#fff" strokeWidth="9" fill="none" />
+              <path d="M120 0 L135 68" stroke="#fff" strokeWidth="7" fill="none" />
+              <path d="M0 14 L60 30" stroke="#D9D9D9" strokeWidth="3" fill="none" />
+            </svg>
+            <span className="absolute left-3 top-2 flex items-center gap-1 text-[12px] font-semibold text-[#3C4043]">
+              <span className="h-3 w-3 rounded-full bg-[#EA4335]" /> Google Maps
+            </span>
+            <svg viewBox="0 0 24 32" className="absolute right-14 top-3 h-9 w-7" aria-hidden="true">
+              <path d="M12 0C5 0 0 5 0 12c0 9 12 20 12 20s12-11 12-20C24 5 19 0 12 0z" fill="#2F9E5B" />
+              <circle cx="12" cy="12" r="4.5" fill="#fff" />
+            </svg>
           </div>
-
-          {/* Direct SEO slot */}
-          <div className="absolute left-3 right-3 top-[184px] h-[64px]">
-            <div className={`${ghost} inset-0`}>Your website: not on page one</div>
-            <div className={`absolute inset-0 rounded-md border border-[#DADCE0] bg-white px-2 py-1 shadow ${layer(on.seo, '-translate-y-3')}`}>
-              <div className="flex items-center gap-1 text-[11px] text-[#202124]">
-                <span className="h-3 w-3 rounded-full bg-[#F26A0A]" />
-                {property.name2.toLowerCase().replace(' ', '')}.com
-              </div>
-              <div className="text-[14px] font-semibold leading-tight text-[#1A0DAB]">{property.name2}: Book Direct</div>
-              <div className="text-[11px] font-semibold text-[#2F9E5B]">Official Site • Best Rate Guaranteed</div>
+          <div className="px-3 pt-2">
+            <div className="text-[15px] font-bold text-[#2F9E5B]">
+              #1 Ranking <span className="text-[#202124]">• 4.9</span> <span className="text-[#F6B12C]">★</span>
             </div>
+            <div className="text-[17px] font-semibold text-[#202124]">{property.name2}</div>
+            <div className="mt-1 h-[5px] w-4/5 rounded bg-[#E4E4E4]" />
           </div>
+        </div>
 
-          {/* Booking site results, always there */}
-          <div className="absolute left-3 right-3 top-[256px] space-y-2">
-            {[0, 1].map((i) => (
-              <div key={i} className="h-[46px] rounded-md border border-[#E4E4E4] bg-[#FAFAFA] px-2 py-1">
-                <div className="text-[10px] text-[#70757A]">bookingsite{i + 1}.com</div>
-                <div className="text-[13px] text-[#1A0DAB]/70">{property.name2} – lowest prices</div>
-                <div className="mt-[2px] h-[3px] w-2/3 rounded bg-[#E4E4E4]" />
-              </div>
+        {/* Google Search snippet, right */}
+        <div className={`${card(on.seo)} right-[6px] top-[118px] h-[126px] w-[232px] rounded-xl border-2 border-[#4A6FD6] bg-white px-3 py-2 shadow-xl`}>
+          <div className="flex items-center gap-2 text-[12px] font-semibold text-[#3C4043]">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#DADCE0] text-[12px] font-bold text-[#4285F4]">G</span>
+            Google Search
+          </div>
+          <div className="mt-2 text-[15px] font-bold leading-snug text-[#1A0DAB]">Official Site • Best Rate Guaranteed</div>
+          <div className="mt-2 h-[5px] w-full rounded bg-[#E4E4E4]" />
+          <div className="mt-[6px] h-[5px] w-3/4 rounded bg-[#E4E4E4]" />
+        </div>
+
+        {/* Review bubble, bottom left */}
+        <div className={`${card(on.reputation)} left-[20px] top-[290px] w-[200px] rounded-xl border-2 border-[#F6B12C] bg-[#FFF8E6] px-3 py-2 shadow-xl`}>
+          <div className="text-[13px] text-[#202124]">
+            <span className="text-[#F6B12C]">★★★★★</span> &ldquo;Booked direct, zero hassle&rdquo;
+          </div>
+          <div className="mt-1 rounded-md bg-[#2F9E5B] px-2 py-[3px] text-[11px] text-white">Thanks for staying with us! Reply sent automatically</div>
+        </div>
+
+        {/* Phone */}
+        <div className="absolute left-1/2 top-[10px] z-10 h-[380px] w-[196px] -translate-x-1/2 rounded-[30px] border-[6px] border-[#1F1F1F] bg-black shadow-[0_10px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/20">
+          <div className="relative h-full w-full overflow-hidden rounded-[24px]">
+            {PROPERTIES.map((p) => (
+              <Image
+                key={p.id}
+                src={p.photo}
+                alt={`${p.short} photo on a phone`}
+                fill
+                sizes="200px"
+                className={`object-cover transition-opacity duration-700 ${p.id === property.id ? 'opacity-100' : 'opacity-0'}`}
+              />
             ))}
-          </div>
-
-          {/* Reviews layer */}
-          <div className="absolute left-2 top-[322px] w-[230px]">
-            <div className={`${ghost} left-0 top-0 h-[34px] w-[200px]`}>Guest reviews: not collected</div>
-            <div className={`relative ${layer(on.reputation, 'translate-y-3')}`}>
-              <div className="w-[210px] -rotate-1 rounded-lg border border-[#F6B12C] bg-[#FFF8E6] px-2 py-1 text-[11px] text-[#202124] shadow-lg">
-                <span className="text-[#F6B12C]">★★★★★</span> &ldquo;Booked direct, zero hassle&rdquo;
-              </div>
-              <div className="ml-8 mt-1 w-[190px] rotate-1 rounded-lg bg-[#2F9E5B] px-2 py-1 text-[11px] text-white shadow-lg">
-                Thank you for staying with us! <span className="opacity-80">Reply sent automatically</span>
-              </div>
+            <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between bg-gradient-to-b from-black/60 to-transparent px-3 pb-6 pt-3 text-[12px] font-bold text-white">
+              <span>{property.name2}</span>
+              <span>☰</span>
+            </div>
+            <div className="absolute left-1/2 top-[6px] z-10 h-[14px] w-[56px] -translate-x-1/2 rounded-full bg-black" />
+            <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-3 pb-[64px] pt-12 text-[14px] font-bold text-white">
+              {property.headline}
+            </div>
+            <div
+              className={`absolute inset-x-2 bottom-3 z-10 rounded-full bg-gradient-to-r from-[#D4A93D] to-[#F6B12C] px-2 py-[9px] text-center text-[11px] font-extrabold text-black shadow-lg transition-all duration-500 ease-out ${
+                on.funnel ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
+              Check Availability • Save 15% Direct
             </div>
           </div>
         </div>
 
-        {/* Hotel website pane */}
-        <div className="absolute right-0 top-0 h-[400px] w-[270px] overflow-hidden rounded-xl bg-white shadow-xl font-sans">
-          <div className="flex h-9 items-center justify-between border-b border-[#EEE] px-3">
-            <span className="text-[14px] font-bold text-[#202124]">{property.name2}</span>
-            <span className="space-y-[3px]"><i className="block h-[2px] w-4 bg-[#202124]" /><i className="block h-[2px] w-4 bg-[#202124]" /><i className="block h-[2px] w-4 bg-[#202124]" /></span>
-          </div>
-          <div className="relative h-[130px]">
-            <PropertyArt kind={property.id} />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-2 text-[15px] font-bold text-white">{property.headline}</div>
-          </div>
-
-          {/* Rooms and offers, shown once the site has been tidied up */}
-          <div className={`absolute inset-x-3 top-[178px] transition-opacity duration-500 ${on.funnel ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="mb-2 text-[12px] leading-snug text-[#5F6368]">Rooms, dining and offers, all one tap away.</div>
-            <div className="grid grid-cols-3 gap-2">
-              {[['Rooms', 'from-[#F6B12C] to-[#F26A0A]'], ['Dining', 'from-[#7BB27E] to-[#3E7A56]'], ['Offers', 'from-[#E8D3A8] to-[#B98B4E]']].map(([t, c]) => (
-                <div key={t} className={`flex h-[70px] items-end rounded-md bg-gradient-to-br ${c} p-1 text-[12px] font-bold text-white`}>{t}</div>
-              ))}
-            </div>
-          </div>
-
-          {/* Clunky form, replaced when the booking bar is on */}
-          <div className={`mx-3 mt-3 space-y-[6px] transition-opacity duration-500 ${on.funnel ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="text-[12px] font-semibold text-[#5F6368]">Enquiry form</div>
-            {['Full name', 'Email address', 'Dates (dd/mm/yyyy)'].map((f) => (
-              <div key={f} className="h-6 rounded-sm border border-[#C8C8C8] bg-[#F4F4F4] px-2 text-[11px] leading-6 text-[#9AA0A6]">{f}</div>
-            ))}
-            <div className="w-16 rounded-sm bg-[#B0B0B0] py-[3px] text-center text-[11px] text-white">Submit</div>
-          </div>
-
-          <div className="absolute inset-x-0 bottom-0 h-[70px]">
-            <div className={`${ghost} inset-x-3 bottom-3 h-[44px] ${on.funnel ? 'opacity-0' : 'opacity-0'}`} />
-            <div className={`absolute inset-x-2 bottom-3 rounded-xl bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] px-3 py-[6px] text-black shadow-lg ${layer(on.funnel, 'translate-y-10')}`}>
-              <div className="text-[14px] font-extrabold leading-tight">Check availability</div>
-              <div className="text-[11px] font-semibold">Save 15% when you book direct</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Pins: clicking one on the picture switches that module */}
-        <Pin x={236} y={56} on={on.gbp} label="Map Pack" onClick={() => toggle('gbp')} />
-        <Pin x={236} y={186} on={on.seo} label="Direct booking SEO" onClick={() => toggle('seo')} />
-        <Pin x={216} y={314} on={on.reputation} label="Guest reviews" onClick={() => toggle('reputation')} />
-        <Pin x={514} y={338} on={on.funnel} label="the booking bar" onClick={() => toggle('funnel')} />
+        {/* Pins: tap one on the picture to switch that module */}
+        <Pin x={122} y={256} on={on.gbp} label="Map Pack" onClick={() => toggle('gbp')} />
+        <Pin x={610} y={122} on={on.seo} label="Direct booking SEO" onClick={() => toggle('seo')} />
+        <Pin x={218} y={292} on={on.reputation} label="Guest reviews" onClick={() => toggle('reputation')} />
+        <Pin x={W / 2 + 70} y={318} on={on.funnel} label="the booking bar" onClick={() => toggle('funnel')} />
       </div>
     </div>
   )
 }
 
-/* ---------- One simple row of choices under the picture ---------- */
+/* ---------- Three labelled rows of choices ---------- */
 
 function Dot({
   selected,
@@ -340,7 +245,7 @@ function Dot({
       className={`flex flex-col items-center gap-1 ${selected ? 'text-[#F6B12C]' : 'text-[#EAE5DF]/70 hover:text-[#F8F5EC]'}`}
     >
       <span
-        className={`flex h-12 w-12 items-center justify-center overflow-hidden border-2 transition-colors ${square ? 'rounded-md' : 'rounded-full'} ${
+        className={`relative flex h-12 w-12 items-center justify-center overflow-hidden border-2 transition-colors ${square ? 'rounded-md' : 'rounded-full'} ${
           selected ? 'border-[#F6B12C] bg-[#F6B12C]/15' : 'border-white/25 bg-[#161616]'
         }`}
       >
@@ -348,6 +253,17 @@ function Dot({
       </span>
       <span className="font-sign text-sm font-semibold leading-none">{label}</span>
     </button>
+  )
+}
+
+function Group({ n, title, children }: { n: number; title: string; children: ReactNode }) {
+  return (
+    <div className="text-left">
+      <p className="mb-2 font-sign text-lg font-bold text-[#F8F5EC]">
+        {n}. {title}
+      </p>
+      <div className="flex gap-3">{children}</div>
+    </div>
   )
 }
 
@@ -390,15 +306,13 @@ export function GrowthBuilder() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <div className="sticky top-16 z-20 -mx-4 bg-black px-4 pb-2 pt-2 md:static md:mx-0 md:px-0">
-        <Preview property={property} on={on} toggle={toggle} />
-        <p className="mt-2 min-h-[3.2rem] border-l-4 border-[#F6B12C] bg-[#0D0D0D] px-3 py-2 text-left font-prose text-sm text-[#EAE5DF]/90">
-          {info}
-        </p>
+      <div className="sticky top-16 z-20 -mx-4 bg-black px-4 pb-1 pt-2 md:static md:mx-0 md:px-0">
+        <Stage property={property} on={on} toggle={toggle} />
+        <p className="mt-1 min-h-[2.6rem] text-center font-prose text-sm text-[#EAE5DF]/80">{info}</p>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-start justify-center gap-x-8 gap-y-5 border border-white/15 bg-[#0D0D0D] p-4">
-        <div className="flex gap-3" role="group" aria-label="Property type">
+      <div className="mt-3 grid gap-x-8 gap-y-6 border-t border-white/15 pt-6 sm:grid-cols-[auto_auto_auto] sm:justify-center">
+        <Group n={1} title="Property type">
           {PROPERTIES.map((p) => (
             <Dot
               key={p.id}
@@ -409,14 +323,12 @@ export function GrowthBuilder() {
                 setInfo(p.info)
               }}
             >
-              <span className="block h-full w-full scale-[1.6]">
-                <PropertyArt kind={p.id} />
-              </span>
+              <Image src={p.photo} alt="" fill sizes="48px" className="object-cover" />
             </Dot>
           ))}
-        </div>
+        </Group>
 
-        <div className="flex gap-3" role="group" aria-label="Growth modules">
+        <Group n={2} title="Modules">
           {MODULES.map((m) => {
             const Icon = m.icon
             return (
@@ -425,14 +337,14 @@ export function GrowthBuilder() {
               </Dot>
             )
           })}
-        </div>
+        </Group>
 
-        <div className="flex gap-3" role="group" aria-label="Pace">
+        <Group n={3} title="Pace">
           {INTENSITIES.map((i) => (
             <Dot
               key={i.id}
               square
-              label={i.short}
+              label={i.id === 'steady' ? '90 days' : i.id === 'sprint' ? '6 months' : 'Ongoing'}
               selected={intensityId === i.id}
               onClick={() => {
                 setIntensityId(i.id)
@@ -442,10 +354,10 @@ export function GrowthBuilder() {
               <span className="font-sign text-base font-bold">{i.id === 'steady' ? '90d' : i.id === 'sprint' ? '6m' : '∞'}</span>
             </Dot>
           ))}
-        </div>
+        </Group>
       </div>
 
-      <div className="mt-4 flex flex-col items-center gap-3 border-2 border-[#F6B12C] bg-[#0D0D0D] p-4 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div className="mt-6 flex flex-col items-center gap-3 border-t border-white/15 pt-5 text-center sm:flex-row sm:justify-between sm:text-left">
         <p className="font-prose text-[#EAE5DF]">
           <span className="font-sign text-xl font-bold text-[#F8F5EC]">{property.short}</span> · {modules.length}{' '}
           {modules.length === 1 ? 'module' : 'modules'} · {intensity.name}
@@ -453,12 +365,12 @@ export function GrowthBuilder() {
             {monthly !== null ? `${kes(monthly)} a month, to start` : 'Price agreed on a short call, for exactly this scope'}
           </span>
         </p>
-        <div className="flex flex-col gap-2 sm:items-end">
+        <div className="flex flex-col items-center gap-2 sm:items-end">
           <a
             href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] px-6 py-3 font-sign text-xl font-bold text-black transition-opacity hover:opacity-90"
+            className="bg-gradient-to-r from-[#D4A93D] to-[#F6B12C] px-8 py-3 font-sign text-xl font-bold text-black transition-opacity hover:opacity-90"
           >
             Lock in this scope
           </a>
@@ -467,8 +379,8 @@ export function GrowthBuilder() {
           </a>
         </div>
       </div>
-      <p className="mt-2 text-center font-prose text-xs text-[#EAE5DF]/50">
-        An illustration with an example property, not a real result or a guarantee.
+      <p className="mt-3 text-center font-prose text-xs text-[#EAE5DF]/50">
+        An illustration with example properties, not a real result or a guarantee.
       </p>
     </div>
   )

@@ -18,7 +18,7 @@ export default function BuildPage() {
     <main className="min-h-screen bg-black text-[#F9F6F0] pt-24 pb-20">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <header className="text-center max-w-3xl mx-auto mb-8">
-          <h1 className="font-sign font-bold text-4xl md:text-6xl leading-[0.95] text-[#F8F5EC]">
+          <h1 className="font-sign font-bold text-3xl md:text-5xl leading-[0.95] text-[#F8F5EC]">
             Stop buying cookie-cutter retainers. Build your hotel&apos;s growth system.
           </h1>
           <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/85 mt-3 leading-relaxed">
