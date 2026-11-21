@@ -24,7 +24,6 @@ export default function BuildPage() {
           <p className="font-prose text-lg md:text-xl text-[#EAE5DF]/85 mt-3 leading-relaxed">
             Pick your property type, choose only the channels you need to fix, and see your custom roadmap before we ever get on a call.
           </p>
-          <p className="font-prose italic text-[#F6B12C] mt-2">Select your modules below to generate your custom scope.</p>
         </header>
         <GrowthBuilder />
       </div>

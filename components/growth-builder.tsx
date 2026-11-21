@@ -315,108 +315,51 @@ function Preview({ property, on, toggle }: { property: (typeof PROPERTIES)[numbe
   )
 }
 
-/* ---------- Timeline under the preview ---------- */
+/* ---------- One simple row of choices under the picture ---------- */
 
-function Timeline({ intensity, on }: { intensity: (typeof INTENSITIES)[number] | undefined; on: Record<ModuleId, boolean> }) {
-  const second = on.gbp ? 'Map Pack set up' : on.seo ? 'Booking pages live' : on.funnel ? 'Booking bar live' : 'First fixes live'
-  const plan: Record<string, { at: number; label: string }[]> = {
-    steady: [
-      { at: 0.25, label: 'Week 1: audit' },
-      { at: 2, label: `Month 2: ${second}` },
-      { at: 3, label: 'Month 3: results review' },
-    ],
-    sprint: [
-      { at: 0.25, label: 'Week 1: audit' },
-      { at: 2, label: `Month 2: ${second}` },
-      { at: 4, label: 'Month 4: weekly content in full swing' },
-      { at: 6, label: 'Month 6: direct booking review' },
-    ],
-    takeover: [
-      { at: 0.25, label: 'Week 1: audit' },
-      { at: 2, label: `Month 2: ${second}` },
-      { at: 3, label: 'Month 3: first monthly report' },
-      { at: 6, label: 'Month 6: seasonal campaign' },
-    ],
-  }
-  const items = intensity ? plan[intensity.id] : []
-  const fill = intensity ? (intensity.months / 6) * 100 : 0
-  return (
-    <div className="mt-4 border border-white/15 bg-[#0D0D0D] p-4 text-left">
-      <p className="font-sign font-bold text-xl text-[#F8F5EC]">
-        {intensity ? `${intensity.length}: what happens when` : 'Pick a pace to see the timeline'}
-      </p>
-      <div className="relative mt-4 h-3 rounded-full bg-white/10">
-        <div
-          className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] transition-all duration-700 ease-out"
-          style={{ width: `${fill}%` }}
-        />
-        {items.map((m, i) => (
-          <span
-            key={m.label}
-            style={{ left: `${Math.min((m.at / 6) * 100, 98)}%` }}
-            className="absolute top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black bg-[#F8F5EC] text-[11px] font-bold text-black"
-          >
-            {i + 1}
-          </span>
-        ))}
-      </div>
-      <div className="mt-1 flex justify-between font-prose text-xs text-[#EAE5DF]/60">
-        <span>Start</span><span>Month 3</span><span>Month 6{intensity?.id === 'takeover' ? ' and on' : ''}</span>
-      </div>
-      {items.length > 0 && (
-        <ol className="mt-3 grid gap-1 font-prose text-sm text-[#EAE5DF]/90 sm:grid-cols-2">
-          {items.map((m, i) => (
-            <li key={m.label} className="flex gap-2">
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F8F5EC] text-[11px] font-bold text-black">{i + 1}</span>
-              {m.label}
-            </li>
-          ))}
-        </ol>
-      )}
-    </div>
-  )
-}
-
-/* ---------- Small swatches for the choices ---------- */
-
-function Swatch({ selected, onClick, children, label, multi }: { selected: boolean; onClick: () => void; children: ReactNode; label: string; multi?: boolean }) {
+function Dot({
+  selected,
+  onClick,
+  label,
+  children,
+  square,
+}: {
+  selected: boolean
+  onClick: () => void
+  label: string
+  children: ReactNode
+  square?: boolean
+}) {
   return (
     <button
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`relative flex flex-col items-center gap-2 border-2 p-2 transition-colors ${
-        selected ? 'border-[#F6B12C] bg-[#F6B12C]/10' : 'border-white/15 bg-[#0D0D0D] hover:border-[#F6B12C]/60'
-      }`}
+      aria-label={label}
+      title={label}
+      className={`flex flex-col items-center gap-1 ${selected ? 'text-[#F6B12C]' : 'text-[#EAE5DF]/70 hover:text-[#F8F5EC]'}`}
     >
-      {children}
-      <span className="font-sign font-bold text-lg leading-none text-[#F8F5EC]">{label}</span>
-      {selected && (
-        <span className={`absolute right-1 top-1 flex h-5 w-5 items-center justify-center bg-[#F6B12C] text-black ${multi ? 'rounded-sm' : 'rounded-full'}`}>
-          <Check size={12} strokeWidth={3} />
-        </span>
-      )}
+      <span
+        className={`flex h-12 w-12 items-center justify-center overflow-hidden border-2 transition-colors ${square ? 'rounded-md' : 'rounded-full'} ${
+          selected ? 'border-[#F6B12C] bg-[#F6B12C]/15' : 'border-white/25 bg-[#161616]'
+        }`}
+      >
+        {children}
+      </span>
+      <span className="font-sign text-sm font-semibold leading-none">{label}</span>
     </button>
   )
 }
 
-function StepLabel({ n, title }: { n: number; title: string }) {
-  return (
-    <p className="mb-3 text-left font-sign font-bold text-2xl text-[#F8F5EC]">
-      <span className="text-[#F6B12C]">Step {n}.</span> {title}
-    </p>
-  )
-}
-
 export function GrowthBuilder() {
+  // Starts already built, like a shoe you can start changing straight away.
   const [propertyId, setPropertyId] = useState('boutique')
-  const [chosen, setChosen] = useState<ModuleId[]>([])
-  const [intensityId, setIntensityId] = useState<string | null>(null)
-  const [propertyPicked, setPropertyPicked] = useState(false)
-  const [info, setInfo] = useState('Click a swatch, or a + pin on the preview, to build your system.')
+  const [chosen, setChosen] = useState<ModuleId[]>(['gbp'])
+  const [intensityId, setIntensityId] = useState('sprint')
+  const [info, setInfo] = useState('Tap the + pins on the picture, or the circles below, to build your system.')
 
   const property = PROPERTIES.find((p) => p.id === propertyId)!
-  const intensity = INTENSITIES.find((i) => i.id === intensityId)
+  const intensity = INTENSITIES.find((i) => i.id === intensityId)!
   const modules = MODULES.filter((m) => chosen.includes(m.id))
   const on: Record<ModuleId, boolean> = {
     gbp: chosen.includes('gbp'),
@@ -424,177 +367,109 @@ export function GrowthBuilder() {
     funnel: chosen.includes('funnel'),
     reputation: chosen.includes('reputation'),
   }
-  const ready = propertyPicked && Boolean(intensity) && modules.length > 0
 
   const toggle = (id: ModuleId) => {
     const m = MODULES.find((x) => x.id === id)!
     setChosen((cur) => {
       const next = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]
-      setInfo(`${next.includes(id) ? 'On' : 'Off'}: ${m.name}. ${m.info}`)
+      setInfo(`${next.includes(id) ? 'Added' : 'Removed'}: ${m.name}. ${m.info}`)
       return next
     })
   }
 
   const monthly = useMemo(() => {
-    if (!PRICING.enabled || !propertyPicked || !intensityId) return null
+    if (!PRICING.enabled) return null
     const sum = PRICING.base[propertyId] + chosen.reduce((t, id) => t + (PRICING.modules[id] ?? 0), 0)
     return sum * PRICING.intensity[intensityId]
-  }, [propertyId, propertyPicked, chosen, intensityId])
+  }, [propertyId, chosen, intensityId])
 
-  const message = ready
-    ? `I built this growth plan on bookedupafrica.com.\nProperty: ${property.name}\nModules: ${modules.map((m) => m.name).join(', ')}\nPace: ${intensity!.name} (${intensity!.length})\nI would like a 15-minute walkthrough.`
-    : ''
+  const message =
+    `I built this growth plan on bookedupafrica.com.\nProperty: ${property.name}\nModules: ${
+      modules.length ? modules.map((m) => m.name).join(', ') : 'none yet'
+    }\nPace: ${intensity.name} (${intensity.length})\nI would like a 15-minute walkthrough.`
 
-  const summary = (
-    <aside className="border-2 border-[#F6B12C] bg-[#0D0D0D] p-6 text-left">
-      <p className="font-sign font-bold text-[#F6B12C] text-xl">Your custom growth blueprint</p>
-      <dl className="mt-4 space-y-4 font-prose text-[#EAE5DF]">
-        <div>
-          <dt className="text-sm text-[#EAE5DF]/60">Property</dt>
-          <dd className="text-lg">{propertyPicked ? property.name : 'Not chosen yet'}</dd>
+  return (
+    <div className="mx-auto max-w-3xl">
+      <div className="sticky top-16 z-20 -mx-4 bg-black px-4 pb-2 pt-2 md:static md:mx-0 md:px-0">
+        <Preview property={property} on={on} toggle={toggle} />
+        <p className="mt-2 min-h-[3.2rem] border-l-4 border-[#F6B12C] bg-[#0D0D0D] px-3 py-2 text-left font-prose text-sm text-[#EAE5DF]/90">
+          {info}
+        </p>
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-start justify-center gap-x-8 gap-y-5 border border-white/15 bg-[#0D0D0D] p-4">
+        <div className="flex gap-3" role="group" aria-label="Property type">
+          {PROPERTIES.map((p) => (
+            <Dot
+              key={p.id}
+              label={p.short}
+              selected={propertyId === p.id}
+              onClick={() => {
+                setPropertyId(p.id)
+                setInfo(p.info)
+              }}
+            >
+              <span className="block h-full w-full scale-[1.6]">
+                <PropertyArt kind={p.id} />
+              </span>
+            </Dot>
+          ))}
         </div>
-        <div>
-          <dt className="text-sm text-[#EAE5DF]/60">Modules</dt>
-          <dd>
-            {modules.length > 0 ? (
-              <ul className="space-y-1">
-                {modules.map((m) => (
-                  <li key={m.id} className="flex gap-2">
-                    <Check size={18} className="mt-1 shrink-0 text-[#F6B12C]" />
-                    <span>{m.name}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <span className="text-lg">None chosen yet</span>
-            )}
-          </dd>
+
+        <div className="flex gap-3" role="group" aria-label="Growth modules">
+          {MODULES.map((m) => {
+            const Icon = m.icon
+            return (
+              <Dot key={m.id} label={m.short} selected={on[m.id]} onClick={() => toggle(m.id)}>
+                <Icon size={22} strokeWidth={1.9} />
+              </Dot>
+            )
+          })}
         </div>
-        <div>
-          <dt className="text-sm text-[#EAE5DF]/60">Pace and length</dt>
-          <dd className="text-lg">{intensity ? `${intensity.name}, ${intensity.length}` : 'Not chosen yet'}</dd>
+
+        <div className="flex gap-3" role="group" aria-label="Pace">
+          {INTENSITIES.map((i) => (
+            <Dot
+              key={i.id}
+              square
+              label={i.short}
+              selected={intensityId === i.id}
+              onClick={() => {
+                setIntensityId(i.id)
+                setInfo(i.info)
+              }}
+            >
+              <span className="font-sign text-base font-bold">{i.id === 'steady' ? '90d' : i.id === 'sprint' ? '6m' : '∞'}</span>
+            </Dot>
+          ))}
         </div>
-        <div className="border-t border-dashed border-white/25 pt-4">
-          <dt className="text-sm text-[#EAE5DF]/60">Investment</dt>
-          <dd>
-            {ready && monthly !== null ? (
-              <>
-                <span className="font-sign font-bold text-4xl text-[#F6B12C]">{kes(monthly)}</span>
-                <span className="mt-1 block text-sm text-[#EAE5DF]/60">a month, to start</span>
-              </>
-            ) : ready ? (
-              <span className="text-lg">Agreed on a short call, based on exactly this scope.</span>
-            ) : (
-              <span className="text-lg">Appears once you have made your choices.</span>
-            )}
-          </dd>
-        </div>
-      </dl>
-      {ready ? (
-        <div className="mt-6 space-y-3">
+      </div>
+
+      <div className="mt-4 flex flex-col items-center gap-3 border-2 border-[#F6B12C] bg-[#0D0D0D] p-4 text-center sm:flex-row sm:justify-between sm:text-left">
+        <p className="font-prose text-[#EAE5DF]">
+          <span className="font-sign text-xl font-bold text-[#F8F5EC]">{property.short}</span> · {modules.length}{' '}
+          {modules.length === 1 ? 'module' : 'modules'} · {intensity.name}
+          <span className="block text-sm text-[#EAE5DF]/70">
+            {monthly !== null ? `${kes(monthly)} a month, to start` : 'Price agreed on a short call, for exactly this scope'}
+          </span>
+        </p>
+        <div className="flex flex-col gap-2 sm:items-end">
           <a
             href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-center px-5 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-black font-sign font-bold text-xl transition-opacity"
+            className="bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] px-6 py-3 font-sign text-xl font-bold text-black transition-opacity hover:opacity-90"
           >
-            Lock in this scope on WhatsApp
+            Lock in this scope
           </a>
-          <a
-            href={CALENDLY}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-center px-5 py-3 border-2 border-[#F6B12C] text-[#F6B12C] hover:bg-[#F6B12C]/10 font-sign font-bold text-xl transition-colors"
-          >
-            Book a walkthrough call
+          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="font-prose text-sm text-[#F6B12C] underline underline-offset-4">
+            or book a walkthrough call
           </a>
         </div>
-      ) : (
-        <p className="mt-6 font-prose text-sm text-[#EAE5DF]/60">Choose a property, at least one module and a pace to unlock the next step.</p>
-      )}
-    </aside>
-  )
-
-  return (
-    <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-8 items-start">
-      {/* Preview: stays in view while the choices scroll past */}
-      <div className="sticky top-16 z-20 -mx-4 bg-black px-4 pb-2 pt-2 lg:top-28 lg:mx-0 lg:px-0">
-        <Preview property={property} on={on} toggle={toggle} />
-        <p className="mt-2 min-h-[3.2rem] border-l-4 border-[#F6B12C] bg-[#0D0D0D] px-3 py-2 text-left font-prose text-sm text-[#EAE5DF]/90">{info}</p>
-        <p className="mt-1 text-left font-prose text-xs text-[#EAE5DF]/50">
-          An illustration with an example property, not a real result or a guarantee.
-        </p>
       </div>
-
-      <div className="space-y-10">
-        <section>
-          <StepLabel n={1} title="Choose your base" />
-          <div className="grid grid-cols-3 gap-3">
-            {PROPERTIES.map((p) => (
-              <Swatch
-                key={p.id}
-                label={p.short}
-                selected={propertyPicked && propertyId === p.id}
-                onClick={() => {
-                  setPropertyId(p.id)
-                  setPropertyPicked(true)
-                  setInfo(p.info)
-                }}
-              >
-                <span className="block h-14 w-full overflow-hidden">
-                  <PropertyArt kind={p.id} />
-                </span>
-              </Swatch>
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <StepLabel n={2} title="Switch on your modules" />
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-3">
-            {MODULES.map((m) => {
-              const Icon = m.icon
-              return (
-                <Swatch key={m.id} multi label={m.short} selected={on[m.id]} onClick={() => toggle(m.id)}>
-                  <span className="flex h-14 w-full items-center justify-center bg-[#161616] text-[#F6B12C]">
-                    <Icon size={30} strokeWidth={1.8} />
-                  </span>
-                </Swatch>
-              )
-            })}
-          </div>
-        </section>
-
-        <section>
-          <StepLabel n={3} title="Set your pace" />
-          <div className="grid grid-cols-3 gap-3">
-            {INTENSITIES.map((i) => (
-              <Swatch
-                key={i.id}
-                label={i.short}
-                selected={intensityId === i.id}
-                onClick={() => {
-                  setIntensityId(i.id)
-                  setInfo(i.info)
-                }}
-              >
-                <span className="flex h-14 w-full flex-col justify-center gap-1 bg-[#161616] px-2">
-                  <span className="block h-2 rounded-full bg-white/15">
-                    <span className="block h-2 rounded-full bg-gradient-to-r from-[#F26A0A] to-[#F6B12C]" style={{ width: `${(i.months / 6) * 100}%` }} />
-                  </span>
-                  <span className="text-center font-prose text-xs text-[#EAE5DF]/70">{i.length}</span>
-                </span>
-              </Swatch>
-            ))}
-          </div>
-          <Timeline intensity={intensity} on={on} />
-        </section>
-
-        <section>
-          <StepLabel n={4} title="Lock it in" />
-          {summary}
-        </section>
-      </div>
+      <p className="mt-2 text-center font-prose text-xs text-[#EAE5DF]/50">
+        An illustration with an example property, not a real result or a guarantee.
+      </p>
     </div>
   )
 }
