@@ -30,12 +30,20 @@ export function Hero() {
       </div>
 
       <div className="pb-0 relative">
-        <a
-          href="/contact"
-          className="inline-block px-8 py-4 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#000000] font-sign font-bold text-xl md:text-2xl rounded-sm transition-colors"
-        >
-          Claim your free growth audit
-        </a>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="/contact"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#000000] font-sign font-bold text-xl md:text-2xl rounded-sm transition-colors"
+          >
+            Claim your free growth audit
+          </a>
+          <a
+            href="/build-your-growth-system"
+            className="inline-block px-8 py-4 border-2 border-[#F6B12C] text-[#F6B12C] hover:bg-[#F6B12C]/10 font-sign font-bold text-xl md:text-2xl rounded-sm transition-colors"
+          >
+            Build your system
+          </a>
+        </div>
         <div className="road-dash h-12 md:h-14 mx-auto mt-8" aria-hidden="true" />
       </div>
     </section>

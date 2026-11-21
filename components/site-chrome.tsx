@@ -5,6 +5,7 @@ import { Navigation } from './navigation'
 import { Footer } from './footer'
 import { KeepReading } from './keep-reading'
 import { SubscribeForm } from './subscribe-form'
+import { BuilderPopup } from './builder-popup'
 
 const NO_PUBLIC_CHROME_PREFIXES = ['/admin', '/sign-in', '/sign-up']
 
@@ -32,6 +33,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
         </>
       )}
       <Footer />
+      <BuilderPopup />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
@@ -118,6 +119,7 @@ export default function WebsitePillar() {
           </Link>
         </section>
       </div>
-    </article>
+      <BuilderCallout title="Is your website the bottleneck?" text="Switch on the booking bar and build a custom scope in 30 seconds." />
+</article>
   )
 }

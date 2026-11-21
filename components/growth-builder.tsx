@@ -15,7 +15,11 @@ const PRICING = {
 }
 
 const WHATSAPP = '254799022671'
-const CALENDLY = 'https://calendly.com/mogerejulius41/30min'
+
+// Short codes used in the web address that carries the choices to the quote form.
+const PROPERTY_CODE: Record<string, string> = { boutique: 'safari-camp', urban: 'city-hotel', group: 'villa-group' }
+const MODULE_CODE: Record<ModuleId, string> = { gbp: 'map-pack', seo: 'direct-seo', funnel: 'booking-bar', reputation: 'reviews' }
+const PACE_CODE: Record<string, string> = { steady: '90d', sprint: '6m', takeover: 'ongoing' }
 
 type ModuleId = 'gbp' | 'seo' | 'funnel' | 'reputation'
 
@@ -299,6 +303,8 @@ export function GrowthBuilder() {
     return sum * PRICING.intensity[intensityId]
   }, [propertyId, chosen, intensityId])
 
+  const scopeHref = `/book-demo?property=${PROPERTY_CODE[propertyId]}&modules=${chosen.map((m) => MODULE_CODE[m]).join(',')}&pace=${PACE_CODE[intensityId]}#request`
+
   const message =
     `I built this growth plan on bookedupafrica.com.\nProperty: ${property.name}\nModules: ${
       modules.length ? modules.map((m) => m.name).join(', ') : 'none yet'
@@ -367,15 +373,18 @@ export function GrowthBuilder() {
         </p>
         <div className="flex flex-col items-center gap-2 sm:items-end">
           <a
-            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={scopeHref}
             className="bg-gradient-to-r from-[#D4A93D] to-[#F6B12C] px-8 py-3 font-sign text-xl font-bold text-black transition-opacity hover:opacity-90"
           >
             Lock in this scope
           </a>
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="font-prose text-sm text-[#F6B12C] underline underline-offset-4">
-            or book a walkthrough call
+          <a
+            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-prose text-sm text-[#F6B12C] underline underline-offset-4"
+          >
+            or send it on WhatsApp
           </a>
         </div>
       </div>

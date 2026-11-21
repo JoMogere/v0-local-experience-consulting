@@ -1,7 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { WHATSAPP_NUMBER } from '@/lib/merch-data'
+import { parseScope, scopeText } from '@/lib/growth-scope'
 
 const GOALS = [
   'More direct bookings',
@@ -17,6 +20,8 @@ const field =
 export function DemoRequestForm() {
   const [goals, setGoals] = useState<string[]>([])
   const [error, setError] = useState('')
+  const params = useSearchParams()
+  const scope = parseScope((k) => params.get(k))
 
   const toggle = (g: string) =>
     setGoals((cur) => (cur.includes(g) ? cur.filter((x) => x !== g) : [...cur, g]))
@@ -36,6 +41,7 @@ export function DemoRequestForm() {
       `Rooms: ${get('rooms') || 'not given'}`,
       `Website: ${get('website') || 'none yet'}`,
       `Currently takes bookings via: ${get('channels') || 'not given'}`,
+      ...(scope ? [`Custom scope from the builder: ${scopeText(scope)}`] : []),
       `Goals: ${goals.length ? goals.join(', ') : 'not given'}`,
       `Best time for a call: ${get('time') || 'any'}`,
       `Phone/email: ${get('contact') || 'this WhatsApp number'}`,
@@ -62,6 +68,17 @@ export function DemoRequestForm() {
       }}
       className="bg-navy-alt border border-border-flat rounded-sm p-6 md:p-8 space-y-5"
     >
+      {scope && (
+        <div className="border-2 border-[#F6B12C] bg-[#0D0D0D] p-4">
+          <p className="font-bold text-[#F6B12C]">Your custom scope, from the builder</p>
+          <p className="text-[#F9F6F0] mt-1">{scope.property}</p>
+          <p className="text-text-gray text-sm mt-1">{scope.modules.length ? scope.modules.join(' · ') : 'No modules chosen'}</p>
+          <p className="text-text-gray text-sm">{scope.pace}</p>
+          <Link href="/build-your-growth-system" className="inline-block mt-2 text-sm text-gold-flat underline">
+            Change it
+          </Link>
+        </div>
+      )}
       <div className="grid md:grid-cols-2 gap-4">
         <input name="name" placeholder="Your name *" className={field} />
         <input name="contact" placeholder="Phone or email" className={field} />

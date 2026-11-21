@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { SERVICES } from '@/lib/services-data'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -109,6 +110,7 @@ export default function ServicesPage() {
           }),
         }}
       />
-    </main>
+      <BuilderCallout />
+</main>
   )
 }

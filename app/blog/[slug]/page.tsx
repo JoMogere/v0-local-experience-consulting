@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import { getBlogBySlug, getPublishedBlogs } from '@/app/actions/blogs'
 import { notFound } from 'next/navigation'
@@ -156,6 +157,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           }),
         }}
       />
-    </article>
+      <BuilderCallout />
+</article>
   )
 }

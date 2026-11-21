@@ -400,6 +400,14 @@ export function OtaCalculator() {
                   Download as PDF
                 </button>
               </div>
+              <div className="mt-8 border-t border-dashed border-[#F6B12C]/50 pt-6">
+                <a
+                  href="/build-your-growth-system"
+                  className="inline-block px-6 py-3 bg-gradient-to-r from-[#F26A0A] to-[#F6B12C] hover:opacity-90 text-[#000000] font-sign font-bold text-xl rounded-sm transition-opacity"
+                >
+                  Fix these leaks: build your custom direct-booking scope
+                </a>
+              </div>
               <p className="font-prose text-[#EAE5DF]/60 mt-4">
                 Nothing is saved on our side. Your figures stay on your phone unless you send them.
               </p>

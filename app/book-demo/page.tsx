@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { DemoRequestForm } from '@/components/demo-request-form'
 
 export const metadata: Metadata = {
@@ -46,8 +47,10 @@ export default function BookDemoPage() {
           ))}
         </ol>
 
-        <h2 className="text-2xl font-bold mb-4">1. Tell us about your property</h2>
-        <DemoRequestForm />
+        <h2 id="request" className="text-2xl font-bold mb-4 scroll-mt-28">1. Tell us about your property</h2>
+        <Suspense fallback={null}>
+          <DemoRequestForm />
+        </Suspense>
 
         <h2 className="text-2xl font-bold mt-12 mb-4">2. Pick a time for the demo</h2>
         <div className="bg-navy-alt border border-border-flat rounded-sm p-8 text-center">

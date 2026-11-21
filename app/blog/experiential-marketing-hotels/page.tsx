@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
@@ -132,6 +133,7 @@ export default function ExperientialPillar() {
           </Link>
         </section>
       </div>
-    </article>
+      <BuilderCallout title="Want guests to talk about your stay?" text="Build a custom scope in 30 seconds and see what we would do first." />
+</article>
   )
 }

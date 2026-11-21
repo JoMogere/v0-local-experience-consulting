@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
@@ -206,6 +207,7 @@ export default function LocalSEOPillar() {
           </p>
         </section>
       </div>
-    </article>
+      <BuilderCallout title="Just read how local search works?" text="Switch on the Map Pack and see your hotel in the results, then build the scope." />
+</article>
   )
 }

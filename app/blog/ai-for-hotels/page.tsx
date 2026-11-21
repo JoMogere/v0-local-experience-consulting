@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
@@ -104,6 +105,7 @@ export default function AIPillar() {
           </Link>
         </section>
       </div>
-    </article>
+      <BuilderCallout title="Want the parts of this that fit your hotel?" text="Pick the channels you want fixed and build a custom scope in 30 seconds." />
+</article>
   )
 }

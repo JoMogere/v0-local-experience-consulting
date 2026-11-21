@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
@@ -180,6 +181,7 @@ export default function ContentMarketingPillar() {
           </p>
         </section>
       </div>
-    </article>
+      <BuilderCallout title="Want content that brings in guests?" text="Pick the channels that matter and build a custom scope in 30 seconds." />
+</article>
   )
 }

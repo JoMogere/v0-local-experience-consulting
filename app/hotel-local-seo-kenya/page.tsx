@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -130,6 +131,7 @@ export default function HotelLocalSEOPage() {
           </div>
         </div>
       </section>
+  <BuilderCallout />
     </div>
   )
 }

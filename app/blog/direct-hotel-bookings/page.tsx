@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import { ArticleJsonLd } from '@/components/article-json-ld'
 import Link from 'next/link'
@@ -151,6 +152,7 @@ export default function DirectBookingsPillar() {
           </p>
         </section>
       </div>
-    </article>
+      <BuilderCallout title="Ready to win back direct bookings?" text="Choose the fixes you need and build a custom scope in 30 seconds." />
+</article>
   )
 }

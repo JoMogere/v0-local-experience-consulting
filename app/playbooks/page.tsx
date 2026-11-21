@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -48,6 +49,7 @@ export default function PlaybooksPage() {
           ))}
         </div>
       </div>
-    </main>
+      <BuilderCallout />
+</main>
   )
 }

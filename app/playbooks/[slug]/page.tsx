@@ -1,3 +1,4 @@
+import { BuilderCallout } from '@/components/builder-callout'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -192,6 +193,7 @@ export default async function PlaybookPage({ params }: { params: Promise<Params>
           }),
         }}
       />
-    </main>
+      <BuilderCallout />
+</main>
   )
 }
