@@ -39,6 +39,15 @@ export function ServicesOverview() {
             </div>
           ))}
         </div>
+        <div className="mt-14 text-center">
+          <p className="font-prose text-lg text-[#EAE5DF]/90">Not sure which one you need first?</p>
+          <Link
+            href="/build-your-growth-system"
+            className="inline-block mt-3 font-sign font-bold text-2xl text-[#F6B12C] underline decoration-2 underline-offset-4 hover:text-[#FFC24A]"
+          >
+            Build your own growth plan
+          </Link>
+        </div>
       </div>
     </section>
   )
