@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import Image from 'next/image'
 import { Check, MapPin, Search, Smartphone, Star } from 'lucide-react'
 
 // Prices stay off until real figures are filled in here. With `enabled: false` the summary says the
@@ -29,7 +28,7 @@ const PROPERTIES = [
     short: 'Safari camp',
     name: 'Boutique or safari lodge',
     name2: 'Your Lodge',
-    photo: '/builder/lodge.webp',
+    type: 'safari lodge',
     query: 'tented camp near me',
     headline: 'Wake up in the bush',
     info: 'Boutique and safari lodge: high-value direct enquiries, and search that tells your story.',
@@ -39,7 +38,7 @@ const PROPERTIES = [
     short: 'City hotel',
     name: 'Urban or business hotel',
     name2: 'Your Hotel',
-    photo: '/builder/city.webp',
+    type: 'hotel',
     query: 'business hotel in Nairobi',
     headline: 'Business stays, made easy',
     info: 'Urban and business hotel: winning the Google Maps results and repeat corporate bookings.',
@@ -49,7 +48,7 @@ const PROPERTIES = [
     short: 'Villa group',
     name: 'Multi-property or villa group',
     name2: 'Your Villas',
-    photo: '/builder/villa.webp',
+    type: 'villas',
     query: 'villas in Naivasha',
     headline: 'Pick your villa',
     info: 'Villa group: one trusted brand that shows up in every location.',
@@ -120,7 +119,83 @@ function Pin({ x, y, on, label, onClick }: { x: number; y: number; on: boolean; 
 const card = (on: boolean) =>
   `absolute z-20 transition-all duration-500 ease-out ${on ? 'opacity-100 scale-100' : 'opacity-25 scale-[0.97] grayscale'}`
 
-function Stage({ property, on, toggle }: { property: (typeof PROPERTIES)[number]; on: Record<ModuleId, boolean>; toggle: (id: ModuleId) => void }) {
+function PropertyArt({ kind }: { kind: string }) {
+  if (kind === 'urban') {
+    const wins: ReactNode[] = []
+    const b = [
+      [10, 40, 38], [52, 18, 44], [100, 52, 34], [140, 30, 40], [188, 12, 46], [236, 46, 34],
+    ]
+    b.forEach(([x, top, w], i) => {
+      for (let r = 0; r < 6; r++)
+        for (let c = 0; c < 3; c++)
+          if ((r * 3 + c + i) % 3 !== 0)
+            wins.push(<rect key={`${i}-${r}-${c}`} x={x + 5 + c * ((w - 10) / 3)} y={top + 8 + r * 12} width={5} height={6} fill="#FFD27A" />)
+    })
+    return (
+      <svg viewBox="0 0 270 130" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
+        <defs>
+          <linearGradient id="skyU" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#3A1706" /><stop offset="1" stopColor="#F26A0A" /></linearGradient>
+        </defs>
+        <rect width="270" height="130" fill="url(#skyU)" />
+        {b.map(([x, top, w], i) => (
+          <rect key={i} x={x} y={top} width={w} height={130 - top} fill="#0D0D0D" />
+        ))}
+        {wins}
+      </svg>
+    )
+  }
+  if (kind === 'group') {
+    return (
+      <svg viewBox="0 0 270 130" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
+        <rect width="270" height="130" fill="#E9E4D2" />
+        <path d="M0 95 C60 70 110 110 170 80 S250 70 270 85 V130 H0Z" fill="#BFD7C0" />
+        <path d="M-5 30 L90 55 L175 35 L275 70" stroke="#FFFFFF" strokeWidth="7" fill="none" />
+        <path d="M120 -5 L135 60 L110 135" stroke="#FFFFFF" strokeWidth="6" fill="none" />
+        <circle cx="215" cy="30" r="14" fill="#9CC9E8" />
+        {[[70, 52], [150, 46], [205, 78], [105, 92]].map(([x, y], i) => (
+          <g key={i} transform={`translate(${x} ${y})`}>
+            <path d="M0 0 C-9 -12 -9 -24 0 -24 S9 -12 0 0Z" fill="#F26A0A" transform="translate(0 0)" />
+            <circle cx="0" cy="-17" r="3" fill="#fff" />
+          </g>
+        ))}
+      </svg>
+    )
+  }
+  return (
+    <svg viewBox="0 0 270 130" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
+      <defs>
+        <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#F6B12C" /><stop offset="1" stopColor="#F26A0A" /></linearGradient>
+      </defs>
+      <rect width="270" height="130" fill="url(#skyB)" />
+      <circle cx="205" cy="62" r="24" fill="#FFE29A" />
+      <rect y="92" width="270" height="38" fill="#3A1706" />
+      <path d="M26 92 V62 M26 66 C6 62 0 52 -2 50 M26 66 C46 62 54 54 56 52 M26 60 C16 54 10 46 8 44 M26 60 C38 54 46 46 48 44" stroke="#0D0D0D" strokeWidth="3" fill="none" />
+      <path d="M70 94 L108 60 L146 94Z" fill="#E8D3A8" />
+      <path d="M98 94 L108 74 L118 94Z" fill="#3A1706" />
+      <path d="M150 96 L184 68 L218 96Z" fill="#D8BD8C" />
+      <path d="M176 96 L184 82 L192 96Z" fill="#3A1706" />
+    </svg>
+  )
+}
+
+
+function Stage({
+  property,
+  on,
+  toggle,
+  brand,
+  location,
+  photo,
+}: {
+  property: (typeof PROPERTIES)[number]
+  on: Record<ModuleId, boolean>
+  toggle: (id: ModuleId) => void
+  brand: string
+  location: string
+  photo: string | null
+}) {
+  const name = brand.trim() || property.name2
+  const place = location.trim()
   const wrap = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(0.7)
   useEffect(() => {
@@ -159,8 +234,8 @@ function Stage({ property, on, toggle }: { property: (typeof PROPERTIES)[number]
             <div className="text-[15px] font-bold text-[#2F9E5B]">
               #1 Ranking <span className="text-[#202124]">• 4.9</span> <span className="text-[#F6B12C]">★</span>
             </div>
-            <div className="text-[17px] font-semibold text-[#202124]">{property.name2}</div>
-            <div className="mt-1 h-[5px] w-4/5 rounded bg-[#E4E4E4]" />
+            <div className="text-[17px] font-semibold text-[#202124]">{name}</div>
+            {place ? <div className="text-[12px] text-[#5F6368]">{place}</div> : <div className="mt-1 h-[5px] w-4/5 rounded bg-[#E4E4E4]" />}
           </div>
         </div>
 
@@ -187,17 +262,16 @@ function Stage({ property, on, toggle }: { property: (typeof PROPERTIES)[number]
         <div className="absolute left-1/2 top-[10px] z-10 h-[380px] w-[196px] -translate-x-1/2 rounded-[30px] border-[6px] border-[#1F1F1F] bg-black shadow-[0_10px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/20">
           <div className="relative h-full w-full overflow-hidden rounded-[24px]">
             {PROPERTIES.map((p) => (
-              <Image
-                key={p.id}
-                src={p.photo}
-                alt={`${p.short} photo on a phone`}
-                fill
-                sizes="200px"
-                className={`object-cover transition-opacity duration-700 ${p.id === property.id ? 'opacity-100' : 'opacity-0'}`}
-              />
+              <div key={p.id} className={`absolute inset-0 transition-opacity duration-700 ${p.id === property.id && !photo ? 'opacity-100' : 'opacity-0'}`}>
+                <PropertyArt kind={p.id} />
+              </div>
             ))}
+            {photo && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={photo} alt="Your property" className="absolute inset-0 h-full w-full object-cover" />
+            )}
             <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between bg-gradient-to-b from-black/60 to-transparent px-3 pb-6 pt-3 text-[12px] font-bold text-white">
-              <span>{property.name2}</span>
+              <span className="truncate">{name}</span>
               <span>☰</span>
             </div>
             <div className="absolute left-1/2 top-[6px] z-10 h-[14px] w-[56px] -translate-x-1/2 rounded-full bg-black" />
@@ -279,6 +353,7 @@ export function GrowthBuilder() {
   const [open, setOpen] = useState(false)
   const [details, setDetails] = useState({ name: '', contact: '', property: '', location: '', rooms: '', website: '' })
   const [error, setError] = useState('')
+  const [photo, setPhoto] = useState<string | null>(null)
   const [info, setInfo] = useState('Tap the + pins on the picture, or the circles below, to build your system.')
 
   const property = PROPERTIES.find((p) => p.id === propertyId)!
@@ -289,6 +364,14 @@ export function GrowthBuilder() {
     seo: chosen.includes('seo'),
     funnel: chosen.includes('funnel'),
     reputation: chosen.includes('reputation'),
+  }
+
+  // The photo stays in the visitor's browser. It is never uploaded anywhere.
+  const choosePhoto = (file: File | undefined) => {
+    setPhoto((old) => {
+      if (old) URL.revokeObjectURL(old)
+      return file ? URL.createObjectURL(file) : null
+    })
   }
 
   const toggle = (id: ModuleId) => {
@@ -343,9 +426,38 @@ export function GrowthBuilder() {
   return (
     <div className="mx-auto max-w-3xl">
       <div className="sticky top-16 z-20 -mx-4 bg-black px-4 pb-1 pt-2 md:static md:mx-0 md:px-0">
-        <Stage property={property} on={on} toggle={toggle} />
+        <Stage property={property} on={on} toggle={toggle} brand={details.property} location={details.location} photo={photo} />
         <p className="mt-1 min-h-[2.6rem] text-center font-prose text-sm text-[#EAE5DF]/80">{info}</p>
       </div>
+
+      <div className="mt-2 grid gap-3 sm:grid-cols-[1fr_1fr_auto]">
+        <input
+          value={details.property}
+          onChange={(e) => setDetails((d) => ({ ...d, property: e.target.value }))}
+          placeholder="Your property name"
+          aria-label="Your property name"
+          className="w-full border border-white/25 bg-black px-4 py-3 text-[#F9F6F0] placeholder:text-[#9A958B] focus:border-[#F6B12C] focus:outline-none"
+        />
+        <input
+          value={details.location}
+          onChange={(e) => setDetails((d) => ({ ...d, location: e.target.value }))}
+          placeholder="Location (e.g. Naivasha)"
+          aria-label="Location"
+          className="w-full border border-white/25 bg-black px-4 py-3 text-[#F9F6F0] placeholder:text-[#9A958B] focus:border-[#F6B12C] focus:outline-none"
+        />
+        <label className="flex cursor-pointer items-center justify-center border-2 border-[#F6B12C] px-4 py-3 font-sign text-lg font-bold text-[#F6B12C] hover:bg-[#F6B12C]/10">
+          {photo ? 'Change photo' : 'Add your photo'}
+          <input type="file" accept="image/*" className="sr-only" onChange={(e) => choosePhoto(e.target.files?.[0])} />
+        </label>
+      </div>
+      <p className="mt-1 text-center font-prose text-xs text-[#EAE5DF]/60">
+        See the preview with your own property. Your photo stays on your device and is not uploaded.
+        {photo && (
+          <button type="button" onClick={() => choosePhoto(undefined)} className="ml-2 text-[#F6B12C] underline">
+            Remove photo
+          </button>
+        )}
+      </p>
 
       <div className="mt-3 grid gap-x-8 gap-y-6 border-t border-white/15 pt-6 sm:grid-cols-[auto_auto_auto] sm:justify-center">
         <Group n={1} title="Property type">
@@ -359,7 +471,7 @@ export function GrowthBuilder() {
                 setInfo(p.info)
               }}
             >
-              <Image src={p.photo} alt="" fill sizes="48px" className="object-cover" />
+              <span className="block h-full w-full scale-[1.6]"><PropertyArt kind={p.id} /></span>
             </Dot>
           ))}
         </Group>
