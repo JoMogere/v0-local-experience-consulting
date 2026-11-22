@@ -276,6 +276,9 @@ export function GrowthBuilder() {
   const [propertyId, setPropertyId] = useState('boutique')
   const [chosen, setChosen] = useState<ModuleId[]>(['gbp'])
   const [intensityId, setIntensityId] = useState('sprint')
+  const [open, setOpen] = useState(false)
+  const [details, setDetails] = useState({ name: '', contact: '', property: '', location: '', rooms: '', website: '' })
+  const [error, setError] = useState('')
   const [info, setInfo] = useState('Tap the + pins on the picture, or the circles below, to build your system.')
 
   const property = PROPERTIES.find((p) => p.id === propertyId)!
@@ -308,7 +311,13 @@ export function GrowthBuilder() {
   const message = [
     '*Custom growth plan* (built on bookedupafrica.com)',
     '',
-    `*Property:* ${property.name}`,
+    `*Name:* ${details.name || 'not given'}`,
+    `*Property:* ${details.property || 'not given'} (${details.location || 'location not given'})`,
+    `*Rooms:* ${details.rooms || 'not given'}`,
+    `*Website:* ${details.website || 'none yet'}`,
+    `*Phone or email:* ${details.contact || 'this WhatsApp number'}`,
+    '',
+    `*Property type:* ${property.name}`,
     '',
     '*Modules:*',
     ...(modules.length ? modules.map((m) => `- ${m.name}`) : ['- none chosen yet']),
@@ -317,6 +326,19 @@ export function GrowthBuilder() {
     '',
     'Please share a time for a 15-minute walkthrough.',
   ].join('\n')
+
+  const send = (via: 'whatsapp' | 'email') => {
+    if (!details.name.trim() || !details.property.trim() || !details.location.trim()) {
+      setError('Please add your name, property name and location.')
+      return
+    }
+    setError('')
+    const url =
+      via === 'whatsapp'
+        ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`
+        : `mailto:mogerejulius41@gmail.com?subject=${encodeURIComponent('Custom growth plan request')}&body=${encodeURIComponent(message)}`
+    window.open(url, via === 'whatsapp' ? '_blank' : '_self')
+  }
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -380,22 +402,65 @@ export function GrowthBuilder() {
           </span>
         </p>
         <div className="flex flex-col items-center gap-2 sm:items-end">
-          <a
-            href={scopeHref}
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-expanded={open}
             className="bg-gradient-to-r from-[#D4A93D] to-[#F6B12C] px-8 py-3 font-sign text-xl font-bold text-black transition-opacity hover:opacity-90"
           >
             Lock in this scope
-          </a>
-          <a
-            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-prose text-sm text-[#F6B12C] underline underline-offset-4"
-          >
-            or send it on WhatsApp
+          </button>
+          <a href={scopeHref} className="font-prose text-sm text-[#F6B12C] underline underline-offset-4">
+            or use the full quote form
           </a>
         </div>
       </div>
+
+      {open && (
+        <div className="mt-4 border-2 border-[#F6B12C] bg-[#0D0D0D] p-5 text-left">
+          <p className="font-sign text-2xl font-bold text-[#F8F5EC]">Tell us about your property</p>
+          <p className="font-prose text-sm text-[#EAE5DF]/70">So we know who you are and what you need before the call.</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {(
+              [
+                ['name', 'Your name *'],
+                ['contact', 'Phone or email'],
+                ['property', 'Property name *'],
+                ['location', 'Location (e.g. Naivasha) *'],
+                ['rooms', 'Number of rooms'],
+                ['website', 'Website (if any)'],
+              ] as const
+            ).map(([k, label]) => (
+              <input
+                key={k}
+                value={details[k]}
+                onChange={(e) => setDetails((d) => ({ ...d, [k]: e.target.value }))}
+                placeholder={label}
+                aria-label={label}
+                inputMode={k === 'rooms' ? 'numeric' : undefined}
+                className="w-full border border-white/25 bg-black px-4 py-3 text-[#F9F6F0] placeholder:text-[#9A958B] focus:border-[#F6B12C] focus:outline-none"
+              />
+            ))}
+          </div>
+          {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+          <div className="mt-4 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => send('whatsapp')}
+              className="bg-gradient-to-r from-[#D4A93D] to-[#F6B12C] px-6 py-3 font-sign text-xl font-bold text-black transition-opacity hover:opacity-90"
+            >
+              Send on WhatsApp
+            </button>
+            <button
+              type="button"
+              onClick={() => send('email')}
+              className="border-2 border-[#F6B12C] px-6 py-3 font-sign text-xl font-bold text-[#F6B12C] transition-colors hover:bg-[#F6B12C]/10"
+            >
+              Send by email
+            </button>
+          </div>
+        </div>
+      )}
       <p className="mt-3 text-center font-prose text-xs text-[#EAE5DF]/50">
         An illustration with example properties, not a real result or a guarantee.
       </p>
