@@ -305,10 +305,18 @@ export function GrowthBuilder() {
 
   const scopeHref = `/book-demo?property=${PROPERTY_CODE[propertyId]}&modules=${chosen.map((m) => MODULE_CODE[m]).join(',')}&pace=${PACE_CODE[intensityId]}#request`
 
-  const message =
-    `I built this growth plan on bookedupafrica.com.\nProperty: ${property.name}\nModules: ${
-      modules.length ? modules.map((m) => m.name).join(', ') : 'none yet'
-    }\nPace: ${intensity.name} (${intensity.length})\nI would like a 15-minute walkthrough.`
+  const message = [
+    '*Custom growth plan* (built on bookedupafrica.com)',
+    '',
+    `*Property:* ${property.name}`,
+    '',
+    '*Modules:*',
+    ...(modules.length ? modules.map((m) => `- ${m.name}`) : ['- none chosen yet']),
+    '',
+    `*Pace:* ${intensity.name} (${intensity.length})`,
+    '',
+    'Please share a time for a 15-minute walkthrough.',
+  ].join('\n')
 
   return (
     <div className="mx-auto max-w-3xl">
