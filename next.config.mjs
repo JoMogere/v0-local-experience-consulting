@@ -28,6 +28,11 @@ const nextConfig = {
     config.externals.push('better-auth/node_modules/@better-auth/kysely-adapter');
     return config;
   },
+  async rewrites() {
+    // Serve uploaded images from our own address.
+    return [{ source: '/media/:path*', destination: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/:path*' }]
+  },
+
   async redirects() {
     return [
       {

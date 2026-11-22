@@ -8,37 +8,37 @@ const properties = [
     name: "Mt Longonot Country Resort",
     location: "Naivasha, Nakuru",
     description: "Scenic mountain retreat experience.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-F8khrM3JM3xjDsBMr54Pw0HRq7Bnwp.png",
+    image: "/media/image-F8khrM3JM3xjDsBMr54Pw0HRq7Bnwp.png",
   },
   {
     name: "Luna Light Guest House",
     location: "Karagita, Naivasha",
     description: "Comfortable lakeside accommodation.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-8Ybcj0VLPG4VU9vmBDtjFU9vJn2RAC.png",
+    image: "/media/image-8Ybcj0VLPG4VU9vmBDtjFU9vJn2RAC.png",
   },
   {
     name: "Elsamere Lodge",
     location: "Moi South Lake Road, Naivasha",
     description: "Historic lakeside conservation lodge.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-pOrbsQbg4KAVjV7KryMlWohmk6cF1b.png",
+    image: "/media/image-pOrbsQbg4KAVjV7KryMlWohmk6cF1b.png",
   },
   {
     name: "Wild Wood Cottages",
     location: "Karagita, Naivasha",
     description: "Rustic woodland escape.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-bKWd4awGx6brDWRGCGvarPPyZiMRbJ.png",
+    image: "/media/image-bKWd4awGx6brDWRGCGvarPPyZiMRbJ.png",
   },
   {
     name: "Silent Palms Villa",
     location: "Diani Beach, Coast Province",
     description: "Coastal beach paradise.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Pxc3SmAtoxwLg8TOmjUEoMCiO1gEPv.png",
+    image: "/media/image-Pxc3SmAtoxwLg8TOmjUEoMCiO1gEPv.png",
   },
   {
     name: "Jazby Guest House",
     location: "Naivasha",
     description: "Welcoming guest accommodation.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-NOKaJNSzjGYTgG4mGhVfew8v8pGnMD.png",
+    image: "/media/image-NOKaJNSzjGYTgG4mGhVfew8v8pGnMD.png",
   },
 ]
 

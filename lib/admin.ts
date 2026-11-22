@@ -2,7 +2,7 @@ import { auth } from '@/lib/auth'
 import { headers } from 'next/headers'
 
 // Only these emails may use the admin panel or run admin actions. Anyone can
-// reach /sign-up, so being signed in is NOT enough. Override on Vercel with
+// reach /sign-up, so being signed in is NOT enough. Override in the hosting settings with
 // ADMIN_EMAILS="a@x.com,b@y.com" if you ever add another admin.
 const DEFAULT_ADMIN_EMAILS = ['mogerejulius41@gmail.com']
 

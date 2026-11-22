@@ -1,5 +1,4 @@
-// The BookedUp Africa logo, already hosted on Vercel Blob (same file the
-// site header uses). Served from our own domain so browsers and Google show
+// The BookedUp Africa logo, (same file the site header uses). Served from our own domain so browsers and Google show
 // it as the site icon.
 const LOGO_URL =
   'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/BookedUp%20Africa%20Logo-tPdkLknldcSEjEadrPMnjrh4qRp9zO.png'

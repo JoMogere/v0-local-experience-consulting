@@ -15,7 +15,7 @@ export const auth = betterAuth({
     enabled: true,
     autoSignIn: true,
     // Public sign-up is closed: only the admin account exists. To create a
-    // new admin, temporarily set ALLOW_SIGNUP=true on Vercel, sign up, then
+    // new admin, temporarily set ALLOW_SIGNUP=true in the hosting settings, sign up, then
     // remove it again (and add the email to ADMIN_EMAILS).
     disableSignUp: process.env.ALLOW_SIGNUP !== 'true',
   },
@@ -68,7 +68,7 @@ export const auth = betterAuth({
     },
   },
   trustedOrigins: [
-    // Custom domain (set NEXT_PUBLIC_SITE_URL / BETTER_AUTH_URL on Vercel).
+    // Custom domain (set NEXT_PUBLIC_SITE_URL / BETTER_AUTH_URL in the hosting settings).
     ...(process.env.NEXT_PUBLIC_SITE_URL ? [process.env.NEXT_PUBLIC_SITE_URL] : []),
     ...(process.env.BETTER_AUTH_URL ? [process.env.BETTER_AUTH_URL] : []),
     ...(process.env.V0_RUNTIME_URL ? [process.env.V0_RUNTIME_URL] : []),

@@ -48,7 +48,7 @@ export const PLAYBOOKS: Playbook[] = [
     metaDescription:
       'A practical guide for hotels and resorts in Kenya and East Africa to win local search, get more direct bookings and depend less on OTAs.',
     image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2ung3dxT0DOx2BNgCqkGHbXn9pvJrC.png',
+      '/media/image-2ung3dxT0DOx2BNgCqkGHbXn9pvJrC.png',
     buyUrl: 'https://selar.com/781011tnj1',
     audience: [
       'Hotel, lodge and resort owners who rely on Booking.com or Expedia for most of their bookings',
@@ -91,7 +91,7 @@ export const PLAYBOOKS: Playbook[] = [
     metaDescription:
       'A comprehensive guide to elevating guest experience and driving revenue growth for hotels, lodges and other African hospitality businesses.',
     image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Mhsz06PXzGyquhx4KVLkV7hjJpaLm3.png',
+      '/media/image-Mhsz06PXzGyquhx4KVLkV7hjJpaLm3.png',
     buyUrl: 'https://selar.com/23200vr569',
     audience: [
       'Owners and managers of hotels, lodges and other hospitality businesses in Africa',

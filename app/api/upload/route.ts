@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { getAdminSession } from '@/lib/admin'
 
 const ALLOWED = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
-const MAX_BYTES = 4 * 1024 * 1024 // Vercel functions accept request bodies up to about 4.5 MB
+const MAX_BYTES = 4 * 1024 * 1024 // Serverless functions accept request bodies up to about 4.5 MB
 
 // Admin-only image upload for blog posts. Returns { url } to put in the article.
 export async function POST(request: Request) {
@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  // Vercel names the token after the store prefix, so accept any *_READ_WRITE_TOKEN.
+  // The host names the token after the store prefix, so accept any *_READ_WRITE_TOKEN.
   const tokenKey = Object.keys(process.env).find((k) => k.endsWith('READ_WRITE_TOKEN') && process.env[k])
   const token = tokenKey ? process.env[tokenKey] : undefined
 
